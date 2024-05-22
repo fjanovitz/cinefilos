@@ -46,3 +46,13 @@ Scenario: editar o título de série para um título já existente
     And o usuário está na página "conteúdos"
     And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" na aba "séries"
     And o usuário administrador visualiza conteúdo cadastrado com título "Gato de Botas" na aba "séries"
+
+Scenario: editar o ano de série corretamente
+    Given o usuário administrador "tiago" está na página "conteúdos"
+    And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" e "ano" com dado "2042" na aba "séries"
+    When o usuário seleciona "Editar" no conteúdo "Jurassic Park"
+    And modifica os dados de "ano" com "2024"
+    And o usuário seleciona "confirmar"
+    Then aparece uma mensagem de sucesso
+    And o usuário está na página "conteúdos"
+    And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" e "ano" com dado "2024" na aba "séries"

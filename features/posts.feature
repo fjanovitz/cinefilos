@@ -52,7 +52,7 @@ When: Eu seleciono o post "Post2"
 Then: Eu sou redirecionado para a tela "Post"
 And: Eu visualizo o post "Post2"
 
-Scenario: Adição de post no sistema
+Scenario: Adição de um post no sistema
 Given: O usuário comum "Einstein" está cadastrado no sistema
 When: O usuário "Einstein" cria um post
 And: O post possui "Título""Post1"
@@ -60,7 +60,7 @@ And: O post possui "Texto""Este é um post básico"
 Then: O post "Post1" é armazenado no sistema
 And: O post "Post1" possui "ID""0001"
 
-Scenario: Adição de post vazio
+Scenario: Adição de um post vazio
 Given: O usuário comum "Einstein" está cadastrado no sistema
 When: O usuário "Einstein" cria um novo post
 And: O post possui "Título""Post1"

@@ -24,3 +24,4 @@ Scenario: editar o título de filme para um título já existente
     And o usuário está na página “conteúdos”
     And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" na aba “filmes”
     And o usuário administrador visualiza conteúdo cadastrado com título "Gato de Botas" na aba “filmes”
+    And o usuário administrador não visualiza outro conteúdo cadastrado com "Jurrassic Park" na aba "filmes"

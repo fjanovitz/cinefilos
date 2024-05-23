@@ -63,7 +63,11 @@ And O usuário "Tesla" possui um post com "ID""0002"
 And O post com "ID""0002" está na lista "Curtidos" do usuário "Einstein"
 When O usuário "Einstein" seleciona a opção "Curtir" no post com "ID""0002"
 Then O sistema diminui o valor "Curtidas" em "1"
+<<<<<<< HEAD
 And isso é da branch main
+=======
+And isso é da branch dev
+>>>>>>> dev
 
 Scenario: Cenário para adicionar no roteiro
 Given eu sou alguém

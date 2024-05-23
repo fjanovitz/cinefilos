@@ -31,9 +31,9 @@ Scenario: editar o título de filme para um título já existente
     And modifica os dados de "título" com "Jurassic Park"
     And o usuário seleciona "confirmar"
     Then aparece uma mensagem de erro 
-    And o usuário está na página “conteúdos”
-    And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" na aba “filmes”
-    And o usuário administrador visualiza conteúdo cadastrado com título "Gato de Botas" na aba “filmes”
+    And o usuário está na página "conteúdos"
+    And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" na aba "filmes"
+    And o usuário administrador visualiza conteúdo cadastrado com título "Gato de Botas" na aba "filmes"
     And o usuário administrador não visualiza outro conteúdo cadastrado com "Jurrassic Park" na aba "filmes"
     And o usuário está na página "conteúdos"
     And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" na aba "filmes"

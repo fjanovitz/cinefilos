@@ -47,3 +47,4 @@ And: O usuário "Tesla" publicou um post com "Título""Post2"
 And: Eu estou na tela "Post" do post "Post2"
 When: Eu seleciono a opção "Curtidas"
 Then: Eu sou redirecionado para a tela "Curtidas" do post "Post2"
+And: Adicionando essa linha pra o roteiro

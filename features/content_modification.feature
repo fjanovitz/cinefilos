@@ -79,3 +79,7 @@ Scenario: excluir um série existente
     And o usuário está na página "conteúdos"
     And o usuário administrador não visualiza mais um conteúdo cadastrado com título "Os Simpsons" na aba "séries"
 
+Scenario: excluir um série existente no sistema
+    Given existe série com título "Os Simpsons" cadastrado no sistema
+    When é solicitado a exclusão do conteúdo "série" com titulo "Os Simpsons"
+    Then não existe série com título "Os Simpsons" cadastrado no sistema

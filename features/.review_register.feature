@@ -25,3 +25,17 @@ And seleciona "publicar avaliação"
 Then aparece uma mensagem de erro 
 And o usuario esta na pagina de "conteúdos" 
 
+Scenario: criação bem sucedida de uma avaliação para um filme sem título
+Given o usuário comum "Paul McCartney" está na página de "conteúdos"
+And o usuário visualiza o conteúdo cadastrado com o dado "título"
+"Interstellar" na aba "filmes"
+When o usuário "Paul McCartney" seleciona "adicionar uma nova review" 
+do conteúdo com dado "título" "Interstellar"
+And preenche os dados de "título" com ""
+And preenche os dados de "nota" com "10"
+And preenche os dados de "crítica" com "Sem palavras para esse filme, espetacular."
+And seleciona "publicar avaliação"
+Then aparece uma mensagem de sucesso 
+And o usuário visualiza a avaliação cadastrada com campo "título"
+preenchido com ""
+

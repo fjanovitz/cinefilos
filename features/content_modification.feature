@@ -60,3 +60,22 @@ Scenario: editar o ano de série corretamente
     Then aparece uma mensagem de sucesso
     And o usuário está na página "conteúdos"
     And o usuário administrador visualiza conteúdo cadastrado com título "Jurassic Park" e "ano" com dado "2024" na aba "séries"
+
+Scenario: excluir um filme existente
+    Given o usuário administrador "tiago" está na página "conteúdos"
+    And o usuário administrador visualiza conteúdo cadastrado com titulo "Carros 2" na aba "filmes"
+    When o usuário administrador seleciona "Excluir" no conteúdo "Carros 2"
+    And o usuário administrador seleciona "confirmar"
+    Then aparece uma mensagem de sucesso
+    And o usuário está na página "conteúdos"
+    And o usuário administrador não visualiza mais um conteúdo cadastrado com título "Carros 2" na aba "filmes"
+
+Scenario: excluir um série existente
+    Given o usuário administrador "tiago" está na página "conteúdos"
+    And o usuário administrador visualiza conteúdo cadastrado com título "Os Simpsons" na aba "séries"
+    When o usuário administrador seleciona "Excluir" no conteúdo "Os Simpsons"
+    And o usuário administrador seleciona "confirmar"
+    Then aparece uma mensagem de sucesso
+    And o usuário está na página "conteúdos"
+    And o usuário administrador não visualiza mais um conteúdo cadastrado com título "Os Simpsons" na aba "séries"
+

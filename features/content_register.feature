@@ -113,3 +113,15 @@ And preenche os dados de "duração" com "125"
 And preenche os dados de "elenco principal" com "Rodrigo Hilbert, Madonna, Xuxa"
 And preenche os dados de "banner" com "o_poderoso_chefao.png"
 Then o conteúdo "O Poderoso Chefão" é apropriadamente salvo no sistema
+
+Scenario: cadastrar série no sistema corretamente
+Given não existe série com título "Suits" cadastrado no sistema
+When é criado uma série com título "Suits"
+And com dados de "ano" com "2024"
+And com dados de "gênero" com "drama"
+And com dados de "duração" com "125"
+And com dados de "número de temporadas" com "1"
+And com dados de "número de episódios" com "15"
+And com dados de "elenco principal" com "Rodrigo Hilbert, Madonna, Xuxa"
+And preenche os dados de "banner" com "suits.png"
+Then o conteúdo "Suits" é apropriadamente salvo no sistema

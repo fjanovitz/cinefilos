@@ -48,6 +48,6 @@ And preenche os dados de "título" com "Melhor filme da história"
 And preenche os dados de "nota" com ""
 And preenche os dados de "crítica" com "Sem palavras para esse filme, espetacular."
 And seleciona "publicar avaliação"
-Then aparece uma mensagem de erro
+Then aparece uma mensagem de erro para o usuario
 And o usuario esta na pagina de "conteudos"
 

@@ -22,3 +22,25 @@ When o usuário preenche o campo de e-mail com “roca@cin.ufpe.br”
 And o usuário preenche o campo de senha com “Abcde123”
 And o usuário escolhe “Entrar”
 Then aparece uma mensagem de falha no login
+
+GUI Scenario
+Scenario: Tentativa de login com senha incorreta
+Given o usuário do sistema não está logado com nenhuma conta
+And existe um usuário cadastrado com o e-mail “roca@cin.ufpe.br” e senha “Abcde123”
+And o usuário está na página “Fazer login”
+When o usuário preenche o campo de e-mail com “roca@cin.ufpe.br”
+And o usuário preenche o campo de senha com “Fghij765”
+And o usuário escolhe “Entrar”
+Then aparece uma mensagem de falha no login
+And o usuário permanece na página “Fazer login”
+
+GUI Scenario
+Scenario: Tentativa de login com senha em branco
+Given o usuário do sistema não está logado com nenhuma conta
+And existe um usuário cadastrado com o e-mail “roca@cin.ufpe.br” e senha “Abcde123”
+And o usuário está na página “Fazer login”
+When o usuário preenche o campo de e-mail com “roca@cin.ufpe.br”
+And o usuário preenche o campo de senha com “”
+Then o usuário não consegue escolher “Entrar”
+And o usuário permanece na página “Fazer login”
+

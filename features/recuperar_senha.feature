@@ -26,3 +26,12 @@ When o campo de e-mail é preenchido com “”
 And o usuário escolhe “Enviar código”
 Then aparece uma mensagem solicitando o fornecimento do e-mail
 And o usuário permanece na página “Redefinição de senha”
+
+GUI Scenario
+Scenario: Tentativa de redefinição de senha com e-mail não cadastrado
+Given o usuário do sistema não está logado com nenhuma conta
+And não existe um usuário cadastrado com o e-mail “roca@cin.ufpe.br”
+And o usuário encontra-se na página “Redefinição de senha”
+When o campo de e-mail é preenchido com roca@cin.ufpe.br
+And o usuário escolhe “Enviar código”
+Then o usuário permanece na página “Redefinição de senha”

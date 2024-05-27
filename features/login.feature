@@ -43,4 +43,12 @@ When o usuário preenche o campo de e-mail com “roca@cin.ufpe.br”
 And o usuário preenche o campo de senha com “”
 Then o usuário não consegue escolher “Entrar”
 And o usuário permanece na página “Fazer login”
-Then
+
+
+Service Scenario 
+Scenario:  Login realizado com sucesso
+Given o sistema tem o usuário cadastrado com e-mail “roca@cin.ufpe.br” e senha “Abcde123”
+When o campo de email é preenchido com “roca@cin.ufpe.br”
+And o campo da senha é preenchido com “Abcde123”
+Then o sistema encontra o cadastro
+And o sistema libera o acesso à página de início do programa

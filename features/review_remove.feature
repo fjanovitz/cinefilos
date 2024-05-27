@@ -23,6 +23,6 @@ And a avaliação tem o dado de "título" preenchido com "Melhor série da hist�
 And a avaliação tem o dado de "nota" preenchido com "10"
 And a avaliação tem o dado de "crítica" preenchido com "Jim Parsons é gênio."
 When o usuário "Paul McCartney" seleciona "remover review" 
-do conteúdo com dado "título" "The Big Bang"
+do conteúdo com dado "título" "The Big Bang Theory"
 Then aparece uma mensagem de sucesso referente a remoção da avaliação
 And o usuário não visualiza a avaliação do conteúdo "série" "The Big Bang Theory" com título "Melhor série da história"

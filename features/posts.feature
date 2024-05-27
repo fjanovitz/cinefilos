@@ -73,4 +73,4 @@ And O usuário "Einstein" possui um post com "ID""0001"
 When O usuário "Einstein" exclui o post
 Then O sistema remove o post com "ID""0001"
 
-Scenario: Modificações para a branch dev
+Scenario: Modificações para a branch main

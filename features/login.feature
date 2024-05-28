@@ -53,3 +53,13 @@ And o campo da senha é preenchido com “Abcde123”
 Then o sistema encontra o cadastro
 And o sistema libera o acesso à página de início do programa
 .
+
+Service Scenario 
+Scenario: Tentativa de login com e-mail não cadastrado
+Given o sistema não possui o e-mail “roca@cin.ufpe.br” cadastrado
+When o campo de email é preenchido com “roca@cin.ufpe.br”
+And o campo da senha é preenchido com “Abcde123”
+Then o sistema não encontra o cadastro
+And o sistema recusa o acesso à página de início do programa
+.
+

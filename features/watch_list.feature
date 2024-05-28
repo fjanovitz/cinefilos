@@ -59,3 +59,35 @@ Scenario: trocar lista
     When o usuário selecionar "Mudar" para a lista "Lista de quero assistir"
     Then o usuário ainda está na página "Listas" do usuário "einstein"
     And o usuário está na lista "Lista de quero assistir"
+
+Scenario: cadastrar categoria em filme
+    Given o filme "Duna" não está na lista de nenhuma categoria para o usuário “einstein” no sistema
+    When o usuário “einstein” adiciona a categoria "Assistido" ao filme "Duna"
+    Then o filme "Duna" é adicionado à lista da categoria "Assistido" do usuário “einstein” no sistema
+
+Scenario: cadastrar categoria em série
+    Given a série "The Office" não está na lista de nenhuma categoria para o usuário “einstein” no sistema
+    When o usuário “einstein” adiciona a categoria "Assistido" à série "The Office"
+    Then a série "The Office" é adicionada à lista da categoria "Assistido" do usuário “einstein” no sistema
+
+Scenario: mudar categoria de filme
+    Given o filme "Duna" está na lista da categoria "Quero assistir" para o usuário “einstein” no sistema
+    When o usuário “einstein” seleciona a categoria "Assistido" ao filme "Duna"
+    Then o filme "Duna" é removido da lista da categoria "Quero assistir" do usuário “einstein” no sistema
+    And o filme "Duna" é adicionado à lista da categoria "Assistido" do usuário “einstein” no sistema
+
+Scenario: mudar categoria de série
+    Given a série "The Office" está na lista da categoria "Quero assistir" para o usuário “einstein” no sistema
+    When o usuário “einstein” seleciona a categoria "Assistido" à série "The Office"
+    Then a série "The Office" é removido da lista da categoria "Quero assistir" do usuário “einstein” no sistema
+    And a série "The Office" é adicionada à lista da categoria "Assistido" do usuário “einstein” no sistema
+
+Scenario: remover categoria de filme
+    Given o filme "Duna" está na lista da categoria "Quero assistir" para o usuário “einstein” no sistema
+    When o usuário “einstein” remove a categoria "Assistido" do filme "Duna"
+    Then o filme "Duna" é removido da lista da categoria "Assistido" do usuário “einstein” no sistema
+
+Scenario: remover categoria de série
+    Given a série "The Office" está na lista da categoria "Quero assistir" para o usuário “einstein” no sistema
+    When o usuário “einstein” remove a categoria "Assistido" da série "The Office"
+    Then a série "The Office" é removida da lista da categoria "Assistido" do usuário “einstein” no sistema

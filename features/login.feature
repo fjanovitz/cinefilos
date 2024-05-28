@@ -43,5 +43,5 @@ When o usuário preenche o campo de e-mail com “roca@cin.ufpe.br”
 And o usuário preenche o campo de senha com “”
 Then o usuário não consegue escolher “Entrar”
 And o usuário permanece na página “Fazer login”
-
+.
 

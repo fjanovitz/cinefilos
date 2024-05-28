@@ -52,4 +52,4 @@ When o campo de email é preenchido com “roca@cin.ufpe.br”
 And o campo da senha é preenchido com “Abcde123”
 Then o sistema encontra o cadastro
 And o sistema libera o acesso à página de início do programa
-
+.

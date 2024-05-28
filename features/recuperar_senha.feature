@@ -35,4 +35,4 @@ And o usuário encontra-se na página “Redefinição de senha”
 When o campo de e-mail é preenchido com roca@cin.ufpe.br
 And o usuário escolhe “Enviar código”
 Then o usuário permanece na página “Redefinição de senha”
-.
+..

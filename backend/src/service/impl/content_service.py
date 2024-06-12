@@ -3,6 +3,12 @@ from src.db.database import getDB, saveDB
 
 class ContentService:
     @staticmethod
+    def get_contents(content_type):
+        db = getDB()
+        
+        return db[content_type]
+
+    @staticmethod
     def get_content_by_title(content_title: str, content_type: str):
         db = getDB()
         for content in db[content_type]:

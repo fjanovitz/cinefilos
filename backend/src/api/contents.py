@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException
 from src.schemas.content import Movie, TvShow
-from src.db.database import getDB, saveDB
 from src.service.impl.content_service import ContentService
 
 router = APIRouter()
@@ -41,11 +40,25 @@ async def get_tv_show_by_title(tv_show_title: str):
 
     return tv_show
 
+@router.get("/movies", status_code=200, tags=["movie"], response_model=list[Movie])
+async def get_movies():
+    movies = ContentService.get_contents("movies")
+    
+    return movies
+
+@router.get("/tv_shows", status_code=200, tags=["tv show"], response_model=list[TvShow])
+async def get_tv_shows():
+    tv_shows = ContentService.get_contents("tv_shows")
+
+    return tv_shows
+
 @router.get("/", status_code=200, response_model=list[Movie | TvShow])
 async def get_contents():
-    db = getDB()
+    movies = ContentService.get_contents("movies")
+    tv_shows = ContentService.get_contents("tv_shows")
 
-    return db["movies"] + db["tv_shows"]
+
+    return movies + tv_shows
 
 @router.put("/movies/{movie_title}", status_code=200, tags=["movie"], response_model=Movie)
 async def update_movie(movie_title: str, movie: Movie):

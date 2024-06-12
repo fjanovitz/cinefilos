@@ -205,3 +205,22 @@ def send_get_movie_request(client, context, req_url: str):
 @scenario(scenario_name="delete a movie by title that does not exist on the database", feature_name="../features/movies.feature")
 def test_delete_movie_not_exist():
     pass
+
+"""get all movies"""
+@scenario(scenario_name="get all movies in the database", feature_name="../features/movies.feature")
+def test_get_all_movies():
+    pass
+
+@then(parsers.cfparse('the json response have movie with title "{title}"'), target_fixture="context")
+def check_response_json(context, title: str):    
+    json_response = context["response"].json()
+
+    assert type(json_response) == list
+    found = False
+    for element in json_response:
+        if element["title"] == title:
+            found = True
+    
+    assert found ==  True
+    
+    return context

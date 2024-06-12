@@ -57,3 +57,11 @@ Feature: Movies API
         And the json response have message "No movie with this title found in the database"
         And only "1" movie is in the database
         And movie with title "Gato de botas" is in the database
+
+    Scenario: get all movies in the database
+        Given only movie with title "Gato de botas", synopsis "A história de um gato com habilidades de espadachim e uma bota", gender "aventura", duration "125", release year "2022", director "The Rock", main cast "Rodrigo Hilbert, Madonna, Xuxa", banner "gato_de_botas.png" is in the database
+        And movie with title "Matrix", synopsis "Uma distopia cheia de mistérios e grandes revelações", gender "ação", duration "150", release year "2008", director "Tarantino", main cast "Rodrigo Hilbert, Madonna, Xuxa", banner "matrix.png" is in the database
+        When a GET request is sent to "/contents/movies"
+        Then the json status code is "200"
+        And the json response have movie with title "Gato de botas"
+        And the json response have movie with title "Matrix"

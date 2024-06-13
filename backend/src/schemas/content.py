@@ -25,3 +25,5 @@ class TvShow(BaseModel):
     banner: str | None = None
     where_to_watch: list[str] = []
     rating: float = 0.0
+
+    

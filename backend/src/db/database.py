@@ -16,6 +16,11 @@ def getDB():
 def saveDB(db):
     with open('./src/db/database.json', 'w') as dbj:
         json.dump(db, fp=dbj, indent=4)
+    
+def clearDB(db):
+    db["movies"] = []
+    db["tv_shows"] = []
+    saveDB(db)
 
 class Database():
 

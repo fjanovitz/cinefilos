@@ -12,7 +12,7 @@ async def add_review(review: ContentReview):
     review_dict = review.model_dump()
 
     # I have to check if the content exists first
-    content = ContentService.get_content_by_id(content_title = review_dict["content_id"], content_type = review_dict["content_type"])
+    content = ContentService.get_content_by_id(content_id = review_dict["content_id"], content_type = review_dict["content_type"])
 
     if content is None: 
         raise HTTPException(status_code = 404, detail = "This content does not exist in the database") 

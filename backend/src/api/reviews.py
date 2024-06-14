@@ -19,7 +19,7 @@ async def add_review(review: ContentReview):
 
     # Checking if a review from this user was already made for this content
     for _review in db["reviews"]:
-        if review_dict["content_id"] == _review["content_id"] and review_dict["username"] == _review["username"]:
+        if review_dict["content_id"] == _review["content_id"] and review_dict["content_type"] == _review["content_type"] and review_dict["username"] == _review["username"]:
             raise HTTPException(status_code = 402, detail = "This user already made a review of this content") 
     
     db["reviews"].append(review_dict)

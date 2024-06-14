@@ -3,6 +3,12 @@ from src.db.database import getDB, saveDB
 
 class ReviewService:
     @staticmethod 
+    def get_reviews():
+        db = getDB()
+        return db["reviews"]
+
+
+    @staticmethod 
     def get_reviews_from_user(username: str):
         db = getDB()
         reviews_from_user = []

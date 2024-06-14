@@ -20,6 +20,7 @@ def saveDB(db):
 def clearDB(db):
     db["movies"] = []
     db["tv_shows"] = []
+    db["reviews"] = []
     saveDB(db)
 
 class Database():

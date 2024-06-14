@@ -13,13 +13,14 @@ async def add_review(review: ContentReview):
 
     # I have to check if the content exists first
     if review_dict["content_type"] == "movie":
-        get_movie_by_title(review_dict["content_id"])
+        movie = get_movie_by_title(review_dict["content_id"])
+        print(movie)
     else:
-        get_tv_show_by_title(review_dict["content_id"])
+        tv_show = get_tv_show_by_title(review_dict["content_id"])
 
     # Checking if a review from this user was already made for this content
     for _review in db["reviews"]:
-        if review_dict["content_tile"] == _review["content_id"] and review_dict["username"] == _review["username"]:
+        if review_dict["content_id"] == _review["content_id"] and review_dict["username"] == _review["username"]:
             raise HTTPException(status_code = 402, detail = "This user already made a review of this content") 
     
     db["reviews"].append(review_dict)

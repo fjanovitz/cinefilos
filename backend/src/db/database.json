@@ -1,4 +1,14 @@
 {
     "movies": [],
-    "tv_shows": []
+    "tv_shows": [],
+    "reviews": [
+        {
+            "title": "tbbt",
+            "report": "espetacular",
+            "rating": 10.0,
+            "username": "edsonneto8",
+            "content_id": "0",
+            "content_type": "tv_show"
+        }
+    ]
 }

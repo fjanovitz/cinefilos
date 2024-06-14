@@ -5,7 +5,7 @@ from src.db.database import getDB, saveDB
 
 router = APIRouter()
 
-@router.post("/reviews", status_code = 201, tags = ["review"], response_model = ContentReview)
+@router.post("/reviews", status_code = 201, tags = ["reviews"], response_model = ContentReview)
 async def add_review(review: ContentReview):
     db = getDB()
 
@@ -28,7 +28,7 @@ async def add_review(review: ContentReview):
     return review
 
 
-@router.get("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["review"], response_model = ContentReview)
+@router.get("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
 async def get_review(username: str, content_type: str, content_id: str):
     db = getDB()
     for review in db["reviews"]:
@@ -37,7 +37,7 @@ async def get_review(username: str, content_type: str, content_id: str):
     raise HTTPException(status_code = 404, detail = "No review from this user to this content found in the database") 
 
 
-@router.put("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["review"], response_model = ContentReview)
+@router.put("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
 async def update_review(username: str, content_type: str, content_id: str, review: ContentReview):
     db = getDB()
 
@@ -57,7 +57,7 @@ async def update_review(username: str, content_type: str, content_id: str, revie
     return review
 
 
-@router.delete("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["review"], response_model = ContentReview)
+@router.delete("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
 async def delete_review(username: str, content_type: str, content_id: str):
     db = getDB()
 

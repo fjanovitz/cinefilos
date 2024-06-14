@@ -188,6 +188,27 @@ class Database():
             "id": str(item_id),
             **item
         }
+    
+    def get_by_email(self, collection_name: str, email: str) -> dict:
+        """
+        Retrieve an item by its ID from a collection
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item will be stored
+        - item_id: str
+            The ID of the item to retrieve
+
+        Returns:
+        - dict or None:
+            The item if found, None otherwise
+
+        """
+        collection: Collection = self.db[collection_name]
+
+        item = collection.find_one({"email": email})
+
+        return item
 
     # TODO: implement update_item method
     # def update_item(self, collection_name: str, item_id: str, item: dict) -> dict:
@@ -224,3 +245,5 @@ class Database():
             A list of all items in the collection.
 
         """
+
+        

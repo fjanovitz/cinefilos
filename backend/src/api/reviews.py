@@ -1,22 +1,21 @@
 from fastapi import APIRouter, HTTPException
 from src.schemas.reviews import ContentReview
-from src.api.contents import get_movie_by_title, get_tv_show_by_title
+from src.service.impl.content_service import ContentService
 from src.db.database import getDB, saveDB
 
 router = APIRouter()
 
-@router.post("/reviews", status_code = 201, tags = ["reviews"], response_model = ContentReview)
+@router.post("", status_code = 201, tags = ["reviews"], response_model = ContentReview)
 async def add_review(review: ContentReview):
     db = getDB()
 
     review_dict = review.model_dump()
 
     # I have to check if the content exists first
-    if review_dict["content_type"] == "movie":
-        movie = get_movie_by_title(review_dict["content_id"])
-        print(movie)
-    else:
-        tv_show = get_tv_show_by_title(review_dict["content_id"])
+    content = ContentService.get_content_by_id(content_title = review_dict["content_id"], content_type = review_dict["content_type"])
+
+    if content is None: 
+        raise HTTPException(status_code = 404, detail = "This content does not exist in the database") 
 
     # Checking if a review from this user was already made for this content
     for _review in db["reviews"]:
@@ -29,7 +28,7 @@ async def add_review(review: ContentReview):
     return review
 
 
-@router.get("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
+@router.get("/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
 async def get_review(username: str, content_type: str, content_id: str):
     db = getDB()
     for review in db["reviews"]:
@@ -38,7 +37,7 @@ async def get_review(username: str, content_type: str, content_id: str):
     raise HTTPException(status_code = 404, detail = "No review from this user to this content found in the database") 
 
 
-@router.put("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
+@router.put("/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
 async def update_review(username: str, content_type: str, content_id: str, review: ContentReview):
     db = getDB()
 
@@ -58,7 +57,7 @@ async def update_review(username: str, content_type: str, content_id: str, revie
     return review
 
 
-@router.delete("/reviews/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
+@router.delete("/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
 async def delete_review(username: str, content_type: str, content_id: str):
     db = getDB()
 

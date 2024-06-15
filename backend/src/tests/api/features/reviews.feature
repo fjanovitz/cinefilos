@@ -105,3 +105,16 @@ Feature: Reviews API
         And no review from username "edsonneto8" to content_id "123", content_type "movies" is in database
         When a PUT request is sent to "/reviews/edsonneto8/movies/123" from username "edsonneto8", content_id "123", content_type "movies", rating "10", report "Incredible"
         Then the json status code is "404"
+
+    Scenario: Delete a review from a user to a content
+        Given content with content_id "123" and content_type "movies" exists in the database  
+        And a review from username "edsonneto8" to content_id "123", content_type "movies", rating "10", report "Incredible" is in database
+        When a DELETE request is sent to "/reviews/edsonneto8/movies/123" 
+        Then the json status code is "200" 
+        And the json response have username "edsonneto8", content_id "123", content_type "movies", rating "10", report "Incredible"
+
+    Scenario: Try to delete a review that does not exist in the database
+        Given content with content_id "123" and content_type "movies" exists in the database 
+        And no review from username "edsonneto8" to content_id "123", content_type "movies" is in database
+        When a DELETE request is sent to "/reviews/edsonneto8/movies/123" 
+        Then the json status code is "404" 

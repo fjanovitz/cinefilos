@@ -253,3 +253,24 @@ def send_put_review_request(client, context, req_url: str, username: str, conten
 def test_update_review_not_exist():
     db = getDB()
     clearDB(db)
+
+@scenario(scenario_name="Delete a review from a user to a content", feature_name="../features/reviews.feature")
+def test_delete_review():
+    db = getDB()
+    clearDB(db)
+
+@when(
+    parsers.cfparse('a DELETE request is sent to "{req_url}"'), 
+    target_fixture="context"
+)
+def send_delete_review_request(client, context, req_url: str):
+    response = client.delete(req_url)
+    
+    context["response"] = response
+    return context
+
+@scenario(scenario_name="Try to delete a review that does not exist in the database", feature_name="../features/reviews.feature")   
+def test_delete_review_not_exist():
+    db = getDB()
+    clearDB(db)
+

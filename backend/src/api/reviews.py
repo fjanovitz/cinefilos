@@ -27,6 +27,25 @@ async def add_review(review: ContentReview):
 
     return review
 
+@router.get("/{content_type}/{content_id}/rating", status_code = 200, tags = ["reviews"], response_model = float)
+async def get_rating_content(content_type: str, content_id: str):
+    db = getDB()
+
+    content = ContentService.get_content_by_id(content_id = content_id, content_type = content_type)
+
+    if content is None: 
+        raise HTTPException(status_code = 404, detail = "This content does not exist in the database") 
+
+    rating = 0
+    count = 0
+    for review in db["reviews"]:
+        if review["content_type"] == content_type and review["content_id"] == content_id:
+            rating += review["rating"]
+            count += 1
+    if count == 0:
+        return 0
+    return rating / count
+
 #  Reviews from a user to a content
 @router.get("/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
 async def get_review_user_content(username: str, content_type: str, content_id: str):

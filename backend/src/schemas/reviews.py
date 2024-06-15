@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class ContentReview(BaseModel):
-    title: str
+    title: str = ""
     report: str
     rating: float = 0.0
     username: str

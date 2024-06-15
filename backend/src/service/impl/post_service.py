@@ -3,7 +3,7 @@ from src.db.database import getDB, saveDB
 
 class PostService:
     @staticmethod
-    def get_contents():
+    def get_posts():
         db = getDB()
         return db["posts"]
 

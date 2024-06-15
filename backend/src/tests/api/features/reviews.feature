@@ -126,3 +126,8 @@ Feature: Reviews API
         When a GET request is sent to "reviews/movies/123/rating"
         Then the json status code is "200"
         And the json response is a float "9"
+
+    Scenario: Get rating from a content that does not exist
+        Given no content with content_id "123" and content_type "movies" exists in the database 
+        When a GET request is sent to "reviews/movies/123/rating"
+        Then the json status code is "404"

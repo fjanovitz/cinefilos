@@ -295,3 +295,8 @@ def check_rating(context, rating: float):
     assert json_response == float(rating)
 
     return context
+
+@scenario(scenario_name="Get rating from a content that does not exist", feature_name="../features/reviews.feature")
+def test_get_rating_not_exist():
+    db = getDB()
+    clearDB(db)

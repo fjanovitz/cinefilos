@@ -27,14 +27,53 @@ async def add_review(review: ContentReview):
 
     return review
 
-
+#  Reviews from a user to a content
 @router.get("/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
-async def get_review(username: str, content_type: str, content_id: str):
+async def get_review_user_content(username: str, content_type: str, content_id: str):
     db = getDB()
+
+    content = ContentService.get_content_by_id(content_id = content_id, content_type = content_type)
+
+    if content is None: 
+        raise HTTPException(status_code = 404, detail = "This content does not exist in the database") 
+
     for review in db["reviews"]:
         if review["username"] == username and review["content_type"] == content_type and review["content_id"] == content_id:
             return review
     raise HTTPException(status_code = 404, detail = "No review from this user to this content found in the database") 
+
+# Reviews to a content
+@router.get("/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = list[ContentReview])
+async def get_review_content(content_type: str, content_id: str):
+    db = getDB()
+
+    content = ContentService.get_content_by_id(content_id = content_id, content_type = content_type)
+
+    if content is None: 
+        raise HTTPException(status_code = 404, detail = "This content does not exist in the database") 
+
+
+    reviews_to_content = []
+    for review in db["reviews"]:
+        if review["content_type"] == content_type and review["content_id"] == content_id:
+            reviews_to_content.append(review)
+    return reviews_to_content
+
+# Reviews from a user
+@router.get("/{username}", status_code = 200, tags = ["reviews"], response_model = list[ContentReview])
+async def get_review_user(username: str):
+    db = getDB()
+    reviews_from_user = []
+    for review in db["reviews"]:
+        if review["username"] == username:
+            reviews_from_user.append(review)
+    return reviews_from_user
+
+# Get all reviews
+@router.get("", status_code = 200, tags = ["reviews"], response_model = list[ContentReview])
+async def get_all_reviews():
+    db = getDB()
+    return db["reviews"]
 
 
 @router.put("/{username}/{content_type}/{content_id}", status_code = 200, tags = ["reviews"], response_model = ContentReview)
@@ -73,3 +112,4 @@ async def delete_review(username: str, content_type: str, content_id: str):
 
     saveDB(db)
     return deleted_review
+    

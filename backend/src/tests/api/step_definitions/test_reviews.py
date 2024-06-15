@@ -1,4 +1,4 @@
-from src.db.database import getDB, clearDB
+from src.db.database import getDB, clearDB, clearDBReviews, clearDBContent
 from pytest_bdd import parsers, given, when, then, scenario
 from src.service.impl.review_service import ReviewService
 from src.schemas.reviews import ContentReview
@@ -15,8 +15,18 @@ def mock_review_service_clean(username: str, content_id: str, content_type: str)
     db = getDB()
     clearDB(db)
 
-    add_content = ContentService.add_content(Movie(title="interstellar", synopsis="Sinopse", gender = "ficcao cientifica", duration = 120, release_year = 2022, 
+@given(parsers.cfparse('content with content_id "{content_id}" and content_type "{content_type}" exists in the database'))
+def mock_add_content(content_id: str, content_type: str):
+    db = getDB()
+    clearDBContent(db)
+
+    if content_type == "movies":
+        add_content = ContentService.add_content(Movie(title="interstellar", synopsis="Sinopse", gender = "ficcao cientifica", duration = 120, release_year = 2022, 
                                                    director = "Christopher Nolan", main_cast = ["Matthew McConaughey", "Anne Hathaway"], banner = "banner.png", id = content_id), content_type)
+    else:
+        add_content = ContentService.add_content(TvShow(title="Breaking Bad", synopsis = "Sinopse", gender = "drama", num_seasons = 5, num_episodes = 62, release_year = 2008, 
+                                                        creator = "Vince Gilligan", main_cast = ["Bryan Cranston", "Aaron Paul"], banner = "banner.png", id = content_id), content_type)
+                                                 
     assert add_content is not None
 
 @when(
@@ -75,11 +85,7 @@ def test_register_review_movies_already_reviewed():
 @given(parsers.cfparse('a review from username "{username}" to content_id "{content_id}", content_type "{content_type}", rating "{rating}", report "{report}" is in database'))
 def mock_review_service(username: str, content_id: str, content_type: str, rating: float, report: str):
     db = getDB()
-    clearDB(db)
-
-    add_content = ContentService.add_content(Movie(title="interstellar", synopsis="Sinopse", gender = "ficcao cientifica", duration = 120, release_year = 2022, 
-                                                   director = "Christopher Nolan", main_cast = ["Matthew McConaughey", "Anne Hathaway"], banner = "banner.png", id = content_id), content_type)
-    assert add_content is not None
+    clearDBReviews(db)
 
     add_review = ReviewService.add_review(ContentReview(username=username, content_id=content_id, content_type=content_type, rating=rating, report=report))
 
@@ -128,18 +134,6 @@ def test_register_review_tv_shows_not_exist():
 def test_get_review_from_user_to_content():
     db = getDB()
     clearDB(db)
-
-@given(parsers.cfparse('username "{username}" made a review to content_id "{content_id}", content_type "{content_type}", rating "{rating}", report "{report}"'))
-def mock_review_service_user_content(username: str, content_id: str, content_type: str, rating: float, report: str):
-    db = getDB()
-    clearDB(db)
-
-    add_content = ContentService.add_content(Movie(title="interstellar", synopsis="Sinopse", gender = "ficcao cientifica", duration = 120, release_year = 2022, 
-                                                   director = "Christopher Nolan", main_cast = ["Matthew McConaughey", "Anne Hathaway"], banner = "banner.png", id = content_id), content_type)
-    assert add_content is not None
-
-    add_review = ReviewService.add_review(ContentReview(username=username, content_id=content_id, content_type=content_type, rating=rating, report=report))
-    assert add_review is not None
 
 @when(
     parsers.cfparse('a GET request is sent to "{req_url}"'), 

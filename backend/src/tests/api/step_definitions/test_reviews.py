@@ -224,3 +224,32 @@ def check_review_does_not_exist(username: str, content_id: str, content_type: st
             found = True
     
     assert not found
+
+@scenario(scenario_name="Update a review from a user to a content in the database", feature_name="../features/reviews.feature")
+def test_update_review():
+    db = getDB()
+    clearDB(db)
+
+@when(
+    parsers.cfparse('a PUT request is sent to "{req_url}" from username "{username}", content_id "{content_id}", content_type "{content_type}", rating "{rating}", report "{report}"'), 
+    target_fixture="context"
+)
+def send_put_review_request(client, context, req_url: str, username: str, content_id: str, content_type: str, rating: float, report: str):
+
+    response = client.put(
+        req_url,
+        json={
+            "username": username,
+            "content_id": content_id,
+            "content_type": content_type,
+            "rating": rating,
+            "report": report
+        })
+    
+    context["response"] = response
+    return context
+
+@scenario(scenario_name="Try to update a review that does not exist", feature_name="../features/reviews.feature")
+def test_update_review_not_exist():
+    db = getDB()
+    clearDB(db)

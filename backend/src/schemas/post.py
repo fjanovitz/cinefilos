@@ -3,8 +3,9 @@ from uuid import uuid4
 from content import Movie, TvShow
 from datetime import datetime
 
-class Posts(BaseModel):
+class Post(BaseModel):
     id: str = str(uuid4())
+    author: str
     title: str
     content: str
     num_likes: int = 0

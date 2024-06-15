@@ -82,7 +82,7 @@ def test_register_review_movies_already_reviewed():
     db = getDB()
     clearDB(db)
 
-@given(parsers.cfparse('a review from username "{username}" to content_id "{content_id}", content_type "{content_type}", rating "{rating}", report "{report}" is in database'))
+@given(parsers.cfparse('only a review from username "{username}" to content_id "{content_id}", content_type "{content_type}", rating "{rating}", report "{report}" is in database'))
 def mock_review_service(username: str, content_id: str, content_type: str, rating: float, report: str):
     db = getDB()
     clearDBReviews(db)
@@ -274,3 +274,24 @@ def test_delete_review_not_exist():
     db = getDB()
     clearDB(db)
 
+@scenario(scenario_name="Get rating from a content", feature_name="../features/reviews.feature") 
+def test_get_rating():
+    db = getDB()
+    clearDB(db)
+
+@given(parsers.cfparse('a review from username "{username}" to content_id "{content_id}", content_type "{content_type}", rating "{rating}", report "{report}" is in database'))
+def mock_review_service(username: str, content_id: str, content_type: str, rating: float, report: str):
+    db = getDB()
+
+    add_review = ReviewService.add_review(ContentReview(username=username, content_id=content_id, content_type=content_type, rating=rating, report=report))
+
+    assert add_review is not None
+
+@then(parsers.cfparse('the json response is a float "{rating}"'))
+def check_rating(context, rating: float):
+    json_response = context["response"].json()
+
+    assert isinstance(json_response, float)
+    assert json_response == float(rating)
+
+    return context

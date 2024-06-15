@@ -9,8 +9,8 @@ class Post(BaseModel):
     title: str
     content: str
     num_likes: int = 0
-    users_who_liked: list[str]
+    users_who_liked: list[User]
     num_comments: int = 0
-    comments: list[str]
+    comments: list[Comments]
     topic: Movie | TvShow
     posted: datetime

@@ -1,4 +1,4 @@
-Feature Criar posts no fórum
+Feature: Criar posts no fórum
 As a Usuário comum
 I want to poder criar e visualizar posts no fórum
 So that eu posso interagir com outros usuários
@@ -57,7 +57,14 @@ And O post possui "Texto""Este é um post básico"
 Then O post "Post1" é armazenado no sistema
 And O post "Post1" possui "ID""0001"
 
-Scenario: Adição de post vazio
+Scenario: Tentativa de adição de post sem título ao sistema
+Given O usuário comum "Einstein" está cadastrado no sistema
+When O usuário "Einstein" cria um novo post
+And O post possui "Texto""Este é um post básico"
+Then O sistema retorna uma mensagem de erro
+And O sistema permanece inalterado
+
+Scenario: Tentativa de adição de post sem conteúdo ao sistema
 Given O usuário comum "Einstein" está cadastrado no sistema
 When O usuário "Einstein" cria um novo post
 And O post possui "Título""Post1"

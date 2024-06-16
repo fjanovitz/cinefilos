@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from src.db.database import getDB
+from src.schemas.forum import Post, Comment
 
 router = APIRouter()
 

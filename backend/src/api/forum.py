@@ -17,13 +17,3 @@ async def get_post(post_id: str):
         if post["id"] == post_id:
             return post
     raise HTTPException(status_code = 404, detail = "No post with this id found in the database")
-
-@router.put("/forum/{post_id}", status_code = 200, tags = ["forum"], response_model=Post)
-async def update_post(post_id: str, post: Post):
-    db = getDB()
-
-    for i in range(len(db["posts"])):
-        if db["posts"][i]["id"] == post_id:
-            db["posts"][i] = post.dict()
-            return post
-    raise HTTPException(status_code = 404, detail = "No post with this id found in the database")

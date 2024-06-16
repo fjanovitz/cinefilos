@@ -1,9 +1,9 @@
-Feature Curtir posts no fórum
+Feature: Curtir posts no fórum
 As a usuário comum
 I want to curtir posts de outros usuários
 So that eu possa mostrar interesse em posts de outros usuários
 
-Scenario: Curtir um post aberto
+Scenario: Curtir um post
 Given Eu estou logado como um usuário comum "Einstein"
 And O usuário "Tesla" publicou um post com "Título""Post2"
 And Eu estou na tela "Post" do post com "Título""Post2"
@@ -12,7 +12,7 @@ When Eu seleciono a opção "Curtir"
 Then O campo "Curtidas" aumenta em uma unidade
 And O campo "Curtir" muda de cor
 
-Scenario: Remover curtida de um post aberto
+Scenario: Remover curtida de um post
 Given Eu estou logado como um usuário comum "Einstein"
 And O usuário "Tesla" publicou um post com "Título""Post2"
 And Eu estou na tela "Post" do post com "Título""Post2"

@@ -1,5 +1,6 @@
 from src.schemas.forum import Post
 from src.db.database import getDB
+from src.schemas.comment import Comment
 
 class ForumService:
     @staticmethod
@@ -25,7 +26,7 @@ class ForumService:
         return posts_from_topic
     
     @staticmethod
-    def update_post_comment(post_id: str, comment: str):
+    def update_post_comment(post_id: str, comment: Comment):
         db = getDB()
         for i in range(len(db["posts"])):
             if db["posts"][i]["id"] == post_id:

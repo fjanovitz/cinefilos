@@ -4,14 +4,7 @@ from src.schemas.forum import Post, Comment
 
 router = APIRouter()
 
-# GENERIC
-@router.get("/forum", status_code = 200, tags = ["forum"], response_model=list[Post])
-async def get_posts():
-    db = getDB()
-
-    return db["posts"]
-
-@router.get("/forum/{post_id}", status_code = 200, tags = ["forum"], response_model=Post)
+@router.get("/{post_id}", status_code = 200, tags = ["forum"], response_model=Post)
 async def get_post(post_id: str):
     db = getDB()
 
@@ -21,7 +14,7 @@ async def get_post(post_id: str):
     raise HTTPException(status_code = 404, detail = "No post with this id found in the database")
 
 # SEARCH FROM TOPIC
-@router.get("/forum/topic/{topic}", status_code = 200, tags = ["forum"], response_model=list[Post])
+@router.get("/search/{topic}", status_code = 200, tags = ["forum"], response_model=list[Post])
 async def get_posts_from_topic(topic: str):
     db = getDB()
 
@@ -32,7 +25,7 @@ async def get_posts_from_topic(topic: str):
     return posts_from_topic
 
 # ADD COMMENT
-@router.post("/forum/{post_id}", status_code = 200, tags = ["forum"], response_model=Post)
+@router.post("/{post_id}", status_code = 200, tags = ["forum"], response_model=Post)
 async def update_post_comment(post_id: str, comment: Comment):
     db = getDB()
 
@@ -43,7 +36,7 @@ async def update_post_comment(post_id: str, comment: Comment):
     raise HTTPException(status_code = 404, detail = "No post with this id found in the database")
 
 # REMOVE COMMENT
-@router.delete("/forum/{post_id}/{comment_id}", status_code = 200, tags = ["forum"], response_model=Post)
+@router.delete("/{post_id}/comment/{comment_id}", status_code = 200, tags = ["forum"], response_model=Post)
 async def delete_post_comment(post_id: str, comment_id: str):
     db = getDB()
 

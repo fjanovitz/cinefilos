@@ -101,3 +101,13 @@ class PostService:
 
         saveDB(db)
         return removed_user
+    
+    @staticmethod
+    def get_likes_by_post(post_id: str):
+        db = getDB()
+        
+        for post in db["posts"]:
+            if post["id"] == post_id:
+                return post["users_who_liked"]
+                
+        return None

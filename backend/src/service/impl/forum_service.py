@@ -1,6 +1,6 @@
 from src.schemas.forum import Post
 from src.db.database import getDB
-from src.schemas.comment import Comment
+from src.schemas.forum import Comment
 
 class ForumService:
     @staticmethod

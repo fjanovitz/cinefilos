@@ -2,10 +2,6 @@ from src.schemas.post import Post
 from src.db.database import getDB, saveDB
 
 class PostService:
-    @staticmethod
-    def get_posts():
-        db = getDB()
-        return db["posts"]
 
     @staticmethod
     def get_posts_by_topic(topic: str):
@@ -34,13 +30,12 @@ class PostService:
         return posts
 
     @staticmethod
-    def add_post(post: Post):
+    def create_post(post: Post):
         db = getDB()
 
         post_dict = post.model_dump()
-        for post_ in db["posts"]:
-            if post_dict == post_:
-                return None
+        if post["title"] == None or post["content"] == None:
+            return None
             
         db["posts"].append(post_dict)
         saveDB(db)
@@ -72,7 +67,7 @@ class PostService:
                 post["users_who_liked"].append(user)
                 post["num_likes"] += 1
                 saveDB(db)
-                return post
+                return User
 
         return None
     
@@ -94,6 +89,7 @@ class PostService:
             if post["users_who_liked"][i]["id"] == user_id:
                 found_user = True
                 removed_user = post["users_who_liked"].pop(i)
+                post["num_likes"] -= 1
                 break
 
         if not found_user:

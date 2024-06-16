@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from src.db.database import getDB, saveDB
-from src.schemas.post import Post
+from src.schemas.forum import Post
 from src.service.impl.post_service import PostService
 
 router = APIRouter()

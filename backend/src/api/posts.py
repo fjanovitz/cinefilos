@@ -20,7 +20,7 @@ async def create_post(post: Post):
     return post
 
 @router.delete("/post/{post_id}", status_code=200, tags=["forum"], response_model=Post)
-async def delete_post(post_id: str):
+async def remove_post(post_id: str):
     db = getDB()
 
     found = False
@@ -42,7 +42,7 @@ async def get_posts():
     return db["posts"]
 
 @router.get("/post/{post_id}", status_code=200, tags=["forum"], response_model=Post)
-async def show_post(post_id: str):
+async def open_post(post_id: str):
     post = PostService.get_post_by_id(post_id)
     
     if post is None:
@@ -94,7 +94,7 @@ async def remove_like(post_id: str, user_id: str):
     return removed_user
 
 @router.get("/post", status_code=200, tags=["forum"], response_model=list[Post])
-async def get_likes_by_post(post_id: str):
+async def get_likes_list(post_id: str):
     db = getDB()
     
     found = False

@@ -27,6 +27,19 @@ class ReviewService:
         return reviews_from_content
     
     @staticmethod
+    def get_rating_from_content(content_type: str, content_id: str):
+        db = getDB()
+        rating = 0
+        count = 0
+        for review in db["reviews"]:
+            if review["content_type"] == content_type and review["content_id"] == content_id:
+                rating += review["rating"]
+                count += 1
+        if count == 0:
+            return 0
+        return rating / count
+
+    @staticmethod
     def add_review(review: ContentReview):
         db = getDB()
 

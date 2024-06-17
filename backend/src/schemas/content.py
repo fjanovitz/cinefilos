@@ -28,4 +28,6 @@ class TvShow(BaseModel):
     where_to_watch: list[str] = []
     rating: float = 0.0
 
-    
+class Category(BaseModel):
+    category_id: str
+    items_list: list[TvShow | Movie] = []

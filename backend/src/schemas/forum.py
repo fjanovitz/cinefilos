@@ -2,7 +2,6 @@ from pydantic import BaseModel
 from uuid import uuid4
 from content import Movie, TvShow
 from user import UserModel
-from datetime import datetime
 
 class Comment(BaseModel):
     id: str = str(uuid4())
@@ -19,4 +18,4 @@ class Post(BaseModel):
     num_comments: int = 0
     comments: list[Comment]
     topic: Movie | TvShow
-    posted: datetime
+    posted: str

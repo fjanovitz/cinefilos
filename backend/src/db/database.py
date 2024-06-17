@@ -23,6 +23,15 @@ def clearDB(db):
     db["reviews"] = []
     saveDB(db)
 
+def clearDBReviews(db):
+    db["reviews"] = []
+    saveDB(db)
+
+def clearDBContent(db):
+    db["movies"] = []
+    db["tv_shows"] = []
+    saveDB(db)
+
 class Database():
 
     ID_LENGTH = 8

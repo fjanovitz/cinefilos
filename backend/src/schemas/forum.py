@@ -18,5 +18,5 @@ class Post(BaseModel):
     users_who_liked: list[UserModel]
     num_comments: int = 0
     comments: list[Comment]
-    topic: Movie | TvShow
+    topic: str
     posted: datetime

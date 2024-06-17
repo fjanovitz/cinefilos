@@ -110,6 +110,7 @@ async def add_comment(post_id: str, comment: Comment):
         if db["posts"][i]["id"] == post_id:
             db["posts"][i]["comments"].append(comment)
             db["posts"][i]["num_comments"] += 1
+            saveDB(db)
             return comment
 
     raise HTTPException(status_code = 404, detail = "Este post não existe ou foi excluído")
@@ -126,6 +127,7 @@ async def remove_comment(post_id: str, comment_id: str):
                 if db["posts"][i]["comments"][j]["id"] == comment_id:
                     db["posts"][i]["comments"].pop(j)
                     db["posts"][i]["num_comments"] -= 1
+                    saveDB(db)
                     return db["posts"][i]["comments"][j]
 
     if not found_post:

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from src.db.database import getDB, saveDB
-from src.schemas.post import Post
+from src.schemas.forum import Post, Comment
+from src.schemas.user import UserModel
 from src.service.impl.post_service import PostService
 
 router = APIRouter()
@@ -50,7 +51,7 @@ async def open_post(post_id: str):
     
     return post
 
-@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(User, bool))
+@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(UserModel, bool))
 async def update_like(post_id: str, user_id: str):
     db = getDB()
 
@@ -78,50 +79,7 @@ async def update_like(post_id: str, user_id: str):
         saveDB(db)
         return (user, True)
 
-#@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=User | None)
-#async def like_post(post_id: str, user: User):
-#    db = getDB()
-#
-#    found = False
-#    for post in db["posts"]:
-#        if post["id"] == post_id:
-#            found = True
-#            post["users_who_liked"].append(user)
-#            post["num_likes"] += 1
-#            saveDB(db)
-#            return user
-#
-#    if not found:
-#        raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")
-#
-#@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=User)
-#async def remove_like(post_id: str, user_id: str):
-#    db = getDB()
-#
-#    found_post = False
-#    for post_ in db["posts"]:
-#        if post_["id"] == post_id:
-#            found_post = True
-#            post = post_
-#    
-#    if not found_post:
-#        raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")
-#
-#    found_user = False
-#    for i in range(len(post["users_who_liked"])):
-#        if post["users_who_liked"][i]["id"] == user_id:
-#            found_user = True
-#            removed_user = post["users_who_liked"].pop(i)
-#            post["num_likes"] -= 1
-#            break
-#
-#    if not found_user:
-#        raise HTTPException(status_code=404, detail="Este post não foi curtido pelo usuário")
-#
-#    saveDB(db)
-#    return removed_user
-
-@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[User])
+@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[UserModel])
 async def get_likes_list(post_id: str):
     db = getDB()
     
@@ -133,3 +91,46 @@ async def get_likes_list(post_id: str):
 
     if not found:
         raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")
+
+@router.get("/search/{topic}", status_code = 200, tags = ["forum"], response_model=list[Post])
+async def get_posts_from_topic(topic: str):
+    db = getDB()
+
+    posts_from_topic = []
+    for post in db["posts"]:
+        if post["topic"] == topic:
+            posts_from_topic.append(post)
+    return posts_from_topic
+
+@router.post("/post/{post_id}", status_code = 200, tags = ["forum"], response_model=Comment)
+async def add_comment(post_id: str, comment: Comment):
+    db = getDB()
+
+    for i in range(len(db["posts"])):
+        if db["posts"][i]["id"] == post_id:
+            db["posts"][i]["comments"].append(comment)
+            db["posts"][i]["num_comments"] += 1
+            saveDB(db)
+            return comment
+
+    raise HTTPException(status_code = 404, detail = "Este post não existe ou foi excluído")
+
+@router.delete("/post/{post_id}", status_code = 200, tags = ["forum"], response_model=Comment)
+async def remove_comment(post_id: str, comment_id: str):
+    db = getDB()
+
+    found_post = False
+    for i in range(len(db["posts"])):
+        if db["posts"][i]["id"] == post_id:
+            found_post = True
+            for j in range(len(db["posts"][i]["comments"])):
+                if db["posts"][i]["comments"][j]["id"] == comment_id:
+                    db["posts"][i]["comments"].pop(j)
+                    db["posts"][i]["num_comments"] -= 1
+                    saveDB(db)
+                    return db["posts"][i]["comments"][j]
+
+    if not found_post:
+        raise HTTPException(status_code = 404, detail = "Este post não existe ou foi excluído")
+    else:
+        raise HTTPException(status_code = 404, detail = "Este comentário não existe ou já foi excluído")

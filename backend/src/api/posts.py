@@ -11,9 +11,9 @@ async def create_post(post: Post):
     db = getDB()
 
     post_dict = post.model_dump()
-    if post["title"] == None:
+    if post["title"] == []:
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem título")
-    elif post["content"] == None:
+    elif post["content"] == []:
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem conteúdo")
         
     db["posts"].append(post_dict)

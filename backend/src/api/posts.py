@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from src.db.database import getDB, saveDB
 from src.schemas.forum import Post, Comment
+from src.schemas.user import UserModel
 from src.service.impl.post_service import PostService
 
 router = APIRouter()
@@ -50,7 +51,7 @@ async def open_post(post_id: str):
     
     return post
 
-@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(User, bool))
+@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(UserModel, bool))
 async def update_like(post_id: str, user_id: str):
     db = getDB()
 
@@ -78,7 +79,7 @@ async def update_like(post_id: str, user_id: str):
         saveDB(db)
         return (user, True)
 
-@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[User])
+@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[UserModel])
 async def get_likes_list(post_id: str):
     db = getDB()
     

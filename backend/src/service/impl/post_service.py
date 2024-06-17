@@ -1,4 +1,5 @@
 from src.schemas.forum import Post, Comment
+from src.schemas.user import UserModel
 from src.db.database import getDB, saveDB
 
 class PostService:
@@ -21,7 +22,7 @@ class PostService:
         return None
 
     @staticmethod
-    def get_posts_by_author(author: User):
+    def get_posts_by_author(author: UserModel):
         db = getDB()
         posts = []
         for post in db["posts"]:

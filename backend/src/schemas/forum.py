@@ -3,6 +3,11 @@ from uuid import uuid4
 from content import Movie, TvShow
 from datetime import datetime
 
+class Comment(BaseModel):
+    id: str = str(uuid4())
+    author: str
+    content: str
+
 class Post(BaseModel):
     id: str = str(uuid4())
     author: str
@@ -14,8 +19,3 @@ class Post(BaseModel):
     comments: list[Comment]
     topic: Movie | TvShow
     posted: datetime
-
-class Comment(BaseModel):
-    id: str = str(uuid4())
-    author: str
-    content: str

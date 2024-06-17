@@ -4,7 +4,6 @@ from src.api import contents
 from src.api import posts
 from src.api import reviews
 from src.api import watch_list
-from src.api import posts
 
 api_router = APIRouter()
 api_router.include_router(items.router, prefix="/items", tags=["items"])

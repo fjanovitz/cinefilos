@@ -1,4 +1,4 @@
-Feature Criar posts no fórum
+Feature: Criar posts no fórum
 As a Usuário comum
 I want to poder criar e visualizar posts no fórum
 So that eu posso interagir com outros usuários
@@ -6,7 +6,6 @@ So that eu posso interagir com outros usuários
 Scenario: Criação de post bem sucedida
 Given Eu estou logado como um usuário comum "Einstein"
 And Eu estou na tela "Feed"
-And Minha foto de perfil é "einstein.jpg"
 When Eu seleciono a opção "Novo Post"
 And Eu preencho o campo "Título" com "Post1"
 And Eu preencho o campo "Texto" com "Esse é um post básico"
@@ -19,7 +18,6 @@ And Eu posso ver a foto "einstein.jpg" no post "Post1"
 
 Scenario: Criação de post sem título
 Given Eu estou logado como um usuário comum "Einstein"
-And Minha foto de perfil é "einstein.jpg"
 And Eu estou na tela "Feed"
 When Eu seleciono a opção "Novo Post"
 And Eu preencho o campo "Texto" com "Esse é um post básico"
@@ -29,7 +27,6 @@ And Eu retorno para a tela "Novo Post"
 
 Scenario: Criação de post vazio
 Given Eu estou logado como um usuário comum "Einstein"
-And Minha foto de perfil é "einstein.jpg"
 And Eu estou na tela "Feed"
 When Eu seleciono a opção "Novo Post"
 And Eu seleciono a opção "Postar"
@@ -60,7 +57,14 @@ And O post possui "Texto""Este é um post básico"
 Then O post "Post1" é armazenado no sistema
 And O post "Post1" possui "ID""0001"
 
-Scenario: Adição de post vazio
+Scenario: Tentativa de adição de post sem título ao sistema
+Given O usuário comum "Einstein" está cadastrado no sistema
+When O usuário "Einstein" cria um novo post
+And O post possui "Texto""Este é um post básico"
+Then O sistema retorna uma mensagem de erro
+And O sistema permanece inalterado
+
+Scenario: Tentativa de adição de post sem conteúdo ao sistema
 Given O usuário comum "Einstein" está cadastrado no sistema
 When O usuário "Einstein" cria um novo post
 And O post possui "Título""Post1"

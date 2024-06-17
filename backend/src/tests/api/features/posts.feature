@@ -59,4 +59,4 @@ Feature: Posts API
         And The user "hannah" already liked the post with id "1234"
         When a GET request is sent to "/forum/post/1234/likes"
         Then the json status code is "200"
-        And the json response have a list with users with the id "0001" and "0002"
+        And the json response have a list with users with the id "0001" in position "0" and "0002" in position "1"

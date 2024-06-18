@@ -46,12 +46,12 @@ async def get_posts():
 
 @router.get("/post/{post_id}", status_code=200, tags=["forum"], response_model=Post)
 async def open_post(post_id: str):
-    db = getDB()
-    for post in db["posts"]:
-        if post["id"] == post_id:
-            return post
-        
-    raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")
+    post = PostService.get_post_by_id(post_id)
+    
+    if post is None:
+        raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")
+    
+    return post
 
 @router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=dict)
 async def update_like(post_id: str, user_id: str):
@@ -98,16 +98,18 @@ async def get_likes_list(post_id: str):
 @router.get("/search/{topic}", status_code = 200, tags = ["forum"], response_model=list[Post])
 async def get_posts_from_topic(topic: str):
     db = getDB()
-
-    posts_from_topic = []
-    for post in db["posts"]:
-        if post["topic"] == topic:
-            posts_from_topic.append(post)
+    posts_from_topic = [post for post in db["posts"] if post["topic"] == topic or post["topic"].lower() == topic.lower()]
+    if not posts_from_topic:
+        raise HTTPException(status_code = 404, detail = "Not Found")
+    
     return posts_from_topic
 
 @router.post("/post/{post_id}/comments", status_code = 200, tags = ["forum"], response_model=Comment)
 async def add_comment(post_id: str, comment: Comment):
     db = getDB()
+
+    if comment["content"] == None:
+        raise HTTPException(status_code = 422, detail = "Não é possível comentar sem conteúdo")
 
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:

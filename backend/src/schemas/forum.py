@@ -6,7 +6,7 @@ from src.schemas.user import UserModel
 class Comment(BaseModel):
     id: str = str(uuid4())
     author: str
-    content: str
+    content: str | None = None
 
 class Post(BaseModel):
     id: str = str(uuid4())

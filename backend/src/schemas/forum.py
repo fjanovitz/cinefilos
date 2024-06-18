@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from uuid import uuid4
-from content import Movie, TvShow
-from user import UserModel
+from src.schemas.content import Movie, TvShow
 
 class Comment(BaseModel):
     id: str = str(uuid4())

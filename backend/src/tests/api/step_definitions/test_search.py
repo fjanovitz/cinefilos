@@ -2,6 +2,7 @@ from src.db.database import getDB, clearDB
 from pytest_bdd import scenario, given, when, then, parsers
 from src.service.impl.post_service import PostService
 from src.schemas.forum import Post, Comment
+from datetime import datetime
 
 
 # Scenario: Search for posts by a valid topic
@@ -21,15 +22,17 @@ def mock_post_service_clean(title: str, topic: str):
     clearDB(db)
 
     post = Post(
-        author="João",
+        author="ersaraujo",
         title=title,
-        content="Conteúdo",
-        topic=topic
+        content="Conteudo",
+        topic=topic,
+        users_who_liked=[],
+        comments=[]
     )
 
     PostService().create_post(post)
 
-@when(parsers.cfparse('a GET request is sent to "{req_url}'), target_fixture="context")
+@when(parsers.cfparse('a GET request is sent to "{req_url}"'), target_fixture="context")
 def send_get_request(client, context, req_url: str):
     response = client.get(req_url)
     context["response"] = response
@@ -58,7 +61,7 @@ def test_search_posts_by_topic_not_exist():
     clearDB(db)
 
 @given(parsers.cfparse('no post with title "{title}", topic "{topic}" is in the database'))
-def mock_post_service_clean(title: str, topic: str):
+def mock_(title: str, topic: str):
     db = getDB()
     clearDB(db)
 

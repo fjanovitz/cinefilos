@@ -1,5 +1,5 @@
 from uuid import uuid4
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel, EmailStr, Field
 
 class UserModel(BaseModel):
@@ -13,6 +13,22 @@ class UserModel(BaseModel):
     profile_picture: Optional[str] = None
     address: Optional[str] = None
     gender: Optional[str] = None
+
+class UserModelUpd(BaseModel):
+    full_name: str
+    username: str
+    email: Optional[str] = None
+    password: str
+    birth_date: str
+    phone_number: Optional[str] = None
+    profile_picture: Optional[str] = None
+    address: Optional[str] = None
+    gender: Optional[str] = None
+    pass_token: str
+    is_private: bool = False
+    followers: List[str] = []  
+    following: List[str] = []  
+    follow_requests: List[str] = []  
 
 class Log(BaseModel):
     email: EmailStr

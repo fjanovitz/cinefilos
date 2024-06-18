@@ -31,6 +31,13 @@ Feature: Posts API
         Then the json status code is "200"
         And the json response have ID "1234", title "Post Básico" and content "Um texto genérico"
 
+    Scenario: Try to delete a post not being the author
+        Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
+        And the current user is "kiko"
+        When a DELETE request is sent to "/forum/post/1234"
+        Then the json status code is "403"
+        And the json response have the message "O post só pode ser excluído pelo autor"
+
     Scenario: Try to delete a post that does not exists in database
         Given Does not exist a post with ID "1234" in the database
         When a DELETE request is sent to "/forum/post/1234"

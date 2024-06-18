@@ -31,4 +31,3 @@ class RecoveryToken(BaseModel):
 
 class RecoveryLink(BaseModel):
     recovery_link: str
-    pss_token: str

@@ -47,14 +47,14 @@ Feature: Posts API
         And the user with ID "0001" do not liked the post with ID "1234"
         When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
         Then the json status code is "200"
-        And the json response have the ID "0001" and the status "True"
+        And the json response have the ID "0001" and the status "1"
 
     Scenario: Remove the like from a post successfully
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
         And the user with ID "0001" already liked the post with ID "1234"
         When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
         Then the json status code is "200"
-        And the json response have the ID "0001" and the status "False"
+        And the json response have the ID "0001" and the status "0"
 
     Scenario: Get the list of the users who liked a post
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database

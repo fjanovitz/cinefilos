@@ -10,7 +10,9 @@ def test_add_movie_to_category():
 @given(parsers.cfparse('no content with title "{title}" is in the "{category}" list of the user "{username}"'))
 def check_movie_title_not_found(client, title: str, category: str, username: str):
     db = getDB()
-    db["user"][username][category] = []
+    user_ind = next((u for u, user in enumerate(db["user"]) if user["username"] == username), -1)
+
+    db["user"][user_ind][category] = []
     saveDB(db)
 
 @given(parsers.cfparse('content with title "{title}", content_id "{content_id}", content type "{content_type}" is in the database'))
@@ -138,9 +140,18 @@ def test_get_category_list():
 @given(parsers.cfparse('user with username "{username}" is in the database'))
 def check_user_in_db(username: str):
     db = getDB()
-    if username not in db["user"]:
-        db["user"][username] = {"assistidos": [], "assistindo": [], "quero_assistir": []}
-        saveDB(db)
+    user_ind = next((u for u in db["user"] if u["username"] == username), None)
+
+    if user_ind == None:
+        db["user"].append({
+            "username": username,
+            "email": "gusta@gmail.com",
+            "assistidos": [],
+            "assistindo": [],
+            "quero_assistir": []
+        })
+
+    saveDB(db)
 
 @then(parsers.cfparse('the json response contains a items_list'), target_fixture="context")
 def check_item_list(context):

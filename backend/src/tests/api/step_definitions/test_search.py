@@ -1,8 +1,10 @@
 from src.db.database import getDB, clearDB
 from pytest_bdd import scenario, given, when, then, parsers
-from src.service.impl.post_service import PostService
+from src.service.impl.post_service import PostService, create_random_user
 from src.schemas.forum import Post, Comment
-
+from src.schemas.user import UserModel
+from src.schemas.content import Movie
+from uuid import uuid4
 
 # Scenario: Search for posts by a valid topic
 #         Given post with title "Lições - Puppy Love", topic "comedy" is in the database 
@@ -15,21 +17,26 @@ def test_search_posts_by_topic():
     db = getDB()
     clearDB(db)
 
-@given(parsers.cfparse('post with title "{title}", topic "{topic}" is in the database'))
-def mock_post_service_clean(title: str, topic: str):
+@given(parsers.cfparse('post with title "{title}", topic "{topic_}" is in the database'))
+def mock_post_service_clean(title: str, topic_: str):
     db = getDB()
     clearDB(db)
 
     post = Post(
-        author="João",
-        title=title,
-        content="Conteúdo",
-        topic=topic
-    )
+        id = str(uuid4()),
+        author = create_random_user("ersaraujo"),
+        title = title,
+        content = "random",
+        num_likes = 0,
+        users_who_liked = [],
+        num_comments = 0,
+        comments = [],
+        topic = topic_,
+        posted = "2002-08-12-21-51")
 
     PostService().create_post(post)
 
-@when(parsers.cfparse('a GET request is sent to "{req_url}'), target_fixture="context")
+@when(parsers.cfparse('a GET request is sent to "{req_url}"'), target_fixture="context")
 def send_get_request(client, context, req_url: str):
     response = client.get(req_url)
     context["response"] = response
@@ -58,7 +65,7 @@ def test_search_posts_by_topic_not_exist():
     clearDB(db)
 
 @given(parsers.cfparse('no post with title "{title}", topic "{topic}" is in the database'))
-def mock_post_service_clean(title: str, topic: str):
+def mock_(title: str, topic: str):
     db = getDB()
     clearDB(db)
 

@@ -21,6 +21,7 @@ def clearDB(db):
     db["movies"] = []
     db["tv_shows"] = []
     db["user"] = []
+    db["posts"] = []
     saveDB(db)
 
 def addUserDB(db, user):

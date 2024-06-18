@@ -8,19 +8,19 @@ Feature: Posts API
 
     Scenario: Get post that does not exist in the database
         Given Does not exist a post with ID "1234" in the database
-        When a GET request is sent to "/post/1234"
+        When a GET request is sent to "/forum/post/1234"
         Then the json status code is "404"
         And the json response have the message "Este post não existe ou foi excluído"
     
     Scenario: Create a post successfully
         Given Does not exist a post with ID "5678" in the database
-        When a POST request is sent to "forum/newpost" from user "kiko", with ID "5678", title "Post Diferente" and content "Um texto diferente"
-        Then the json status code is "200"
+        When a POST request is sent to "/forum/newpost" from user "kiko", with ID "5678", title "Post Diferente" and content "Um texto diferente"
+        Then the json status code is "201"
         And the json response have ID "5678", author "kiko", title "Post Diferente" and content "Um texto diferente"
 
     Scenario: Try to create a post without a title
         Given Does not exist a post with ID "1234" in the database
-        When a POST request is sent to "forum/newpost" from user "kiko", with ID "1234", title "" and content "Um texto genérico"
+        When a POST request is sent to "/forum/newpost" from user "kiko", with ID "1234", no title and content "Um texto genérico"
         Then the json status code is "422"
         And the json response have the message "Não é possível publicar um post sem título"
 
@@ -47,14 +47,14 @@ Feature: Posts API
         And the user with ID "0001" do not liked the post with ID "1234"
         When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
         Then the json status code is "200"
-        And the json response have the ID "0001" and the status "True"
+        And the json response have the ID "0001" and the status "1"
 
     Scenario: Remove the like from a post successfully
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
         And the user with ID "0001" already liked the post with ID "1234"
         When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
         Then the json status code is "200"
-        And the json response have the ID "0001" and the status "False"
+        And the json response have the ID "0001" and the status "0"
 
     Scenario: Get the list of the users who liked a post
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database

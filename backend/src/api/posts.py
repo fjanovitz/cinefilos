@@ -12,9 +12,9 @@ async def create_post(post: Post):
     db = getDB()
 
     post_dict = post.model_dump()
-    if post["title"] == "":
+    if not post_dict["title"]:
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem título")
-    elif post["content"] == "":
+    elif not post_dict["content"]:
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem conteúdo")
         
     db["posts"].append(post_dict)
@@ -22,24 +22,22 @@ async def create_post(post: Post):
     return post
 
 @router.delete("/post/{post_id}", status_code=200, tags=["forum"], response_model=Post)
-async def remove_post(post_id: str, current_user: UserModel):
+async def remove_post(post_id: str, current_user: str):
     db = getDB()
 
     found = False
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:
-            if current_user["id"] == db["posts"][i]["author"]["id"]:
+            if current_user == db["posts"][i]["author"]["username"]:
                 found = True
                 deleted_post = db["posts"].pop(i)
-                break
+                saveDB(db)
+                return deleted_post
             else:
                 raise HTTPException(status_code=403, detail="O post só pode ser excluído pelo autor")
 
     if not found:
-        raise HTTPException(status_code=404, detail="Este post não existe ou já foi excluído")
-
-    saveDB(db)
-    return deleted_post
+        raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")
 
 @router.get("/feed", status_code=200, tags=["forum"], response_model=list[Post])
 async def get_posts():
@@ -55,7 +53,7 @@ async def open_post(post_id: str):
     
     return post
 
-@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=Tuple[str, bool])
+@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=dict)
 async def update_like(post_id: str, user_id: str):
     db = getDB()
 
@@ -69,19 +67,20 @@ async def update_like(post_id: str, user_id: str):
         raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")
 
     already_liked = False
+    
     for i in range(len(post["users_who_liked"])):
-        if post["users_who_liked"][i]["id"] == user_id:
+        if post["users_who_liked"][i] == user_id:
             already_liked = True
             user = post["users_who_liked"].pop(i)
             post["num_likes"] -= 1
             saveDB(db)
-            return (user_id, False)
+            return {"user_id": user_id, "status": 0}
 
     if not already_liked:
         post["users_who_liked"].append(user_id)
         post["num_likes"] += 1
         saveDB(db)
-        return (user_id, True)
+        return {"user_id": user_id, "status": 1}
 
 @router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[str])
 async def get_likes_list(post_id: str):
@@ -99,16 +98,18 @@ async def get_likes_list(post_id: str):
 @router.get("/search/{topic}", status_code = 200, tags = ["forum"], response_model=list[Post])
 async def get_posts_from_topic(topic: str):
     db = getDB()
-
-    posts_from_topic = []
-    for post in db["posts"]:
-        if post["topic"] == topic:
-            posts_from_topic.append(post)
+    posts_from_topic = [post for post in db["posts"] if post["topic"] == topic or post["topic"].lower() == topic.lower()]
+    if not posts_from_topic:
+        raise HTTPException(status_code = 404, detail = "Not Found")
+    
     return posts_from_topic
 
-@router.post("/post/{post_id}", status_code = 200, tags = ["forum"], response_model=Comment)
+@router.post("/post/{post_id}/comments", status_code = 200, tags = ["forum"], response_model=Comment)
 async def add_comment(post_id: str, comment: Comment):
     db = getDB()
+
+    if comment["content"] == None:
+        raise HTTPException(status_code = 422, detail = "Não é possível comentar sem conteúdo")
 
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:
@@ -119,7 +120,7 @@ async def add_comment(post_id: str, comment: Comment):
 
     raise HTTPException(status_code = 404, detail = "Este post não existe ou foi excluído")
 
-@router.delete("/post/{post_id}", status_code = 200, tags = ["forum"], response_model=Comment)
+@router.delete("/post/{post_id}/comments", status_code = 200, tags = ["forum"], response_model=Comment)
 async def remove_comment(post_id: str, comment_id: str):
     db = getDB()
 

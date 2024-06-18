@@ -10,8 +10,10 @@ def test_get_user_history():
 @given(parsers.cfparse('user with username "{username}" is in the database'))
 def mock_user_in_db(username: str):
     db = getDB()
-    if username not in db["user"]:
-        db["user"][username] = {}
+    user_ind = next((u for u in db["user"] if u["username"] == username), None)
+
+    if user_ind == None:
+        db["user"].append({"username": username, "email": "gusta@gmail.com"})
         saveDB(db)
 
 @when(parsers.cfparse('a GET request is sent to the history of the user "{username}"'), target_fixture="context")
@@ -44,10 +46,13 @@ def test_user_not_found():
 @given(parsers.cfparse('no user with username "{username}" is in the database'))
 def mock_user_not_in_db(username: str):
     db = getDB()
-    if username not in db["user"]:
+    user_ind = next((u for u, user in enumerate(db["user"]) if user["username"] == username), -1)
+
+    if user_ind == -1:
         return
     else:
-        db["user"].pop(username)
+        db["user"].pop(user_ind)
+
     saveDB(db)
 
 @then(parsers.cfparse('the json response have message "{response_message}"'), target_fixture="context")

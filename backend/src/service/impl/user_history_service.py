@@ -5,10 +5,11 @@ class UserHistoryService:
     @staticmethod
     def get_user_posts_and_reviews(username: str):
         db = getDB()
+        user_dict = next((u for u in db["user"] if u["username"] == username), None)
         posts = []
         reviews = []
 
-        if username not in db["user"]:
+        if user_dict == None:
             raise HTTPException(status_code=404, detail="No user with this username found in the database")
 
         for post in db["posts"]:

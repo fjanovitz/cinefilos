@@ -51,7 +51,7 @@ async def open_post(post_id: str):
     
     return post
 
-@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(UserModel, bool))
+@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=list[UserModel | bool])
 async def update_like(post_id: str, user_id: str):
     db = getDB()
 
@@ -95,11 +95,10 @@ async def get_likes_list(post_id: str):
 @router.get("/search/{topic}", status_code = 200, tags = ["forum"], response_model=list[Post])
 async def get_posts_from_topic(topic: str):
     db = getDB()
-
-    posts_from_topic = []
-    for post in db["posts"]:
-        if post["topic"] == topic:
-            posts_from_topic.append(post)
+    posts_from_topic = [post for post in db["posts"] if post["topic"] == topic or post["topic"].lower() == topic.lower()]
+    if not posts_from_topic:
+        raise HTTPException(status_code = 404, detail = "Not Found")
+    
     return posts_from_topic
 
 @router.post("/post/{post_id}", status_code = 200, tags = ["forum"], response_model=Comment)

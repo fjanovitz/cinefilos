@@ -3,7 +3,7 @@ from pytest_bdd import parsers, given, when, then, scenario
 from src.service.impl.post_service import PostService
 from src.schemas.forum import Post
 from src.schemas.user import UserModel
-from src.schemas.content import Movie, TvShow
+from src.schemas.content import Movie
 from src.api.posts import *
 
 random_movie = Movie(

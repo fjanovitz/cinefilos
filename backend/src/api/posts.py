@@ -21,15 +21,18 @@ async def create_post(post: Post):
     return post
 
 @router.delete("/post/{post_id}", status_code=200, tags=["forum"], response_model=Post)
-async def remove_post(post_id: str):
+async def remove_post(post_id: str, current_user: UserModel):
     db = getDB()
 
     found = False
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:
-            found = True
-            deleted_post = db["posts"].pop(i)
-            break
+            if current_user["id"] == db["posts"][i]["author"]["id"]:
+                found = True
+                deleted_post = db["posts"].pop(i)
+                break
+            else:
+                raise HTTPException(status_code=403, detail="O post só pode ser excluído pelo autor")
 
     if not found:
         raise HTTPException(status_code=404, detail="Este post não existe ou já foi excluído")

@@ -185,3 +185,6 @@ def delete_from_category(client, context, category: str, username: str, content_
 @scenario(scenario_name="Remove movie not in the category", feature_name="../features/watch_list.feature")
 def test_remmove_not_in_category():
     """ Scenario scope """
+    db = getDB()
+    clearDB(db)
+    saveDB(db)

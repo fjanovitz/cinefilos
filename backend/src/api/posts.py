@@ -107,13 +107,14 @@ async def get_posts_from_topic(topic: str):
 @router.post("/post/{post_id}/comments", status_code = 200, tags = ["forum"], response_model=Comment)
 async def add_comment(post_id: str, comment: Comment):
     db = getDB()
+    coment_dict = comment.model_dump()
 
-    if comment["content"] == None:
+    if coment_dict["content"] == None:
         raise HTTPException(status_code = 422, detail = "Não é possível comentar sem conteúdo")
 
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:
-            db["posts"][i]["comments"].append(comment)
+            db["posts"][i]["comments"].append(coment_dict)
             db["posts"][i]["num_comments"] += 1
             saveDB(db)
             return comment

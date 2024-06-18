@@ -3,6 +3,7 @@ from src.db.database import getDB, saveDB
 from src.schemas.forum import Post, Comment
 from src.schemas.user import UserModel
 from src.service.impl.post_service import PostService
+from typing import Tuple
 
 router = APIRouter()
 

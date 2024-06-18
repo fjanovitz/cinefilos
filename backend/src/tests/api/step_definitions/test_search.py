@@ -10,7 +10,6 @@ from src.schemas.forum import Post, Comment
 #         Then the json status code is "200"
 #         And the json response contains a list of posts with topic "comedy"
 
-
 @scenario(scenario_name="Search for posts by a valid topic", feature_name="../features/search.feature")
 def test_search_posts_by_topic():
     db = getDB()

@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from src.schemas.content import Movie, TvShow, Category
+from src.db.database import getDB, saveDB
 from src.service.impl.watch_list_service import WatchListService
 
 router = APIRouter()

@@ -1,4 +1,5 @@
-from fastapi import HTTPException
+from fastapi import APIRouter, HTTPException
+from src.schemas.content import Movie, TvShow, Category
 from src.db.database import getDB, saveDB
 
 class WatchListService:

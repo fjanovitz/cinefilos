@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from uuid import uuid4
-from content import Movie, TvShow
-from user import UserModel
+from src.schemas.content import Movie, TvShow
+from src.schemas.user import UserModel
 from datetime import datetime
 
 class Comment(BaseModel):
@@ -18,5 +18,5 @@ class Post(BaseModel):
     users_who_liked: list[UserModel]
     num_comments: int = 0
     comments: list[Comment]
-    topic: Movie | TvShow
+    topic: str
     posted: datetime

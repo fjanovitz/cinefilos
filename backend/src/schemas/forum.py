@@ -7,7 +7,7 @@ from datetime import datetime
 class Comment(BaseModel):
     id: str = str(uuid4())
     author: str
-    content: str
+    content: str | None = None
 
 class Post(BaseModel):
     id: str = str(uuid4())
@@ -15,8 +15,8 @@ class Post(BaseModel):
     title: str
     content: str
     num_likes: int = 0
-    users_who_liked: list[UserModel]
+    users_who_liked: list[UserModel] = []
     num_comments: int = 0
-    comments: list[Comment]
+    comments: list[Comment] = []
     topic: str
     posted: str = datetime.now().strftime("%d/%m/%Y %H:%M:%S")

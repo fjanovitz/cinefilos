@@ -33,7 +33,7 @@ Feature: Posts API
 
     Scenario: Try to delete a post not being the author
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
-        And the current user is "kiko"
+        And the current user is "hannah"
         When a DELETE request is sent to "/forum/post/1234"
         Then the json status code is "403"
         And the json response have the message "O post só pode ser excluído pelo autor"

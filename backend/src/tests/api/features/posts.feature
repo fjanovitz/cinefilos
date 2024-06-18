@@ -15,12 +15,12 @@ Feature: Posts API
     Scenario: Create a post successfully
         Given Does not exist a post with ID "5678" in the database
         When a POST request is sent to "forum/newpost" from user "kiko", with ID "5678", title "Post Diferente" and content "Um texto diferente"
-        Then the json status code is "200"
+        Then the json status code is "201"
         And the json response have ID "5678", author "kiko", title "Post Diferente" and content "Um texto diferente"
 
     Scenario: Try to create a post without a title
         Given Does not exist a post with ID "1234" in the database
-        When a POST request is sent to "forum/newpost" from user "kiko", with ID "1234", title "" and content "Um texto genérico"
+        When a POST request is sent to "forum/newpost" from user "kiko", with ID "1234", no title and content "Um texto genérico"
         Then the json status code is "422"
         And the json response have the message "Não é possível publicar um post sem título"
 

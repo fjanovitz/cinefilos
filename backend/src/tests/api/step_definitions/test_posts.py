@@ -5,6 +5,7 @@ from src.schemas.forum import Post
 from src.schemas.user import UserModel
 from src.schemas.content import Movie
 from src.api.posts import *
+from uuid import uuid4
 
 random_movie = Movie(
         title="Filme", 
@@ -16,16 +17,33 @@ random_movie = Movie(
         main_cast=[]
     )
 
+def create_random_user(user_name: str):
+    return UserModel(
+        id= str(uuid4()),
+        full_name= "string",
+        username= user_name,
+        email= "user@example.com",
+        password= "string",
+        birth_date= "string",
+        phone_number= "string",
+        profile_picture= "string",
+        address= "string",
+        gender= "string"
+        )
+
 @scenario(scenario_name="Get post that exists in the database", feature_name="../features/posts.feature")
 def test_get_post_success():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @given(parsers.cfparse('Exists a post with ID "{post_id}", author "{post_author}", title "{post_title}" and content "{post_content}" in the database'))
-def mock_movie_service_creation(post_id: str, post_author: UserModel, post_title: str, post_content: str):
-    create_post(Post(
+def mock_movie_service_creation(post_id: str, post_author: str, post_title: str, post_content: str):
+    db = getDB()
+
+    post = Post(
     id = post_id,
-    author = post_author,
+    author = create_random_user(post_author),
     title = post_title,
     content = post_content,
     num_likes = 0,
@@ -34,7 +52,8 @@ def mock_movie_service_creation(post_id: str, post_author: UserModel, post_title
     comments = [],
     topic = random_movie,
     posted = "2002-08-12-21-51")
-    )
+    db["posts"].append(post.model_dump())
+    saveDB(db)
 
 @when(
     parsers.cfparse('a GET request is sent to "{req_url}"'), 
@@ -54,11 +73,11 @@ def check_json_status_code(context, status_code: str):
     return context
 
 @then(parsers.cfparse('the json response have ID "{post_id}", author "{post_author}", title "{post_title}" and content "{post_content}"'), target_fixture="context")
-def check_response_post_json(context, post_id: str, post_author: UserModel, post_title: str, post_content: str):
+def check_response_post_json(context, post_id: str, post_author: str, post_title: str, post_content: str):
     
     json_response = context["response"].json()
     assert json_response["id"] == post_id
-    assert json_response["author"] == post_author
+    assert json_response["author"]["username"] == post_author
     assert json_response["title"] == post_title
     assert json_response["content"] == post_content
 
@@ -68,14 +87,17 @@ def check_response_post_json(context, post_id: str, post_author: UserModel, post
 def test_get_post_fail():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @given(parsers.cfparse('Does not exist a post with ID "{post_id}" in the database'))
 def clear_db():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @then(parsers.cfparse('the json response have the message "{message}"'), target_fixture="context")
-def check_json_status_code(context, message: str):
+def check_json_message(context, message: str):
+
     assert context["response"].json()["detail"] == message
 
     return context
@@ -84,24 +106,25 @@ def check_json_status_code(context, message: str):
 def test_create_post_success():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @when(parsers.cfparse('a POST request is sent to "{req_url}" from user "{post_author}", with ID "{post_id}", title "{post_title}" and content "{post_content}"'), 
     target_fixture="context"
 )
-def send_post_post_request(client, context, req_url: str, post_author: UserModel, post_id: str, post_title: str, post_content: str):
+def send_post_post_request(client, context, req_url: str, post_author: str, post_id: str, post_title: str, post_content: str):
 
     response = client.post(
         req_url,
         json={
             "id": post_id,
-            "author": post_author,
+            "author": create_random_user(post_author).model_dump(),
             "title": post_title,
             "content": post_content,
             "num_likes": 0,
             "users_who_liked": [],
             "num_comments": 0,
             "comments": [],
-            "topic": random_movie,
+            "topic": random_movie.model_dump(),
             "posted": "2002-08-12-21-51"
         })
     
@@ -112,19 +135,44 @@ def send_post_post_request(client, context, req_url: str, post_author: UserModel
 def test_create_post_fail():
     db = getDB()
     clearDB(db)
+    saveDB(db)
+
+@when(parsers.cfparse('a POST request is sent to "{req_url}" from user "{post_author}", with ID "{post_id}", no title and content "{post_content}"'), 
+    target_fixture="context"
+)
+def send_post_post_request(client, context, req_url: str, post_author: str, post_id: str, post_content: str):
+
+    response = client.post(
+        req_url,
+        json={
+            "id": post_id,
+            "author": create_random_user(post_author).model_dump(),
+            "title": "",
+            "content": post_content,
+            "num_likes": 0,
+            "users_who_liked": [],
+            "num_comments": 0,
+            "comments": [],
+            "topic": random_movie.model_dump(),
+            "posted": "2002-08-12-21-51"
+        })
+    
+    context["response"] = response
+    return context
 
 @scenario(scenario_name="Delete a post successfully", feature_name="../features/posts.feature")
 def test_delete_post_success():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @when(
     parsers.cfparse('a DELETE request is sent to "{req_url}" by the user "{user}"'), 
     target_fixture="context"
 )
-def send_delete_post_request(client, context, req_url: str, user: UserModel):
+def send_delete_post_request(client, context, req_url: str, user: str):
     
-    response = client.delete(req_url, current_user=user)
+    response = client.delete(req_url, params={"current_user": user})
     
     context["response"] = response
     return context
@@ -134,26 +182,28 @@ def send_delete_post_request(client, context, req_url: str, user: UserModel):
 def test_delete_post_unauthorized():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @scenario(scenario_name="Try to delete a post that does not exists in database", feature_name="../features/posts.feature")
 def test_delete_post_fail():
     db = getDB()
     clearDB(db)
-
+    saveDB(db)
 
 @scenario(scenario_name="Like a post successfully", feature_name="../features/posts.feature")
 def test_like_post():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @given(parsers.cfparse('the user with ID "{user_id}" do not liked the post with ID "{post_id}"'))
 def clear_post_likes(post_id:str):
     db = getDB()
     for post in db["posts"]:
         if post["id"] == post_id:
-            db["posts"]["users_who_liked"] = []
-            db["posts"]["num_likes"] = 0
-            saveDB()
+            post["users_who_liked"].clear()
+            post["num_likes"] = len(post["users_who_liked"])
+            saveDB(db)
             break 
 
 @when(parsers.cfparse('a PUT request is sent to "{req_url}" from the user with ID "{user_id_}"'), 
@@ -161,7 +211,7 @@ def clear_post_likes(post_id:str):
 )
 def add_like(client, context, req_url: str,  user_id_:str):
 
-    response = client.put(req_url, user_id=user_id_)
+    response = client.put(req_url, params={"user_id": user_id_})
     
     context["response"] = response
     return context
@@ -169,36 +219,38 @@ def add_like(client, context, req_url: str,  user_id_:str):
 @then(parsers.cfparse('the json response have the ID "{user_id}" and the status "{status}"'), target_fixture="context")
 def check_response_post(context, user_id: str, status: bool):
 
-    response = context["response"]
+    like_response = context["response"].json()
 
-    assert response[0] == user_id
-    assert response[1] == status
+    assert like_response["user_id"] == user_id
+    assert like_response["status"] == int(status)
     return context
 
 @scenario(scenario_name="Remove the like from a post successfully", feature_name="../features/posts.feature")
 def test_remove_like():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @given(parsers.cfparse('the user with ID "{user_id}" already liked the post with ID "{post_id}"'))
 def add_like_in_database(user_id: str, post_id: str):
     db = getDB()
     for post in db["posts"]:
         if post["id"] == post_id:
-            db["posts"]["users_who_liked"].append(user_id)
-            db["posts"]["num_likes"] += 1
-            saveDB()
+            post["users_who_liked"].append(user_id)
+            post["num_likes"] += 1
+            saveDB(db)
             break 
 
 @scenario(scenario_name="Get the list of the users who liked a post", feature_name="../features/posts.feature")
 def test_like_list():
     db = getDB()
     clearDB(db)
+    saveDB(db)
 
 @then(parsers.cfparse('the json response have a list with 2 users with the ID "{id_0}" in position "0" and "{id_1}" in position "1"'), target_fixture="context")
 def check_response_post(context, id_0: str, id_1: str):
 
-    response = context["response"]
+    response = context["response"].json()
 
     assert response[0] == id_0
     assert response[1] == id_1

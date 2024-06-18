@@ -20,6 +20,11 @@ def saveDB(db):
 def clearDB(db):
     db["movies"] = []
     db["tv_shows"] = []
+    db["user"] = []
+    saveDB(db)
+
+def addUserDB(db, user):
+    db["user"].append(user)
     db["reviews"] = []
     saveDB(db)
 
@@ -39,6 +44,27 @@ class Database():
     def __init__(self):
         self.db = None
         self.connect()
+
+    def get_by_email(self, collection_name: str, email: str) -> dict:
+        """
+        Retrieve an item by its ID from a collection
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item will be stored
+        - item_id: str
+            The ID of the item to retrieve
+
+        Returns:
+        - dict or None:
+            The item if found, None otherwise
+
+        """
+        collection: Collection = self.db[collection_name]
+
+        item = collection.find_one({"email": email})
+
+        return item
 
 
     def connect(self):
@@ -198,7 +224,7 @@ class Database():
             "id": str(item_id),
             **item
         }
-
+    
     # TODO: implement update_item method
     # def update_item(self, collection_name: str, item_id: str, item: dict) -> dict:
         """
@@ -234,3 +260,5 @@ class Database():
             A list of all items in the collection.
 
         """
+
+        

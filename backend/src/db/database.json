@@ -1,6 +1,60 @@
 {
-    "movies": [],
-    "tv_shows": [],
+    "movies": [
+        {
+            "id": "d7930544-2f92-471d-86d1-48c463fbff85",
+            "title": "Duna",
+            "synopsis": "random synopsis",
+            "gender": "random gender",
+            "duration": 0,
+            "release_year": 0,
+            "director": "random director",
+            "main_cast": [],
+            "banner": null,
+            "where_to_watch": [],
+            "rating": 0.0
+        }
+    ],
+    "tv_shows": [
+        {
+            "id": "d7930544-2f92-471d",
+            "title": "The Office",
+            "synopsis": "random synopsis",
+            "gender": "random gender",
+            "duration": 0,
+            "release_year": 0,
+            "director": "random director",
+            "main_cast": [],
+            "banner": null,
+            "where_to_watch": [],
+            "rating": 0.0
+        }
+    ],
+    "user": [
+        {
+            "username": "Gusta",
+            "email": "gusta@gmail.com",
+            "assistidos": [],
+            "assistindo": [],
+            "quero_assistir": []
+        }
+    ],
     "posts": [],
-    "reviews": []
+    "reviews": [
+        {
+            "title": "",
+            "report": "incredible",
+            "rating": 10.0,
+            "username": "edsonneto8",
+            "content_id": "123",
+            "content_type": "movies"
+        },
+        {
+            "title": "",
+            "report": "good",
+            "rating": 8.0,
+            "username": "thrpg",
+            "content_id": "123",
+            "content_type": "movies"
+        }
+    ]
 }

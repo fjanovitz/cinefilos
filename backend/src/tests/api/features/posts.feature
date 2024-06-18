@@ -4,7 +4,7 @@ Feature: Posts API
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
         When a GET request is sent to "/forum/post/1234"
         Then the json status code is "200"
-        And the json response have ID "1234", title "Post Básico" and content "Um texto genérico"
+        And the json response have ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico"
 
     Scenario: Get post that does not exist in the database
         Given Does not exist a post with ID "1234" in the database
@@ -16,7 +16,7 @@ Feature: Posts API
         Given Does not exist a post with ID "5678" in the database
         When a POST request is sent to "forum/newpost" from user "kiko", with id "5678", title "Post Diferente" and content "Um texto diferente"
         Then the json status code is "200"
-        And the json response have ID "5678", title "Post Diferente" and content "Um texto diferente"
+        And the json response have ID "5678", author "kiko", title "Post Diferente" and content "Um texto diferente"
 
     Scenario: Try to create a post without a title
         Given Does not exist a post with ID "1234" in the database
@@ -29,7 +29,7 @@ Feature: Posts API
         And the current user is "kiko"
         When a DELETE request is sent to "/forum/post/1234"
         Then the json status code is "200"
-        And the json response have ID "1234", title "Post Básico" and content "Um texto genérico"
+        And the json response have ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico"
 
     Scenario: Try to delete a post not being the author
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database

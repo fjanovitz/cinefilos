@@ -27,6 +27,15 @@ class UserService:
         message="Usuário não encontrado",
         status_code=404
     )
+  
+  @staticmethod
+  def get_user_index_by_username(username: str):
+        db = getDB()
+        for index, user in enumerate(db["user"]):
+            if user["username"] == username:
+                return index
+        logging.debug(f"User not found with username: {username}")
+        return None
 
   # Assuming `getDB()` returns some sort of database object where `["user"]` is an array of user dictionaries
   def get_user_by_username(username: str):
@@ -178,101 +187,109 @@ def delete_all_users():
 class FollowerService:
 
     @staticmethod
-    def follow_user(current_user_id: str, target_user_id: str) -> HttpResponseModel:
+    def follow_user(current_user_id: str, target_user_id: str):
         db = getDB()
-        current_user_index = UserService.get_user_by_username(current_user_id)
-        target_user_index = UserService.get_user_by_username(target_user_id)
+        current_user = UserService.get_user_by_username(current_user_id)
+        target_user = UserService.get_user_by_username(target_user_id)
 
-        if target_user_index is None or current_user_index is None:
-            return HTTPResponses.USER_NOT_FOUND()
+        if target_user is None or current_user is None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
+
+        current_user_index = db["user"].index(current_user)
+        target_user_index = db["user"].index(target_user)
 
         current_user = db["user"][current_user_index]
         target_user = db["user"][target_user_index]
 
         if target_user['is_private']:
+            # Enviar solicitação de seguir
             if current_user['id'] not in target_user['follow_requests']:
                 target_user['follow_requests'].append(current_user['id'])
                 saveDB(db)
-                return HTTPResponses.SUCCESS().model_copy(update={"message": "Solicitação para seguir enviada com sucesso"})
+                return {"message": "Solicitação para seguir enviada com sucesso"}
             else:
-                return HTTPResponses.CONFLICT().model_copy(update={"message": "Solicitação já foi enviada"})
+                raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Solicitação já foi enviada")
         else:
+            # Seguir usuário
             if current_user['id'] not in target_user['followers']:
                 target_user['followers'].append(current_user['id'])
                 current_user['following'].append(target_user['id'])
                 saveDB(db)
-                return HTTPResponses.SUCCESS().model_copy(update={"message": "Agora você está seguindo o usuário"})
+                return {"message": "Agora você está seguindo o usuário"}
             else:
-                return HTTPResponses.CONFLICT().model_copy(update={"message": "Você já está seguindo este usuário"})
+                raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Você já está seguindo este usuário")
 
     @staticmethod
-    def unfollow_user(current_user_id: str, target_user_id: str) -> HttpResponseModel:
+    def unfollow_user(current_user_id: str, target_user_id: str):
         db = getDB()
         current_user_index = UserService.get_user_by_username(current_user_id)
         target_user_index = UserService.get_user_by_username(target_user_id)
 
         if target_user_index is None or current_user_index is None:
-            return HTTPResponses.USER_NOT_FOUND()
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
 
         target_user = db["user"][target_user_index]
         current_user = db["user"][current_user_index]
 
+        # Use o 'id' do current_user para verificar se ele está na lista de seguidores do target_user
         if current_user['id'] in target_user['followers']:
             target_user['followers'].remove(current_user['id'])
             current_user['following'].remove(target_user['id'])
             saveDB(db)
-            return HTTPResponses.SUCCESS().model_copy(update={"message": "Você deixou de seguir o usuário"})
+            return {"message": "Você deixou de seguir o usuário"}
         else:
-            return HTTPResponses.CONFLICT().model_copy(update={"message": "Você não está seguindo este usuário"})
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Você não está seguindo este usuário")
 
     @staticmethod
-    def accept_follow_request(current_user_id: str, requester_user_id: str) -> HttpResponseModel:
+    def accept_follow_request(current_user_id: str, requester_user_id: str):
         db = getDB()
         current_user_index = UserService.get_user_by_username(current_user_id)
         requester_user_index = UserService.get_user_by_username(requester_user_id)
 
         if requester_user_index is None or current_user_index is None:
-            return HTTPResponses.USER_NOT_FOUND()
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
 
         current_user = db["user"][current_user_index]
         requester_user = db["user"][requester_user_index]
 
+        # Use o 'id' do requester_user para verificar se ele está na lista de solicitações de seguimento do current_user
         if requester_user['id'] in current_user['follow_requests']:
             current_user['follow_requests'].remove(requester_user['id'])
             current_user['followers'].append(requester_user['id'])
             requester_user['following'].append(current_user['id'])
             saveDB(db)
-            return HTTPResponses.SUCCESS().model_copy(update={"message": "Solicitação para seguir aceita"})
+            return {"message": "Solicitação para seguir aceita"}
         else:
-            return HTTPResponses.CONFLICT().model_copy(update={"message": "Solicitação para seguir não encontrada"})
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Solicitação para seguir não encontrada")
 
     @staticmethod
-    def reject_follow_request(current_user_id: str, requester_user_id: str) -> HttpResponseModel:
+    def reject_follow_request(current_user_id: str, requester_user_id: str):
         db = getDB()
         current_user_index = UserService.get_user_by_username(current_user_id)
         requester_user_index = UserService.get_user_by_username(requester_user_id)
 
         if current_user_index is None or requester_user_index is None:
-            return HTTPResponses.USER_NOT_FOUND()
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
 
         current_user = db["user"][current_user_index]
         requester_user = db["user"][requester_user_index]
 
+        # Use o 'id' do requester_user para verificar se ele está na lista de solicitações de seguimento do current_user
         if requester_user['id'] in current_user['follow_requests']:
             current_user['follow_requests'].remove(requester_user['id'])
             saveDB(db)
-            return HTTPResponses.SUCCESS().model_copy(update={"message": "Solicitação para seguir rejeitada"})
+            return {"message": "Solicitação para seguir rejeitada"}
         else:
-            return HTTPResponses.CONFLICT().model_copy(update={"message": "Solicitação para seguir não encontrada"})
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Solicitação para seguir não encontrada")
 
     @staticmethod
-    def set_profile_privacy(username: str, is_private: bool) -> HttpResponseModel:
-        db = getDB()
-        user_index = UserService.get_user_by_username(username)
-        if user_index is None:
-            return HTTPResponses.USER_NOT_FOUND()
+    def set_profile_privacy(username: str, is_private: bool):
+      db = getDB()
+      user_index = UserService.get_user_by_username(username)
+      if user_index is None:
+          raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
 
-        db["user"][user_index]['is_private'] = is_private
-        saveDB(db)
-        return HTTPResponses.SUCCESS().model_copy(update={"message": "Configurações de privacidade atualizadas"})
+      db["user"][user_index]['is_private'] = is_private
+      saveDB(db)
+      return {"message": "Configurações de privacidade atualizadas"}
 

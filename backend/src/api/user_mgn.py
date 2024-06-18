@@ -31,7 +31,6 @@ def get_user(userId: str):
 )
 def create_user(user: UserModelUpd):
     response = UserService.add_user(user)
-    print(response)
     return JSONResponse(
         content=response.model_dump(),
         status_code=response.status_code

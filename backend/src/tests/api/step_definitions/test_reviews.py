@@ -63,7 +63,6 @@ def check_json_status_code(context, status_code: str):
 def check_response_json(context, username: str, content_id: str, content_type: str, rating: float, report: str):
     
     json_response = context["response"].json()
-    print(json_response)
     assert json_response["username"] == username
     assert json_response["content_id"] == content_id
     assert json_response["content_type"] == content_type

@@ -53,7 +53,6 @@ def mock_post_service_check_comment(context, author: str, content: str):
     comment = post["comments"][0]
     assert comment["author"] == author
     assert comment["content"] == content
-    context["comment_id"] = comment["id"]
     return context
 
 

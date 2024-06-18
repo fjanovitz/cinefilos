@@ -12,7 +12,7 @@ def mock_user_in_db(username: str):
     db = getDB()
     if username not in db["user"]:
         db["user"][username] = {}
-        saveDB()
+        saveDB(db)
 
 @when(parsers.cfparse('a GET request is sent to the history of the user "{username}"'), target_fixture="context")
 def check_movie_title_not_found(client, context, username: str):

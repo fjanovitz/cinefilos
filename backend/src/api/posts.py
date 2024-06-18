@@ -105,6 +105,9 @@ async def get_posts_from_topic(topic: str):
 async def add_comment(post_id: str, comment: Comment):
     db = getDB()
 
+    if comment["content"] == None:
+        raise HTTPException(status_code = 422, detail = "Não é possível comentar sem conteúdo")
+
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:
             db["posts"][i]["comments"].append(comment)

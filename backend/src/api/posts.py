@@ -3,7 +3,6 @@ from src.db.database import getDB, saveDB
 from src.schemas.forum import Post, Comment
 from src.schemas.user import UserModel
 from src.service.impl.post_service import PostService
-import typing as ty
 
 router = APIRouter()
 
@@ -52,7 +51,7 @@ async def open_post(post_id: str):
     
     return post
 
-@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=ty.Tuple[UserModel, bool])
+@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(UserModel, bool))
 async def update_like(post_id: str, user_id: str):
     db = getDB()
 

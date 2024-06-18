@@ -40,7 +40,7 @@ class WatchListService:
         return db["user"][username][category_id]
     
     @staticmethod
-    def delete_of_category_list(username: str, category_id: str, content_id: str, content_type: str):
+    def delete_of_category_list(username: str, category_id: str, content_id: str):
         db = getDB()
 
         for i in range(len(db["user"][username][category_id])):
@@ -48,12 +48,11 @@ class WatchListService:
                 deleted_content = db["user"][username][category_id].pop(i)
                 saveDB(db)
                 return deleted_content
-                break
 
         raise HTTPException(status_code=404, detail="No movie with this ID found in this category")
 
     @staticmethod
-    def delete_of_category_list_by_title(username: str, category_id: str, title: str, content_type: str):
+    def delete_of_category_list_by_title(username: str, category_id: str, title: str):
         db = getDB()
 
         for i in range(len(db["user"][username][category_id])):

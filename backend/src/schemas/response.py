@@ -39,6 +39,48 @@ class HTTPResponses:
             message="Server error",
             status_code=500,
         )
+    
+    @staticmethod
+    def USER_NOT_FOUND() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Usuário não encontrado",
+            status_code=404,
+        )
+
+    @staticmethod
+    def CONFLICT() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Conflito detectado",
+            status_code=409,
+        )
+
+    @staticmethod
+    def SUCCESS() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Operação bem-sucedida",
+            status_code=200,
+        )
+
+    @staticmethod
+    def USER_DELETED() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Usuário excluído com sucesso",
+            status_code=200,
+        )
+
+    @staticmethod
+    def USER_UPDATED() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Usuário atualizado com sucesso",
+            status_code=200,
+        )
+
+    @staticmethod
+    def USER_ADDED() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Usuário adicionado com sucesso",
+            status_code=200,
+        )
 
 
     # TODO: implement other responses (item created, updated, deleted, etc)

@@ -74,9 +74,10 @@ def delete_user(userId: str, password: str):
 def follow_user(target_user_id: str, current_user_id: str):
     response = FollowerService.follow_user(current_user_id, target_user_id)
     return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
+        content=response,
+        status_code=status.HTTP_200_OK
     )
+
 
 @router.post(
     "/unfollow/{target_user_id}/{current_user_id}",

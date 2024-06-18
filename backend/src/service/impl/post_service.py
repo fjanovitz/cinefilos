@@ -1,5 +1,7 @@
+from uuid import uuid4
 from src.schemas.forum import Post, Comment
 from src.schemas.user import UserModel
+from src.schemas.content import Movie
 from src.db.database import getDB, saveDB
 
 class PostService:
@@ -64,3 +66,17 @@ class PostService:
                         saveDB(db)
                         return True
         return False
+
+def create_random_user(user_name: str):
+    return UserModel(
+        id= str(uuid4()),
+        full_name= "string",
+        username= user_name,
+        email= "user@example.com",
+        password= "string",
+        birth_date= "string",
+        phone_number= "string",
+        profile_picture= "string",
+        address= "string",
+        gender= "string"
+        )

@@ -1,35 +1,11 @@
 from src.db.database import getDB, clearDB
 from pytest_bdd import parsers, given, when, then, scenario
-from src.service.impl.post_service import PostService
+from src.service.impl.post_service import PostService, create_random_user
 from src.schemas.forum import Post
 from src.schemas.user import UserModel
 from src.schemas.content import Movie
 from src.api.posts import *
 from uuid import uuid4
-
-random_movie = Movie(
-        title="Filme", 
-        synopsis="Sinopse",
-        gender="Genero",
-        duration=0,
-        release_year=0,
-        director="Diretor",
-        main_cast=[]
-    )
-
-def create_random_user(user_name: str):
-    return UserModel(
-        id= str(uuid4()),
-        full_name= "string",
-        username= user_name,
-        email= "user@example.com",
-        password= "string",
-        birth_date= "string",
-        phone_number= "string",
-        profile_picture= "string",
-        address= "string",
-        gender= "string"
-        )
 
 @scenario(scenario_name="Get post that exists in the database", feature_name="../features/posts.feature")
 def test_get_post_success():
@@ -42,16 +18,16 @@ def mock_movie_service_creation(post_id: str, post_author: str, post_title: str,
     db = getDB()
 
     post = Post(
-    id = post_id,
-    author = create_random_user(post_author),
-    title = post_title,
-    content = post_content,
-    num_likes = 0,
-    users_who_liked = [],
-    num_comments = 0,
-    comments = [],
-    topic = random_movie,
-    posted = "2002-08-12-21-51")
+        id = post_id,
+        author = create_random_user(post_author),
+        title = post_title,
+        content = post_content,
+        num_likes = 0,
+        users_who_liked = [],
+        num_comments = 0,
+        comments = [],
+        topic = "topic",
+        posted = "2002-08-12-21-51")
     db["posts"].append(post.model_dump())
     saveDB(db)
 
@@ -124,7 +100,7 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
             "users_who_liked": [],
             "num_comments": 0,
             "comments": [],
-            "topic": random_movie.model_dump(),
+            "topic": "topic",
             "posted": "2002-08-12-21-51"
         })
     
@@ -153,7 +129,7 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
             "users_who_liked": [],
             "num_comments": 0,
             "comments": [],
-            "topic": random_movie.model_dump(),
+            "topic": "topic",
             "posted": "2002-08-12-21-51"
         })
     

@@ -1,7 +1,8 @@
 from src.db.database import getDB, clearDB
 from pytest_bdd import scenario, given, when, then, parsers
-from src.service.impl.post_service import PostService
+from src.service.impl.post_service import PostService, create_random_user
 from src.schemas.forum import Post, Comment
+from uuid import uuid4
 
 # Feature: Comment on Posts
 
@@ -23,23 +24,28 @@ def mock_post_service_clean(post_id: str):
 
     post = Post(
         id=post_id,
-        author="João",
+        author=create_random_user("João"),
         title="Lições - Puppy Love",
         content="Conteúdo",
-        topic="comedy"
-    )
+        num_likes = 0,
+        users_who_liked = [],
+        num_comments = 0,
+        comments = [],
+        topic="topic",
+        posted = "2002-08-12-21-51"
+        )
 
     PostService().create_post(post)
 
 @when(parsers.cfparse('a POST request is sent to "/post/{post_id}" by user "{user}", content "{content}"'))
 def mock_post_service_add_comment(post_id: str, user: str, content: str):
-    post = Comment(
+    comment = Comment(
         author=user,
         content=content
     )
 
     if content == " ": content = None
-    PostService().add_comment(post_id, post)
+    PostService().add_comment(post_id, comment)
 
 @then(parsers.cfparse('the json response contains the comment_id, author "{author}", content "{content}"'), target_fixture="context")
 def mock_post_service_check_comment(context, author: str, content: str):
@@ -69,17 +75,21 @@ def mock_post_service_clean(comment_id: str, author: str, content: str):
     clearDB(db)
 
     post = Post(
-        author="João",
+        id="123",
+        author=create_random_user("João"),
         title="Lições - Puppy Love",
         content="Conteúdo",
-        topic="comedy",
-        comments=[
+        num_likes = 0,
+        users_who_liked = [],
+        num_comments = 1,
+        comments = [
             Comment(
                 author=author,
                 content=content
-            )
-        ]
-    )
+            )],
+        topic="topic",
+        posted = "2002-08-12-21-51"
+        )
 
     PostService().create_post(post)
 

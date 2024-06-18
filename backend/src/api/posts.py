@@ -11,9 +11,9 @@ async def create_post(post: Post):
     db = getDB()
 
     post_dict = post.model_dump()
-    if post["title"] == None:
+    if post["title"] == "":
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem título")
-    elif post["content"] == None:
+    elif post["content"] == "":
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem conteúdo")
         
     db["posts"].append(post_dict)
@@ -21,15 +21,18 @@ async def create_post(post: Post):
     return post
 
 @router.delete("/post/{post_id}", status_code=200, tags=["forum"], response_model=Post)
-async def remove_post(post_id: str):
+async def remove_post(post_id: str, current_user: UserModel):
     db = getDB()
 
     found = False
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:
-            found = True
-            deleted_post = db["posts"].pop(i)
-            break
+            if current_user["id"] == db["posts"][i]["author"]["id"]:
+                found = True
+                deleted_post = db["posts"].pop(i)
+                break
+            else:
+                raise HTTPException(status_code=403, detail="O post só pode ser excluído pelo autor")
 
     if not found:
         raise HTTPException(status_code=404, detail="Este post não existe ou já foi excluído")
@@ -51,7 +54,7 @@ async def open_post(post_id: str):
     
     return post
 
-@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=list[UserModel | bool])
+@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(str, bool))
 async def update_like(post_id: str, user_id: str):
     db = getDB()
 
@@ -71,15 +74,15 @@ async def update_like(post_id: str, user_id: str):
             user = post["users_who_liked"].pop(i)
             post["num_likes"] -= 1
             saveDB(db)
-            return (user, False)
+            return (user_id, False)
 
     if not already_liked:
-        post["users_who_liked"].append(user)
+        post["users_who_liked"].append(user_id)
         post["num_likes"] += 1
         saveDB(db)
-        return (user, True)
+        return (user_id, True)
 
-@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[UserModel])
+@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[str])
 async def get_likes_list(post_id: str):
     db = getDB()
     

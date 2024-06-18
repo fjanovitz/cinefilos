@@ -19,4 +19,4 @@ class Post(BaseModel):
     num_comments: int = 0
     comments: list[Comment]
     topic: str
-    posted: datetime
+    posted: str = datetime.now().strftime("%d/%m/%Y %H:%M:%S")

@@ -171,8 +171,8 @@ def check_response_post(context, user_id: str, status: bool):
 
     response = context["response"]
 
-    assert response["0"] == user_id
-    assert response["1"] == status
+    assert response[0] == user_id
+    assert response[1] == status
     return context
 
 @scenario(scenario_name="Remove the like from a post successfully", feature_name="../features/posts.feature")

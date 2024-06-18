@@ -31,14 +31,57 @@
     ],
     "user": [
         {
-            "username": "Gusta",
-            "email": "gusta@gmail.com",
-            "assistidos": [],
-            "assistindo": [],
-            "quero_assistir": []
+            "id": "dd75aca7-f775-420f-b559-288a3584549b",
+            "full_name": "string",
+            "username": "string",
+            "email": "user@example.com",
+            "password": "string",
+            "birth_date": "string",
+            "phone_number": "string",
+            "profile_picture": "string",
+            "address": "string",
+            "gender": "string"
         }
     ],
-    "posts": [],
+    "posts": [
+        {
+            "id": "55d0a5e0-b730-4ead-9e2f-b14ee8a200ce",
+            "author": {
+                "id": "dd75aca7-f775-420f-b559-288a3584549b",
+                "full_name": "string",
+                "username": "string",
+                "email": "user@example.com",
+                "password": "string",
+                "birth_date": "string",
+                "phone_number": "string",
+                "profile_picture": "string",
+                "address": "string",
+                "gender": "string"
+            },
+            "title": "string",
+            "content": "string",
+            "num_likes": 0,
+            "users_who_liked": [],
+            "num_comments": 0,
+            "comments": [],
+            "topic": {
+                "id": "8fe83ddf-2564-4f62-b6f9-71f0b18aedc3",
+                "title": "string",
+                "synopsis": "string",
+                "gender": "string",
+                "duration": 0,
+                "release_year": 0,
+                "director": "string",
+                "main_cast": [
+                    "string"
+                ],
+                "banner": "string",
+                "where_to_watch": [],
+                "rating": 0.0
+            },
+            "posted": "string"
+        }
+    ],
     "reviews": [
         {
             "title": "",

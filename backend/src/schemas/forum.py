@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from uuid import uuid4
-from content import Movie, TvShow
-from user import UserModel
+from src.schemas.content import Movie, TvShow
+from src.schemas.user import UserModel
 
 class Comment(BaseModel):
     id: str = str(uuid4())
@@ -10,7 +10,7 @@ class Comment(BaseModel):
 
 class Post(BaseModel):
     id: str = str(uuid4())
-    author: str
+    author: UserModel
     title: str
     content: str
     num_likes: int = 0

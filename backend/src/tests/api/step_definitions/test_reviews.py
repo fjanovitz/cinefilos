@@ -13,7 +13,7 @@ def test_register_review_movies():
 @given(parsers.cfparse('no review from username "{username}" to content_id "{content_id}", content_type "{content_type}" is in database'))  
 def mock_review_service_clean(username: str, content_id: str, content_type: str):
     db = getDB()
-    clearDB(db)
+    clearDBReviews(db)
 
 @given(parsers.cfparse('content with content_id "{content_id}" and content_type "{content_type}" exists in the database'))
 def mock_add_content(content_id: str, content_type: str):
@@ -118,7 +118,7 @@ def test_register_review_movies_not_exist():
 @given(parsers.cfparse('no content with content_id "{content_id}" and content_type "{content_type}" exist in database'))
 def mock_content_service_clean(content_id: str, content_type: str):
     db = getDB()
-    clearDB(db)
+    clearDBContent(db)
 
 @then(parsers.cfparse('the database does not contain any reviews'))
 def check_review_service_empty():
@@ -196,7 +196,7 @@ def test_get_reviews_content_not_exist():
 @given(parsers.cfparse('no content with content_id "{content_id}" and content_type "{content_type}" exists in the database'))
 def mock_content_service_clean(content_id: str, content_type: str):
     db = getDB()
-    clearDB(db)
+    clearDBContent(db)
 
 @then(parsers.cfparse('the database does not have content with content_id "{content_id}" and content_type "{content_type}"'))
 def check_content_does_not_exist(content_id: str, content_type: str):

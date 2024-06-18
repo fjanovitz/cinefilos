@@ -26,8 +26,6 @@ def mock_post_service_clean(title: str, topic: str):
         title=title,
         content="Conteudo",
         topic=topic,
-        users_who_liked=[],
-        comments=[]
     )
 
     PostService().create_post(post)

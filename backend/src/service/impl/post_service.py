@@ -47,10 +47,11 @@ class PostService:
         db = getDB()
         for post in db["posts"]:
             if post["id"] == post_id:
+                if comment.content == None:
+                    return None
                 post["comments"].append(comment.model_dump())
                 saveDB(db)
                 return comment
-        return None
     
     @staticmethod
     def remove_comment(post_id: str, comment_id: str):

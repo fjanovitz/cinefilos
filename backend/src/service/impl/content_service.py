@@ -17,6 +17,14 @@ class ContentService:
         return None
 
     @staticmethod
+    def get_content_by_id(content_id: str, content_type: str):
+        db = getDB()
+        for content in db[content_type]:
+            if content["id"] == content_id:
+                return content
+        return None
+
+    @staticmethod
     def add_content(content: Movie | TvShow, content_type: str):
         db = getDB()
 

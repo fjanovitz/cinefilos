@@ -25,6 +25,16 @@ def clearDB(db):
 
 def addUserDB(db, user):
     db["user"].append(user)
+    db["reviews"] = []
+    saveDB(db)
+
+def clearDBReviews(db):
+    db["reviews"] = []
+    saveDB(db)
+
+def clearDBContent(db):
+    db["movies"] = []
+    db["tv_shows"] = []
     saveDB(db)
 
 class Database():

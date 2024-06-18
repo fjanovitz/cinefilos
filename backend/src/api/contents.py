@@ -57,7 +57,6 @@ async def get_contents():
     movies = ContentService.get_contents("movies")
     tv_shows = ContentService.get_contents("tv_shows")
 
-
     return movies + tv_shows
 
 @router.put("/movies/{movie_title}", status_code=200, tags=["movie"], response_model=Movie)

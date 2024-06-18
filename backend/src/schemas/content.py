@@ -1,13 +1,12 @@
 from pydantic import BaseModel
 from uuid import uuid4
 
-# banner/imagem, onde está disponível para assistir/comprar e média da avaliação dos usuários
 class Movie(BaseModel):
     id: str = str(uuid4())
     title: str
     synopsis: str
     gender: str
-    duration: int #in minutes
+    duration: int 
     release_year: int
     director: str
     main_cast: list[str] 
@@ -28,3 +27,7 @@ class TvShow(BaseModel):
     banner: str | None = None
     where_to_watch: list[str] = []
     rating: float = 0.0
+
+class Category(BaseModel):
+    category_id: str
+    items_list: list[TvShow | Movie] = []

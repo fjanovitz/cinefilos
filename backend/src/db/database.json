@@ -1,5 +1,7 @@
 {
     "movies": [],
     "tv_shows": [],
-    "user": []
+    "user": [],
+    "posts": [],
+    "reviews": []
 }

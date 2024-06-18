@@ -11,9 +11,9 @@ async def create_post(post: Post):
     db = getDB()
 
     post_dict = post.model_dump()
-    if post["title"] == []:
+    if post["title"] == "":
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem título")
-    elif post["content"] == []:
+    elif post["content"] == "":
         raise HTTPException(status_code=422, detail="Não é possível publicar um post sem conteúdo")
         
     db["posts"].append(post_dict)
@@ -54,7 +54,7 @@ async def open_post(post_id: str):
     
     return post
 
-@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(UserModel, bool))
+@router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=(str, bool))
 async def update_like(post_id: str, user_id: str):
     db = getDB()
 
@@ -74,15 +74,15 @@ async def update_like(post_id: str, user_id: str):
             user = post["users_who_liked"].pop(i)
             post["num_likes"] -= 1
             saveDB(db)
-            return (user, False)
+            return (user_id, False)
 
     if not already_liked:
-        post["users_who_liked"].append(user)
+        post["users_who_liked"].append(user_id)
         post["num_likes"] += 1
         saveDB(db)
-        return (user, True)
+        return (user_id, True)
 
-@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[UserModel])
+@router.get("/post/{post_id}/likes", status_code=200, tags=["forum"], response_model=list[str])
 async def get_likes_list(post_id: str):
     db = getDB()
     

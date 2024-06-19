@@ -102,10 +102,7 @@ def unfollow_user(target_user_id: str, current_user_id: str):
 )
 def accept_follow_request(requester_user_id: str, current_user_id: str):
     response = FollowerService.accept_follow_request(current_user_id, requester_user_id)
-    return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
-    )
+    return JSONResponse(content=response, status_code=status.HTTP_200_OK)
 
 @router.post(
     "/reject_follow_request/{requester_user_id}/{current_user_id}",
@@ -116,10 +113,8 @@ def accept_follow_request(requester_user_id: str, current_user_id: str):
 )
 def reject_follow_request(requester_user_id: str, current_user_id: str):
     response = FollowerService.reject_follow_request(current_user_id, requester_user_id)
-    return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
-    )
+    return JSONResponse(content=response, status_code=status.HTTP_200_OK)
+
 
 @router.put(
     "/set_profile_privacy/{username}",
@@ -129,10 +124,8 @@ def reject_follow_request(requester_user_id: str, current_user_id: str):
     tags=["Followers"],
 )
 def set_profile_privacy(username: str, is_private: bool):
-    response = FollowerService.set_profile_privacy(username, is_private)
-    return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
-    )
+    response_dict = FollowerService.set_profile_privacy(username, is_private)
+    return JSONResponse(content=response_dict, status_code=status.HTTP_200_OK)
+
 
 

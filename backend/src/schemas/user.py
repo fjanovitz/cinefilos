@@ -29,6 +29,7 @@ class UserModelUpd(BaseModel):
     followers: List[str] = []  
     following: List[str] = []  
     follow_requests: List[str] = []  
+    assistidos: List[str] = []
 
 class Log(BaseModel):
     email: EmailStr

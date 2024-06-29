@@ -2,7 +2,7 @@ import json
 import logging
 from uuid import uuid4
 from fastapi import HTTPException, status
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 from src.schemas.response import HttpResponseModel, HTTPResponses
 from src.db.database import getDB, saveDB
 from typing import List
@@ -57,7 +57,7 @@ class UserService:
     raise HTTPException(status_code=404, detail="Usuário não encontrado")
 
   @staticmethod
-  def add_user(user: UserModelUpd) -> HttpResponseModel:
+  def add_user(user: UserModel) -> HttpResponseModel:
     logging.debug(f"Usuário adicionado:")
 
     UserService.check_user_requirements(user)
@@ -79,7 +79,7 @@ class UserService:
 
 
   @staticmethod
-  def edit_user(username: str, user: UserModelUpd) -> HttpResponseModel:
+  def edit_user(username: str, user: UserModel) -> HttpResponseModel:
     db = getDB()
     for existing_user in db["user"]:
         if existing_user["username"] == username:
@@ -152,7 +152,7 @@ class UserService:
     return False
   
   @staticmethod
-  def check_user_requirements(user: UserModelUpd):
+  def check_user_requirements(user: UserModel):
     if "full_name" not in user.model_dump() or user.full_name is None or user.full_name == "":
         raise HTTPException(status_code=409, detail="Nome é um campo obrigatório.")
     elif "username" not in user.model_dump() or user.username is None or user.username == "":
@@ -165,12 +165,12 @@ class UserService:
         raise HTTPException(status_code=409, detail="Data de nascimento é um campo obrigatório.")
 
   @staticmethod
-  def check_user_passwords(user: UserModelUpd):
+  def check_user_passwords(user: UserModel):
     if len(user.password) < 8 or not any(char.isdigit() for char in user.password) or not any(char.isalpha() for char in user.password):
         raise HTTPException(status_code=409, detail="A senha deve ter pelo menos 8 caracteres, incluindo letras e números.")
 
   @staticmethod
-  def check_user_unique_info(user: UserModelUpd):
+  def check_user_unique_info(user: UserModel):
     if UserService.username_exists(user.username):
         raise HTTPException(status_code=409, detail="Nome de usuário indisponivel")
     elif UserService.email_exists(user.email):

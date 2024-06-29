@@ -1,7 +1,7 @@
 from src.db.database import clearDB, getDB, saveDB
 from pytest_bdd import parsers, given, when, then, scenario
 from src.service.impl.user_mng_service import UserService
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 from fastapi import HTTPException
 from src.main import app
 from fastapi.testclient import TestClient
@@ -12,7 +12,7 @@ db = getDB()
 clearDB(db)
 @pytest.fixture(scope="session", autouse=True)
 def create_test_users():
-    UserService.add_user(UserModelUpd(
+    UserService.add_user(UserModel(
         full_name="Albert Einstein",
         username="einstein",
         email="einstein@mail.com",
@@ -28,7 +28,7 @@ def create_test_users():
         following=[],
         follow_requests=[]
     ))
-    UserService.add_user(UserModelUpd(
+    UserService.add_user(UserModel(
         full_name="Ed Einstein",
         username="Edttn",
         email="edttn@mail.com",

@@ -2,7 +2,7 @@ import pytest
 from src.db.database import getDB, clearDB
 from pytest_bdd import given, when, then, scenario
 from src.service.impl.user_mng_service import UserService
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 
 @scenario('../features/followers.feature', 'Request to follow a user with a private profile')
 def test_request_to_follow_private_profile():
@@ -17,7 +17,7 @@ def prepare_users_private_profile():
     clearDB(db)
 
     # Create current user (einstein)
-    current_user_data = UserModelUpd(
+    current_user_data = UserModel(
         full_name="Albert Einstein",
         username="einstein",
         email="einstein@mail.com",
@@ -36,7 +36,7 @@ def prepare_users_private_profile():
     UserService.add_user(current_user_data)
 
     # Create target user (bell28) with a private profile
-    target_user_data = UserModelUpd(
+    target_user_data = UserModel(
         full_name="Ed Einstein",
         username="bell28",
         email="edttn@mail.com",

@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, status
 from starlette.responses import JSONResponse
 from src.service.impl.user_mng_service import UserService, FollowerService
 from src.schemas.response import HttpResponseModel, HTTPResponses
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 
 router = APIRouter()
 
@@ -29,7 +29,7 @@ def get_user(userId: str):
     summary="Cadastrar Usuário",
     tags=["User"]
 )
-def create_user(user: UserModelUpd):
+def create_user(user: UserModel):
     response = UserService.add_user(user)
     return JSONResponse(
         content=response.model_dump(),
@@ -42,7 +42,7 @@ def create_user(user: UserModelUpd):
     summary="Atualizar dados do usuário",
     tags=["User"]
 )
-def update_user(userId: str, updated_user: UserModelUpd):
+def update_user(userId: str, updated_user: UserModel):
     response = UserService.edit_user(userId, updated_user)
     return JSONResponse(
         content=response.model_dump(),

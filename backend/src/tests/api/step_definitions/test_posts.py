@@ -2,7 +2,7 @@ from src.db.database import getDB, clearDB
 from pytest_bdd import parsers, given, when, then, scenario
 from src.service.impl.post_service import PostService, create_random_user
 from src.schemas.forum import Post
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 from src.schemas.content import Movie
 from src.api.posts import *
 from uuid import uuid4

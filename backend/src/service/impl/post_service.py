@@ -1,6 +1,6 @@
 from uuid import uuid4
 from src.schemas.forum import Post, Comment
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 from src.schemas.content import Movie
 from src.db.database import getDB, saveDB
 
@@ -24,7 +24,7 @@ class PostService:
         return None
 
     @staticmethod
-    def get_posts_by_author(author: UserModelUpd):
+    def get_posts_by_author(author: UserModel):
         db = getDB()
         posts = []
         for post in db["posts"]:
@@ -68,7 +68,7 @@ class PostService:
         return False
 
 def create_random_user(user_name: str):
-    return UserModelUpd(
+    return UserModel(
         full_name= "string",
         username= user_name,
         email= "user@example.com",

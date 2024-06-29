@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from uuid import uuid4
-from src.schemas.user import UserModel
+from src.schemas.user import UserModelUpd
 
 class Comment(BaseModel):
     id: str = str(uuid4())
@@ -9,7 +9,7 @@ class Comment(BaseModel):
 
 class Post(BaseModel):
     id: str = str(uuid4())
-    author: UserModel
+    author: UserModelUpd
     title: str
     content: str
     num_likes: int = 0

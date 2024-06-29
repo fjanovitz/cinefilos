@@ -38,7 +38,6 @@ class UserService:
         logging.debug(f"User not found with username: {username}")
         return None
 
-  # Assuming `getDB()` returns some sort of database object where `["user"]` is an array of user dictionaries
   def get_user_by_username(username: str):
         db = getDB()
         for user in db["user"]:
@@ -46,7 +45,6 @@ class UserService:
                 return user
         logging.debug(f"User not found with username: {username}")
         raise HTTPException(status_code=404, detail="User not found")
-
   
   @staticmethod
   def get_user_by_email(email: str):
@@ -66,9 +64,8 @@ class UserService:
     
     db = getDB()
     user_id = str(uuid4())
-    # Serialize the Pydantic model to a dictionary using dict()
     user_data = user.model_dump()
-    user_data['id'] = user_id  # Adiciona o ID gerado ao usuário
+    user_data['id'] = user_id  
     db["user"].append(user_data)
     saveDB(db)
     return HttpResponseModel(
@@ -85,7 +82,6 @@ class UserService:
         if existing_user["username"] == username:
             updated_fields = user.model_dump(exclude_unset=True)
 
-            # Verifica se o e-mail ou a data de nascimento foram alterados
             if "email" in updated_fields and updated_fields["email"] != existing_user["email"]:
                 return HTTPResponses.CONFLICT().model_copy(update={"message": "Email não pode ser alterado."})
             if "birth_date" in updated_fields and updated_fields["birth_date"] != existing_user["birth_date"]:
@@ -203,7 +199,6 @@ class FollowerService:
         target_user = db["user"][target_user_index]
 
         if target_user['is_private']:
-            # Enviar solicitação de seguir
             if current_user['id'] not in target_user['follow_requests']:
                 target_user['follow_requests'].append(current_user['id'])
                 saveDB(db)
@@ -211,7 +206,6 @@ class FollowerService:
             else:
                 raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Solicitação já foi enviada")
         else:
-            # Seguir usuário
             if current_user['id'] not in target_user['followers']:
                 target_user['followers'].append(current_user['id'])
                 current_user['following'].append(target_user['id'])
@@ -224,32 +218,25 @@ class FollowerService:
     def unfollow_user(current_user_id: str, target_user_id: str):
         db = getDB()
 
-        # Retrieve indices of current and target users
         current_user_index = UserService.get_user_index_by_username(current_user_id)
         target_user_index = UserService.get_user_index_by_username(target_user_id)
 
         if target_user_index is None or current_user_index is None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
         
-        # Retrieve current and target user objects from database
         current_user = db["user"][current_user_index]
         target_user = db["user"][target_user_index]
 
-        # Check if current user is following target user
         if current_user['id'] in target_user['followers']:
-            # Remove current user from target user's followers list
             target_user['followers'].remove(current_user['id'])
-            # Remove target user from current user's following list
             current_user['following'].remove(target_user['id'])
             saveDB(db)
             
-            # Prepare response
             response = {
                 "message": "Você deixou de seguir o usuário",
                 "status_code": status.HTTP_200_OK
             }
 
-            # Serialize response dictionary to JSON
             content = json.dumps(response)
 
             return content
@@ -269,7 +256,6 @@ class FollowerService:
         current_user = db["user"][current_user_index]
         requester_user = db["user"][requester_user_index]
 
-        # Use o 'id' do requester_user para verificar se ele está na lista de solicitações de seguimento do current_user
         if requester_user['id'] in current_user['follow_requests']:
             current_user['follow_requests'].remove(requester_user['id'])
             current_user['followers'].append(requester_user['id'])
@@ -291,7 +277,6 @@ class FollowerService:
         current_user = db["user"][current_user_index]
         requester_user = db["user"][requester_user_index]
 
-        # Use o 'id' do requester_user para verificar se ele está na lista de solicitações de seguimento do current_user
         if requester_user['id'] in current_user['follow_requests']:
             current_user['follow_requests'].remove(requester_user['id'])
             saveDB(db)
@@ -310,7 +295,7 @@ class FollowerService:
         db["user"][user_index]['is_private'] = is_private
         saveDB(db)
         response = {"message": "Configurações de privacidade atualizadas"}
-        content = json.dumps(response)  # Serializa o dicionário 'response' para uma string JSON
+        content = json.dumps(response)  
         return content
 
 

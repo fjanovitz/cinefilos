@@ -8,7 +8,7 @@ from src.api import user_history
 from src.api import user_mgn
 
 api_router = APIRouter()
-api_router.include_router(contents.router, prefix="/contents", tags=["contents"])
+api_router.include_router(contents.router, prefix="/contents")
 api_router.include_router(user_mgn.router, prefix="/user", tags=["user"]) 
 api_router.include_router(user.router, prefix="/users", tags=["users"])
 api_router.include_router(reviews.router, prefix="/reviews", tags=["reviews"])

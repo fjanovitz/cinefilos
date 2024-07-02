@@ -1,5 +1,5 @@
-from fastapi import APIRouter, HTTPException
-from src.schemas.content import Movie, TvShow, Category
+from fastapi import HTTPException
+from src.service.impl.content_service import filter_by_content_type
 from src.db.database import getDB, saveDB
 
 class WatchListService:
@@ -8,7 +8,8 @@ class WatchListService:
         db = getDB()
         user_ind = next((u for u, user in enumerate(db["user"]) if user["username"] == username), -1)
 
-        for content in db[content_type]:
+        contents = filter_by_content_type(db["contents"], content_type)
+        for content in contents:
             if content["id"] == content_id:
                 if content not in db["user"][user_ind][category_id]:
                     db["user"][user_ind][category_id].append(content)
@@ -23,8 +24,9 @@ class WatchListService:
     def add_to_category_list_by_title(username: str, category_id: str, title: str, content_type: str):
         db = getDB()
         user_ind = next((u for u, user in enumerate(db["user"]) if user["username"] == username), -1)
-
-        for content in db[content_type]:
+        
+        contents = filter_by_content_type(db["contents"], content_type)
+        for content in contents:
             if content["title"] == title:
                 if content not in db["user"][user_ind][category_id]:
                     db["user"][user_ind][category_id].append(content)

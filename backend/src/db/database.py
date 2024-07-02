@@ -13,8 +13,7 @@ def saveDB(db):
         json.dump(db, fp=dbj, indent=4)
     
 def clearDB(db):
-    db["movies"] = []
-    db["tv_shows"] = []
+    db["contents"] = []
     db["user"] = []
     db["posts"] = []
     saveDB(db)
@@ -29,6 +28,5 @@ def clearDBReviews(db):
     saveDB(db)
 
 def clearDBContent(db):
-    db["movies"] = []
-    db["tv_shows"] = []
+    db["contents"] = []
     saveDB(db)

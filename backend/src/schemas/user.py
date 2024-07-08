@@ -3,18 +3,6 @@ from typing import Optional, List
 from pydantic import BaseModel, EmailStr, Field
 
 class UserModel(BaseModel):
-    id: str = str(uuid4())
-    full_name: str
-    username: str
-    email: EmailStr
-    password: str
-    birth_date: str
-    phone_number: Optional[str] = None
-    profile_picture: Optional[str] = None
-    address: Optional[str] = None
-    gender: Optional[str] = None
-
-class UserModelUpd(BaseModel):
     full_name: str
     username: str
     email: Optional[str] = None

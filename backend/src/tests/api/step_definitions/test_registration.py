@@ -1,7 +1,7 @@
 from src.db.database import getDB, saveDB, clearDB
 from pytest_bdd import parsers, given, when, then, scenario
 from src.service.impl.user_mng_service import UserService
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 from fastapi import HTTPException
 from src.main import app
 from fastapi.testclient import TestClient

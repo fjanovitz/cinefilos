@@ -52,7 +52,7 @@ async def get_tv_shows():
 
     return tv_shows
 
-@router.get("/", status_code=200, response_model=list[Movie | TvShow])
+@router.get("/", status_code=200, tags=["contents"], response_model=list[Movie | TvShow])
 async def get_contents():
     movies = ContentService.get_contents("movies")
     tv_shows = ContentService.get_contents("tv_shows")

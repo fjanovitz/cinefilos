@@ -1,24 +1,6 @@
 {
-    "movies": [],
-    "tv_shows": [],
+    "contents": [],
     "user": [],
     "posts": [],
-    "reviews": [
-        {
-            "title": "",
-            "report": "incredible",
-            "rating": 10.0,
-            "username": "edsonneto8",
-            "content_id": "123",
-            "content_type": "movies"
-        },
-        {
-            "title": "",
-            "report": "good",
-            "rating": 8.0,
-            "username": "thrpg",
-            "content_id": "123",
-            "content_type": "movies"
-        }
-    ]
+    "reviews": []
 }

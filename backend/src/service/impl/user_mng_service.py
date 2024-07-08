@@ -1,7 +1,8 @@
+import json
 import logging
 from uuid import uuid4
 from fastapi import HTTPException, status
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 from src.schemas.response import HttpResponseModel, HTTPResponses
 from src.db.database import getDB, saveDB
 from typing import List
@@ -56,7 +57,7 @@ class UserService:
     raise HTTPException(status_code=404, detail="Usuário não encontrado")
 
   @staticmethod
-  def add_user(user: UserModelUpd) -> HttpResponseModel:
+  def add_user(user: UserModel) -> HttpResponseModel:
     logging.debug(f"Usuário adicionado:")
 
     UserService.check_user_requirements(user)
@@ -78,7 +79,7 @@ class UserService:
 
 
   @staticmethod
-  def edit_user(username: str, user: UserModelUpd) -> HttpResponseModel:
+  def edit_user(username: str, user: UserModel) -> HttpResponseModel:
     db = getDB()
     for existing_user in db["user"]:
         if existing_user["username"] == username:
@@ -151,7 +152,7 @@ class UserService:
     return False
   
   @staticmethod
-  def check_user_requirements(user: UserModelUpd):
+  def check_user_requirements(user: UserModel):
     if "full_name" not in user.model_dump() or user.full_name is None or user.full_name == "":
         raise HTTPException(status_code=409, detail="Nome é um campo obrigatório.")
     elif "username" not in user.model_dump() or user.username is None or user.username == "":
@@ -164,12 +165,12 @@ class UserService:
         raise HTTPException(status_code=409, detail="Data de nascimento é um campo obrigatório.")
 
   @staticmethod
-  def check_user_passwords(user: UserModelUpd):
+  def check_user_passwords(user: UserModel):
     if len(user.password) < 8 or not any(char.isdigit() for char in user.password) or not any(char.isalpha() for char in user.password):
         raise HTTPException(status_code=409, detail="A senha deve ter pelo menos 8 caracteres, incluindo letras e números.")
 
   @staticmethod
-  def check_user_unique_info(user: UserModelUpd):
+  def check_user_unique_info(user: UserModel):
     if UserService.username_exists(user.username):
         raise HTTPException(status_code=409, detail="Nome de usuário indisponivel")
     elif UserService.email_exists(user.email):
@@ -222,29 +223,45 @@ class FollowerService:
     @staticmethod
     def unfollow_user(current_user_id: str, target_user_id: str):
         db = getDB()
-        current_user_index = UserService.get_user_by_username(current_user_id)
-        target_user_index = UserService.get_user_by_username(target_user_id)
+
+        # Retrieve indices of current and target users
+        current_user_index = UserService.get_user_index_by_username(current_user_id)
+        target_user_index = UserService.get_user_index_by_username(target_user_id)
 
         if target_user_index is None or current_user_index is None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
-
-        target_user = db["user"][target_user_index]
+        
+        # Retrieve current and target user objects from database
         current_user = db["user"][current_user_index]
+        target_user = db["user"][target_user_index]
 
-        # Use o 'id' do current_user para verificar se ele está na lista de seguidores do target_user
+        # Check if current user is following target user
         if current_user['id'] in target_user['followers']:
+            # Remove current user from target user's followers list
             target_user['followers'].remove(current_user['id'])
+            # Remove target user from current user's following list
             current_user['following'].remove(target_user['id'])
             saveDB(db)
-            return {"message": "Você deixou de seguir o usuário"}
+            
+            # Prepare response
+            response = {
+                "message": "Você deixou de seguir o usuário",
+                "status_code": status.HTTP_200_OK
+            }
+
+            # Serialize response dictionary to JSON
+            content = json.dumps(response)
+
+            return content
         else:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Você não está seguindo este usuário")
+
 
     @staticmethod
     def accept_follow_request(current_user_id: str, requester_user_id: str):
         db = getDB()
-        current_user_index = UserService.get_user_by_username(current_user_id)
-        requester_user_index = UserService.get_user_by_username(requester_user_id)
+        current_user_index = UserService.get_user_index_by_username(current_user_id)
+        requester_user_index = UserService.get_user_index_by_username(requester_user_id)
 
         if requester_user_index is None or current_user_index is None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
@@ -265,8 +282,8 @@ class FollowerService:
     @staticmethod
     def reject_follow_request(current_user_id: str, requester_user_id: str):
         db = getDB()
-        current_user_index = UserService.get_user_by_username(current_user_id)
-        requester_user_index = UserService.get_user_by_username(requester_user_id)
+        current_user_index = UserService.get_user_index_by_username(current_user_id)
+        requester_user_index = UserService.get_user_index_by_username(requester_user_id)
 
         if current_user_index is None or requester_user_index is None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
@@ -282,14 +299,20 @@ class FollowerService:
         else:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Solicitação para seguir não encontrada")
 
+
     @staticmethod
     def set_profile_privacy(username: str, is_private: bool):
-      db = getDB()
-      user_index = UserService.get_user_by_username(username)
-      if user_index is None:
-          raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
+        db = getDB()
+        user_index = UserService.get_user_index_by_username(username)
+        if user_index is None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
 
-      db["user"][user_index]['is_private'] = is_private
-      saveDB(db)
-      return {"message": "Configurações de privacidade atualizadas"}
+        db["user"][user_index]['is_private'] = is_private
+        saveDB(db)
+        response = {"message": "Configurações de privacidade atualizadas"}
+        content = json.dumps(response)  # Serializa o dicionário 'response' para uma string JSON
+        return content
+
+
+
 

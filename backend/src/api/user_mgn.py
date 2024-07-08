@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, status
 from starlette.responses import JSONResponse
 from src.service.impl.user_mng_service import UserService, FollowerService
 from src.schemas.response import HttpResponseModel, HTTPResponses
-from src.schemas.user import UserModelUpd
+from src.schemas.user import UserModel
 
 router = APIRouter()
 
@@ -29,7 +29,7 @@ def get_user(userId: str):
     summary="Cadastrar Usuário",
     tags=["User"]
 )
-def create_user(user: UserModelUpd):
+def create_user(user: UserModel):
     response = UserService.add_user(user)
     return JSONResponse(
         content=response.model_dump(),
@@ -42,7 +42,7 @@ def create_user(user: UserModelUpd):
     summary="Atualizar dados do usuário",
     tags=["User"]
 )
-def update_user(userId: str, updated_user: UserModelUpd):
+def update_user(userId: str, updated_user: UserModel):
     response = UserService.edit_user(userId, updated_user)
     return JSONResponse(
         content=response.model_dump(),
@@ -102,10 +102,7 @@ def unfollow_user(target_user_id: str, current_user_id: str):
 )
 def accept_follow_request(requester_user_id: str, current_user_id: str):
     response = FollowerService.accept_follow_request(current_user_id, requester_user_id)
-    return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
-    )
+    return JSONResponse(content=response, status_code=status.HTTP_200_OK)
 
 @router.post(
     "/reject_follow_request/{requester_user_id}/{current_user_id}",
@@ -116,10 +113,8 @@ def accept_follow_request(requester_user_id: str, current_user_id: str):
 )
 def reject_follow_request(requester_user_id: str, current_user_id: str):
     response = FollowerService.reject_follow_request(current_user_id, requester_user_id)
-    return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
-    )
+    return JSONResponse(content=response, status_code=status.HTTP_200_OK)
+
 
 @router.put(
     "/set_profile_privacy/{username}",
@@ -129,10 +124,8 @@ def reject_follow_request(requester_user_id: str, current_user_id: str):
     tags=["Followers"],
 )
 def set_profile_privacy(username: str, is_private: bool):
-    response = FollowerService.set_profile_privacy(username, is_private)
-    return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
-    )
+    response_dict = FollowerService.set_profile_privacy(username, is_private)
+    return JSONResponse(content=response_dict, status_code=status.HTTP_200_OK)
+
 
 

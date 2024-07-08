@@ -69,7 +69,6 @@ class PostService:
 
 def create_random_user(user_name: str):
     return UserModel(
-        id= str(uuid4()),
         full_name= "string",
         username= user_name,
         email= "user@example.com",
@@ -78,5 +77,11 @@ def create_random_user(user_name: str):
         phone_number= "string",
         profile_picture= "string",
         address= "string",
-        gender= "string"
-        )
+        gender= "string",
+        pass_token= "string",
+        is_private= False,
+        followers= [],
+        following= [],
+        follow_requests= [],
+        assistidos= []
+    )

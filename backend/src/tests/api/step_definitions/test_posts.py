@@ -183,7 +183,7 @@ def clear_post_likes(post_id:str):
 @when(parsers.cfparse('a PUT request is sent to "{req_url}" from the user with ID "{user_id_}"'), 
     target_fixture="context"
 )
-def update_like(client, context, req_url: str,  user_id_:str):
+def update_like_status(client, context, req_url: str,  user_id_:str):
 
     response = client.put(req_url, params={"user_id": user_id_})
     

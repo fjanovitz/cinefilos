@@ -1,6 +1,6 @@
 from src.db.database import getDB, clearDB
 from pytest_bdd import parsers, given, when, then, scenario
-from src.service.impl.content_service import ContentService
+from src.service.impl.content_service import ContentService, filter_by_content_type
 from src.schemas.content import Movie
 
 
@@ -68,7 +68,7 @@ def check_json_status_code(context, message: str):
 def check_json_status_code(context, num_movies: str):
     db = getDB()
 
-    assert len(db["movies"]) == int(num_movies)
+    assert len(filter_by_content_type(db["contents"], "movies")) == int(num_movies)
 
     return context
 
@@ -141,7 +141,7 @@ def check_json_status_code(context, title: str):
     db = getDB()
 
     found = False
-    for content in db["movies"]:
+    for content in filter_by_content_type(db["contents"], "movies"):
         if content["title"] == title:
             found = True
 

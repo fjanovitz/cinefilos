@@ -53,7 +53,6 @@ def send_post_request_for_user(table, context):
 
     response = client.post("/user/create_user", json=user_details)
     context["response"] = response
-    print(response)
     return context
 
 @then(parsers.cfparse('the json status code is "{status_code}"'))

@@ -48,7 +48,6 @@ class AccountRecoveryService:
     @staticmethod
     def send_recovery_email(email: str, recovery_token: str):
         recovery_link = f"https://cinefilos.com/reset-password?token={recovery_token}"
-        print(f"Enviando e-mail de recuperação para {email}. Link: {recovery_link}")
         return recovery_link
 
     @staticmethod

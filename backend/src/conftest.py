@@ -2,6 +2,8 @@ import pytest
 from fastapi.testclient import TestClient
 from typing import Generator
 from src.main import app
+from src.db.database import getDB, saveDB
+database = None
 
 @pytest.fixture(scope="function")
 def client() -> Generator:
@@ -19,3 +21,19 @@ def context():
     """
     b = {}
     yield b
+
+def pytest_configure(config):
+    """
+    Allows plugins and conftest files to perform initial configuration.
+    This hook is called for every plugin and initial conftest
+    file after command line options have been parsed.
+    """
+    global database
+    database = getDB()
+
+def pytest_unconfigure(config):
+    """
+    called before test process is exited.
+    """
+    saveDB(database)
+    

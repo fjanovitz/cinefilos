@@ -2,8 +2,6 @@ from src.db.database import getDB, clearDB
 from pytest_bdd import parsers, given, when, then, scenario
 from src.service.impl.post_service import PostService, create_random_user
 from src.schemas.forum import Post
-from src.schemas.user import UserModel
-from src.schemas.content import Movie
 from src.api.posts import *
 from uuid import uuid4
 
@@ -14,7 +12,7 @@ def test_get_post_success():
     saveDB(db)
 
 @given(parsers.cfparse('Exists a post with ID "{post_id}", author "{post_author}", title "{post_title}" and content "{post_content}" in the database'))
-def mock_movie_service_creation(post_id: str, post_author: str, post_title: str, post_content: str):
+def mock_post_service_creation(post_id: str, post_author: str, post_title: str, post_content: str):
     db = getDB()
 
     post = Post(
@@ -185,7 +183,7 @@ def clear_post_likes(post_id:str):
 @when(parsers.cfparse('a PUT request is sent to "{req_url}" from the user with ID "{user_id_}"'), 
     target_fixture="context"
 )
-def add_like(client, context, req_url: str,  user_id_:str):
+def update_like_status(client, context, req_url: str,  user_id_:str):
 
     response = client.put(req_url, params={"user_id": user_id_})
     

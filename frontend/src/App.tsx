@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTest from "./app/home/pages/CreateTest";
 import ListTests from "./app/home/pages/ListTests";
+import ContentsPage from "./app/home/pages/ContentsPage";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: "/create-test",
     Component: CreateTest,
+  },
+  {
+    path: "/contents",
+    Component: ContentsPage,
   },
   {
     path: "/tests",

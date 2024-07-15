@@ -23,7 +23,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
       <Card style={{ width: '10rem', height: '18rem', margin: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '10px', background: "lightgray" }}>
         <Card.Img variant="top" src={content.banner} style={{ width: '10rem', height: '16rem', objectFit: 'cover', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
         <Card.Body>
-          <Card.Title style={{ textAlign: 'center' }}>{content.title}</Card.Title>
+          <Card.Title style={{ textAlign: 'center', textDecoration: 'none', color: 'black' }}>{content.title}</Card.Title>
         </Card.Body>
       </Card>
     </Link>

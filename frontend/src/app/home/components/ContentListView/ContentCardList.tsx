@@ -17,12 +17,13 @@ interface Content {
     director: string;
 }
 
-const ContentListView = () => {
+const ContentListView = ( { content_type }) => {
     const [contents, setContents] = useState<Content[]>(() => { return [] as Content[]; });
 
     const loadContents = async () => {
         try {
-            const response = await api.get('/contents');
+            console.log("content_type: ", content_type);
+            const response = await api.get(`/contents/${content_type}`);
             const newData = response.data.map((item: any) => {
                 return {
                     ...item
@@ -38,44 +39,46 @@ const ContentListView = () => {
     useEffect(() => {
         loadContents();
         console.log("batata", contents);
-  }, []);
+  }, [content_type]);
   
   return (
-    <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
-      <Row className="g-4" style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
-            {contents.map(
-                ({
-                    id,
-                    title,
-                    banner,
-                    content_type,
-                    synopsis,
-                    gender,
-                    release_year,
-                    rating,
-                    duration, 
-                    director
-                }) => (
-                    <Col key={id}>
-                        <ContentCard
-                        content={{
-                            id: id,
-                            title: title,
-                            banner: banner,
-                            content_type: content_type,
-                            synopsis: synopsis,
-                            gender: gender,
-                            release_year: release_year,
-                            rating: rating,
-                            duration: duration,
-                            director: director
-                            }}
-                        />
-                    </Col>
-                ), 
-            )}
-      </Row>
-    </Container>
+    <section>
+        <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
+            <Row className="g-4" style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
+                    {contents.map(
+                        ({
+                            id,
+                            title,
+                            banner,
+                            content_type,
+                            synopsis,
+                            gender,
+                            release_year,
+                            rating,
+                            duration, 
+                            director
+                        }) => (
+                            <Col key={id}>
+                                <ContentCard
+                                content={{
+                                    id: id,
+                                    title: title,
+                                    banner: banner,
+                                    content_type: content_type,
+                                    synopsis: synopsis,
+                                    gender: gender,
+                                    release_year: release_year,
+                                    rating: rating,
+                                    duration: duration,
+                                    director: director
+                                    }}
+                                />
+                            </Col>
+                        ), 
+                    )}
+            </Row>
+            </Container>
+    </section>
   );
 }
 

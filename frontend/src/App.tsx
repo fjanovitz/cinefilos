@@ -4,6 +4,8 @@ import ContentDetailsPage from "./app/home/pages/ContentDetailsPage";
 import ListTests from "./app/home/pages/ListTests";
 import ContentsPage from "./app/home/pages/ContentsPage";
 import Layout from "./app/home/components/Layout/Layout"; 
+import CreateReviewPage from "./app/home/pages/CreateReviewPage";
+import CreateContentPage from "./app/home/pages/CreateContentPage";
 
 const router = createBrowserRouter([
   {
@@ -15,8 +17,12 @@ const router = createBrowserRouter([
     element: <Layout><CreateTest /></Layout>,
   },
   {
-    path: "/contents",
-    element: <Layout><ContentsPage /></Layout>,
+    path: "/contents/movies",
+    element: <Layout><ContentsPage content_type = {"movies"} /></Layout>,
+  },
+  {
+    path: "/contents/tv_shows",
+    element: <Layout><ContentsPage content_type = {"tv_shows"} /></Layout>,
   },
   {
     path: "/contents/:content_type/:title",  
@@ -27,7 +33,12 @@ const router = createBrowserRouter([
     element: <Layout><ListTests /></Layout>,
   },
   {
-
+    path: "/contents/:content_type/:title/create_review",
+    element: <Layout><CreateReviewPage /></Layout>,
+  },
+  {
+    path: "/contents/:content_type/create_content",
+    element: <Layout><CreateContentPage /></Layout>,
   }
 ]);
 

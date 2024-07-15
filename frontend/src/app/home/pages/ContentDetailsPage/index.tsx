@@ -99,7 +99,10 @@ const ContentDetailsPage = () => {
             <div className={styles.reviewsHeader}>
               <div className={styles.titleAndButtonContainer}>
                 <h2>Avaliações</h2>
-                <button className={styles.addButton}>Adicione uma avaliação</button>
+                  <Link to = {{pathname: `/contents/${content?.content_type}/${content?.title}/create_review`}} 
+                        state = {{ content: content }} style={{ textDecoration: 'none' }}>
+                    <button className={styles.addButton}>Adicione uma avaliação</button>
+                  </Link>
               </div>
             </div>
             {reviews && reviews.length > 0 ? (
@@ -110,7 +113,9 @@ const ContentDetailsPage = () => {
                       Avaliação por
                     </div>
                     <div className={styles.reviewAuthorName}>
-                      <Link to={`/users/${review.username}`} style={{textDecoration: 'none', color: 'black', fontWeight: 'bold'}}>{review.username}</Link>
+                      <Link to={{
+                        pathname: `/users/${review.username}`, 
+                      }} style={{textDecoration: 'none', color: 'black', fontWeight: 'bold'}}>{review.username}</Link>
                     </div>
                   </div>
                   <p className={styles.reviewText}>{review.report}</p>

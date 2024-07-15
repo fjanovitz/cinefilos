@@ -132,7 +132,7 @@
 }
 
 .addButton {
-  margin-left: 10px; /* Ajusta a proximidade do botão em relação ao texto */
+  margin-left: 10px; 
   background-color: transparent;
   color: black;
   border: 2px solid black;
@@ -143,5 +143,5 @@
 }
 
 .addButton:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Adiciona um leve destaque ao passar o mouse */
+  background-color: rgba(0, 0, 0, 0.1); 
 }

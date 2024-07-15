@@ -5,10 +5,10 @@ const StarRating = ({ rating }) => {
 
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ marginRight: '8px' }}>{rating / 2}</span>
+            <span style={{ marginRight: '8px' }}>{(rating / 2).toFixed(1)}</span>
             {'★'.repeat(fullStar)}
             {halfStar > 0 && (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1">
                     <defs>
                         <linearGradient id="half-fill">
                             <stop offset="50%" stop-color="currentColor"/>

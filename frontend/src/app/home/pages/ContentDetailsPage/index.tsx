@@ -36,6 +36,7 @@ const ContentDetailsPage = () => {
   const [content, setContent] = useState<Content | null>(null);
   const [reviews, setReviews] = useState<Review[] | null>(null);
   const [rating, setRating] = useState<number>();
+  const [banner, setBanner] = useState<string>();
 
   const loadContentDetails = async (content_type, title) => {
     try {
@@ -43,21 +44,32 @@ const ContentDetailsPage = () => {
         const content_id = response_details.data.id;
         const response_reviews = await api.get(`/reviews/${content_type}/${content_id}`);
         const response_rating = await api.get(`/reviews/${content_type}/${content_id}/rating`);
+        
+        const api_key = '6e4aedb99caf78035a342129ca5f9116';
+        const urlBase = content_type === "movies" ? "movie" : content_type === "tv_shows" ? "tv" : "";
+        const url = `https://api.themoviedb.org/3/${urlBase}/${content_id}?api_key=${api_key}`;
+        const response_banner = await fetch(url);
+        const banner_data = await response_banner.json();
 
+        const bannerURL = banner_data && banner_data['poster_path'] ? `https://image.tmdb.org/t/p/original${banner_data['poster_path']}` : ''; 
+        
         const content = {
-            ...response_details.data
+          ...response_details.data
         };
         
         const reviews = response_reviews.data;
         const rating = response_rating.data;
+        const banner = bannerURL;
 
         console.log("ContentDetails: ", content);
         console.log("Reviews: ", reviews);
         console.log("Rating: ", rating);
+        console.log("Banner:", banner)
 
         setContent(content);
         setReviews(reviews);
         setRating(rating);
+        setBanner(banner);
     } catch (error) {
         console.error("Erro ao buscar conteúdo:", error);
     }
@@ -71,7 +83,7 @@ const ContentDetailsPage = () => {
     <div className={styles.pageContainer}>
       <div className={styles.container}>
         <div className={styles.banner}>
-          {content?.banner && <img src={content.banner} alt="Banner do filme" />}
+          {content?.banner && <img src={banner} alt="Banner do filme" />}
         </div>
         <div className={styles.contentDetails}>
         <div className={styles.card}>

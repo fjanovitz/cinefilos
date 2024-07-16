@@ -1,7 +1,7 @@
 from src.db.database import getDB, saveDB, clearDB
 from pytest_bdd import parsers, given, when, then, scenario
 from src.service.impl.content_service import ContentService
-from src.schemas.content import Movie
+from src.schemas.content import Movie, TvShow
 
 @scenario(scenario_name="Add movie to category", feature_name="../features/watch_list.feature")
 def test_add_movie_to_category():
@@ -17,16 +17,29 @@ def check_movie_title_not_found(client, title: str, category: str, username: str
 
 @given(parsers.cfparse('content with title "{title}", content_id "{content_id}", content type "{content_type}" is in the database'))
 def mock_movie_in_db(title: str, content_id: str, content_type: str):
-    ContentService.add_content(Movie(
-        id=content_id,
-        title=title, 
-        synopsis="random synopsis",
-        gender="random gender",
-        duration=0,
-        release_year=0,
-        director="random director",
-        main_cast=[]
-    ), content_type)
+    if content_type == "movies":
+        ContentService.add_content(Movie(
+            id=content_id,
+            title=title, 
+            synopsis="random synopsis",
+            gender="random gender",
+            duration=0,
+            release_year=0,
+            director="random director",
+            main_cast=[]
+        ), content_type)
+    elif content_type == "tv_shows":
+        ContentService.add_content(TvShow(
+            id=content_id,
+            title=title, 
+            synopsis="random synopsis",
+            gender="random gender",
+            num_seasons=0,
+            num_episodes=0,
+            creator="string",
+            release_year=0,
+            main_cast=[]
+        ), content_type)
 
 @when(
     parsers.cfparse('a POST request is sent to the list "{category}" of the user "{username}", content_id "{content_id}", content type "{content_type}"'),

@@ -68,7 +68,6 @@ def send_follow_request(client, prepare_users):
     response = client.post(
         f'/user/follow/{target_user_id}/{current_user_id}'
     )
-    print(response)
     return response
 
 @then('the json status code is "200"')

@@ -1,0 +1,33 @@
+/* Estilo do cabeçalho */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo da foto de perfil */
+  .profilePicture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo do nome do usuário */
+  .userName {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo da seção de reviews */
+  .reviewsSection {
+    margin-top: 20px;
+  }
+  
+  /* Estilo de cada review */
+  .review {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }

@@ -17,16 +17,21 @@ interface User {
 const UserProfile = () => {
   const [user, setUser] = useState<User | null>(null);
   const { userId } = useParams<{ userId: string }>();
-  const userIdString = userId as string;  // Type assertion
 
   useEffect(() => {
     const fetchUser = async () => {
-      const userData = await getUser(userIdString);  // Use userIdString
+      if (!userId) {
+        console.error('userId is undefined');
+        return;
+      }
+  
+      const userData = await getUser(userId);
       setUser(userData.data);
     };
-
+  
     fetchUser();
-  }, [userIdString]);  // Use userIdString
+  }, [userId]);
+  
 
   if (!user) {
     return <div>Loading...</div>;

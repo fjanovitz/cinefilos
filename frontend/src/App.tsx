@@ -48,8 +48,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/user/get_user/:userId",
-    element: <UserPage userId="yourUserId" />,
-  }  
+    element: <UserPage />,
+  }
+
 ]);
 
 export default function App() {

@@ -81,7 +81,7 @@ const ContentDetailsPage = () => {
         const banner = bannerURL;
         const genre = banner_data['genres'][0]['name'];
         const main_cast = credits_data['cast'].slice(0, 5)?.map(actor => actor['name']);
-        const where_to_watch = watchProvider_data['results']['BR']['flatrate']?.map(platform => platform['provider_name']);
+        const where_to_watch = watchProvider_data['results']['BR']?.['flatrate']?.map(platform => platform['provider_name']) || [];
         const director = credits_data['crew'].find(member => member['job'] === 'Director')?.['name'] || '';
 
         console.log("ContentDetails: ", content);

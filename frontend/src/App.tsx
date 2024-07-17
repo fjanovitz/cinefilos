@@ -6,6 +6,8 @@ import ContentsPage from "./app/home/pages/ContentsPage";
 import Layout from "./app/home/components/Layout/Layout"; 
 import CreateReviewPage from "./app/home/pages/CreateReviewPage";
 import CreateContentPage from "./app/home/pages/CreateContentPage";
+import RegistrationPage from "./app/home/pages/RegistrationPage";
+import UserPage from "./app/home/pages/UserPage";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,15 @@ const router = createBrowserRouter([
   {
     path: "/contents/:content_type/create_content",
     element: <Layout><CreateContentPage /></Layout>,
-  }
+  },
+  {
+    path: "/register",
+    element: <RegistrationPage />,
+  },
+  {
+    path: "/user/get_user/:userId",
+    element: <UserPage userId="yourUserId" />,
+  }  
 ]);
 
 export default function App() {

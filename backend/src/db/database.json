@@ -110,6 +110,24 @@
             "follow_requests": [],
             "assistidos": [],
             "id": "da93b947-8b1b-4bfe-8ffd-a7a17d7c9d4d"
+        },
+        {
+            "full_name": "Maria do carmo",
+            "username": "joao",
+            "email": "joao@outlook.com",
+            "password": "@Clebson1",
+            "birth_date": "2001-10-10",
+            "phone_number": "45754754745",
+            "profile_picture": null,
+            "address": "RUA BEL\u00c9M S\u00c3O FRANCISCO, 635",
+            "gender": "masculino",
+            "pass_token": null,
+            "is_private": false,
+            "followers": [],
+            "following": [],
+            "follow_requests": [],
+            "assistidos": [],
+            "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"
         }
     ],
     "posts": [],

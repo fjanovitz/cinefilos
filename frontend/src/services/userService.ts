@@ -11,3 +11,8 @@ export const getUser = async (userId: string) => {
   const response = await axios.get(`http://localhost:8000/user/get_user/${userId}`);
   return response.data;
 };
+
+export const updateUser = async (userId: string, updatedUser: any) => {
+  const response = await axios.put(`http://localhost:8000/user/update_user/${userId}`, updatedUser);
+  return response.data;
+};

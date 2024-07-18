@@ -8,6 +8,7 @@ import CreateReviewPage from "./app/home/pages/CreateReviewPage";
 import CreateContentPage from "./app/home/pages/CreateContentPage";
 import RegistrationPage from "./app/home/pages/RegistrationPage";
 import UserPage from "./app/home/pages/UserPage";
+import ResetPasswordPage from "./app/home/pages/ResetPasswordPage";
 
 const router = createBrowserRouter([
   {
@@ -49,8 +50,11 @@ const router = createBrowserRouter([
   {
     path: "/user/get_user/:userId",
     element: <UserPage />,
+  },
+  {
+    path: "/user/reset_password/:userId",
+    element: <ResetPasswordPage />,
   }
-
 ]);
 
 export default function App() {

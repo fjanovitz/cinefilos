@@ -8,6 +8,7 @@ import CreateReviewPage from "./app/home/pages/CreateReviewPage";
 import CreateContentPage from "./app/home/pages/CreateContentPage";
 import UpdateContentPage from "./app/home/pages/UpdateContentPage";
 import UserProfilePage from "./app/home/pages/ProfilePage";
+import UpdateReviewPage from "./app/home/pages/UpdateReviewPage";
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/profile/:username",
     element: <Layout><UserProfilePage /></Layout>,
+  },
+  {
+    path: "/profile/:username/:content_type/:content_title/update_review",
+    element: <Layout><UpdateReviewPage /></Layout>,
   }
 ]);
 

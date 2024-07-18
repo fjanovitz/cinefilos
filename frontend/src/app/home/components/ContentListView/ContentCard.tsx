@@ -33,6 +33,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
 				onMouseLeave={() => setIsHovered(false)} 
 			>
 				<Card.Img
+					data-cy={`content-item-${content.title}`}
 					variant="top"
 					src={content.banner}
 					className={styles.cardImg}

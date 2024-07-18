@@ -13,7 +13,6 @@ import EditUserInfoPage from "./app/home/pages/EditUserPage";
 import DeleteAccountPage from "./app/home/pages/DeleteAccountPage"
 import UpdateContentPage from "./app/home/pages/UpdateContentPage";
 import UserProfilePage from "./app/home/pages/ProfilePage";
-import UpdateReviewPage from "./app/home/pages/UpdateReviewPage";
 
 
 const router = createBrowserRouter([
@@ -80,6 +79,22 @@ const router = createBrowserRouter([
   {
     path: "/profile/:username/:content_type/:content_title/update_review",
     element: <Layout><UpdateReviewPage /></Layout>,
+  },
+  {
+    path: "/forum/feed",
+    element: <Layout><FeedPage /></Layout>,
+  },
+  {
+    path: "/forum/newpost",
+    element: <Layout><AddPostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID",
+    element: <Layout><PostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID/likes",
+    element: <Layout><LikesPage /></Layout>,
   }
 ]);
 

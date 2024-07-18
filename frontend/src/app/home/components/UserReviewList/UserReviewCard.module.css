@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    background-color: #f8f9fa; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    flex-direction: row;
+    float: left;
+    width: 100%;
+}
+
+.reviewContainer {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    flex: 2;
+    display: flex;
+    flex-direction: column; 
+}
+
+.titleupdateDeleteContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.updateDeleteContainer{
+    display: flex;
+    align-items: right;
+}
+
+.updateButton {
+    margin-left: 10px; 
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+  
+.updateButton:hover {
+    background-color: rgba(0, 0, 0, 0.1); 
+}

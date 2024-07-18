@@ -8,7 +8,10 @@ import CreateReviewPage from "./app/home/pages/CreateReviewPage";
 import CreateContentPage from "./app/home/pages/CreateContentPage";
 import UpdateContentPage from "./app/home/pages/UpdateContentPage";
 import UserProfilePage from "./app/home/pages/ProfilePage";
-
+import FeedPage from "./app/home/pages/FeedPage";
+import AddPostPage from "./app/home/pages/AddPostPage";
+import PostPage from "./app/home/pages/PostPage";
+import LikesPage from "./app/home/pages/LikesPage";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +53,22 @@ const router = createBrowserRouter([
   {
     path: "/profile/:username",
     element: <Layout><UserProfilePage /></Layout>,
+  },
+  {
+    path: "/forum/feed",
+    element: <Layout><FeedPage /></Layout>,
+  },
+  {
+    path: "/forum/newpost",
+    element: <Layout><AddPostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID",
+    element: <Layout><PostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID/likes",
+    element: <Layout><LikesPage /></Layout>,
   }
 ]);
 

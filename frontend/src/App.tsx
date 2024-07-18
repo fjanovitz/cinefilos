@@ -10,6 +10,7 @@ import RegistrationPage from "./app/home/pages/RegistrationPage";
 import UserPage from "./app/home/pages/UserPage";
 import ResetPasswordPage from "./app/home/pages/ResetPasswordPage";
 import EditUserInfoPage from "./app/home/pages/EditUserPage";
+import DeleteAccountPage from "./app/home/pages/DeleteAccountPage"
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,11 @@ const router = createBrowserRouter([
   {
     path: "/user/edit_user_info/:userId",
     element: <EditUserInfoPage />,
-  }  
+  },
+  {
+    path: "/user/delete_account/:userId",
+    element: <DeleteAccountPage />,
+  }    
 ]);
 
 export default function App() {

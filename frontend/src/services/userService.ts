@@ -19,4 +19,9 @@ export const updateUser = async (userId: string, updatedUser: any) => {
   return response.data;
 };
 
+export const deleteUser = async (userId: string, password: string) => {
+  const response = await axios.delete(`http://localhost:8000/user/delete_user/${userId}?password=${encodeURIComponent(password)}`);
+  return response.data;
+};
+
 

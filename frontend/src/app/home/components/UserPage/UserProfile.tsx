@@ -11,11 +11,13 @@ interface User {
   phone_number: string;
   address: string;
   gender: string;
+  following: string[];
 }
 
 const UserProfile = () => {
   const [user, setUser] = useState<User | null>(null);
   const [followUsername, setFollowUsername] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
@@ -46,6 +48,14 @@ const UserProfile = () => {
   
     followUser(userId, followUsername);
   };
+
+  const handleShowFollowing = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   
 
   if (!user) {
@@ -68,6 +78,16 @@ const UserProfile = () => {
         onChange={(e) => setFollowUsername(e.target.value)}
       />
       <button onClick={handleFollow}>Follow</button>
+      <button onClick={handleShowFollowing}>Show Following</button>
+      {showModal && (
+        <div className={styles.modal}>
+          <h2>Following</h2>
+          {user.following.map((username) => (
+            <p key={username}>{username}</p>
+          ))}
+          <button onClick={handleCloseModal}>Close</button>
+        </div>
+      )}
     </div>
   );
 };

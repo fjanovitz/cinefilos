@@ -10,7 +10,7 @@ const Header: React.FC = () => {
       <nav style={{ flex: 2, display: 'flex', justifyContent: 'center', gap: '20px' }}>
         <Link to="/contents/movies" style={{textDecoration: 'none', color: 'white'}} >Filmes</Link>
         <Link to="/contents/tv_shows" style={{textDecoration: 'none', color: 'white'}} >Séries</Link>
-        <Link to="/tests" style={{textDecoration: 'none', color: 'white'}} >Posts</Link>
+        <Link to="/forum/feed" style={{textDecoration: 'none', color: 'white'}} >Posts</Link>
       </nav>
       <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', margin: '5px', gap: '10px' }}>
         <Link to="/profile" style={{textDecoration: 'none', color: 'white'}} > Nome do Usuário </Link>

@@ -17,6 +17,7 @@
 
 .banner img {
   width: 100%;
+  padding: 20;
   max-width: 500px; 
   height: auto; 
   object-fit: cover; 

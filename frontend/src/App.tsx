@@ -6,6 +6,9 @@ import ContentsPage from "./app/home/pages/ContentsPage";
 import Layout from "./app/home/components/Layout/Layout"; 
 import CreateReviewPage from "./app/home/pages/CreateReviewPage";
 import CreateContentPage from "./app/home/pages/CreateContentPage";
+import UpdateContentPage from "./app/home/pages/UpdateContentPage";
+import UserProfilePage from "./app/home/pages/ProfilePage";
+
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,14 @@ const router = createBrowserRouter([
   {
     path: "/contents/:content_type/create_content",
     element: <Layout><CreateContentPage /></Layout>,
+  },
+  {
+    path: "/contents/:content_type/:title/update_content",
+    element: <Layout><UpdateContentPage /></Layout>,
+  },
+  {
+    path: "/profile/:username",
+    element: <Layout><UserProfilePage /></Layout>,
   }
 ]);
 

@@ -1,11 +1,12 @@
 import styles from "./index.module.css";
 import {AxiosError} from 'axios';
 import api from '/src/services/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
 
 interface Movie {
+    id: string;
     title: string;
     synopsis: string;
     gender: string;
@@ -20,6 +21,7 @@ interface Movie {
 }
 
 interface TvShow {
+    id: string;
     title: string;
     synopsis: string;
     gender: string;
@@ -34,21 +36,50 @@ interface TvShow {
     creator: string;
 }
 
-const CreateContentPage = () => {
+const UpdateContentPage = () => {
     const navigate = useNavigate();
-    const { content_type } = useParams<{ content_type: string; }>();
-    const [titulo, setTitulo] = useState('');
-    const [sinopse, setSinopse] = useState('');
-    const [genero, setGenero] = useState('');
-    const [elenco_principal, setElencoPrincipal] = useState('');
-    const [ano_lancamento, setAnoLancamento] = useState('');
-    const [onde_assistir, setOndeAssistir] = useState('');
-    const [duracao, setDuracao] = useState('');
-    const [diretor, setDiretor] = useState('');
-    const [num_episodios, setNumEpisodios] = useState('');
-    const [num_temporadas, setNumTemporadas] = useState('');
-    const [criador, setCriador] = useState('');
+    const { content_type, title } = useParams<{ content_type: string; title: string}>();
+    const [id, setId] = useState('');
+    const [_title, setTitle] = useState('');
+    const [synopsis, setSynopsis] = useState('');
+    const [gender, setGender] = useState('');
+    const [main_cast, setMainCast] = useState('');
+    const [release_year, setReleaseYear] = useState('');
+    const [where_to_watch, setWhereToWatch] = useState('');
+    const [duration, setDuration] = useState('');
+    const [director, setDirector] = useState('');
+    const [num_episodes, setNumEpisodes] = useState('');
+    const [num_seasons, setNumSeasons] = useState('');
+    const [creator, setCreator] = useState('');
     const [banner, setBanner] = useState('');
+
+    const LoadContentInfo = async (content_type, title) => {
+        try {
+            const response = await api.get(`/contents/${content_type}/${title}`);
+            const content = response.data;
+            setId(content.id);
+            setTitle(content.title);
+            setSynopsis(content.synopsis);
+            setGender(content.gender);
+            setMainCast(content.main_cast.join(", "));
+            setReleaseYear(content.release_year);
+            setWhereToWatch(content.where_to_watch.join(", "));
+            setDuration(content.duration);
+            setDirector(content.director);
+            setNumEpisodes(content.num_episodes);
+            setNumSeasons(content.num_seasons);
+            setCreator(content.creator);
+            setBanner(content.banner);
+            
+        }
+        catch (error) {
+            console.log("Ocorreu um erro ao carregar as informações do conteudo. Tente novamente.");
+        }
+    }
+
+    useEffect(() => {
+        LoadContentInfo(content_type, title);
+    }, []);
 
 
     const handleSubmit = async (e) => {
@@ -58,51 +89,52 @@ const CreateContentPage = () => {
         try {
             if (content_type == 'movies') {
                 const movie: Movie = {
-                    title: titulo,
-                    synopsis: sinopse,
-                    gender: genero,
-                    main_cast: [elenco_principal],
-                    release_year: Number(ano_lancamento),
+                    id: id,
+                    title: _title,
+                    synopsis: synopsis,
+                    gender: gender,
+                    main_cast: main_cast.split(","),
+                    release_year: Number(release_year),
                     banner: banner,
-                    where_to_watch: [onde_assistir],
+                    where_to_watch: where_to_watch.split(","),
                     rating: 0,
                     content_type: "movies",
-                    duration: Number(duracao),
-                    director: diretor
+                    duration: Number(duration),
+                    director: director
                 }
     
-                const response = await api.post('/contents/movies', movie);
-                console.log("response: ", response);
-                navigate(-1); 
+                const response = await api.put(`/contents/movies/${title}`, movie);
+                console.log("put response", response)
+                navigate(`/contents/movies/${_title}`); 
             }
             else{
                 const tv_show: TvShow = {
-                    title: titulo,
-                    synopsis: sinopse,
-                    gender: genero,
-                    main_cast: [elenco_principal],
-                    release_year: Number(ano_lancamento),
+                    id: id,
+                    title: _title,
+                    synopsis: synopsis,
+                    gender: gender,
+                    main_cast: main_cast.split(","),
+                    release_year: Number(release_year),
                     banner: banner,
-                    where_to_watch: [onde_assistir],
+                    where_to_watch: where_to_watch.split(","),
                     rating: 0,
                     content_type: "tv_shows",
-                    num_episodes: Number(num_episodios),
-                    num_seasons: Number(num_temporadas),
-                    creator: criador
+                    num_episodes: Number(num_episodes),
+                    num_seasons: Number(num_seasons),
+                    creator: creator
                 }
     
-                const response = await api.post('/contents/tv_shows', tv_show);
-                console.log("response: ", response);
-                navigate(-1); 
+                await api.put(`/contents/tv_shows/${title}`, tv_show);
+                navigate(`/contents/tv_shows/${_title}`); 
             }
         }
         catch (error) {
             const axiosError = error as AxiosError;
+            console.log(error)
             if (axiosError.response && axiosError.response.status === 422) {
-                alert("O conteudo já existe no banco de dados.");
-                navigate(-1);
+                alert("Alguma informação está inválida. Verifique os campos e tente novamente");
             } else {
-                alert("Ocorreu um erro ao criar seu conteudo. Tente novamente.");
+                alert("Ocorreu um erro ao editar seu conteudo. Tente novamente.");
             }
         }
     };
@@ -117,20 +149,20 @@ const CreateContentPage = () => {
                   <Form.Control
                     className={styles.formControl}
                     type="text"
-                    value={titulo}
-                    onChange={(e) => setTitulo(e.target.value)}
+                    value={_title}
+                    onChange={(e) => setTitle(e.target.value)}
                     required
                   />
                 </Form.Group>
 
                 <Form.Group className={styles.formGroup}>
-                  <Form.Label className={styles.formLabel}>Sinopse</Form.Label>
+                  <Form.Label className={styles.formLabel}>synopsis</Form.Label>
                   <Form.Control
                     className={styles.formControl}
                     as="textarea"
                     rows={3}
-                    value={sinopse}
-                    onChange={(e) => setSinopse(e.target.value)}
+                    value={synopsis}
+                    onChange={(e) => setSynopsis(e.target.value)}
                     required
                   />
                 </Form.Group>
@@ -140,8 +172,8 @@ const CreateContentPage = () => {
                   <Form.Control
                     className={styles.formControl}
                     type="text"
-                    value={genero}
-                    onChange={(e) => setGenero(e.target.value)}
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
                     required
                   />
                 </Form.Group>
@@ -151,8 +183,8 @@ const CreateContentPage = () => {
                   <Form.Control
                     className={styles.formControl}
                     type="text"
-                    value={elenco_principal}
-                    onChange={(e) => setElencoPrincipal(e.target.value)}
+                    value={main_cast}
+                    onChange={(e) => setMainCast(e.target.value)}
                     required
                   />
                 </Form.Group>
@@ -162,8 +194,8 @@ const CreateContentPage = () => {
                   <Form.Control
                     className={styles.formControl}
                     type="text"
-                    value={ano_lancamento}
-                    onChange={(e) => setAnoLancamento(e.target.value)}
+                    value={release_year}
+                    onChange={(e) => setReleaseYear(e.target.value)}
                     required
                   />
                 </Form.Group>
@@ -173,9 +205,8 @@ const CreateContentPage = () => {
                   <Form.Control
                     className={styles.formControl}
                     type="text"
-                    value={onde_assistir}
-                    onChange={(e) => setOndeAssistir(e.target.value)}
-                    required
+                    value={where_to_watch}
+                    onChange={(e) => setWhereToWatch(e.target.value)}
                   />
                 </Form.Group>
 
@@ -185,8 +216,8 @@ const CreateContentPage = () => {
                         <Form.Control
                         className={styles.formControl}
                         type="text"
-                        value={duracao}
-                        onChange={(e) => setDuracao(e.target.value)}
+                        value={duration}
+                        onChange={(e) => setDuration(e.target.value)}
                         required
                         />
                     </Form.Group>
@@ -194,12 +225,12 @@ const CreateContentPage = () => {
 
                 {content_type == 'movies' && (
                     <Form.Group className={styles.formGroup}>
-                        <Form.Label className={styles.formLabel}>Diretor do filme</Form.Label>
+                        <Form.Label className={styles.formLabel}>director do filme</Form.Label>
                         <Form.Control
                         className={styles.formControl}
                         type="text"
-                        value={diretor}
-                        onChange={(e) => setDiretor(e.target.value)}
+                        value={director}
+                        onChange={(e) => setDirector(e.target.value)}
                         required
                         />
                     </Form.Group>
@@ -211,8 +242,8 @@ const CreateContentPage = () => {
                         <Form.Control
                         className={styles.formControl}
                         type="text"
-                        value={num_episodios}
-                        onChange={(e) => setNumEpisodios(e.target.value)}
+                        value={num_episodes}
+                        onChange={(e) => setNumEpisodes(e.target.value)}
                         required
                         />
                     </Form.Group>
@@ -224,8 +255,8 @@ const CreateContentPage = () => {
                         <Form.Control
                         className={styles.formControl}
                         type="text"
-                        value={num_temporadas}
-                        onChange={(e) => setNumTemporadas(e.target.value)}
+                        value={num_seasons}
+                        onChange={(e) => setNumSeasons(e.target.value)}
                         required
                         />
                     </Form.Group>
@@ -233,22 +264,22 @@ const CreateContentPage = () => {
 
                 {content_type == 'tv_shows' && (
                     <Form.Group className={styles.formGroup}>
-                        <Form.Label className={styles.formLabel}>Criador da Série</Form.Label>
+                        <Form.Label className={styles.formLabel}>creator da Série</Form.Label>
                         <Form.Control
                         className={styles.formControl}
                         type="text"
-                        value={criador}
-                        onChange={(e) => setCriador(e.target.value)}
+                        value={creator}
+                        onChange={(e) => setCreator(e.target.value)}
                         required
                         />
                     </Form.Group>
                 )}
 
                 <Form.Group className={styles.formGroup}>
-                    <Form.Label className={styles.formLabel}>URL Do banner</Form.Label>
+                    <Form.Label className={styles.formLabel}>URL do Banner</Form.Label>
                     <Form.Control
                         className={styles.formControl}
-                        type="string"
+                        type="text"
                         value={banner}
                         onChange={(e) => setBanner(e.target.value)}
                         required
@@ -265,4 +296,4 @@ const CreateContentPage = () => {
       );
 };
 
-export default CreateContentPage;
+export default UpdateContentPage;

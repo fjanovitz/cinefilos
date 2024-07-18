@@ -2,7 +2,7 @@ from src.schemas.content import Content
 from src.db.database import getDB, saveDB
 
 def filter_by_content_type(contents: list, content_type: str):
-    return [content for content in contents if content["content_type"] == content_type]
+    return [content for content in reversed(contents) if content["content_type"] == content_type]
 
 class ContentService:
     @staticmethod

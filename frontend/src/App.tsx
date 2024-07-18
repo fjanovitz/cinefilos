@@ -9,6 +9,7 @@ import CreateContentPage from "./app/home/pages/CreateContentPage";
 import RegistrationPage from "./app/home/pages/RegistrationPage";
 import UserPage from "./app/home/pages/UserPage";
 import ResetPasswordPage from "./app/home/pages/ResetPasswordPage";
+import EditUserInfoPage from "./app/home/pages/EditUserPage";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,11 @@ const router = createBrowserRouter([
   {
     path: "/user/reset_password/:userId",
     element: <ResetPasswordPage />,
-  }
+  },
+  {
+    path: "/user/edit_user_info/:userId",
+    element: <EditUserInfoPage />,
+  }  
 ]);
 
 export default function App() {

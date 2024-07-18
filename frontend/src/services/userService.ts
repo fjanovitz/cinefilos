@@ -13,6 +13,10 @@ export const getUser = async (userId: string) => {
 };
 
 export const updateUser = async (userId: string, updatedUser: any) => {
+  console.log(updatedUser)
+  console.log("acima")
   const response = await axios.put(`http://localhost:8000/user/update_user/${userId}`, updatedUser);
   return response.data;
 };
+
+

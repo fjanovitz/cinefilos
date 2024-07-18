@@ -40,6 +40,24 @@ async def get_tv_show_by_title(tv_show_title: str):
 
     return tv_show
 
+@router.get("/movies/by_id/{movie_id}", status_code=200, tags=["movie"], response_model=Movie)
+async def get_movie_by_id(movie_id: str):
+    movie = ContentService.get_content_by_id(movie_id, "movies")
+    
+    if movie is None:
+        raise HTTPException(status_code=404, detail="No movie with this id found in the database")
+    
+    return movie
+
+@router.get("/tv_shows/by_id/{tv_show_id}", status_code=200, tags=["tv show"], response_model=TvShow)
+async def get_tv_show_by_id(tv_show_id: str):
+    tv_show = ContentService.get_content_by_id(tv_show_id, "tv_shows")
+    
+    if tv_show is None:
+        raise HTTPException(status_code=404, detail="No tv show with this id found in the database")
+
+    return tv_show
+
 @router.get("/movies", status_code=200, tags=["movie"], response_model=list[Movie])
 async def get_movies():
     movies = ContentService.get_contents("movies")

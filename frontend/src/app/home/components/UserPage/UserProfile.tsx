@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getUser, followUser } from '../../../../services/userService';
+import { getUser, followUser, unfollowUser } from '../../../../services/userService'; // Import unfollowUser
 import styles from '../../pages/UserPage/index.module.css';
 import { useParams } from 'react-router-dom';
 
@@ -49,6 +49,15 @@ const UserProfile = () => {
     followUser(userId, followUsername);
   };
 
+  const handleUnfollow = async (usernameToUnfollow: string) => {
+    if (!userId) {
+      console.error('User ID is undefined');
+      return;
+    }
+  
+    unfollowUser(userId, usernameToUnfollow);
+  };
+
   const handleShowFollowing = () => {
     setShowModal(true);
   };
@@ -83,7 +92,10 @@ const UserProfile = () => {
         <div className={styles.modal}>
           <h2>Following</h2>
           {user.following.map((username) => (
-            <p key={username}>{username}</p>
+            <div key={username}>
+              <p>{username}</p>
+              <button onClick={() => handleUnfollow(username)}>Unfollow</button>
+            </div>
           ))}
           <button onClick={handleCloseModal}>Close</button>
         </div>

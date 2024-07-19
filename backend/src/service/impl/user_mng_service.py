@@ -199,16 +199,16 @@ class FollowerService:
         target_user = db["user"][target_user_index]
 
         if target_user['is_private']:
-            if current_user['username'] not in target_user['follow_requests']:
-                target_user['follow_requests'].append(current_user['username'])
+            if current_user['id'] not in target_user['follow_requests']:
+                target_user['follow_requests'].append(current_user['id'])
                 saveDB(db)
                 return {"message": "Solicitação para seguir enviada com sucesso"}
             else:
                 raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Solicitação já foi enviada")
         else:
-            if current_user['username'] not in target_user['followers']:
-                target_user['followers'].append(current_user['username'])
-                current_user['following'].append(target_user['username'])
+            if current_user['id'] not in target_user['followers']:
+                target_user['followers'].append(current_user['id'])
+                current_user['following'].append(target_user['id'])
                 saveDB(db)
                 return {"message": "Agora você está seguindo o usuário"}
             else:
@@ -218,11 +218,14 @@ class FollowerService:
     def unfollow_user(current_user_id: str, target_user_id: str):
         db = getDB()
 
-        if target_user_id is None or current_user_id is None:
+        current_user_index = UserService.get_user_index_by_username(current_user_id)
+        target_user_index = UserService.get_user_index_by_username(target_user_id)
+
+        if target_user_index is None or current_user_index is None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
         
-        current_user = db["user"][current_user_id]
-        target_user = db["user"][target_user_id]
+        current_user = db["user"][current_user_index]
+        target_user = db["user"][target_user_index]
 
         if current_user['id'] in target_user['followers']:
             target_user['followers'].remove(current_user['id'])
@@ -244,13 +247,14 @@ class FollowerService:
     @staticmethod
     def accept_follow_request(current_user_id: str, requester_user_id: str):
         db = getDB()
+        current_user_index = UserService.get_user_index_by_username(current_user_id)
+        requester_user_index = UserService.get_user_index_by_username(requester_user_id)
 
-
-        if requester_user_id is None or current_user_id is None:
+        if requester_user_index is None or current_user_index is None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
 
-        current_user = db["user"][current_user_id]
-        requester_user = db["user"][requester_user_id]
+        current_user = db["user"][current_user_index]
+        requester_user = db["user"][requester_user_index]
 
         if requester_user['id'] in current_user['follow_requests']:
             current_user['follow_requests'].remove(requester_user['id'])
@@ -264,12 +268,14 @@ class FollowerService:
     @staticmethod
     def reject_follow_request(current_user_id: str, requester_user_id: str):
         db = getDB()
+        current_user_index = UserService.get_user_index_by_username(current_user_id)
+        requester_user_index = UserService.get_user_index_by_username(requester_user_id)
 
-        if current_user_id is None or requester_user_id is None:
+        if current_user_index is None or requester_user_index is None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
 
-        current_user = db["user"][current_user_id]
-        requester_user = db["user"][requester_user_id]
+        current_user = db["user"][current_user_index]
+        requester_user = db["user"][requester_user_index]
 
         if requester_user['id'] in current_user['follow_requests']:
             current_user['follow_requests'].remove(requester_user['id'])

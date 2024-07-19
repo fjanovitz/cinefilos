@@ -88,16 +88,14 @@
             "pass_token": "string",
             "is_private": false,
             "followers": [],
-            "following": [
-                "clebssso"
-            ],
+            "following": [],
             "follow_requests": [],
             "assistidos": [],
             "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
         },
         {
             "full_name": "Jose Clebson de Souza Oliveira",
-            "username": "clebssso",
+            "username": "clebson",
             "email": "clebsonsouza55@outlook.com",
             "password": "@Clebson1",
             "birth_date": "2001-10-10",
@@ -107,9 +105,7 @@
             "profile_picture": null,
             "pass_token": null,
             "is_private": false,
-            "followers": [
-                "Souza"
-            ],
+            "followers": [],
             "following": [],
             "follow_requests": [],
             "assistidos": [],

@@ -86,7 +86,7 @@
             "address": "nao sei",
             "gender": "masc",
             "pass_token": "string",
-            "is_private": false,
+            "is_private": true,
             "followers": [],
             "following": [
                 "clebson"
@@ -111,7 +111,9 @@
                 "Souza"
             ],
             "following": [],
-            "follow_requests": [],
+            "follow_requests": [
+                "Souza"
+            ],
             "assistidos": [],
             "id": "da93b947-8b1b-4bfe-8ffd-a7a17d7c9d4d"
         },

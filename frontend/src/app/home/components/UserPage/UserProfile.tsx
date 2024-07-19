@@ -14,12 +14,14 @@ interface User {
   following: string[];
   follow_requests: string[];
   followers: string[];
+  is_private: boolean;
 }
 
 const UserProfile = () => {
   const [user, setUser] = useState<User | null>(null);
   const [followUsername, setFollowUsername] = useState('');
-  const [showModal, setShowModal] = useState(false);
+  const [showFollowingModal, setShowFollowingModal] = useState(false);
+  const [showFollowRequestsModal, setShowFollowRequestsModal] = useState(false);
   const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
@@ -128,11 +130,16 @@ const UserProfile = () => {
   };
 
   const handleShowFollowing = () => {
-    setShowModal(true);
+    setShowFollowingModal(true);
+  };
+
+  const handleShowFollowRequests = () => {
+    setShowFollowRequestsModal(true);
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
+    setShowFollowingModal(false);
+    setShowFollowRequestsModal(false);
   };
   
 
@@ -157,7 +164,20 @@ const UserProfile = () => {
       />
       <button onClick={handleFollow}>Follow</button>
       <button onClick={handleShowFollowing}>Show Following</button>
-      {showModal && (
+      {user.is_private && <button onClick={handleShowFollowRequests}>Show Follow Requests</button>}
+      {showFollowingModal && (
+        <div className={styles.modal}>
+          <h2>Following</h2>
+          {user.following.map((username) => (
+            <div key={username}>
+              <p>{username}</p>
+              <button onClick={() => handleUnfollow(username)}>Unfollow</button>
+            </div>
+          ))}
+          <button onClick={handleCloseModal}>Close</button>
+        </div>
+      )}
+      {showFollowRequestsModal && (
         <div className={styles.modal}>
           <h2>Follow Requests</h2>
           {user.follow_requests.map((username) => (
@@ -165,13 +185,6 @@ const UserProfile = () => {
               <p>{username}</p>
               <button onClick={() => handleAcceptFollowRequest(username)}>Accept</button>
               <button onClick={() => handleRejectFollowRequest(username)}>Reject</button>
-            </div>
-          ))}
-          <h2>Following</h2>
-          {user.following.map((username) => (
-            <div key={username}>
-              <p>{username}</p>
-              <button onClick={() => handleUnfollow(username)}>Unfollow</button>
             </div>
           ))}
           <button onClick={handleCloseModal}>Close</button>

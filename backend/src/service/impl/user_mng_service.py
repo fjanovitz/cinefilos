@@ -227,9 +227,9 @@ class FollowerService:
         current_user = db["user"][current_user_index]
         target_user = db["user"][target_user_index]
 
-        if current_user['id'] in target_user['followers']:
-            target_user['followers'].remove(current_user['id'])
-            current_user['following'].remove(target_user['id'])
+        if current_user['username'] in target_user['followers']:
+            target_user['followers'].remove(current_user['username'])
+            current_user['following'].remove(target_user['username'])
             saveDB(db)
             
             response = {

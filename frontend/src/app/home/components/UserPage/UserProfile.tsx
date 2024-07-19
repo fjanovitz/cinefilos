@@ -55,7 +55,19 @@ const UserProfile = () => {
       return;
     }
   
-    unfollowUser(userId, usernameToUnfollow);
+    await unfollowUser(userId, usernameToUnfollow);
+
+    // Update the state of the component
+    setUser((prevUser) => {
+      if (prevUser) {
+        return {
+          ...prevUser,
+          following: prevUser.following.filter(username => username !== usernameToUnfollow),
+        };
+      } else {
+        return null;
+      }
+    });
   };
 
   const handleShowFollowing = () => {

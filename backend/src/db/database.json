@@ -88,7 +88,9 @@
             "pass_token": "string",
             "is_private": false,
             "followers": [],
-            "following": [],
+            "following": [
+                "clebson"
+            ],
             "follow_requests": [],
             "assistidos": [],
             "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
@@ -105,7 +107,9 @@
             "profile_picture": null,
             "pass_token": null,
             "is_private": false,
-            "followers": [],
+            "followers": [
+                "Souza"
+            ],
             "following": [],
             "follow_requests": [],
             "assistidos": [],

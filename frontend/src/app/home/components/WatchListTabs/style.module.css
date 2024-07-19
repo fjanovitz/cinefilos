@@ -13,7 +13,7 @@
     padding: 0;
     cursor: pointer;
     
-    transition: color .25s;
+    transition: color .25s, font-weight .25s;
 }
 
 .tabButton {
@@ -21,11 +21,14 @@
 }
 
 .selectedButton {
-    background-color: rgba(1, 1, 1, 0.45);
+    /* background-color: rgba(1, 1, 1, 0.45); */
+    background-color: #f4d30b;
 }
 
 .selectedButton button {
-    color: #f4d30b;
+    /* color: #f4d30b; */
+    color: white;
+    font-weight: 600;
 }
 
 .tabsContainer {

@@ -45,4 +45,10 @@ export const rejectFollowRequest = async (currentUserId: string, requesterUserna
   return response.data;
 };
 
+export const setProfilePrivacy = async (username: string, is_private: boolean) => {
+  const response = await axios.post(`http://localhost:8000/user/set_profile_privacy/${username}?is_private=${is_private}`);
+  return response.data;
+};
+
+
 

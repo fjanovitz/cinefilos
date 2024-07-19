@@ -127,6 +127,7 @@ def reject_follow_request(requester_user_id: str, current_user_id: str):
 )
 def set_profile_privacy(username: str, is_private: bool):
     response_dict = FollowerService.set_profile_privacy(username, is_private)
+    print(response_dict)
     return JSONResponse(content=response_dict, status_code=status.HTTP_200_OK)
 
 

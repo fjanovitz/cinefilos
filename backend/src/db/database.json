@@ -86,7 +86,7 @@
             "address": "nao sei",
             "gender": "masc",
             "pass_token": "string",
-            "is_private": true,
+            "is_private": false,
             "followers": [],
             "following": [
                 "clebson"
@@ -106,7 +106,7 @@
             "gender": "masculino",
             "profile_picture": null,
             "pass_token": null,
-            "is_private": true,
+            "is_private": false,
             "followers": [
                 "Souza"
             ],

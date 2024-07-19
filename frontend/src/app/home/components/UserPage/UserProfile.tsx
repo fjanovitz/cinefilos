@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getUser, followUser, unfollowUser, acceptFollowRequest, rejectFollowRequest } from '../../../../services/userService';
+import { getUser, followUser, unfollowUser, acceptFollowRequest, rejectFollowRequest, setProfilePrivacy } from '../../../../services/userService';
 import styles from '../../pages/UserPage/index.module.css';
 import { useParams } from 'react-router-dom';
 
@@ -141,6 +141,33 @@ const UserProfile = () => {
     setShowFollowingModal(false);
     setShowFollowRequestsModal(false);
   };
+
+  const handleSwitchMode = async () => {
+    if (!userId) {
+      console.error('User ID is undefined');
+      return;
+    }
+  
+    if (!user) {
+      console.error('User is null');
+      return;
+    }
+  
+    const result = await setProfilePrivacy(userId, !user.is_private);
+    if (result) {
+      setUser((prevUser) => {
+        if (prevUser) {
+          return {
+            ...prevUser,
+            is_private: !prevUser.is_private,
+          };
+        } else {
+          return null;
+        }
+      });
+    }
+  };
+  
   
 
   if (!user) {
@@ -156,6 +183,8 @@ const UserProfile = () => {
       <p>Phone Number: {user.phone_number}</p>
       <p>Address: {user.address}</p>
       <p>Gender: {user.gender}</p>
+      <p>Account Mode: {user.is_private ? 'Private' : 'Public'}</p>
+      <button onClick={handleSwitchMode}>Switch Mode</button>
       <input
         type="text"
         placeholder="Enter username to follow"

@@ -35,4 +35,14 @@ export const unfollowUser = async (currentUserId: string, targetUsername: string
   return response.data;
 };
 
+export const acceptFollowRequest = async (currentUserId: string, requesterUsername: string) => {
+  const response = await axios.post(`http://localhost:8000/user/accept_follow_request/${requesterUsername}/${currentUserId}`);
+  return response.data;
+};
+
+export const rejectFollowRequest = async (currentUserId: string, requesterUsername: string) => {
+  const response = await axios.post(`http://localhost:8000/user/reject_follow_request/${requesterUsername}/${currentUserId}`);
+  return response.data;
+};
+
 

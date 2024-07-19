@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getUser, followUser, unfollowUser } from '../../../../services/userService'; // Import unfollowUser
+import { getUser, followUser, unfollowUser, acceptFollowRequest, rejectFollowRequest } from '../../../../services/userService';
 import styles from '../../pages/UserPage/index.module.css';
 import { useParams } from 'react-router-dom';
 
@@ -12,6 +12,8 @@ interface User {
   address: string;
   gender: string;
   following: string[];
+  follow_requests: string[];
+  followers: string[];
 }
 
 const UserProfile = () => {
@@ -41,13 +43,25 @@ const UserProfile = () => {
     }
   
     if (!userId) {
-      console.log("aqui mermo")
       console.error('User ID is undefined');
       return;
     }
   
-    followUser(userId, followUsername);
+    const result = await followUser(userId, followUsername);
+    if (result) {
+      setUser((prevUser) => {
+        if (prevUser) {
+          return {
+            ...prevUser,
+            following: [...prevUser.following, followUsername],
+          };
+        } else {
+          return null;
+        }
+      });
+    }
   };
+  
 
   const handleUnfollow = async (usernameToUnfollow: string) => {
     if (!userId) {
@@ -63,6 +77,49 @@ const UserProfile = () => {
         return {
           ...prevUser,
           following: prevUser.following.filter(username => username !== usernameToUnfollow),
+        };
+      } else {
+        return null;
+      }
+    });
+  };
+
+  const handleAcceptFollowRequest = async (requesterUsername: string) => {
+    if (!userId) {
+      console.error('User ID is undefined');
+      return;
+    }
+  
+    await acceptFollowRequest(userId, requesterUsername);
+
+    // Update the state of the component
+    setUser((prevUser) => {
+      if (prevUser) {
+        return {
+          ...prevUser,
+          follow_requests: prevUser.follow_requests.filter(username => username !== requesterUsername),
+          followers: [...prevUser.followers, requesterUsername],
+        };
+      } else {
+        return null;
+      }
+    });
+  };
+
+  const handleRejectFollowRequest = async (requesterUsername: string) => {
+    if (!userId) {
+      console.error('User ID is undefined');
+      return;
+    }
+  
+    await rejectFollowRequest(userId, requesterUsername);
+
+    // Update the state of the component
+    setUser((prevUser) => {
+      if (prevUser) {
+        return {
+          ...prevUser,
+          follow_requests: prevUser.follow_requests.filter(username => username !== requesterUsername),
         };
       } else {
         return null;
@@ -102,6 +159,14 @@ const UserProfile = () => {
       <button onClick={handleShowFollowing}>Show Following</button>
       {showModal && (
         <div className={styles.modal}>
+          <h2>Follow Requests</h2>
+          {user.follow_requests.map((username) => (
+            <div key={username}>
+              <p>{username}</p>
+              <button onClick={() => handleAcceptFollowRequest(username)}>Accept</button>
+              <button onClick={() => handleRejectFollowRequest(username)}>Reject</button>
+            </div>
+          ))}
           <h2>Following</h2>
           {user.following.map((username) => (
             <div key={username}>

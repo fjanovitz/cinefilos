@@ -106,7 +106,7 @@
             "gender": "masculino",
             "profile_picture": null,
             "pass_token": null,
-            "is_private": false,
+            "is_private": true,
             "followers": [
                 "Souza"
             ],

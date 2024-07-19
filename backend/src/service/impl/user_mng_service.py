@@ -199,16 +199,16 @@ class FollowerService:
         target_user = db["user"][target_user_index]
 
         if target_user['is_private']:
-            if current_user['id'] not in target_user['follow_requests']:
-                target_user['follow_requests'].append(current_user['id'])
+            if current_user['username'] not in target_user['follow_requests']:
+                target_user['follow_requests'].append(current_user['username'])
                 saveDB(db)
                 return {"message": "Solicitação para seguir enviada com sucesso"}
             else:
                 raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Solicitação já foi enviada")
         else:
-            if current_user['id'] not in target_user['followers']:
-                target_user['followers'].append(current_user['id'])
-                current_user['following'].append(target_user['id'])
+            if current_user['username'] not in target_user['followers']:
+                target_user['followers'].append(current_user['username'])
+                current_user['following'].append(target_user['username'])
                 saveDB(db)
                 return {"message": "Agora você está seguindo o usuário"}
             else:
@@ -256,10 +256,10 @@ class FollowerService:
         current_user = db["user"][current_user_index]
         requester_user = db["user"][requester_user_index]
 
-        if requester_user['id'] in current_user['follow_requests']:
-            current_user['follow_requests'].remove(requester_user['id'])
-            current_user['followers'].append(requester_user['id'])
-            requester_user['following'].append(current_user['id'])
+        if requester_user['username'] in current_user['follow_requests']:
+            current_user['follow_requests'].remove(requester_user['username'])
+            current_user['followers'].append(requester_user['username'])
+            requester_user['following'].append(current_user['username'])
             saveDB(db)
             return {"message": "Solicitação para seguir aceita"}
         else:
@@ -277,8 +277,8 @@ class FollowerService:
         current_user = db["user"][current_user_index]
         requester_user = db["user"][requester_user_index]
 
-        if requester_user['id'] in current_user['follow_requests']:
-            current_user['follow_requests'].remove(requester_user['id'])
+        if requester_user['username'] in current_user['follow_requests']:
+            current_user['follow_requests'].remove(requester_user['username'])
             saveDB(db)
             return {"message": "Solicitação para seguir rejeitada"}
         else:

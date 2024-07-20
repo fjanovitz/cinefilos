@@ -15,12 +15,12 @@ const HeaderUserProfile = ({ onTabChange }) => {
 
     return (
         <div>
-            <div className={styles.header}>
-                <img src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="Foto de Perfil" className={styles.profilePicture} />
-                <h1>{username}</h1>
-            </div>
             <div className={styles.headerSections}>
-                <nav style={{ flex: 2, display: 'flex', justifyContent: 'left', gap: '20px', margin: '5px', marginLeft: '10px' }}>
+                <div className={styles.header}>
+                    <img src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="Foto de Perfil" className={styles.profilePicture} />
+                    <h1>{username}</h1>
+                </div>
+                <nav className={styles.headerNav}>
                     <button className={selectedTab === 'Reviews' ? styles.buttonSelected : styles.buttonS}
                             onClick={() => handleTabChange('Reviews')}>
                             Reviews
@@ -31,7 +31,7 @@ const HeaderUserProfile = ({ onTabChange }) => {
                     </button>
                     <button className={selectedTab === 'WatchList' ? styles.buttonSelected : styles.buttonS}
                             onClick={() => handleTabChange('WatchList')}>
-                            WatchList
+                            Minha Lista
                     </button>
                 </nav>
             </div>

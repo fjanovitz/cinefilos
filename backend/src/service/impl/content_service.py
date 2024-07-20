@@ -5,6 +5,12 @@ from src.service.impl.review_service import ReviewService
 def filter_by_content_type(contents: list, content_type: str):
     return [content for content in reversed(contents) if content["content_type"] == content_type]
 
+def find_content(db, title, content_type):
+        for i in range(len(db["contents"])):
+            if db["contents"][i]["title"] == title and db["contents"][i]["content_type"] == content_type:
+                return i
+        return None
+
 class ContentService:
     @staticmethod
     def get_contents(content_type):
@@ -49,20 +55,22 @@ class ContentService:
         saveDB(db)
         return content
     
+    
     @staticmethod
     def update_content(content_title:str, content: Content, content_type: str):
         db = getDB()
 
         content_dict = content.model_dump()
-        found = True
-        for i in range(len(db["contents"])):
-            if db["contents"][i]["title"] == content_title and db["contents"][i]["content_type"] == content_type:
-                found = True
-                db["contents"][i] = content_dict
-                break
+        index = find_content(db, content_title, content_type)
 
-        if not found:
+        if index is None:
             return None
+        
+        if content_dict["title"] != content_title:
+            if find_content(db, content_dict["title"], content_type) is not None:
+                return -1
+        
+        db["contents"][index] = content_dict
 
         saveDB(db)
         return content

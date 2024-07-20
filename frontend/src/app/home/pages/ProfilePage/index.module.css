@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.headerSections{
+  background: 'transparent';
+  display: 'flex';
+  justify-content: 'space-between'; 
+  align-items: 'center';
+  padding: '0 20px';
+  border: 2px solid #221f1f;
+  margin : 20px;
+  height: 30px;
+}
+
+.profilePicture {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+}
+  
+.userName {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reviewsSection {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+  
+.review {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}

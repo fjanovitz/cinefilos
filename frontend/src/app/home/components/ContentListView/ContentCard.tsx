@@ -1,33 +1,50 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import styles from "./ContentCard.module.css";
 
 type ContentCardProps = {
-  content: {
-    id: string;
-    title: string;
-    banner: string;
-    content_type: string;
-    synopsis: string;
-    gender: string;
-    release_year: number;
-    rating: number;
-    duration: number; 
-    director: string;
-  };
+	content: {
+		id: string;
+		title: string;
+		banner: string;
+		content_type: string;
+		synopsis: string;
+		gender: string;
+		release_year: number;
+		rating: number;
+		duration: number;
+		director: string;
+	};
 };
 
 const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
-  return (
-    <Link to={`/contents/${content.content_type}/${content.title}`} key={content.id} style={{ textDecoration: 'none' }}> 
-      <Card style={{ width: '10rem', height: '18rem', margin: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '10px', background: "lightgray" }}>
-        <Card.Img variant="top" src={content.banner} style={{ width: '10rem', height: '16rem', objectFit: 'cover', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
-        <Card.Body>
-          <Card.Title style={{ textAlign: 'center', textDecoration: 'none', color: 'black' }}>{content.title}</Card.Title>
-        </Card.Body>
-      </Card>
-    </Link>
-  );
+	const [isHovered, setIsHovered] = useState(false);
+
+	return (
+		<Link
+			to={`/contents/${content.content_type}/${content.title}`}
+			key={content.id}
+			className={styles.link}
+		>
+			<Card
+				className={styles.card}
+				onMouseEnter={() => setIsHovered(true)} 
+				onMouseLeave={() => setIsHovered(false)} 
+			>
+				<Card.Img
+					data-cy={`content-item-${content.title}`}
+					variant="top"
+					src={content.banner}
+					className={styles.cardImg}
+				/>
+
+				{isHovered && (
+					<div className={styles.titlePopup}>{content.title}</div>
+				)}
+			</Card>
+		</Link>
+	);
 };
 
 export default ContentCard;

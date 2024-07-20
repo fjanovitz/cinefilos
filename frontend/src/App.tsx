@@ -11,6 +11,10 @@ import UserPage from "./app/home/pages/UserPage";
 import ResetPasswordPage from "./app/home/pages/ResetPasswordPage";
 import EditUserInfoPage from "./app/home/pages/EditUserPage";
 import DeleteAccountPage from "./app/home/pages/DeleteAccountPage"
+import UpdateContentPage from "./app/home/pages/UpdateContentPage";
+import UserProfilePage from "./app/home/pages/ProfilePage";
+import UpdateReviewPage from "./app/home/pages/UpdateReviewPage";
+
 
 const router = createBrowserRouter([
   {
@@ -64,7 +68,19 @@ const router = createBrowserRouter([
   {
     path: "/user/delete_account/:userId",
     element: <DeleteAccountPage />,
-  }    
+  },
+  {    
+    path: "/contents/:content_type/:title/update_content",
+    element: <Layout><UpdateContentPage /></Layout>,
+  },
+  {
+    path: "/profile/:username",
+    element: <Layout><UserProfilePage /></Layout>,
+  },
+  {
+    path: "/profile/:username/:content_type/:content_title/update_review",
+    element: <Layout><UpdateReviewPage /></Layout>,
+  }
 ]);
 
 export default function App() {

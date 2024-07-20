@@ -50,10 +50,17 @@ const CreateContentPage = () => {
 	const [criador, setCriador] = useState("");
 	const [banner, setBanner] = useState("");
 
+	const [errorMessage, setErrorMessage] = useState("");
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log("e: ", e);
 
+		if(titulo == ""){
+			setErrorMessage("Título é um campo obrigatório");
+			return;
+		}
+		
 		try {
 			if (content_type == "movies") {
 				const movie: Movie = {
@@ -93,8 +100,7 @@ const CreateContentPage = () => {
 		} catch (error) {
 			const axiosError = error as AxiosError;
 			if (axiosError.response && axiosError.response.status === 422) {
-				alert("O conteudo já existe no banco de dados.");
-				navigate(-1);
+				alert("O conteúdo já existe no banco de dados.");
 			} else {
 				alert(
 					"Ocorreu um erro ao criar seu conteudo. Tente novamente."
@@ -102,6 +108,8 @@ const CreateContentPage = () => {
 			}
 		}
 	};
+
+
 
 	return (
 		<div className={styles.pageContainer}>
@@ -119,8 +127,10 @@ const CreateContentPage = () => {
 								type="text"
 								value={titulo}
 								onChange={(e) => setTitulo(e.target.value)}
-								required
 							/>
+							<Form.Control.Feedback type="invalid" style={{color: "red"}}>
+								{errorMessage}
+							</Form.Control.Feedback>
 						</Form.Group>
 
 						<Form.Group className={styles.formGroup}>

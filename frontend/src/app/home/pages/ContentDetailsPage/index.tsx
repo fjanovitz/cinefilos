@@ -121,7 +121,8 @@ const ContentDetailsPage = () => {
 								alignItems: "center",
 							}}
 						>
-							<h1 className={styles.title}>
+							<h1 className={styles.title}
+								data-cy="Título">
 								{content?.title} ({content?.release_year})
 							</h1>
 							<StarRating rating={rating} />

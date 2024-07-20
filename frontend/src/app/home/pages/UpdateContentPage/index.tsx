@@ -104,7 +104,6 @@ const UpdateContentPage = () => {
                 }
     
                 const response = await api.put(`/contents/movies/${title}`, movie);
-                console.log("put response", response)
                 navigate(`/contents/movies/${_title}`); 
             }
             else{

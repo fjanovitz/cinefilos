@@ -3,6 +3,7 @@ import api from "/src/services/api";
 import { useParams } from "react-router-dom"; 
 import { Container, Row, Col } from 'react-bootstrap';
 import UserReviewCard from "./UserReviewCard";
+import { AxiosError } from "axios";
 
 interface Content {
     id: string;

@@ -221,7 +221,7 @@ const ContentDetailsPage = () => {
 										>
 											<Link
 												to={{
-													pathname: `/users/${review.username}`,
+													pathname: `/profile/${review.username}`,
 												}}
 												style={{
 													textDecoration: "none",
@@ -233,6 +233,7 @@ const ContentDetailsPage = () => {
 											</Link>
 										</div>
 									</div>
+									<StarRating rating={review.rating} />
 									<p className={styles.reviewText}>
 										{review.report}
 									</p>

@@ -103,7 +103,7 @@ const UpdateContentPage = () => {
                     director: director
                 }
     
-                const response = await api.put(`/contents/movies/${title}`, movie);
+                await api.put(`/contents/movies/${title}`, movie);
                 navigate(`/contents/movies/${_title}`); 
             }
             else{
@@ -131,7 +131,7 @@ const UpdateContentPage = () => {
             const axiosError = error as AxiosError;
             console.log(error)
             if (axiosError.response && axiosError.response.status === 422) {
-                alert("Alguma informação está inválida. Verifique os campos e tente novamente");
+                alert("Alguma informação está inválida ou já existe um outro conteúdo com esse título. Verifique os campos e tente novamente");
             } else {
                 alert("Ocorreu um erro ao editar seu conteudo. Tente novamente.");
             }
@@ -146,6 +146,7 @@ const UpdateContentPage = () => {
                 <Form.Group className={styles.formGroup}>
                   <Form.Label className={styles.formLabel}>Título</Form.Label>
                   <Form.Control
+                    data-cy="Título"
                     className={styles.formControl}
                     type="text"
                     value={_title}
@@ -155,10 +156,11 @@ const UpdateContentPage = () => {
                 </Form.Group>
 
                 <Form.Group className={styles.formGroup}>
-                  <Form.Label className={styles.formLabel}>synopsis</Form.Label>
+                  <Form.Label className={styles.formLabel}>Sinopse</Form.Label>
                   <Form.Control
                     className={styles.formControl}
                     as="textarea"
+                    data-cy="Sinopse"
                     rows={3}
                     value={synopsis}
                     onChange={(e) => setSynopsis(e.target.value)}
@@ -170,6 +172,7 @@ const UpdateContentPage = () => {
                   <Form.Label className={styles.formLabel}>Gênero</Form.Label>
                   <Form.Control
                     className={styles.formControl}
+                    data-cy="Gênero"
                     type="text"
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
@@ -211,7 +214,7 @@ const UpdateContentPage = () => {
 
                 {content_type == 'movies' && (
                     <Form.Group className={styles.formGroup}>
-                        <Form.Label className={styles.formLabel}>Duração do filme</Form.Label>
+                        <Form.Label className={styles.formLabel}>Duração do filme (min)</Form.Label>
                         <Form.Control
                         className={styles.formControl}
                         type="text"
@@ -224,7 +227,7 @@ const UpdateContentPage = () => {
 
                 {content_type == 'movies' && (
                     <Form.Group className={styles.formGroup}>
-                        <Form.Label className={styles.formLabel}>director do filme</Form.Label>
+                        <Form.Label className={styles.formLabel}>Diretor do filme</Form.Label>
                         <Form.Control
                         className={styles.formControl}
                         type="text"

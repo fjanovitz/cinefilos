@@ -4,6 +4,7 @@ import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 
 Given("the user visits the page {string}", (page: string) => {
     cy.visit(page);
+    cy.wait(50)
   });
   
 
@@ -32,7 +33,14 @@ When(
 When(
     "the user fills the data {string} with {string}",
     (field: string, value: string) => {
-        cy.get(`[data-cy="${field}"]`).type(value);
+        cy.get(`[data-cy="${field}"]`).clear().type(value);
+    }
+)
+
+Then(
+    "the user is in the page {string}",
+    (page: string) => {
+        cy.url().should("include", page);
     }
 )
 

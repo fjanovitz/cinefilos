@@ -17,5 +17,23 @@
 import "./commands";
 import "@cypress/code-coverage/support";
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+
+const dbPath = "../backend/src/db/database.json";
+
+
+var data_db;
+
+function saveBackup() {
+  cy.readFile(dbPath).then((data) => {
+    data_db = data;
+  });
+}
+
+beforeEach(() => {
+    saveBackup();
+});
+
+afterEach(() => {
+    cy.writeFile(dbPath, data_db);
+});
+

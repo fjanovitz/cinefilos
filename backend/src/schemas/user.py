@@ -12,12 +12,12 @@ class UserModel(BaseModel):
     profile_picture: Optional[str] = None
     address: Optional[str] = None
     gender: Optional[str] = None
-    pass_token: str
-    is_private: bool = False
-    followers: List[str] = []  
-    following: List[str] = []  
-    follow_requests: List[str] = []  
-    assistidos: List[str] = []
+    pass_token: Optional[str] = None
+    is_private: Optional[bool] = False
+    followers: Optional[List[str]] = []  
+    following: Optional[List[str]] = []  
+    follow_requests: Optional[List[str]] = []  
+    assistidos: Optional[List[str]] = []
 
 class Log(BaseModel):
     email: EmailStr

@@ -5,6 +5,7 @@ import styles from "./UserReviewCard.module.css";
 import api from "/src/services/api";
 import ContentCard from "../ContentListView/ContentCard";
 import StarRating from "../StarRating/StarRating";
+import { AxiosError } from "axios";
 
 type UserReviewCardProps = {
   content_id: string;
@@ -69,9 +70,20 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({ content_id, content_typ
       console.log('Atualizando review', content_id);
   };
 
-  const handleDelete = () => {
-      console.log('Excluindo review', content_id);
-  };
+  const handleDelete = async () => {
+		try {
+			await api.delete(`/reviews/${username}/${content_type}/${content_id}`);
+			alert("Review deletada com sucesso!");
+      window.location.reload(); 
+		} catch (error) {
+			const axiosError = error as AxiosError;
+            if (axiosError.response && axiosError.response.status === 404) {
+                alert("A review que você está tentando deletar não existe.");
+            } else {
+                alert("Ocorreu um erro ao deletar sua review. Tente novamente.");
+            }
+		}
+	};
 
   useEffect(() => {
       console.log("data review: ", content_id, content_type, username);
@@ -110,9 +122,7 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({ content_id, content_typ
             <Link to={`/profile/${username}/${content?.content_type}/${content?.title}/update_review`}>
               <button className = {styles.updateButton} onClick={handleUpdate}>Atualizar Review</button>
             </Link>
-            <Link to={`/profile/${username}/${content?.content_type}/${content?.title}/delete_review`}>
               <button className = {styles.updateButton} onClick={handleDelete}>Excluir Review</button>
-            </Link>
             </div>
           </div>
           <StarRating rating={review.rating} />

@@ -7,3 +7,4 @@ pytest
 pytest-mongodb
 pytest-bdd
 httpx
+python-jose

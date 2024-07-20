@@ -1,5 +1,6 @@
 from src.schemas.content import Content
 from src.db.database import getDB, saveDB
+from src.service.impl.review_service import ReviewService
 
 def filter_by_content_type(contents: list, content_type: str):
     return [content for content in reversed(contents) if content["content_type"] == content_type]
@@ -79,6 +80,11 @@ class ContentService:
 
         if not found:
             return None
-
         saveDB(db)
+
+        reviews_from_content = ReviewService.get_reviews_from_content(deleted_content["content_type"], deleted_content["id"])
+        for review in reviews_from_content:
+            ReviewService.delete_review(review["username"], review["content_type"], review["content_id"])
+
+        
         return deleted_content

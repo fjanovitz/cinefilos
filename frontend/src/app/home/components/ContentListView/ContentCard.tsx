@@ -34,6 +34,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
 					onMouseLeave={() => setIsHovered(false)} 
 				>
 					<Card.Img
+						data-cy={`content-item-${content.title}`}
 						variant="top"
 						src={content.banner}
 						className={styles.cardImg}
@@ -45,7 +46,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
 				</Card>
 			</Link>
 			{isHovered && (
-				<div className={styles.optionsButton} onClick={(event) => {
+				<div className={styles.optionsButton} onClick={() => {
 					console.log('testando isso aqui');
 				}}></div>
 			)}

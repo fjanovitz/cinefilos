@@ -13,6 +13,7 @@ import EditUserInfoPage from "./app/home/pages/EditUserPage";
 import DeleteAccountPage from "./app/home/pages/DeleteAccountPage"
 import UpdateContentPage from "./app/home/pages/UpdateContentPage";
 import UserProfilePage from "./app/home/pages/ProfilePage";
+import UpdateReviewPage from "./app/home/pages/UpdateReviewPage";
 
 
 const router = createBrowserRouter([

@@ -25,8 +25,7 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await createUser(user);
-      console.log(response.data);
+      await createUser(user);
     } catch (error) {
       console.error(error);
     }

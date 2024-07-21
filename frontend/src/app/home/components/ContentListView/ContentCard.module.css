@@ -1,0 +1,146 @@
+.link {
+    text-decoration: none;
+    position: relative;
+    /* z-index: -2; */
+}
+
+.card {
+    width: 10rem;
+    height: 14.25rem;
+    border-radius: 10px;
+    background: lightgray;
+    transition: transform 0.3s ease-in-out;
+
+    box-shadow: 1px 1px 4px rgba(1, 1, 1, 3.5), 0px 0px 0px rgba(1, 1, 1, 0.2);
+    /* z-index: 0; */
+    
+    pointer-events: auto;
+}
+
+.card:hover, .optionsButton:hover+.link .card {
+    transform: scale(1.05);
+
+}
+
+.cardImg {
+    width: 100%;
+    /* Ajuste para ocupar a largura disponível */
+    height: 14.25rem;
+    /* Ajuste na altura para acomodar o título */
+    object-fit: cover;
+    border-radius: 8px;
+    /* Adiciona bordas arredondadas */
+    
+    /* z-index: 0; */
+}
+
+.cardImg:hover, .optionsButton:hover+.link .card .cardImg {
+    outline: 3px solid rgb(244, 187, 0);
+}
+
+.cardTitle {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    /* Ajuste no tamanho da fonte */
+    overflow: hidden;
+    /* Esconde o overflow */
+    text-overflow: ellipsis;
+    /* Adiciona "..." para textos longos */
+}
+
+.titlePopup {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 5px 20px; 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: block;
+    color: black; 
+    min-width: 150px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.titlePopup::before {
+    content: "";
+    position: absolute;
+    top: -9px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white; 
+}
+
+.optionsButton {
+    position: absolute;
+    top: 0;
+    right: .25rem;
+    width: 2rem;
+    height: 1.25rem;
+    background-color: transparent;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.dotButton {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dotButton div {
+    width: .5rem;
+    height: .5rem;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px black solid;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    left: 90%;
+    top: 0;
+    padding: .5rem 0;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px black solid;
+}
+
+.overlay button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    height: 2rem;
+    margin: .15rem 0;
+}
+
+.overlay button:hover {
+    background: #D5E5CA;
+}
+
+.overlay button.selectedButton {
+    background-color: #F4D30B;
+    color: white;
+}
+
+.overlay.active {
+    display: block !important;
+}
+
+.outerContainer {
+    position: relative;
+    pointer-events: none;
+    margin: .75rem;
+}

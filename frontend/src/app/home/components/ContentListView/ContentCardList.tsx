@@ -38,7 +38,7 @@ const ContentListView = ( { content_type }) => {
     useEffect(() => {
         loadContents();
         console.log("batata", contents);
-  }, [content_type]);
+    }, [content_type]);
   
   return (
     <section>

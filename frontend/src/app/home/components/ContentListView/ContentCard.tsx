@@ -1,64 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import styles from "./ContentCard.module.css";
 
 type ContentCardProps = {
-  content: {
-    id: string;
-    title: string;
-    banner: string;
-    content_type: string;
-    synopsis: string;
-    gender: string;
-    release_year: number;
-    rating: number;
-    duration: number;
-    director: string;
-  };
+	content: {
+		id: string;
+		title: string;
+		banner: string;
+		content_type: string;
+		synopsis: string;
+		gender: string;
+		release_year: number;
+		rating: number;
+		duration: number;
+		director: string;
+	},
+	hasOptions?: boolean,
+	category?: string,
+	changeCategory?
 };
 
-const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
-  return (
-    <Link
-      to={`/contents/${content.content_type}/${content.title}`}
-      key={content.id}
-      style={{ textDecoration: "none" }}
-    >
-      <Card
-        style={{
-          width: "10rem",
-          height: "18rem",
-          margin: "10px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          borderRadius: "10px",
-          background: "lightgray",
-        }}
-      >
-        <Card.Img
-          variant="top"
-          src={content.banner}
-          style={{
-            width: "10rem",
-            height: "16rem",
-            objectFit: "cover",
-            borderTopLeftRadius: "10px",
-            borderTopRightRadius: "10px",
-          }}
-        />
-        <Card.Body>
-          <Card.Title
-            style={{
-              textAlign: "center",
-              textDecoration: "none",
-              color: "black",
-            }}
-          >
-            {content.title}
-          </Card.Title>
-        </Card.Body>
-      </Card>
-    </Link>
-  );
+const ContentCard: React.FC<ContentCardProps> = ({ content, hasOptions = false, category = "", changeCategory = (...args: any) => {} }) => {
+	const [isHovered, setIsHovered] = useState(false);
+	const [showOverlay, setShowOverlay] = useState(false);
+
+	return (
+		<div
+			className={styles.outerContainer}
+			onMouseEnter={() => setIsHovered(true)} 
+			onMouseLeave={() => {setIsHovered(false); setShowOverlay(false)}} 
+		>
+			{isHovered && hasOptions && (
+				<div className={styles.optionsButton} onClick={() => setShowOverlay(true)}>
+					<div className={styles.dotButton}>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+					<div className={`${styles.overlay} ${(showOverlay ? styles.active : '')}`}>
+						<button className={(category == "assistidos") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "assistidos")}>Assistidos</button>
+						<button className={(category == "quero_assistir") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "quero_assistir")}>Quero Assistir</button>
+						<button className={(category == "abandonados") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "abandonados")}>Abandonados</button>
+					</div>
+				</div>
+			)}
+			<Link
+				to={`/contents/${content.content_type}/${content.title}`}
+				key={content.id}
+				className={styles.link}
+			>
+				<Card
+					className={styles.card}
+				>
+					<Card.Img
+						data-cy={`content-item-${content.title}`}
+						variant="top"
+						src={content.banner}
+						className={styles.cardImg}
+					/>
+
+					{isHovered && (
+						<div className={styles.titlePopup}>{content.title}</div>
+					)}
+				</Card>
+			</Link>
+		</div>
+	);
 };
 
 export default ContentCard;

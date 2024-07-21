@@ -1,3 +1,4 @@
+import json
 from fastapi import APIRouter, HTTPException, status
 from starlette.responses import JSONResponse
 from src.service.impl.user_mng_service import UserService, FollowerService
@@ -89,9 +90,10 @@ def follow_user(target_user_id: str, current_user_id: str):
 def unfollow_user(target_user_id: str, current_user_id: str):
     response = FollowerService.unfollow_user(current_user_id, target_user_id)
     return JSONResponse(
-        content=response.model_dump(),
-        status_code=response.status_code
+        content=json.loads(response),
+        status_code=json.loads(response)['status_code']
     )
+
 
 @router.post(
     "/accept_follow_request/{requester_user_id}/{current_user_id}",
@@ -125,6 +127,7 @@ def reject_follow_request(requester_user_id: str, current_user_id: str):
 )
 def set_profile_privacy(username: str, is_private: bool):
     response_dict = FollowerService.set_profile_privacy(username, is_private)
+    print(response_dict)
     return JSONResponse(content=response_dict, status_code=status.HTTP_200_OK)
 
 

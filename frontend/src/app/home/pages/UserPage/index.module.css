@@ -1,0 +1,20 @@
+/* UserPage/index.module.css */
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .container h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1em;
+    border: 1px solid black;
+  }
+  

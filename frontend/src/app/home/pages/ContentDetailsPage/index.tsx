@@ -101,14 +101,14 @@ const ContentDetailsPage = () => {
 							to={`/contents/${content?.content_type}/${content?.title}/update_content`}
 						>
 							<button className={styles.addButton}>
-								Update Content
+								Atualizar conteúdo
 							</button>
 						</Link>
 						<button
 							onClick={handleDelete}
 							className={styles.deleteButton}
 						>
-							Delete Content
+							Deletar conteúdo
 						</button>
 					</div>
 				</div>
@@ -121,7 +121,8 @@ const ContentDetailsPage = () => {
 								alignItems: "center",
 							}}
 						>
-							<h1 className={styles.title}>
+							<h1 className={styles.title}
+								data-cy="Título">
 								{content?.title} ({content?.release_year})
 							</h1>
 							<StarRating rating={rating} />
@@ -132,7 +133,8 @@ const ContentDetailsPage = () => {
 								<h3>Informações Adicionais</h3>
 							</div>
 							<div className={styles.additionalInfoItem}>
-								<p>Gênero: {content?.gender}</p>
+								<p
+								data-cy="Gênero">Gênero: {content?.gender}</p>
 							</div>
 							{content_type == "movies" && (
 								<div className={styles.additionalInfoItem}>

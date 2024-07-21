@@ -195,28 +195,33 @@ const UserProfile = () => {
     <div className={styles.profile}>
       <div className={styles.left}>
         <img src={user.profile_picture} alt="Profile" className={styles.profilePicture} />
-        <h2>{user.username}</h2>
-        <h3>{user.full_name}</h3>
-        <p>{user.email}</p>
+        <div className={styles.userInitialInfo}>
+          <h2>@{user.username}</h2>
+          <h4>{user.full_name}</h4>
+          <p>{user.email}</p>
+        </div>
+        <div className={styles.userInfo}>
+          <p><b>Birth Date: </b><em>{user.birth_date}</em></p>
+          <p><b>Phone Number:</b><em> {user.phone_number}</em></p>
+          <p><b>Gender:</b><em> {user.gender}</em></p>
+          <p><b>Account Mode:</b><em> {user.is_private ? 'Private' : 'Public'}</em></p>
+        </div>
       </div>
       <div className={styles.right}>
-        <p>Birth Date: {user.birth_date}</p>
-        <p>Phone Number: {user.phone_number}</p>
-        <p>Address: {user.address}</p>
-        <p>Gender: {user.gender}</p>
-        <p>Account Mode: {user.is_private ? 'Private' : 'Public'}</p>
         <div className={styles.follow}>
-          <button onClick={handleShowFollowing}>{user.following.length} following</button>
-          <button onClick={handleShowFollowers}>{user.followers.length} followers</button>
+          <button onClick={handleShowFollowing}><b>{user.following.length}</b> following</button>
+          <button onClick={handleShowFollowers}><b>{user.followers.length}</b> followers</button>
         </div>
         {user.is_private && <button onClick={handleShowFollowRequests}>Show Follow Requests</button>}
-        <input
-          type="text"
-          placeholder="Enter username to follow"
-          value={followUsername}
-          onChange={(e) => setFollowUsername(e.target.value)}
-        />
-        <button onClick={handleFollow}>Follow</button>
+        <div className={styles.followUserFunc}>
+          <input
+            type="text"
+            placeholder="Enter username to follow"
+            value={followUsername}
+            onChange={(e) => setFollowUsername(e.target.value)}
+          />
+          <button onClick={handleFollow}>Follow</button>
+        </div>
         <button onClick={handleSwitchMode}>Switch Mode</button>
       </div>
       {showFollowingModal && (
@@ -237,7 +242,7 @@ const UserProfile = () => {
           {user.followers.map((username) => (
             <div key={username}>
               <p>{username}</p>
-              <button onClick={() => handleUnfollow(username)}>Unfollow</button>
+              {/* Removed the unfollow button for followers */}
             </div>
           ))}
           <button onClick={handleCloseModal}>Close</button>

@@ -87,7 +87,9 @@
       "gender": "masculino",
       "pass_token": "string",
       "is_private": true,
-      "followers": [],
+      "followers": [
+        "clebson"
+      ],
       "following": [
         "clebson"
       ],
@@ -111,7 +113,9 @@
         "joao",
         "souza22"
       ],
-      "following": [],
+      "following": [
+        "souza22"
+      ],
       "follow_requests": [],
       "assistidos": [],
       "id": "da93b947-8b1b-4bfe-8ffd-a7a17d7c9d4d"

@@ -84,6 +84,22 @@ const router = createBrowserRouter([
   {
     path: "/profile/:username",
     element: <Layout><UserProfilePage /></Layout>,
+  },
+  {
+    path: "/forum/feed",
+    element: <Layout><FeedPage /></Layout>,
+  },
+  {
+    path: "/forum/newpost",
+    element: <Layout><AddPostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID",
+    element: <Layout><PostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID/likes",
+    element: <Layout><LikesPage /></Layout>,
   }
 ]);
 

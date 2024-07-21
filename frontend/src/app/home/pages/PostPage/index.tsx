@@ -2,7 +2,6 @@ import styles from "./index.module.css";
 import api from "/src/services/api";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import StarRating from "../../components/StarRating/StarRating";
 import { AxiosError } from "axios";
 
 interface Comment {
@@ -18,91 +17,67 @@ interface Post {
     num_likes: number;
     users_who_liked: string[];
     num_comments: number;
-    comments: Comment;
+    comments: Comment[];
     topic: string;
     posted: string;
-
 }
 
 const PostPage = () => {
 	const navigate = useNavigate();
-	const { content_type, title } = useParams<{
-		content_type: string;
-		title: string;
+	const {post_id} = useParams<{
+		post_id: string;
 	}>();
-	const [content, setContent] = useState<Content | null>(null);
-	const [reviews, setReviews] = useState<Review[] | null>(null);
-	const [rating, setRating] = useState<number>();
+	const [post, setPost] = useState<Post | null>(null);
+	const [comments, setComments] = useState<Comment[] | null>(null);
+	const [likes, setLikes] = useState<number>();
 
-	const loadContentDetails = async (content_type, title) => {
+	const loadPostDetails = async (post_id) => {
 		try {
 			const response_details = await api.get(
-				`/contents/${content_type}/${title}`
-			);
-			const content_id = response_details.data.id;
-			const response_reviews = await api.get(
-				`/reviews/${content_type}/${content_id}`
-			);
-			const response_rating = await api.get(
-				`/reviews/${content_type}/${content_id}/rating`
+				`/forum/post/${post_id}`
 			);
 
-			const content = {
+			const post = {
 				...response_details.data,
 			};
 
-			const reviews = response_reviews.data;
-			const rating = response_rating.data;
+			const comments = response_details.data.comments;
+			const likes = response_details.data.num_likes;
 
-			setContent(content);
-			setReviews(reviews);
-			setRating(rating);
+			setPost(post);
+			setComments(comments);
+			setLikes(likes);
+			
 		} catch (error) {
-			console.error("Erro ao buscar conteúdo:", error);
+			console.error(error);
 		}
 	};
 
 	const handleDelete = async () => {
 		try {
-			await api.delete(`/contents/${content_type}/${content?.title}`);
-			alert("Conteúdo deletado com sucesso!");
+			await api.delete(`/forum/post/${post_id}`);
+			alert("Post deletado com sucesso!");
 			navigate(-1);
 		} catch (error) {
 			const axiosError = error as AxiosError;
-            if (axiosError.response && axiosError.response.status === 404) {
-                alert("O conteúdo que você está tentando deletar não existe.");
-            } else {
-                alert("Ocorreu um erro ao deletar seu conteudo. Tente novamente.");
-            }
+            alert(axiosError.response?.data.message);
 		}
 	};
 
 	useEffect(() => {
-		loadContentDetails(content_type, title);
-	}, [content_type, title]);
+		loadPostDetails(post_id);
+	}, post_id);
 
 	return (
 		<div className={styles.pageContainer}>
 			<div className={styles.container}>
-				<div className={styles.banner}>
-					{content?.banner && (
-						<img src={content?.banner} alt="Banner do filme" />
-					)}
-					<div>
-						<Link
-							to={`/contents/${content?.content_type}/${content?.title}/update_content`}
-						>
-							<button className={styles.addButton}>
-								Atualizar conteúdo
-							</button>
-						</Link>
-						<button
-							onClick={handleDelete}
-							className={styles.deleteButton}
-						>
-							Deletar conteúdo
-						</button>
-					</div>
+				<div>
+					<button
+						onClick={handleDelete}
+						className={styles.deleteButton}
+					>
+						Deletar Post
+					</button>
 				</div>
 				<div className={styles.contentDetails}>
 					<div className={styles.card}>
@@ -115,90 +90,33 @@ const PostPage = () => {
 						>
 							<h1 className={styles.title}
 								data-cy="Título">
-								{content?.title} ({content?.release_year})
+								{post?.title}
 							</h1>
-							<StarRating rating={rating} />
 						</div>
-						<p className={styles.details}>{content?.synopsis}</p>
-						<div className="additionalInfoBlock">
-							<div className={styles.additionalInfoItem}>
-								<h3>Informações Adicionais</h3>
-							</div>
-							<div className={styles.additionalInfoItem}>
-								<p
-								data-cy="Gênero">Gênero: {content?.gender}</p>
-							</div>
-							{content_type == "movies" && (
-								<div className={styles.additionalInfoItem}>
-									<p>Duração: {content?.duration} min </p>
-								</div>
-							)}
-							{content_type == "tv_shows" && (
-								<div className={styles.additionalInfoItem}>
-									<p>
-										Número de temporadas:{" "}
-										{content?.num_seasons}{" "}
-									</p>
-								</div>
-							)}
-							{content_type == "tv_shows" && (
-								<div className={styles.additionalInfoItem}>
-									<p>
-										Número de episódios:{" "}
-										{content?.num_episodes}{" "}
-									</p>
-								</div>
-							)}
-							{content_type == "tv_shows" && (
-								<div className={styles.additionalInfoItem}>
-									<p>Criador: {content?.creator} </p>
-								</div>
-							)}
-							{content_type == "movies" && (
-								<div className={styles.additionalInfoItem}>
-									<p>Diretor: {content?.director} </p>
-								</div>
-							)}
+						<p className={styles.details}>{post?.content}</p>
 
-							<div className={styles.additionalInfoItem}>
-								<p>
-									Elenco Principal:{" "}
-									{content?.main_cast
-										?.map((actor) => actor)
-										.join(", ")}
-								</p>
-							</div>
-							<div className={styles.additionalInfoItem}>
-								<p>
-									Onde assistir:{" "}
-									{content?.where_to_watch
-										?.map((platform) => platform)
-										.join(", ")}
-								</p>
-							</div>
-						</div>
 					</div>
 					<div className={styles.reviewsSection}>
 						<div className={styles.reviewsHeader}>
 							<div className={styles.titleAndButtonContainer}>
-								<h2>Avaliações</h2>
+								<h2>Comentários</h2>
 								<Link
 									to={{
-										pathname: `/contents/${content?.content_type}/${content?.title}/create_review`,
+										pathname: `/forum/post/${post?.post_id}/comments`,
 									}}
-									state={{ content: content }}
+									state={{ comment: comment }}
 									style={{ textDecoration: "none" }}
 								>
 									<button className={styles.addButton}>
-										Adicione uma avaliação
+										Adicione um comentário
 									</button>
 								</Link>
 							</div>
 						</div>
-						{reviews && reviews.length > 0 ? (
-							reviews.map((review) => (
+						{comments && comments.length > 0 ? (
+							comments.map((comment) => (
 								<div
-									key={review.title}
+									key={comment.id}
 									className={styles.review}
 								>
 									<div
@@ -207,14 +125,14 @@ const PostPage = () => {
 										<div
 											className={styles.reviewAuthorText}
 										>
-											Avaliação por
+											Comentário de 
 										</div>
 										<div
 											className={styles.reviewAuthorName}
 										>
 											<Link
 												to={{
-													pathname: `/profile/${review.username}`,
+													pathname: `/profile/${comments.author}`,
 												}}
 												style={{
 													textDecoration: "none",
@@ -222,18 +140,17 @@ const PostPage = () => {
 													fontWeight: "bold",
 												}}
 											>
-												{review.username}
+												{comment.author}
 											</Link>
 										</div>
 									</div>
-									<StarRating rating={review.rating} />
 									<p className={styles.reviewText}>
-										{review.report}
+										{comment.content}
 									</p>
 								</div>
 							))
 						) : (
-							<p>Nenhuma avaliação ainda.</p>
+							<p>Nenhum comentário ainda.</p>
 						)}
 					</div>
 				</div>

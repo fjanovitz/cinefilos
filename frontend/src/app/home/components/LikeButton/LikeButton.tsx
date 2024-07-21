@@ -14,7 +14,7 @@ const LikeButton = ({liked}) => {
       height="24"
       viewBox="0 0 24 24"
       fill={liked ? "#F4D30B" : "#FFFFFF"} // Updated color here
-      stroke="currentColor"
+      stroke="#000000"
       strokeWidth="2"
       style={{ cursor: 'pointer' }} // Makes it clear the SVG is clickable
     >

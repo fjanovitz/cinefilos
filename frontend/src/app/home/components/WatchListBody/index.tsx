@@ -66,8 +66,9 @@ const WatchListBody = () => {
             <div className={styles.contentCategoryList}>
                 {
                     contents.map((item: Content) => {
+                        const itemId = item.id
                         return (
-                            <ContentCard key={item.id} content={item} hasOptions={true} category={watchListTab} changeCategory={changeCategory} />
+                            <ContentCard key={itemId} content={item} hasOptions={true} category={watchListTab} changeCategory={changeCategory} />
                         );
                     })
                 }

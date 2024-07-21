@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTest from "./app/home/pages/CreateTest";
+import LoginPage from "./app/home/pages/LoginPage";
 import ContentDetailsPage from "./app/home/pages/ContentDetailsPage";
 import ListTests from "./app/home/pages/ListTests";
 import ContentsPage from "./app/home/pages/ContentsPage";
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
     path: "/create-test",
     element: <Layout><CreateTest /></Layout>,
   },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },  
   {
     path: "/contents/movies",
     element: <Layout><ContentsPage content_type = {"movies"} /></Layout>,

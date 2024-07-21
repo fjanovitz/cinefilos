@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+
+export const loginUser = async (credentials: any) => {
+  console.log(credentials);
+  const response = await axios.post('http://localhost:8000/login', credentials);
+  return response.data;
+};
+
 export const createUser = async (user: any) => {
   console.log(user);
   const response = await axios.post('http://localhost:8000/user/create_user', user);
@@ -49,6 +56,7 @@ export const setProfilePrivacy = async (username: string, is_private: boolean) =
   const response = await axios.post(`http://localhost:8000/user/set_profile_privacy/${username}?is_private=${is_private}`);
   return response.data;
 };
+
 
 
 

@@ -104,9 +104,9 @@
       "phone_number": "81995378843",
       "address": "RUA BELÉM SÃO FRANCISCO, 635",
       "gender": "masculino",
-      "profile_picture": null,
+      "profile_picture": "https://avatar.iran.liara.run/public/boy",
       "pass_token": null,
-      "is_private": false,
+      "is_private": true,
       "followers": [
         "joao",
         "souza22"

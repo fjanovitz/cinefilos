@@ -50,7 +50,6 @@ const UserProfile = () => {
       return;
     }
   
-    // Prevent the user from following themselves
     if (user && followUsername === user.username) {
       console.error('User cannot follow themselves');
       return;
@@ -71,8 +70,6 @@ const UserProfile = () => {
     }
   };
   
-  
-
   const handleUnfollow = async (usernameToUnfollow: string) => {
     if (!userId) {
       console.error('User ID is undefined');
@@ -81,7 +78,6 @@ const UserProfile = () => {
   
     await unfollowUser(userId, usernameToUnfollow);
 
-    // Update the state of the component
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -102,7 +98,6 @@ const UserProfile = () => {
   
     await acceptFollowRequest(userId, requesterUsername);
 
-    // Update the state of the component
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -124,7 +119,6 @@ const UserProfile = () => {
   
     await rejectFollowRequest(userId, requesterUsername);
 
-    // Update the state of the component
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -174,7 +168,6 @@ const UserProfile = () => {
         }
       });
 
-      // If the profile is set to public, accept all follow requests
       if (user.is_private) {
         for (const requesterUsername of user.follow_requests) {
           await acceptFollowRequest(userId, requesterUsername);
@@ -183,8 +176,6 @@ const UserProfile = () => {
     }
   };
   
-  
-
   if (!user) {
     return <div>Loading...</div>;
   }
@@ -193,7 +184,7 @@ const UserProfile = () => {
     <div className={styles.profile}>
       <div className={styles.left}>
         <img src={user.profile_picture} alt="Profile" className={styles.profilePicture} />
-        <h2>{user.username}</h2>
+        <h2>@{user.username}</h2>
         <h3>{user.full_name}</h3>
         <p>{user.email}</p>
       </div>

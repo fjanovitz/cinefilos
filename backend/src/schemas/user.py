@@ -9,7 +9,7 @@ class UserModel(BaseModel):
     password: str
     birth_date: str
     phone_number: Optional[str] = None
-    profile_picture: Optional[str] = None
+    profile_picture: Optional[str] = "https://i.pravatar.cc/250"  # Default profile picture
     address: Optional[str] = None
     gender: Optional[str] = None
     pass_token: Optional[str] = None

@@ -15,14 +15,36 @@ type ContentCardProps = {
 		rating: number;
 		duration: number;
 		director: string;
-	};
+	},
+	hasOptions?: boolean,
+	category?: string,
+	changeCategory?
 };
 
-const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
+const ContentCard: React.FC<ContentCardProps> = ({ content, hasOptions = false, category = "", changeCategory = (...args: any) => {} }) => {
 	const [isHovered, setIsHovered] = useState(false);
+	const [showOverlay, setShowOverlay] = useState(false);
 
 	return (
-		<div className={styles.outerContainer}>
+		<div
+			className={styles.outerContainer}
+			onMouseEnter={() => setIsHovered(true)} 
+			onMouseLeave={() => {setIsHovered(false); setShowOverlay(false)}} 
+		>
+			{isHovered && hasOptions && (
+				<div className={styles.optionsButton} onClick={() => setShowOverlay(true)}>
+					<div className={styles.dotButton}>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+					<div className={`${styles.overlay} ${(showOverlay ? styles.active : '')}`}>
+						<button className={(category == "assistidos") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "assistidos")}>Assistidos</button>
+						<button className={(category == "quero_assistir") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "quero_assistir")}>Quero Assistir</button>
+						<button className={(category == "abandonados") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "abandonados")}>Abandonados</button>
+					</div>
+				</div>
+			)}
 			<Link
 				to={`/contents/${content.content_type}/${content.title}`}
 				key={content.id}
@@ -30,8 +52,6 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
 			>
 				<Card
 					className={styles.card}
-					onMouseEnter={() => setIsHovered(true)} 
-					onMouseLeave={() => setIsHovered(false)} 
 				>
 					<Card.Img
 						data-cy={`content-item-${content.title}`}
@@ -45,11 +65,6 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
 					)}
 				</Card>
 			</Link>
-			{isHovered && (
-				<div className={styles.optionsButton} onClick={() => {
-					console.log('testando isso aqui');
-				}}></div>
-			)}
 		</div>
 	);
 };

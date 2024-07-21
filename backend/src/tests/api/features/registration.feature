@@ -11,7 +11,7 @@ Feature: User Registration and Management
 
   Examples:
     | full_name       | username  | email              | password  | birth_date | phone_number | profile_picture | address             | gender    | pass_token     | is_private | followers | following | follow_requests | status_code | response_message               |
-    | Albert Einstein | Einstein  | einstein@mail.com  | Vxkhc986  | 10/10/1980 | 33331111     | default.jpg     | Rua dos belos, nº 0 | masculine | default_token  | false      | []        | []        | []              | 200         | Usuário adicionado com sucesso |
+    | Albert Einstein | Einstein  | einstein@mail.com  | Vxkhc986  | 10/10/1980 | 33331111     | default.jpg     | Rua dos belos, nº 0 | masculine | default_token  | false      | []        | []        | []              | 201         | Usuário adicionado com sucesso |
     | Albert Einstein | carlosss  |                    | Vxkhc986  | 10/10/1980 | 123456777    | default.jpg     | Rua dos belos, nº 0 | masculine | default_token  | false      | []        | []        | []              | 409         | Email é um campo obrigatório.  |
     | Ed Einstein     | Edttn     | einstein@mail.com  | Bsf4331bb | 10/10/1980 | 333444555    | default.jpg     | Rua dos belos, nº 2 | masculine | default_token  | false      | []        | []        | []              | 409         | Email indisponivel             |
     | Isabel Ferreira | Einstein  | bell28@mail.com    | 55Ahhhhhh | 10/10/1980 | 22114411     | default.jpg     | Rua dos belos, nº 4 | Feminino  | default_token  | false      | []        | []        | []              | 409         | Nome de usuário indisponivel   |

@@ -35,6 +35,27 @@ const WatchListBody = () => {
         }
     };
 
+    const changeCategory = async (content: Content, category: string) => {
+        try{
+            let response;
+            if(category != watchListTab){
+                const params = {
+                    username: "edsonneto8", 
+                    category,
+                    content_id: content.id,
+                    content_type: content.content_type
+                }
+                response = await api.post(`/watch_list/user/`, {}, {params});
+            }
+            if(category == watchListTab || response.status == 201){
+                const responseDel = await api.delete(`/watch_list/user/edsonneto8/${watchListTab}/${content.id}`);
+                setContents(contents.filter(c => c.id !== content.id))
+            }
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         loadContents();
     }, [watchListTab]);
@@ -46,7 +67,7 @@ const WatchListBody = () => {
                 {
                     contents.map((item: Content) => {
                         return (
-                            <ContentCard content={item} />
+                            <ContentCard key={item.id} content={item} hasOptions={true} category={watchListTab} changeCategory={changeCategory} />
                         );
                     })
                 }

@@ -2,13 +2,14 @@ import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 
 // Scenario: Register a movie on the database
 
-Given("the user visites the page {string}", (page: string) => {
+Given("the user visits the page {string}", (page: string) => {
     cy.visit(page);
+    cy.wait(50)
   });
   
 
 When(
-    "the user does not visualize content registred with title {string}",
+    "the user does not visualize content registered with title {string}",
     (title: string) => {
         cy.wait(50)
         cy.get(`[data-cy="content-item-${title}"]`).should("not.exist");
@@ -32,12 +33,19 @@ When(
 When(
     "the user fills the data {string} with {string}",
     (field: string, value: string) => {
-        cy.get(`[data-cy="${field}"]`).type(value);
+        cy.get(`[data-cy="${field}"]`).clear().type(value);
     }
 )
 
 Then(
-    "the user visualizes a content registred with title {string}", 
+    "the user is in the page {string}",
+    (page: string) => {
+        cy.url().should("include", page);
+    }
+)
+
+Then(
+    "the user visualizes a content registered with title {string}", 
     (title: string) => {
         cy.get(`[data-cy="content-item-${title}"]`).should("exist");
     }

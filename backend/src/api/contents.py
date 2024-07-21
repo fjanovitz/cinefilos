@@ -83,6 +83,8 @@ async def update_movie(movie_title: str, movie: Movie):
 
     if updated_movie is None:
         raise HTTPException(status_code=404, detail="No movie with this title found in the database")
+    if updated_movie == -1:
+        raise HTTPException(status_code=422, detail="There is a movie with the same new title in the database")
 
     return updated_movie
 

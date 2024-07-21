@@ -16,7 +16,7 @@ const ContentsPage = ({ content_type }) => {
 						className={styles.buttonCreateContent}
             			data-cy="Adicionar Conteúdo"
 					>
-						Adicione um conteúdo
+						Adicionar conteúdo
 					</button>
 				</div>
 			</Link>

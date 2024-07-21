@@ -56,8 +56,7 @@ const EditUserInfoForm = () => {
       currentUser.data.gender = userInfo.gender;
       
       // Send the entire user object in the request
-      const response = await updateUser(userId, currentUser.data);
-      console.log(response.data);
+      await updateUser(userId, currentUser.data);
     } catch (error) {
       console.error(error);
     }

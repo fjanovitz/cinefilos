@@ -76,18 +76,21 @@
   ],
   "user": [
     {
-      "full_name": "Clebson hahaha",
-      "username": "Souza",
+      "full_name": "jose clebson de souza oliveira",
+      "username": "souza22",
       "email": "jcso@gmail.com",
       "password": "@Clebson1",
       "birth_date": "10/10/2001",
-      "phone_number": "9999999",
+      "phone_number": "329849248",
       "profile_picture": "string",
-      "address": "nao sei",
-      "gender": "masc",
+      "address": "rua dos bobos",
+      "gender": "masculino",
       "pass_token": "string",
-      "is_private": false,
-      "followers": [],
+      "is_private": true,
+      "followers": [
+        "joao",
+        "clebson"
+      ],
       "following": [
         "joao"
       ],
@@ -108,7 +111,9 @@
       "pass_token": null,
       "is_private": true,
       "followers": [],
-      "following": [],
+      "following": [
+        "souza22"
+      ],
       "follow_requests": [],
       "assistidos": [],
       "id": "da93b947-8b1b-4bfe-8ffd-a7a17d7c9d4d"
@@ -124,11 +129,13 @@
       "address": "RUA BELÉM SÃO FRANCISCO, 635",
       "gender": "masculino",
       "pass_token": null,
-      "is_private": false,
+      "is_private": true,
       "followers": [
-        "Souza"
+        "souza22"
       ],
-      "following": [],
+      "following": [
+        "souza22"
+      ],
       "follow_requests": [],
       "assistidos": [],
       "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"

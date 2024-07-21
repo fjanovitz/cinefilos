@@ -1,0 +1,81 @@
+.link {
+    text-decoration: none;
+}
+
+.card {
+    width: 10rem;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background: lightgray;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    /* Ajuste para layout flexível */
+    flex-direction: column;
+    /* Organiza o conteúdo em coluna */
+    justify-content: space-between;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+
+}
+
+.cardImg {
+    width: auto;
+    /* Ajuste para ocupar a largura disponível */
+    height: 14rem;
+    /* Ajuste na altura para acomodar o título */
+    object-fit: cover;
+    border-radius: 8px;
+    /* Adiciona bordas arredondadas */
+
+}
+
+.cardImg:hover {
+    outline: 3px solid rgb(244, 187, 0);
+
+}
+
+.cardTitle {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    /* Ajuste no tamanho da fonte */
+    overflow: hidden;
+    /* Esconde o overflow */
+    text-overflow: ellipsis;
+    /* Adiciona "..." para textos longos */
+}
+
+.titlePopup {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 5px 20px; 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    color: black; 
+    min-width: 150px; 
+}
+
+.titlePopup::before {
+    content: "";
+    position: absolute;
+    top: -9px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white; 
+}
+
+.card:hover .titlePopup {
+    display: block;
+}

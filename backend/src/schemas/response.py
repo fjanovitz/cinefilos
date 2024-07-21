@@ -79,7 +79,7 @@ class HTTPResponses:
     def USER_ADDED() -> HttpResponseModel:
         return HttpResponseModel(
             message="Usuário adicionado com sucesso",
-            status_code=200,
+            status_code=201,
         )
 
 

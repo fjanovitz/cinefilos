@@ -10,7 +10,7 @@ def getDB():
 
 def saveDB(db):
     with open('./src/db/database.json', 'w') as dbj:
-        json.dump(db, fp=dbj, indent=4)
+        json.dump(db, fp=dbj, indent=2,ensure_ascii=False)
     
 def clearDB(db):
     db["contents"] = []

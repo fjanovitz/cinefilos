@@ -15,6 +15,7 @@ interface User {
   follow_requests: string[];
   followers: string[];
   is_private: boolean;
+  profile_picture: string;
 }
 
 const UserProfile = () => {
@@ -49,6 +50,12 @@ const UserProfile = () => {
       return;
     }
   
+    // Prevent the user from following themselves
+    if (user && followUsername === user.username) {
+      console.error('User cannot follow themselves');
+      return;
+    }
+  
     const result = await followUser(userId, followUsername);
     if (result) {
       setUser((prevUser) => {
@@ -63,6 +70,7 @@ const UserProfile = () => {
       });
     }
   };
+  
   
 
   const handleUnfollow = async (usernameToUnfollow: string) => {
@@ -165,6 +173,13 @@ const UserProfile = () => {
           return null;
         }
       });
+
+      // If the profile is set to public, accept all follow requests
+      if (user.is_private) {
+        for (const requesterUsername of user.follow_requests) {
+          await acceptFollowRequest(userId, requesterUsername);
+        }
+      }
     }
   };
   
@@ -176,24 +191,29 @@ const UserProfile = () => {
 
   return (
     <div className={styles.profile}>
-      <h1>{user.full_name}</h1>
-      <p>Username: {user.username}</p>
-      <p>Email: {user.email}</p>
-      <p>Birth Date: {user.birth_date}</p>
-      <p>Phone Number: {user.phone_number}</p>
-      <p>Address: {user.address}</p>
-      <p>Gender: {user.gender}</p>
-      <p>Account Mode: {user.is_private ? 'Private' : 'Public'}</p>
-      <button onClick={handleSwitchMode}>Switch Mode</button>
-      <input
-        type="text"
-        placeholder="Enter username to follow"
-        value={followUsername}
-        onChange={(e) => setFollowUsername(e.target.value)}
-      />
-      <button onClick={handleFollow}>Follow</button>
-      <button onClick={handleShowFollowing}>Show Following</button>
-      {user.is_private && <button onClick={handleShowFollowRequests}>Show Follow Requests</button>}
+      <div className={styles.left}>
+        <img src={user.profile_picture} alt="Profile" className={styles.profilePicture} />
+        <h2>{user.username}</h2>
+        <h3>{user.full_name}</h3>
+        <p>{user.email}</p>
+      </div>
+      <div className={styles.right}>
+        <p>Birth Date: {user.birth_date}</p>
+        <p>Phone Number: {user.phone_number}</p>
+        <p>Address: {user.address}</p>
+        <p>Gender: {user.gender}</p>
+        <p>Account Mode: {user.is_private ? 'Private' : 'Public'}</p>
+        <button onClick={handleSwitchMode}>Switch Mode</button>
+        <input
+          type="text"
+          placeholder="Enter username to follow"
+          value={followUsername}
+          onChange={(e) => setFollowUsername(e.target.value)}
+        />
+        <button onClick={handleFollow}>Follow</button>
+        <button onClick={handleShowFollowing}>Show Following</button>
+        {user.is_private && <button onClick={handleShowFollowRequests}>Show Follow Requests</button>}
+      </div>
       {showFollowingModal && (
         <div className={styles.modal}>
           <h2>Following</h2>

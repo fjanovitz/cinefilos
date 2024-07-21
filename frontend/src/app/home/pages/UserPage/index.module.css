@@ -1,20 +1,113 @@
 /* UserPage/index.module.css */
 .container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  .container h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
-  .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 1em;
-    border: 1px solid black;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+  margin: auto;
+  font-family: 'Outfit', sans-serif;
+  color: #414141;
+  background-color: #FFFFFF;
+  padding: 20px;
+}
+
+.container h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.container input {
+  padding: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.container button {
+  padding: 10px;
+  background-color: #F4D30B;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.container button:hover {
+  background-color: #F4D30B;
+  opacity: 0.8;
+}
+
+.container .userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container .follow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container .modal {
+  /* Add your modal styles here */
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #F4D30B;
+  border-radius: 4px;
+}
+
+.container .modal h2 {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container .modal p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.container .modal button {
+  padding: 10px;
+  background-color: #F4D30B;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.container .modal button:hover {
+  background-color: #F4D30B;
+  opacity: 0.8;
+}
+
+/* UserPage/index.module.css */
+.profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left, .right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePicture {
+  width: 70%;
+  border-radius: 50%;
+}

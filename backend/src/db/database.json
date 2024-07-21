@@ -87,12 +87,9 @@
       "gender": "masculino",
       "pass_token": "string",
       "is_private": true,
-      "followers": [
-        "joao",
-        "clebson"
-      ],
+      "followers": [],
       "following": [
-        "joao"
+        "clebson"
       ],
       "follow_requests": [],
       "assistidos": [],
@@ -109,11 +106,12 @@
       "gender": "masculino",
       "profile_picture": null,
       "pass_token": null,
-      "is_private": true,
-      "followers": [],
-      "following": [
+      "is_private": false,
+      "followers": [
+        "joao",
         "souza22"
       ],
+      "following": [],
       "follow_requests": [],
       "assistidos": [],
       "id": "da93b947-8b1b-4bfe-8ffd-a7a17d7c9d4d"
@@ -130,11 +128,9 @@
       "gender": "masculino",
       "pass_token": null,
       "is_private": true,
-      "followers": [
-        "souza22"
-      ],
+      "followers": [],
       "following": [
-        "souza22"
+        "clebson"
       ],
       "follow_requests": [],
       "assistidos": [],

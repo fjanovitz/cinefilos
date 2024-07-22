@@ -16,7 +16,7 @@ import UpdateContentPage from "./app/home/pages/UpdateContentPage";
 import UserProfilePage from "./app/home/pages/ProfilePage";
 import UpdateReviewPage from "./app/home/pages/UpdateReviewPage";
 import FeedPage from "./app/home/pages/FeedPage";
-import AddPostPage from "./app/home/pages/AddPostPage";
+import CreatePostPage from "./app/home/pages/CreatePostPage";
 import PostPage from "./app/home/pages/PostPage";
 import LikesPage from "./app/home/pages/LikesPage";
 
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/forum/newpost",
-    element: <Layout><AddPostPage /></Layout>,
+    element: <Layout><CreatePostPage /></Layout>,
   },
   {
     path: "/forum/post/:postID",

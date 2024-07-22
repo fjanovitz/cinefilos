@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTest from "./app/home/pages/CreateTest";
 import LoginPage from "./app/home/pages/LoginPage";
-import RecuperarSenha from "./app/home/pages/RecuperarSenha";
+import PasswordRecoveryPage from "./app/home/pages/PasswordRecoveryPage";
 import ContentDetailsPage from "./app/home/pages/ContentDetailsPage";
 import ListTests from "./app/home/pages/ListTests";
 import ContentsPage from "./app/home/pages/ContentsPage";
@@ -23,9 +23,9 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },  
   {
-    path: "/recuperarsenha",
-    element: <Layout><RecuperarSenha /></Layout>,
-  },
+    path: "/recover-account",
+    element: <PasswordRecoveryPage />,
+  },  
   {
     path: "/contents/movies",
     element: <Layout><ContentsPage content_type = {"movies"} /></Layout>,

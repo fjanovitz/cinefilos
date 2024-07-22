@@ -70,15 +70,15 @@ class AccountRecoveryService:
         for user in users:
             if user["email"] == email and user["recovery_token"] == recovery_token:
                 # Atualiza a senha (hashing antes de salvar)
-                hashed_password = hashlib.sha256(new_password.encode()).hexdigest()
-                user["password"] = hashed_password
+                # hashed_password = hashlib.sha256(new_password.encode()).hexdigest()
+                user["password"] = new_password
 
                 # Remove o token de recuperação usado
                 user.pop("recovery_token", None)
                 user.pop("recovery_token_expiration", None)
 
                 saveDB(db)
-                return hashed_password
+                return new_password
         return None
 
 

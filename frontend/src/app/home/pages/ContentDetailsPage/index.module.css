@@ -2,8 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #f0f2f5; 
+  padding: 1rem 1rem 1rem 2rem;
+  background-color: #f0f2f5;
+}
+
+.outerContainer {
+  height: calc(100vh - 6rem);
+  overflow-y: scroll;
 }
 
 .container {

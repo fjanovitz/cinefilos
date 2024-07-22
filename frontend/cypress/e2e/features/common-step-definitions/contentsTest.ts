@@ -12,7 +12,7 @@ When(
     "the user does not visualize content registered with title {string}",
     (title: string) => {
         cy.wait(50)
-        cy.get(`[data-cy="content-item-${title}"]`).should("not.exist");
+        cy.get(`[data-cy="${title}"]`).should("not.exist");
     }
 )
 
@@ -47,7 +47,7 @@ Then(
 Then(
     "the user visualizes a content registered with title {string}", 
     (title: string) => {
-        cy.get(`[data-cy="content-item-${title}"]`).should("exist");
+        cy.get(`[data-cy="${title}"]`).should("exist");
     }
 )
 
@@ -75,6 +75,6 @@ Then(
 When(
     "the user selects the content {string}",
     (title: string) => {
-        cy.get(`[data-cy="content-item-${title}"]`).click();
+        cy.get(`[data-cy="${title}"]`).click();
     }
 )

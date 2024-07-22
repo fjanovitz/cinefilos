@@ -55,7 +55,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ content, hasOptions = false, 
 					className={styles.card}
 				>
 					<Card.Img
-						data-cy={`content-item-${content.title}`}
+						data-cy={`${content.title}`}
 						variant="top"
 						src={content.banner}
 						className={styles.cardImg}

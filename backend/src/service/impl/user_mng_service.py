@@ -51,7 +51,12 @@ class UserService:
     db = getDB()
     for user in db["user"]:
         if user["email"] == email:
-            return user
+            return HttpResponseModel(
+                message="Usuário encontrado",
+                status_code=200,
+                data=user  # Retorna os dados do usuário
+            )
+        logging.debug(f"User not found with username: {email}")
     raise HTTPException(status_code=404, detail="Usuário não encontrado")
 
   @staticmethod

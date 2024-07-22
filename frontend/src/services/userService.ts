@@ -31,6 +31,11 @@ export const getUser = async (userId: string) => {
   return response.data;
 };
 
+export const getUserByEmail = async (email: string) => {
+  const response = await axios.get(`http://localhost:8000/user/get_user_by_emial/${email}`);
+  return response.data;
+}
+
 export const updateUser = async (userId: string, updatedUser: any) => {
   console.log(updatedUser)
   console.log("acima")

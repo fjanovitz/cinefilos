@@ -32,16 +32,16 @@ const ContentCard: React.FC<ContentCardProps> = ({ content, hasOptions = false, 
 			onMouseLeave={() => {setIsHovered(false); setShowOverlay(false)}} 
 		>
 			{isHovered && hasOptions && (
-				<div className={styles.optionsButton} onClick={() => setShowOverlay(true)}>
+				<div data-cy="options_button" className={styles.optionsButton} onClick={() => setShowOverlay(true)}>
 					<div className={styles.dotButton}>
 						<div></div>
 						<div></div>
 						<div></div>
 					</div>
 					<div className={`${styles.overlay} ${(showOverlay ? styles.active : '')}`}>
-						<button className={(category == "assistidos") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "assistidos")}>Assistidos</button>
-						<button className={(category == "quero_assistir") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "quero_assistir")}>Quero Assistir</button>
-						<button className={(category == "abandonados") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "abandonados")}>Abandonados</button>
+						<button data-cy="assistidos_option" className={(category == "assistidos") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "assistidos")}>Assistidos</button>
+						<button data-cy="quero_assistir_option" className={(category == "quero_assistir") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "quero_assistir")}>Quero Assistir</button>
+						<button data-cy="abandonados_option" className={(category == "abandonados") ? styles.selectedButton : ''} onClick={() => changeCategory(content, "abandonados")}>Abandonados</button>
 					</div>
 				</div>
 			)}
@@ -51,6 +51,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ content, hasOptions = false, 
 				className={styles.link}
 			>
 				<Card
+					data-cy={content.id}
 					className={styles.card}
 				>
 					<Card.Img

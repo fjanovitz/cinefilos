@@ -5,15 +5,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import StarRating from "../../components/StarRating/StarRating";
 import { AxiosError } from "axios";
 import { Movie, TvShow } from "../../models/ContentInterface";
-
-interface Review {
-	title: string;
-	report: string;
-	rating: number;
-	username: string;
-	content_id: string;
-	content_type: string;
-}
+import { Review } from "../../models/ReviewInterface";
 
 const ContentDetailsPage = () => {
 	const navigate = useNavigate();

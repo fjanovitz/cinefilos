@@ -131,7 +131,7 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({ content_id, content_typ
               </button>
             </Link>
               <button 
-                className = {styles.updateButton} 
+                className = {styles.deleteButton} 
                 onClick={handleDelete}
                 data-cy={`delete-review-button-${content_type}-${content_id}`}>
                   Excluir Avaliação

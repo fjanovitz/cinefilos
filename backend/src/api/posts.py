@@ -28,7 +28,7 @@ async def remove_post(post_id: str, current_user: str):
     found = False
     for i in range(len(db["posts"])):
         if db["posts"][i]["id"] == post_id:
-            if current_user == db["posts"][i]["author"]["username"]:
+            if current_user == db["posts"][i]["author"]:
                 found = True
                 deleted_post = db["posts"].pop(i)
                 saveDB(db)
@@ -54,7 +54,7 @@ async def open_post(post_id: str):
     return post
 
 @router.put("/post/{post_id}", status_code=200, tags=["forum"], response_model=dict)
-async def update_like(post_id: str, user_id: str):
+async def update_like(post_id: str, username: str):
     db = getDB()
 
     found = False
@@ -65,18 +65,18 @@ async def update_like(post_id: str, user_id: str):
             already_liked = False
 
             for i in range(len(post["users_who_liked"])):
-                if post["users_who_liked"][i] == user_id:
+                if post["users_who_liked"][i] == username:
                     already_liked = True
-                    user_id = post["users_who_liked"].pop(i)
+                    username = post["users_who_liked"].pop(i)
                     post["num_likes"] -= 1
                     saveDB(db)
-                    return {"user_id": user_id, "status": 0}
+                    return {"username": username, "status": 0}
 
             if not already_liked:
-                post["users_who_liked"].append(user_id)
+                post["users_who_liked"].append(username)
                 post["num_likes"] += 1
                 saveDB(db)
-                return {"user_id": user_id, "status": 1}
+                return {"username": username, "status": 1}
             
     if not found:
         raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")

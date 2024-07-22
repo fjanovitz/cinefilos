@@ -108,9 +108,25 @@ const CreatePostPage = () => {
 								data-cy="title"
 								className={styles.formControl}
 								as="textarea"
+								rows={2}
 								style={{ resize: 'none' }}
 								value={title}
 								onChange={(e) => setTitle(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group className={styles.formGroup}>
+							<Form.Label className={styles.formLabel}>
+								Tópico
+							</Form.Label>
+							<Form.Control
+								data-cy="title"
+								className={styles.formControl}
+								as="textarea"
+								rows={1}
+								style={{ resize: 'none' }}
+								value={topic}
+								onChange={(e) => setTopic(e.target.value)}
 							/>
 						</Form.Group>
 

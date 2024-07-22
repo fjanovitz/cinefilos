@@ -6,6 +6,8 @@ import StarRating from "../../components/StarRating/StarRating";
 import { AxiosError } from "axios";
 import { Movie, TvShow } from "../../models/ContentInterface";
 import { Review } from "../../models/ReviewInterface";
+import MainButton from "../../components/MainButton/MainButton";
+import DeleteButton from "../../components/DeleteButton/DeleteButton";
 
 const ContentDetailsPage = () => {
 	const navigate = useNavigate();
@@ -75,16 +77,12 @@ const ContentDetailsPage = () => {
 						<Link
 							to={`/contents/${content?.content_type}/${content?.title}/update_content`}
 						>
-							<button className={styles.addButton}>
-								Atualizar conteúdo
-							</button>
+							<MainButton text={"Atualizar conteúdo"}/>
 						</Link>
-						<button
+						<DeleteButton
 							onClick={handleDelete}
-							className={styles.deleteButton}
-						>
-							Deletar conteúdo
-						</button>
+							text={"Deletar conteúdo"}
+						/>
 					</div>
 				</div>
 				<div className={styles.contentDetails}>
@@ -172,12 +170,11 @@ const ContentDetailsPage = () => {
 									state={{ content: content }}
 									style={{ textDecoration: "none" }}
 								>
-									<button 
-										className={styles.addButton}
+									<MainButton
 										data-cy="Adicione uma avaliação"
-									>
-										Adicione uma avaliação
-									</button>
+										text={"Adicione uma avaliação"}
+									/>
+										
 								</Link>
 							</div>
 						</div>

@@ -21,7 +21,7 @@ const AvaliacaoPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const content = location.state.content;
-    const content_id = content.id;
+    const content_id = content?.id;
     const { content_type } = useParams<{ content_type: string; }>();
     const [titulo, setTitulo] = useState('');
     const [avaliacao, setAvaliacao] = useState('');
@@ -53,7 +53,7 @@ const AvaliacaoPage = () => {
         <div className={styles.pageContainer}>
           <div className={styles.container}>
             <div className={styles.banner}>
-              <img src={content.banner} alt="Banner do Conteúdo" className={styles.bannerImage} />
+              <img src={content?.banner} alt="Banner do Conteúdo" className={styles.bannerImage} />
             </div>
             <div className={styles.formContainer}>
                 <h1 className={styles.title}>{content?.title} ({content?.release_year})</h1>
@@ -61,6 +61,7 @@ const AvaliacaoPage = () => {
                 <Form.Group className={styles.formGroup}>
                   <Form.Label className={styles.formLabel}>Título da Avaliação</Form.Label>
                   <Form.Control
+                    data-cy="Título da Avaliação"
                     className={styles.formControl}
                     type="text"
                     value={titulo}
@@ -71,6 +72,7 @@ const AvaliacaoPage = () => {
                 <Form.Group className={styles.formGroup}>
                   <Form.Label className={styles.formLabel}>Avaliação</Form.Label>
                   <Form.Control
+                    data-cy="Avaliação"
                     className={styles.formControl}
                     as="textarea"
                     rows={3}
@@ -82,6 +84,7 @@ const AvaliacaoPage = () => {
                 <Form.Group>
                     <Form.Label className = {styles.formLabel}>Nota</Form.Label>
                     <Form.Control
+                        data-cy="Nota"
                         as="select"
                         value={nota}
                         onChange={(e) => setNota(e.target.value)}
@@ -95,7 +98,12 @@ const AvaliacaoPage = () => {
                     </Form.Control>
                 </Form.Group>
                 <div className={styles.buttonContainer}>
-                    <button type="submit" className={styles.formButton}>Enviar Avaliação</button>
+                    <button 
+                      data-cy="Enviar Avaliação"
+                      type="submit" 
+                      className={styles.formButton}>
+                        Enviar Avaliação
+                    </button>
                 </div>
               </Form>
             </div>

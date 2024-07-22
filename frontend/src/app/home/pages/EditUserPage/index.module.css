@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0; /* Remove any default margin */
+    padding-top: 0; /* Remove any default padding */
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    font-family: 'Outfit', sans-serif;
+    color: #414141;
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #F4D30B;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5%;
+  }
+  
+  .label {
+    font-size: 14px;
+  }
+  
+  .input {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    padding: 10px;
+    background-color: #F4D30B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #F4D30B;
+    opacity: 0.8;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container h1 {
+    font-size: 24px;
+    text-align: center;
+    margin: 0; /* Remove qualquer margem que pode estar limitando o espaço */
+    padding: 0; /* Remove padding, se necessário */
+    background-color: #F4D30B;
+    color: #FFFFFF;
+    width: 100vw; /* Usa a largura da viewport */
+    position: relative; /* Garante que o elemento respeite a largura da viewport */
+    left: 50%; /* Move o elemento para o centro da viewport */
+    right: 50%; /* Move o elemento para o centro da viewport */
+    transform: translateX(-50%); /* Ajusta o elemento para centralizar */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    padding: 1.5%;
+  }
+  

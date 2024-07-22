@@ -39,7 +39,7 @@ function getCurrentDateTime(): string {
 const CreatePostPage = () => {
 	const navigate = useNavigate();
 	const id = uuidv4();
-	const [author, setAuthor] = useState("");
+	const author = "fjn";
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const num_likes = 0;

@@ -4,7 +4,7 @@ import api from "../../../../services/api";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Form, Toast } from "react-bootstrap";
-import uuidv4 from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
 interface Comment {
     id: string;
@@ -38,8 +38,7 @@ function getCurrentDateTime(): string {
 
 const CreatePostPage = () => {
 	const navigate = useNavigate();
-	const { content_type } = useParams<{ content_type: string }>();
-	const [id, setId] = uuidv4();
+	const [id, setId] = useState(uuidv4());
 	const [author, setAuthor] = useState("");
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
@@ -48,7 +47,7 @@ const CreatePostPage = () => {
 	const [num_comments, setNumComments] = useState(0);
 	const [comments, setComments] = useState<Comment[]>([]);
 	const [topic, setTopic] = useState("");
-	const [posted, setPosted] = getCurrentDateTime();
+	const [posted, setPosted] = useState(getCurrentDateTime());
 
 	const [errorMessage, setErrorMessage] = useState("");
 
@@ -85,7 +84,11 @@ const CreatePostPage = () => {
 			navigate(-1);
 		} catch (error) {
 			const axiosError = error as AxiosError;
-			alert(axiosError.response.statusText)
+			if (axiosError.response) {
+			  alert(axiosError.response.statusText);
+			} else {
+			  alert(axiosError.message);
+			}
 		}
 	};
 
@@ -93,7 +96,7 @@ const CreatePostPage = () => {
 
 	return (
 		<div className={styles.pageContainer}>
-			<h1>Criar conteúdo</h1>
+			<h1>Novo Post</h1>
 			<div className={styles.container}>
 				<div className={styles.formContainer}>
 					<Form onSubmit={handleSubmit}>
@@ -102,15 +105,13 @@ const CreatePostPage = () => {
 								Título
 							</Form.Label>
 							<Form.Control
-								data-cy="Título"
+								data-cy="title"
 								className={styles.formControl}
-								type="text"
+								as="textarea"
+								style={{ resize: 'none' }}
 								value={title}
 								onChange={(e) => setTitle(e.target.value)}
 							/>
-							<Form.Control.Feedback type="invalid" style={{color: "red"}}>
-								{errorMessage}
-							</Form.Control.Feedback>
 						</Form.Group>
 
 						<Form.Group className={styles.formGroup}>
@@ -118,13 +119,17 @@ const CreatePostPage = () => {
 								Conteúdo
 							</Form.Label>
 							<Form.Control
-								data-cy="Sinopse"
+								data-cy="content"
 								className={styles.formControl}
 								as="textarea"
-								rows={5}
+								rows={10}
+								style={{ resize: 'none' }}
 								value={content}
 								onChange={(e) => setContent(e.target.value)}
 							/>
+							<Form.Control.Feedback type="invalid" style={{color: "red"}}>
+								{errorMessage}
+							</Form.Control.Feedback>
 						</Form.Group>
 
 						<div className={styles.buttonContainer}>

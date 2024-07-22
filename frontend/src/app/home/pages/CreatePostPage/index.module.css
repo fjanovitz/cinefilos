@@ -1,10 +1,16 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 .pageContainer {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background-color: #f0f2f5; 
+    padding: 10px 20px;
+    background-color: #f0f2f5;
+    min-height: calc(100vh - 60px); 
 }  
 
 .title {
@@ -24,8 +30,8 @@
 .contentDetails {
     padding: 20px; 
     flex-grow: 1; 
-    min-height: 100vh; 
-    width: 100vw;
+    width: calc(100vw - 40px); 
+    box-sizing: border-box;
   }
 
 .formContainer {
@@ -63,6 +69,7 @@
     border-radius: 4px;
     cursor: pointer;
     float: right;
+    font-size: 15px;
 }
 
 .formButton:hover {

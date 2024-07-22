@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import api from "/src/services/api";
+import api from "../../../../services/api";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
@@ -60,7 +60,11 @@ const PostPage = () => {
 			navigate(-1);
 		} catch (error) {
 			const axiosError = error as AxiosError;
-            alert(axiosError.response?.data.message);
+			if (axiosError.response) {
+			  alert(axiosError.response.statusText);
+			} else {
+			  alert(axiosError.message);
+			}
 		}
 	};
 

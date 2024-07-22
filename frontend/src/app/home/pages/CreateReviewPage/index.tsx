@@ -34,7 +34,6 @@ const AvaliacaoPage = () => {
         const review: Review =  {title: titulo, report: avaliacao, rating: Number(nota), 
                                 username: "edsonneto8", content_id: content_id, content_type: content_type || ""};
         
-        console.log("vou chamar a rota de post");
         try {
             const response = await api.post('/reviews', review);
             console.log("response: ", response);

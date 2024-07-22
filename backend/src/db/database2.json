@@ -1,0 +1,121 @@
+{
+    "contents": [
+        {
+            "id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
+            "content_type": "movies",
+            "title": "Interstellar",
+            "synopsis": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+            "gender": "Fic\u00e7\u00e3o Cient\u00edfica",
+            "main_cast": [
+                "Matthew McConaughey",
+                "Anne Hathaway",
+                "Jessica Chastain"
+            ],
+            "release_year": 2014,
+            "banner": "https://waltermattos.com/site2/wp-content/uploads/2014/11/tut_Analise_Grafica_Cartaz_Interstellar_05_011.png",
+            "where_to_watch": [
+                "Amazon Prime Video",
+                "Telecine Play"
+            ],
+            "rating": 10.0,
+            "duration": 169,
+            "director": "Christopher Nolan"
+        },
+        {
+            "id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
+            "content_type": "tv_shows",
+            "title": "The Big Bang Theory",
+            "synopsis": "string",
+            "gender": "string",
+            "main_cast": [
+                "string"
+            ],
+            "release_year": 0,
+            "banner": "https://upload.wikimedia.org/wikipedia/pt/9/9a/Big-bang-theory_Temporada_12_poster.jpg",
+            "where_to_watch": [],
+            "rating": 0.0,
+            "num_seasons": 0,
+            "num_episodes": 0,
+            "creator": "string"
+        },
+        {
+            "id": "a7239a83-a7ed-48ac-b889-ccdb3117e8e",
+            "content_type": "movies",
+            "title": "Batman",
+            "synopsis": "string",
+            "gender": "string",
+            "main_cast": [
+                "string"
+            ],
+            "release_year": 0,
+            "banner": "https://cdn.awsli.com.br/2500x2500/1610/1610163/produto/177680308/poster-batman-o-cavaleiro-das-trevas-e-90b14a9e.jpg",
+            "where_to_watch": [],
+            "rating": 0.0,
+            "duration": 0,
+            "director": "string"
+        },
+        {
+            "id": "ef13f843-c3d5-4766-8c90-7471945337a2",
+            "content_type": "tv_shows",
+            "title": "Breaking Bad",
+            "synopsis": "O professor de qu\u00edmica Walter White n\u00e3o acredita que sua vida possa piorar ainda mais. Quando descobre que tem c\u00e2ncer terminal, Walter decide arriscar tudo para ganhar dinheiro enquanto pode, transformando sua van em um laborat\u00f3rio de metanfetamina.",
+            "gender": "Drama",
+            "main_cast": [
+                "Bryan Cranston "
+            ],
+            "release_year": 2008,
+            "banner": "https://upload.wikimedia.org/wikipedia/pt/e/e1/Breaking_bad_5_temporada_%28parte_1%29_poster.jpg",
+            "where_to_watch": [
+                "Netflix"
+            ],
+            "rating": 0.0,
+            "num_seasons": 5,
+            "num_episodes": 62,
+            "creator": "Vince Gilligan"
+        }
+    ],
+    "user": [],
+    "posts": [],
+    "reviews": [
+        {
+            "title": "Interstellar \u00e9 \u00f3timo",
+            "report": "Melhor filme que j\u00e1 vi",
+            "rating": 10.0,
+            "username": "edsonneto8",
+            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
+            "content_type": "movies"
+        },
+        {
+            "title": "P\u00e9ssimo filme",
+            "report": "N\u00e3o me convenceu",
+            "rating": 4.0,
+            "username": "thrpg",
+            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
+            "content_type": "movies"
+        },
+        {
+            "title": "ok",
+            "report": "ok",
+            "rating": 7.0,
+            "username": "roca",
+            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
+            "content_type": "movies"
+        },
+        {
+            "title": "Bom filme",
+            "report": "um bom filme",
+            "rating": 10.0,
+            "username": "vps3",
+            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
+            "content_type": "movies"
+        },
+        {
+            "title": "EXCELENTE",
+            "report": "excelente filme",
+            "rating": 10.0,
+            "username": "rod",
+            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
+            "content_type": "movies"
+        }
+    ]
+}

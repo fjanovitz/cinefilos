@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 import api from '/src/services/api';
 import ContentCard from "./ContentCard";
 import { Container, Row, Col } from 'react-bootstrap';
@@ -39,7 +38,7 @@ const ContentListView = ( { content_type }) => {
     useEffect(() => {
         loadContents();
         console.log("batata", contents);
-  }, [content_type]);
+    }, [content_type]);
   
   return (
     <section>

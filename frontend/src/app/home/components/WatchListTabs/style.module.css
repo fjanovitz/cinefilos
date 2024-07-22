@@ -1,0 +1,57 @@
+.baseButton {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.75rem;
+    width: 100%;
+    margin: auto;
+
+    font-size: 1.25rem;
+    
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    
+    transition: color .25s, font-weight .25s;
+}
+
+.tabButton {
+
+}
+
+.selectedButton {
+    /* background-color: rgba(1, 1, 1, 0.45); */
+    background-color: #f4d30b;
+}
+
+.selectedButton button {
+    /* color: #f4d30b; */
+    color: white;
+    font-weight: 600;
+}
+
+.tabsContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 2px solid black;
+    margin-bottom: 1rem;
+}
+
+.buttonContainer {
+    position: relative;
+    width: 32%;
+    height: 3rem;
+    padding: 0 0 0.5rem 0;
+    border-radius: 10px 10px 0 0;
+
+    transition: background-color .25s;
+}
+
+.line {
+    width: 2px;
+    height: 2.6rem;
+    margin-top: .25rem;
+    background-color: black;
+}

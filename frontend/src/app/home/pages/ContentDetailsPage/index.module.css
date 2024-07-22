@@ -17,6 +17,7 @@
 
 .banner img {
   width: 100%;
+  padding: 20;
   max-width: 500px; 
   height: auto; 
   object-fit: cover; 
@@ -132,16 +133,34 @@
 }
 
 .addButton {
-  margin-left: 10px; 
+  margin: 10px; 
   background-color: transparent;
-  color: black;
+  color: rgb(255, 213, 0);
+  font-weight: bold ;
   border: 2px solid black;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
 }
 
 .addButton:hover {
-  background-color: rgba(0, 0, 0, 0.1); 
+  background-color: rgb(255, 200, 0);
+  color: white;
+}
+
+.deleteButton {
+  margin: 5px;
+  color: red;
+  border: 2px solid red;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: red;
+  color: white;
 }

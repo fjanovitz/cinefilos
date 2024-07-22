@@ -6,10 +6,11 @@
     flex-direction: row;
     float: left;
     width: 100%;
+    padding: 0 1rem;
 }
 
 .reviewContainer {
-    padding: 10px;
+    padding: 1rem 1.5rem;
     background-color: #f8f9fa;
     border-radius: 8px;
     flex: 2;

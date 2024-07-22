@@ -8,6 +8,7 @@ const ContentsPage = ({ content_type }) => {
 		<section>
 			<div></div>
 			<Link
+				className={styles.linkCont}
 				to={{ pathname: `/contents/${content_type}/create_content` }}
 				state={{ content_type: content_type }}
 				style={{ textDecoration: "none" }}

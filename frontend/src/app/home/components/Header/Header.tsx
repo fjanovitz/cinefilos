@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './styles.module.css'
+import logo from '/src/shared/assets/logo.png'
 
 const Header: React.FC = () => {
   return (
-    <header style={{background: '#221f1f',  display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
+    <header className={styles.headerContainer}>
       <div style={{ flex: 1 }}>
-        <h1 style = {{color: '#f4d30b'}}>CInéfilos</h1>
+        <img className={styles.logoImg} src={logo} />
       </div>
-      <nav style={{ flex: 2, display: 'flex', justifyContent: 'center', gap: '20px' }}>
+      <nav className={styles.navContainer} >
         <Link to="/contents/movies" style={{textDecoration: 'none', color: 'white'}} >Filmes</Link>
         <Link to="/contents/tv_shows" style={{textDecoration: 'none', color: 'white'}} >Séries</Link>
         <Link to="/tests" style={{textDecoration: 'none', color: 'white'}} >Posts</Link>

@@ -41,9 +41,8 @@ const ContentListView = ( { content_type }) => {
 
     const userCategories = async () => {
         try {
-            console.log(user?.username != undefined);
             if(user?.username != undefined){
-                const response = await api.get(`/watch_list/user/${user?.username}`);
+                const response = await api.get(`/watch_list/user/categories/${user?.username}`);
                 setCategories(response.data);
             }
         } catch(error) {
@@ -83,7 +82,7 @@ const ContentListView = ( { content_type }) => {
   return (
     <section className={styles.sectionContainer}>
         <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
-            <Row className="g-4" style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
+            <Row className={'g-4 ' + styles.rowClass} style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
                     {contents.map(
                         ({
                             id,

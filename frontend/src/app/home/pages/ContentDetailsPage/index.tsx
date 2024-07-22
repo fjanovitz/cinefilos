@@ -4,24 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import StarRating from "../../components/StarRating/StarRating";
 import { AxiosError } from "axios";
-
-interface Content {
-	id: string;
-	title: string;
-	banner: string;
-	content_type: string;
-	synopsis: string;
-	gender: string;
-	release_year: number;
-	rating: number;
-	duration: number;
-	director: string;
-	creator: string;
-	main_cast: string[];
-	num_seasons: number;
-	num_episodes: number;
-	where_to_watch: string[];
-}
+import { Movie, TvShow } from "../../models/ContentInterface";
 
 interface Review {
 	title: string;
@@ -38,7 +21,7 @@ const ContentDetailsPage = () => {
 		content_type: string;
 		title: string;
 	}>();
-	const [content, setContent] = useState<Content | null>(null);
+	const [content, setContent] = useState<Movie & TvShow>();
 	const [reviews, setReviews] = useState<Review[] | null>(null);
 	const [rating, setRating] = useState<number>();
 

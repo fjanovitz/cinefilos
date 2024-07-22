@@ -1,5 +1,6 @@
 from uuid import uuid4
 from typing import Optional, List
+from src.schemas.content import Content
 from pydantic import BaseModel, EmailStr, Field
 
 class UserModel(BaseModel):
@@ -16,8 +17,10 @@ class UserModel(BaseModel):
     is_private: Optional[bool] = False
     followers: Optional[List[str]] = []  
     following: Optional[List[str]] = []  
-    follow_requests: Optional[List[str]] = []  
-    assistidos: Optional[List[str]] = []
+    follow_requests: Optional[List[str]] = []
+    assistidos: Optional[List[Content]] = []
+    quero_assistir: Optional[List[Content]] = []
+    abandonados: Optional[List[Content]] = []
 
 class Log(BaseModel):
     email: EmailStr

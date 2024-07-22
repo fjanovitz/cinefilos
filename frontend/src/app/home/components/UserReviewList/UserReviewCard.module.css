@@ -3,7 +3,6 @@
     background-color: #f8f9fa; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border-radius: 8px; 
-    overflow: hidden; 
     flex-direction: row;
     float: left;
     width: 100%;
@@ -42,4 +41,26 @@
   
 .updateButton:hover {
     background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.deleteButton {
+    margin-left: 10px; 
+    background-color: transparent;
+    color: red;
+    border: 2px solid red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s, color 0.3s;
+}
+  
+.updateButton:hover {
+    background-color: rgba(0, 0, 0, 0.1); 
+}
+
+  
+.deleteButton:hover {
+background-color: red;
+color: white;
 }

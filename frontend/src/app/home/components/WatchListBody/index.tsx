@@ -3,6 +3,7 @@ import styles from "./style.module.css";
 import api from '../../../../services/api';
 import WatchListTabs from "../WatchListTabs";
 import ContentCard from "../ContentListView/ContentCard";
+import { useParams } from "react-router-dom";
 
 interface Content {
     id: string;
@@ -18,12 +19,13 @@ interface Content {
 }
 
 const WatchListBody = () => {
+    const { username } = useParams();
     const [watchListTab, setWatchListTab] = useState('assistidos');
     const [contents, setContents] = useState<Content[]>(() => { return [] as Content[]; });
 
     const loadContents = async () => {
         try {
-            const response = await api.get(`/watch_list/user/edsonneto8/${watchListTab}`);
+            const response = await api.get(`/watch_list/user/${username}/${watchListTab}`);
             const newData = response.data.items_list.map((item: any) => {
                 return {
                     ...item
@@ -35,6 +37,27 @@ const WatchListBody = () => {
         }
     };
 
+    const changeCategory = async (content: Content, category: string) => {
+        try{
+            let response;
+            if(category != watchListTab){
+                const params = {
+                    username, 
+                    category,
+                    content_id: content.id,
+                    content_type: content.content_type
+                }
+                response = await api.post(`/watch_list/user/`, {}, {params});
+            }
+            if(category == watchListTab || response.status == 201){
+                const responseDel = await api.delete(`/watch_list/user/${username}/${watchListTab}/${content.id}`);
+                setContents(contents.filter(c => c.id !== content.id))
+            }
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         loadContents();
     }, [watchListTab]);
@@ -45,8 +68,9 @@ const WatchListBody = () => {
             <div className={styles.contentCategoryList}>
                 {
                     contents.map((item: Content) => {
+                        const itemId = item.id
                         return (
-                            <ContentCard content={item} />
+                            <ContentCard key={itemId} content={item} hasOptions={true} category={watchListTab} changeCategory={changeCategory} />
                         );
                     })
                 }

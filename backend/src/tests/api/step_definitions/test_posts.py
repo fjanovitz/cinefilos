@@ -180,12 +180,12 @@ def clear_post_likes(post_id:str):
             saveDB(db)
             break 
 
-@when(parsers.cfparse('a PUT request is sent to "{req_url}" from the user with ID "{user_id_}"'), 
+@when(parsers.cfparse('a PUT request is sent to "{req_url}" from the user with username "{username}"'), 
     target_fixture="context"
 )
-def update_like_status(client, context, req_url: str,  user_id_:str):
+def update_like_status(client, context, req_url: str,  username:str):
 
-    response = client.put(req_url, params={"user_id": user_id_})
+    response = client.put(req_url, params={"username": username})
     
     context["response"] = response
     return context
@@ -195,7 +195,7 @@ def check_response_post(context, username: str, status: bool):
 
     like_response = context["response"].json()
 
-    assert like_response["user_id"] == username
+    assert like_response["username"] == username
     assert like_response["status"] == int(status)
     return context
 

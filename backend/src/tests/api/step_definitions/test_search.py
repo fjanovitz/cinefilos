@@ -24,7 +24,7 @@ def mock_post_service_clean(title: str, topic_: str):
 
     post = Post(
         id = str(uuid4()),
-        author = create_random_user("ersaraujo"),
+        author = "ersaraujo",
         title = title,
         content = "random",
         num_likes = 0,

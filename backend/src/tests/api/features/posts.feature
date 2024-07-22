@@ -45,14 +45,14 @@ Feature: Posts API
     Scenario: Like a post successfully
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
         And the user with username "hannah" do not liked the post with ID "1234"
-        When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
+        When a PUT request is sent to "/forum/post/1234" from the user with username "hannah"
         Then the json status code is "200"
         And the json response have the username "hannah" and the status "1"
 
     Scenario: Remove the like from a post successfully
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
         And the user with username "hannah" already liked the post with ID "1234"
-        When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
+        When a PUT request is sent to "/forum/post/1234" from the user with username "hannah"
         Then the json status code is "200"
         And the json response have the username "hannah" and the status "0"
 

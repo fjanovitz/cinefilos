@@ -25,7 +25,7 @@ Scenario: Try to register a review to a content that was already reviewed by the
     And the user "edsonneto8" selects the data "10" for field "Nota"
     And the user "edsonneto8" selects "Enviar Avaliação"
     Then appears a message saying "Você já fez uma avaliação para este conteúdo."
-    And the user is in the page "/contents/movies/Inferno"
+    And the user is in the page "/contents/movies/Inferno"  
 
 Scenario: Update review information
     Given the user visits the page "profile/edsonneto8"
@@ -43,3 +43,23 @@ Scenario: Delete a review
     Then the user is in the page "profile/edsonneto8"
     And the user "edsonneto8" does not visualize a review registered for the content_type "movies" and content_id "323675"
     And appears a message saying "Review deletada com sucesso."
+
+Scenario: Try to register a review without title
+    Given the user "edsonneto8" visits the page "/contents/movies/Logan"
+    And the user "edsonneto8" does not visualize a review registered with username "edsonneto8"
+    When the user "edsonneto8" selects "Adicione uma avaliação"
+    Then the user "edsonneto8" visualizes the text "Logan (2017)"
+    And the user "edsonneto8" fills the data "Avaliação" with "Sem palavras"
+    And the user "edsonneto8" selects the data "10" for field "Nota"
+    And the user "edsonneto8" selects "Enviar Avaliação"
+    Then the user is in the page "/contents/movies/Logan/create_review"
+
+Scenario: Try to register a review without report
+    Given the user "edsonneto8" visits the page "/contents/movies/Logan"
+    And the user "edsonneto8" does not visualize a review registered with username "edsonneto8"
+    When the user "edsonneto8" selects "Adicione uma avaliação"
+    Then the user "edsonneto8" visualizes the text "Logan (2017)"
+    When the user "edsonneto8" fills the data "Título da Avaliação" with "Melhor filme da história"
+    And the user "edsonneto8" selects the data "10" for field "Nota"
+    And the user "edsonneto8" selects "Enviar Avaliação"
+    Then the user is in the page "/contents/movies/Logan/create_review"

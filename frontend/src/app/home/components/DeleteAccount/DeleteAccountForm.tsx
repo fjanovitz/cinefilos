@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { deleteUser } from '../../../../services/userService';
+import styles from '../../pages/DeleteAccountPage/index.module.css';
 
 const DeleteAccountForm = () => {
   const { userId } = useParams();
@@ -25,18 +26,19 @@ const DeleteAccountForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Confirm Password
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}><b>Confirme a senha</b></label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handleChange}
           required
+          className={styles.input}
         />
-      </label>
-      <button type="submit">Delete Account</button>
+      </div>
+      <button type="submit" className={styles.button}>Excluir conta</button>
     </form>
   );
 };

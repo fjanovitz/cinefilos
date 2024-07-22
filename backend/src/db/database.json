@@ -2171,6 +2171,7 @@
       "is_private": false,
       "followers": [],
       "following": [
+        "clebson",
         "clebson"
       ],
       "follow_requests": [],
@@ -2188,16 +2189,15 @@
       "phone_number": "81995378843",
       "address": "RUA BELÉM SÃO FRANCISCO, 635",
       "gender": "masculino",
-      "profile_picture": null,
+      "profile_picture": "https://avatar.iran.liara.run/public/boy",
       "pass_token": null,
       "is_private": false,
       "followers": [
+        "Souza",
         "Souza"
       ],
       "following": [],
-      "follow_requests": [
-        "Souza"
-      ],
+      "follow_requests": [],
       "assistidos": [],
       "quero_assistir": [],
       "abandonados": [],

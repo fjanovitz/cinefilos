@@ -10,7 +10,7 @@ const LikesPage = ({userList}) => {
   return (
     <div className={styles.pageContainer}>
         <h1>Usuários que Curtiram</h1>
-        <div className={styles.itemList}>
+        <div className={styles.container}>
             {users.map((user, index) => (
                 <div key={index} style={{ borderBottom: '1px solid #000', padding: '10px' }}>
                     <UserLikeDisplay 

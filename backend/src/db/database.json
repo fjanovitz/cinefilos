@@ -2218,7 +2218,20 @@
       "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "id": "0001",
+      "title": "Melhores filmes de 2024",
+      "author": "edsonneto8",
+      "content": "Duna e Pobres Criaturas são os melhores filmes do ano!",
+      "num_likes": "0",
+      "users_who_liked": "",
+      "num_comments": "0",
+      "comments": "",
+      "topic": "Filmes",
+      "posted": "today"
+    }
+  ],
   "reviews": [
     {
       "title": "Excelente filme",

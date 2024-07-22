@@ -38,16 +38,16 @@ function getCurrentDateTime(): string {
 
 const CreatePostPage = () => {
 	const navigate = useNavigate();
-	const [id, setId] = useState(uuidv4());
+	const id = uuidv4();
 	const [author, setAuthor] = useState("");
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
-	const [num_likes, setNumLikes] = useState(0);
-	const [users_who_liked, setUsersWhoLiked] =useState<string[]>([]);
-	const [num_comments, setNumComments] = useState(0);
-	const [comments, setComments] = useState<Comment[]>([]);
+	const num_likes = 0;
+	const users_who_liked: string[] = [];
+	const num_comments = 0;
+	const comments: Comment[] = [];
 	const [topic, setTopic] = useState("");
-	const [posted, setPosted] = useState(getCurrentDateTime());
+	const posted = getCurrentDateTime();
 
 	const [errorMessage, setErrorMessage] = useState("");
 

@@ -1,4 +1,3 @@
-// RegistrationPage/index.tsx
 import React from 'react';
 import RegistrationForm from '../../components/RegistrationPage/registrationForm';
 import styles from './index.module.css';

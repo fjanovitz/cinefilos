@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { createUser } from '../../../../services/userService';
 import styles from '../../pages/RegistrationPage/index.module.css';
 
-
 const RegistrationForm = () => {
   const [user, setUser] = useState({
     full_name: '',
@@ -33,84 +32,92 @@ const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label>
-        Full Name
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Nome Completo</label>
         <input
           type="text"
           name="full_name"
           value={user.full_name}
           onChange={handleChange}
           required
+          className={styles.input}
         />
-      </label>
-      <label>
-        Username
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Nome de Usuário</label>
         <input
           type="text"
           name="username"
           value={user.username}
           onChange={handleChange}
           required
+          className={styles.input}
         />
-      </label>
-      <label>
-        Email
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Email</label>
         <input
           type="email"
           name="email"
           value={user.email}
           onChange={handleChange}
           required
+          className={styles.input}
         />
-      </label>
-      <label>
-        Password
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Senha</label>
         <input
           type="password"
           name="password"
           value={user.password}
           onChange={handleChange}
           required
+          className={styles.input}
         />
-      </label>
-      <label>
-        Birth Date
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Data de Nascimento</label>
         <input
           type="date"
           name="birth_date"
           value={user.birth_date}
           onChange={handleChange}
           required
+          className={styles.input}
         />
-      </label>
-      <label>
-        Phone Number
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Número de Telefone</label>
         <input
           type="text"
           name="phone_number"
           value={user.phone_number}
           onChange={handleChange}
+          className={styles.input}
         />
-      </label>
-      <label>
-        Address
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Endereço</label>
         <input
           type="text"
           name="address"
           value={user.address}
           onChange={handleChange}
+          className={styles.input}
         />
-      </label>
-      <label>
-        Gender
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}>Gênero</label>
         <input
           type="text"
           name="gender"
           value={user.gender}
           onChange={handleChange}
+          className={styles.input}
         />
-      </label>
-      <button type="submit">Cadastrar-se</button>
+      </div>
+      <button type="submit" className={styles.button}>Cadastrar-se</button>
     </form>
   );
 };

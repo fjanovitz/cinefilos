@@ -139,6 +139,24 @@
       "follow_requests": [],
       "assistidos": [],
       "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"
+    },
+    {
+      "full_name": "Rodrigo dos Santos",
+      "username": "rodrigo1",
+      "email": "rodrigo@mail.com",
+      "password": "@Rodrigo1",
+      "birth_date": "2000-10-10",
+      "phone_number": "1054654",
+      "profile_picture": "https://i.pravatar.cc/250",
+      "address": "56765756",
+      "gender": "masculino",
+      "pass_token": null,
+      "is_private": false,
+      "followers": [],
+      "following": [],
+      "follow_requests": [],
+      "assistidos": [],
+      "id": "c8f39f61-a50b-4281-aff5-0d7eaf22fc89"
     }
   ],
   "posts": [],

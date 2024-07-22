@@ -29,7 +29,7 @@ const HeaderUserProfile = ({ onTabChange }) => {
                             onClick={() => handleTabChange('Posts')}>
                             Posts
                     </button>
-                    <button className={selectedTab === 'WatchList' ? styles.buttonSelected : styles.buttonS}
+                    <button data-cy="watch_list_tab" className={selectedTab === 'WatchList' ? styles.buttonSelected : styles.buttonS}
                             onClick={() => handleTabChange('WatchList')}>
                             Minha Lista
                     </button>

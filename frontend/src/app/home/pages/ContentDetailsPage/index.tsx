@@ -197,7 +197,10 @@ const ContentDetailsPage = () => {
 									state={{ content: content }}
 									style={{ textDecoration: "none" }}
 								>
-									<button className={styles.addButton}>
+									<button 
+										className={styles.addButton}
+										data-cy="Adicione uma avaliação"
+									>
 										Adicione uma avaliação
 									</button>
 								</Link>
@@ -208,6 +211,7 @@ const ContentDetailsPage = () => {
 								<div
 									key={review.title}
 									className={styles.review}
+									data-cy={`review-item-${review.username}`}
 								>
 									<div
 										className={styles.reviewAuthorContainer}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import api from '/src/services/api';
 import ContentCard from "./ContentCard";
 import { Container, Row, Col } from 'react-bootstrap';
+import styles from './ContentCard.module.css'
 
 interface Content {
     id: string;
@@ -18,30 +19,65 @@ interface Content {
 
 const ContentListView = ( { content_type }) => {
     const [contents, setContents] = useState<Content[]>(() => { return [] as Content[]; });
+    const [categories, setCategories] = useState<{[fieldName: string]: string}>({});
+
+    const getCategory = (content_id: string) => (content_id in categories) ? categories[content_id] : '' 
 
     const loadContents = async () => {
         try {
-            console.log("content_type: ", content_type);
             const response = await api.get(`/contents/${content_type}`);
             const newData = response.data.map((item: any) => {
                 return {
                     ...item
                 };
             });
-            console.log("newData: ", newData);
             setContents(newData);
         } catch (error) {
             console.error("Erro ao buscar conteúdos:", error);
         }
     };
 
+    const userCategories = async () => {
+        try {
+            // Trocar edsonnet8 por ${username}
+            const response = await api.get(`/watch_list/user/edsonneto8`);
+            setCategories(response.data);
+        } catch(error) {
+            console.log(error);
+        }
+    };
+
+    const changeCategory = async (content: Content, category: string) => {
+        try{
+            let response;
+            const currentCategory = (content.id in categories) ? getCategory(content.id) : ''
+            if(category != currentCategory){
+                const params = {
+                    username: 'edsonneto8', // Trocar edsonnet8 por ${username}
+                    category,
+                    content_id: content.id,
+                    content_type: content.content_type
+                }
+                response = await api.post(`/watch_list/user/`, {}, {params});
+            }
+            if(currentCategory != '' && (category == currentCategory || response.status == 201)){
+                // Trocar edsonnet8 por ${username}
+                const responseDel = await api.delete(`/watch_list/user/edsonneto8/${currentCategory}/${content.id}`);
+            }
+            const newValue = (category == currentCategory) ? '' : category;
+            setCategories(categories => ({...categories, [content.id]: newValue}))
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         loadContents();
-        console.log("batata", contents);
+        userCategories();
     }, [content_type]);
   
   return (
-    <section>
+    <section className={styles.sectionContainer}>
         <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
             <Row className="g-4" style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
                     {contents.map(
@@ -57,26 +93,29 @@ const ContentListView = ( { content_type }) => {
                             duration, 
                             director
                         }) => (
-                            <Col key={id}>
+                            <Col className={styles.colClass} key={id}>
                                 <ContentCard
-                                content={{
-                                    id: id,
-                                    title: title,
-                                    banner: banner,
-                                    content_type: content_type,
-                                    synopsis: synopsis,
-                                    gender: gender,
-                                    release_year: release_year,
-                                    rating: rating,
-                                    duration: duration,
-                                    director: director
-                                    }}
+                                    content={{
+                                        id: id,
+                                        title: title,
+                                        banner: banner,
+                                        content_type: content_type,
+                                        synopsis: synopsis,
+                                        gender: gender,
+                                        release_year: release_year,
+                                        rating: rating,
+                                        duration: duration,
+                                        director: director
+                                        }}
+                                    hasOptions={true}
+                                    category={getCategory(id)}
+                                    changeCategory={changeCategory}
                                 />
                             </Col>
                         ), 
                     )}
             </Row>
-            </Container>
+        </Container>
     </section>
   );
 }

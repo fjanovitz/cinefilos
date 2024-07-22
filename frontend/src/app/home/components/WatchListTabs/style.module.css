@@ -16,21 +16,6 @@
     transition: color .25s, font-weight .25s;
 }
 
-.tabButton {
-
-}
-
-.selectedButton {
-    /* background-color: rgba(1, 1, 1, 0.45); */
-    background-color: #f4d30b;
-}
-
-.selectedButton button {
-    /* color: #f4d30b; */
-    color: white;
-    font-weight: 600;
-}
-
 .tabsContainer {
     display: flex;
     justify-content: space-between;
@@ -47,6 +32,15 @@
     border-radius: 10px 10px 0 0;
 
     transition: background-color .25s;
+}
+
+.buttonContainer:has(> button:disabled) {
+    background-color: #f4d30b;
+}
+
+.buttonContainer button:disabled {
+    color: white;
+    font-weight: 600;
 }
 
 .line {

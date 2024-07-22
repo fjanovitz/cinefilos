@@ -64,7 +64,7 @@ const LoginForm = () => {
         </label>
       </div>  
         <LogButton type="submit">ENTRAR</LogButton>
-        <Link to="/recuperarsenha">
+        <Link to="/recover-account">
           ESQUECI A SENHA
         </Link>
         <Link to="/register">

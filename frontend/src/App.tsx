@@ -55,7 +55,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/user/get_user/:userId",
-    element: <UserPage />,
+    element: <Layout><UserPage /></Layout>,
   },
   {
     path: "/user/reset_password/:userId",

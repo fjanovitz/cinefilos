@@ -53,8 +53,8 @@ const ResetPasswordForm = () => {
   
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label className={styles.label}>
-        Current Password
+      <div className={styles.inputGroup}>
+        <label className={styles.label}><b>Senha Atual : </b></label>
         <input
           type="password"
           name="current_password"
@@ -63,9 +63,9 @@ const ResetPasswordForm = () => {
           required
           className={styles.input}
         />
-      </label>
-      <label className={styles.label}>
-        New Password
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}><b>Nova Senha : </b></label>
         <input
           type="password"
           name="new_password"
@@ -74,9 +74,9 @@ const ResetPasswordForm = () => {
           required
           className={styles.input}
         />
-      </label>
-      <label className={styles.label}>
-        Repeat New Password
+      </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label}><b>Repetir Nova Senha : </b></label>
         <input
           type="password"
           name="repeat_password"
@@ -85,10 +85,10 @@ const ResetPasswordForm = () => {
           required
           className={styles.input}
         />
-      </label>
-      <button type="submit" className={styles.button}>Reset Password</button>
+      </div>
+      <button type="submit" className={styles.button}>Alterar Senha</button>
     </form>
-  );
+  );  
 };
 
 export default ResetPasswordForm;

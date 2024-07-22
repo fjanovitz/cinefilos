@@ -67,19 +67,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/user/get_user/:userId",
-    element: <UserPage />,
+    element: <Layout><UserPage /></Layout>,
   },
   {
     path: "/user/reset_password/:userId",
-    element: <ResetPasswordPage />,
+    element: <Layout><ResetPasswordPage /></Layout>,
   },
   {
     path: "/user/edit_user_info/:userId",
-    element: <EditUserInfoPage />,
+    element: <Layout><EditUserInfoPage /></Layout>,
   },
   {
     path: "/user/delete_account/:userId",
-    element: <DeleteAccountPage />,
+    element: <Layout><DeleteAccountPage /></Layout>,
   },
   {    
     path: "/contents/:content_type/:title/update_content",

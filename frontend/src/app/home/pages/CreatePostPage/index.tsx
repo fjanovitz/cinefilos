@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { AxiosError } from "axios";
-import api from "/src/services/api";
+import api from "../../../../services/api";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Form, Toast } from "react-bootstrap";
@@ -85,13 +85,7 @@ const CreatePostPage = () => {
 			navigate(-1);
 		} catch (error) {
 			const axiosError = error as AxiosError;
-			if (axiosError.response && axiosError.response.status === 422) {
-				alert("O conteúdo já existe no banco de dados.");
-			} else {
-				alert(
-					"Ocorreu um erro ao criar seu conteudo. Tente novamente."
-				);
-			}
+			alert(axiosError.response.statusText)
 		}
 	};
 

@@ -20,13 +20,6 @@
     border-radius: 8px; 
     overflow: hidden; 
   }
-  
-.banner img {
-    width: 100%;
-    max-width: 400px; 
-    height: auto; 
-    object-fit: cover;   
-}
 
 .contentDetails {
     padding: 20px; 

@@ -7,15 +7,7 @@ import { Card, Button, Modal, Form } from 'react-bootstrap';
 import StarRating from '/src/app/home/components/StarRating/StarRating';
 import { platform } from "os";
 import { number } from "zod";
-
-interface Review {
-    title: string;
-    report: string;
-    rating: number;
-    username: string;
-    content_id: string;
-    content_type: string;
-}
+import { Review } from "../../models/ReviewInterface";
 
 const AvaliacaoPage = () => {
     const navigate = useNavigate();

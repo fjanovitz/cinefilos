@@ -51,7 +51,12 @@ class UserService:
     db = getDB()
     for user in db["user"]:
         if user["email"] == email:
-            return user
+            return HttpResponseModel(
+                message="Usuário encontrado",
+                status_code=200,
+                data=user  # Retorna os dados do usuário
+            )
+        logging.debug(f"User not found with username: {email}")
     raise HTTPException(status_code=404, detail="Usuário não encontrado")
 
   @staticmethod
@@ -90,6 +95,8 @@ class UserService:
             conflicts = {"username": "Nome de usuário indisponivel", "phone_number": "Número de telefone indisponivel"}
 
             for field, message in conflicts.items():
+                print(field)
+                print("---")
                 if field in updated_fields and updated_fields[field] != existing_user[field]:
                     check_method = getattr(UserService, f"{field}_exists")
                     if check_method(updated_fields[field]):
@@ -124,7 +131,7 @@ class UserService:
 
 
   @staticmethod
-  def phone_exists(phone_number):
+  def phone_number_exists(phone_number):
     db = getDB()
     for user in db["user"]:
         if user["phone_number"] == phone_number:
@@ -171,7 +178,7 @@ class UserService:
         raise HTTPException(status_code=409, detail="Nome de usuário indisponivel")
     elif UserService.email_exists(user.email):
         raise HTTPException(status_code=409, detail="Email indisponivel")
-    elif UserService.phone_exists(user.phone_number):
+    elif UserService.phone_number_exists(user.phone_number):
         raise HTTPException(status_code=409, detail="Número de telefone indisponivel")
 
 @staticmethod

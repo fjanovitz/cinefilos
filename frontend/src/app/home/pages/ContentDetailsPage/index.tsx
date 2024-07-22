@@ -4,33 +4,10 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import StarRating from "../../components/StarRating/StarRating";
 import { AxiosError } from "axios";
-
-interface Content {
-	id: string;
-	title: string;
-	banner: string;
-	content_type: string;
-	synopsis: string;
-	gender: string;
-	release_year: number;
-	rating: number;
-	duration: number;
-	director: string;
-	creator: string;
-	main_cast: string[];
-	num_seasons: number;
-	num_episodes: number;
-	where_to_watch: string[];
-}
-
-interface Review {
-	title: string;
-	report: string;
-	rating: number;
-	username: string;
-	content_id: string;
-	content_type: string;
-}
+import { Movie, TvShow } from "../../models/ContentInterface";
+import { Review } from "../../models/ReviewInterface";
+import MainButton from "../../components/MainButton/MainButton";
+import DeleteButton from "../../components/DeleteButton/DeleteButton";
 
 const ContentDetailsPage = () => {
 	const navigate = useNavigate();
@@ -38,7 +15,7 @@ const ContentDetailsPage = () => {
 		content_type: string;
 		title: string;
 	}>();
-	const [content, setContent] = useState<Content | null>(null);
+	const [content, setContent] = useState<Movie & TvShow>();
 	const [reviews, setReviews] = useState<Review[] | null>(null);
 	const [rating, setRating] = useState<number>();
 
@@ -100,16 +77,12 @@ const ContentDetailsPage = () => {
 						<Link
 							to={`/contents/${content?.content_type}/${content?.title}/update_content`}
 						>
-							<button className={styles.addButton}>
-								Atualizar conteúdo
-							</button>
+							<MainButton text={"Atualizar conteúdo"}/>
 						</Link>
-						<button
+						<DeleteButton
 							onClick={handleDelete}
-							className={styles.deleteButton}
-						>
-							Deletar conteúdo
-						</button>
+							text={"Deletar conteúdo"}
+						/>
 					</div>
 				</div>
 				<div className={styles.contentDetails}>
@@ -197,12 +170,11 @@ const ContentDetailsPage = () => {
 									state={{ content: content }}
 									style={{ textDecoration: "none" }}
 								>
-									<button 
-										className={styles.addButton}
-										data-cy="Adicione uma avaliação"
-									>
-										Adicione uma avaliação
-									</button>
+									<MainButton
+										data_cy="Adicione uma avaliação"
+										text={"Adicione uma avaliação"}
+									/>
+										
 								</Link>
 							</div>
 						</div>

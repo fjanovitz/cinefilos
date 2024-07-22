@@ -7,15 +7,8 @@ import { Card, Button, Modal, Form } from 'react-bootstrap';
 import StarRating from '/src/app/home/components/StarRating/StarRating';
 import { platform } from "os";
 import { number } from "zod";
+import { Review } from "../../models/ReviewInterface";
 
-interface Review {
-    title: string;
-    report: string;
-    rating: number;
-    username: string;
-    content_id: string;
-    content_type: string;
-}
 
 interface Content {
     id: string;
@@ -34,8 +27,6 @@ interface Content {
     num_episodes: number;
     where_to_watch: string[];
   }
-
-// "/profile/:username/:content_type/:content_title/update_review"
 
 const UpdateReviewPage = () => {
     const navigate = useNavigate();

@@ -170,6 +170,10 @@
   margin-top: 7%;
 }
 
+.right{
+  gap: 20px;
+}
+
 .profilePicture {
   width: 50%;
   border-radius: 50%;

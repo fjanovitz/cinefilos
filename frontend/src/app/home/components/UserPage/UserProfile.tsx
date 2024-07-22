@@ -201,28 +201,28 @@ const UserProfile = () => {
           <p>{user.email}</p>
         </div>
         <div className={styles.userInfo}>
-          <p><b>Birth Date: </b><em>{user.birth_date}</em></p>
-          <p><b>Phone Number:</b><em> {user.phone_number}</em></p>
-          <p><b>Gender:</b><em> {user.gender}</em></p>
-          <p><b>Account Mode:</b><em> {user.is_private ? 'Private' : 'Public'}</em></p>
+          <p><b>Data de Nascimento: </b><em>{user.birth_date}</em></p>
+          <p><b>Número de Telefone:</b><em> {user.phone_number}</em></p>
+          <p><b>Gênero:</b><em> {user.gender}</em></p>
+          <p><b>Modo de Privacidade:</b><em> {user.is_private ? 'Private' : 'Public'}</em></p>
         </div>
       </div>
       <div className={styles.right}>
         <div className={styles.follow}>
-          <button onClick={handleShowFollowing}><b>{user.following.length}</b> following</button>
-          <button onClick={handleShowFollowers}><b>{user.followers.length}</b> followers</button>
+          <button onClick={handleShowFollowing}><b>{user.following.length}</b> Seguindo</button>
+          <button onClick={handleShowFollowers}><b>{user.followers.length}</b> Seguidores</button>
         </div>
-        {user.is_private && <button onClick={handleShowFollowRequests}>Show Follow Requests</button>}
+        {user.is_private && <button onClick={handleShowFollowRequests}>Mostrar Solicitações Para Seguir</button>}
         <div className={styles.followUserFunc}>
           <input
             type="text"
-            placeholder="Enter username to follow"
+            placeholder="Nome do usuário"
             value={followUsername}
             onChange={(e) => setFollowUsername(e.target.value)}
           />
-          <button onClick={handleFollow}>Follow</button>
+          <button onClick={handleFollow}>Seguir</button>
         </div>
-        <button onClick={handleSwitchMode}>Switch Mode</button>
+        <button onClick={handleSwitchMode}>Trocar Modo</button>
       </div>
       {showFollowingModal && (
         <div className={styles.modalOverlay}>

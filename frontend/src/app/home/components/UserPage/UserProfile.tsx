@@ -225,40 +225,47 @@ const UserProfile = () => {
         <button onClick={handleSwitchMode}>Switch Mode</button>
       </div>
       {showFollowingModal && (
-        <div className={styles.modal}>
-          <h2>Following</h2>
-          {user.following.map((username) => (
-            <div key={username}>
-              <p>{username}</p>
-              <button onClick={() => handleUnfollow(username)}>Unfollow</button>
-            </div>
-          ))}
-          <button onClick={handleCloseModal}>Close</button>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Following</h2>
+            {user.following.map((username) => (
+              <div key={username} className={styles.followingClass}>
+                <b><p style={{color: "#818181",}}>{username}</p></b>
+                <button onClick={() => handleUnfollow(username)} style={{margin:0, width:'30%',}}>Unfollow</button>
+              </div>
+            ))}
+            <button onClick={handleCloseModal}>Close</button>
+          </div>
         </div>
       )}
       {showFollowersModal && (
-        <div className={styles.modal}>
-          <h2>Followers</h2>
-          {user.followers.map((username) => (
-            <div key={username}>
-              <p>{username}</p>
-              {/* Removed the unfollow button for followers */}
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Followers</h2>
+            <div className={styles.followersModal}>
+            {user.followers.map((username) => (
+              <div key={username}>
+                <p><b>{username}</b></p>
+              </div>
+            ))}
             </div>
-          ))}
-          <button onClick={handleCloseModal}>Close</button>
+            <button onClick={handleCloseModal}>Close</button>
+          </div>
         </div>
       )}
       {showFollowRequestsModal && (
-        <div className={styles.modal}>
-          <h2>Follow Requests</h2>
-          {user.follow_requests.map((username) => (
-            <div key={username}>
-              <p>{username}</p>
-              <button onClick={() => handleAcceptFollowRequest(username)}>Accept</button>
-              <button onClick={() => handleRejectFollowRequest(username)}>Reject</button>
-            </div>
-          ))}
-          <button onClick={handleCloseModal}>Close</button>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Follow Requests</h2>
+            {user.follow_requests.map((username) => (
+              <div key={username}>
+                <p>{username}</p>
+                <button onClick={() => handleAcceptFollowRequest(username)}>Accept</button>
+                <button onClick={() => handleRejectFollowRequest(username)}>Reject</button>
+              </div>
+            ))}
+            <button onClick={handleCloseModal}>Close</button>
+          </div>
         </div>
       )}
     </div>

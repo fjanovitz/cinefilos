@@ -53,7 +53,7 @@ const ResetPasswordForm = () => {
   
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label>
+      <label className={styles.label}>
         Current Password
         <input
           type="password"
@@ -61,9 +61,10 @@ const ResetPasswordForm = () => {
           value={passwords.current_password}
           onChange={handleChange}
           required
+          className={styles.input}
         />
       </label>
-      <label>
+      <label className={styles.label}>
         New Password
         <input
           type="password"
@@ -71,9 +72,10 @@ const ResetPasswordForm = () => {
           value={passwords.new_password}
           onChange={handleChange}
           required
+          className={styles.input}
         />
       </label>
-      <label>
+      <label className={styles.label}>
         Repeat New Password
         <input
           type="password"
@@ -81,9 +83,10 @@ const ResetPasswordForm = () => {
           value={passwords.repeat_password}
           onChange={handleChange}
           required
+          className={styles.input}
         />
       </label>
-      <button type="submit">Reset Password</button>
+      <button type="submit" className={styles.button}>Reset Password</button>
     </form>
   );
 };

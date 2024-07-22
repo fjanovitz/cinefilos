@@ -171,7 +171,7 @@ const ContentDetailsPage = () => {
 									style={{ textDecoration: "none" }}
 								>
 									<MainButton
-										data-cy="Adicione uma avaliação"
+										data_cy="Adicione uma avaliação"
 										text={"Adicione uma avaliação"}
 									/>
 										

@@ -16,7 +16,9 @@ import DeleteAccountPage from "./app/home/pages/DeleteAccountPage"
 import UpdateContentPage from "./app/home/pages/UpdateContentPage";
 import UserProfilePage from "./app/home/pages/ProfilePage";
 import UpdateReviewPage from "./app/home/pages/UpdateReviewPage";
-
+import { UserContext } from "./app/home/context/UserContext";
+import { useState } from "react";
+import { UserContextProps } from "./app/home/context/UserContext/userTypes";
 
 const router = createBrowserRouter([
   {
@@ -94,5 +96,13 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />;
+  const [user, setUser] = useState<UserContextProps>({} as UserContextProps)
+
+  return (
+    <UserContext.Provider value={
+      {user, saveUser: setUser}
+    }>
+      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+    </UserContext.Provider>
+  );
 }

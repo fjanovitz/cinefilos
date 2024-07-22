@@ -23,6 +23,22 @@ def get_user(userId: str):
             status_code=e.status_code
         )
 
+@router.get(
+    "/get_user_by_email/{email}",
+    response_model=HttpResponseModel,
+    summary="Exibir perfil do usuário pelo e-mail",
+    tags=["User"]
+)
+def get_user_by_email(email: str):
+    try:
+        response = UserService.get_user_by_email(email)
+        return response
+    except HTTPException as e:
+        return HttpResponseModel(
+            message=e.detail,
+            status_code=e.status_code
+        )
+
 @router.post(
     "/create_user",
     response_model=HttpResponseModel,

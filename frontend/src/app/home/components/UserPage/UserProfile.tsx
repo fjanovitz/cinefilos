@@ -84,19 +84,27 @@ const UserProfile = () => {
       return;
     }
   
-    await unfollowUser(userId, usernameToUnfollow);
-
-    setUser((prevUser) => {
-      if (prevUser) {
-        return {
-          ...prevUser,
-          following: prevUser.following.filter(username => username !== usernameToUnfollow),
-        };
-      } else {
-        return null;
-      }
-    });
+    try {
+      await unfollowUser(userId, usernameToUnfollow);
+  
+      setUser((prevUser) => {
+        if (prevUser) {
+          return {
+            ...prevUser,
+            following: prevUser.following.filter(username => username !== usernameToUnfollow),
+          };
+        } else {
+          return null;
+        }
+      });
+  
+      // Set success message after successful unfollow
+      setSuccessMessage("Você deixou de seguir o usuário");
+    } catch (error) {
+      console.error('Error while unfollowing user:', error);
+    }
   };
+  
 
   const handleAcceptFollowRequest = async (requesterUsername: string) => {
     if (!userId) {
@@ -211,7 +219,9 @@ const UserProfile = () => {
       </div>
       <div className={styles.right}>
         <div className={styles.follow}>
-          <button onClick={handleShowFollowing}><b>{user.following.length}</b> Seguindo</button>
+        <button onClick={handleShowFollowing} data-cy="following-button">
+        <b>{user.following.length}</b> Seguindo
+        </button>
           <button onClick={handleShowFollowers}><b>{user.followers.length}</b> Seguidores</button>
         </div>
         {user.is_private && <button onClick={handleShowFollowRequests}>Mostrar Solicitações Para Seguir</button>}
@@ -229,18 +239,23 @@ const UserProfile = () => {
         <button onClick={handleSwitchMode}>Trocar Modo</button>
       </div>
       {showFollowingModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
-            <h2>Seguindo</h2>
-            {user.following.map((username) => (
-              <div key={username} className={styles.followingClass} data-cy="followingClass">
-                <b><p style={{color: "#818181",}}>{username}</p></b>
-                <button onClick={() => handleUnfollow(username)} style={{margin:0, width:'30%',}}>Unfollow</button>
-              </div>
-            ))}
-            <button onClick={handleCloseModal}>Fechar</button>
-          </div>
+      <div className={styles.modalOverlay} data-cy="following-modal">
+        <div className={styles.modal}>
+          <h2>Seguindo</h2>
+          {user.following.map((username) => (
+            <div key={username} className={styles.followingClass} data-cy={`followingClass-${username}`}>
+              <b><p style={{color: "#818181",}}>{username}</p></b>
+              <button
+                onClick={() => handleUnfollow(username)}
+                style={{ margin: 0, width: '30%' }}
+                data-cy={`unfollow-button-${username}`}>
+                Unfollow
+              </button>
+            </div>
+          ))}
+          <button onClick={handleCloseModal}>Fechar</button>
         </div>
+      </div>
       )}
       {showFollowersModal && (
         <div className={styles.modalOverlay}>

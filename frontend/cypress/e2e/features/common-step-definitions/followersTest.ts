@@ -50,7 +50,27 @@ Then("the user with username {string} has a private profile", (username: string)
     cy.visit(`http://localhost:3000/user/get_user/Carlos33`);
 });
 
-When("the user opens the following modal", () => {
-    cy.get(`[data-cy="following-modal"]`).should('be.visible');
-    cy.get(`[data-cy="followingClass"]`).should('exist');
+
+  When("the user with username {string} is followed by {string}", (targetUsername: string, followerUsername: string) => {
+    cy.request({
+        method: 'POST',
+        url: `http://127.0.0.1:8000/user/follow/${targetUsername}/${followerUsername}`,
+        failOnStatusCode: false
+    }).then((response) => {
+        if (response.status !== 200) {
+            cy.log(`Unexpected response status: ${response.status}`);
+            cy.log(`Response body: ${JSON.stringify(response.body)}`);
+            throw new Error('Failed to set up follow status with status code ' + response.status);
+        }
+    });
 });
+
+When("the user selects \"Unfollow\" for the user {string}", (username: string) => {
+    cy.get(`[data-cy="followingClass-${username}"]`).find(`[data-cy="unfollow-button-${username}"]`).click();
+});
+
+When("the user {string} opens the following list", (username: string) => {
+    cy.get('[data-cy="following-button"]').click(); // Ensure this button is correctly selected to trigger the modal
+    cy.get('[data-cy="following-modal"]').should('be.visible');
+  });
+  

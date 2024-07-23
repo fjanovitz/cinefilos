@@ -2171,6 +2171,7 @@
       "is_private": false,
       "followers": [],
       "following": [
+        "clebson",
         "clebson"
       ],
       "follow_requests": [],
@@ -2191,10 +2192,7 @@
       "profile_picture": "https://avatar.iran.liara.run/public/boy",
       "pass_token": null,
       "is_private": false,
-      "followers": [
-        "Souza",
-        "Souza"
-      ],
+      "followers": [],
       "following": [],
       "follow_requests": [],
       "assistidos": [],
@@ -2215,10 +2213,7 @@
       "pass_token": "string",
       "is_private": true,
       "followers": [],
-      "following": [
-        "clebson",
-        "clebson"
-      ],
+      "following": [],
       "follow_requests": [],
       "assistidos": [],
       "quero_assistir": [],
@@ -2238,10 +2233,7 @@
       "pass_token": "string",
       "is_private": true,
       "followers": [],
-      "following": [
-        "clebson",
-        "clebson"
-      ],
+      "following": [],
       "follow_requests": [],
       "assistidos": [
         {
@@ -2282,7 +2274,7 @@
       "pass_token": null,
       "is_private": true,
       "followers": [
-        "Souza"
+        "Carlos33"
       ],
       "following": [],
       "follow_requests": [],

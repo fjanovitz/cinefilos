@@ -27,7 +27,7 @@ Feature: Friend/Follower Management
   Scenario: Successfully unfollow a user
     Given the user opens the page "/user/get_user/Carlos33"
     And the user is logged with email "jcso@gmail.com" and password "Clebson123"
-    And the user with username "bell28" is followed by "einstein"
+    And the user with username "bell28" is followed by "Carlos33"
     When the user "Carlos33" opens the following list
     And the user selects "Unfollow"
-    Then the user should see the success message "Você deixou de seguir o usuário"    
+    Then the user should see the success message "Você deixou de seguir o usuário"

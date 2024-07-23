@@ -63,7 +63,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <Layout><RegistrationPage /></Layout>,
+    element: <RegistrationPage />,
   },
   {
     path: "/user/get_user/:userId",

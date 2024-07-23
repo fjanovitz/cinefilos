@@ -290,8 +290,10 @@ const UserProfile = () => {
         <div className={styles.modal} data-cy="follow-requests-modal">
           <h2>Requisições para seguir</h2>
           {user.follow_requests.map((username) => (
-            <div key={username} data-cy={`follow-request-${username}`}>
-              <p>{username}</p>
+            <div className={styles.buttonsFollow} key={username} data-cy={`follow-request-${username}`}>
+              <div className={styles.nameFollow}>
+              <p><b>{username}</b></p>
+              </div>
               <button
                 onClick={() => handleAcceptFollowRequest(username)}
                 data-cy={`accept-request-${username}`}

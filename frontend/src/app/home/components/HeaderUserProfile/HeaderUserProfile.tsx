@@ -1,15 +1,15 @@
 import React, { useContext, useState } from 'react';
-import styles from "./HeaderUserProfile.module.css";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import styles from './HeaderUserProfile.module.css';
 
 const HeaderUserProfile = ({ onTabChange }) => {
-    const { username } = useParams();
+    const { username } = useParams(); 
     const [selectedTab, setSelectedTab] = useState('Reviews');
 
     const handleTabChange = (tab) => {
         setSelectedTab(tab);
-        if(onTabChange) {
+        if (onTabChange) {
             onTabChange(tab); 
         }
     };
@@ -22,18 +22,36 @@ const HeaderUserProfile = ({ onTabChange }) => {
                     <h1>{username}</h1>
                 </div>
                 <nav className={styles.headerNav}>
-                    <button data-cy="reviews_tab" className={selectedTab === 'Reviews' ? styles.buttonSelected : styles.buttonS}
-                            onClick={() => handleTabChange('Reviews')}>
-                            Reviews
+                    <button
+                        data-cy="reviews_tab"
+                        className={selectedTab === 'Reviews' ? styles.buttonSelected : styles.buttonS}
+                        onClick={() => handleTabChange('Reviews')}
+                    >
+                        Reviews
                     </button>
-                    <button data-cy="posts_tab" className={selectedTab === 'Posts' ? styles.buttonSelected : styles.buttonS}
-                            onClick={() => handleTabChange('Posts')}>
-                            Posts
+                    <button
+                        data-cy="posts_tab"
+                        className={selectedTab === 'Posts' ? styles.buttonSelected : styles.buttonS}
+                        onClick={() => handleTabChange('Posts')}
+                    >
+                        Posts
                     </button>
-                    <button data-cy="watch_list_tab" className={selectedTab === 'WatchList' ? styles.buttonSelected : styles.buttonS}
-                            onClick={() => handleTabChange('WatchList')}>
-                            Minha Lista
+                    <button
+                        data-cy="watch_list_tab"
+                        className={selectedTab === 'WatchList' ? styles.buttonSelected : styles.buttonS}
+                        onClick={() => handleTabChange('WatchList')}
+                    >
+                        Minha Lista
                     </button>
+                    <Link to={`/user/get_user/${username}`} style={{ textDecoration: 'none' }}>
+                        <button
+                            data-cy="info_tab"
+                            className={selectedTab === 'Informações' ? styles.buttonSelected : styles.buttonS}
+                            onClick={() => handleTabChange('Informações')}
+                        >
+                            Informações
+                        </button>
+                    </Link>
                 </nav>
             </div>
         </div>

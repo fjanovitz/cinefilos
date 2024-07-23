@@ -2171,9 +2171,7 @@
       "is_private": false,
       "followers": [],
       "following": [
-        "clebson",
-        "clebson",
-        "bell28"
+        "clebson"
       ],
       "follow_requests": [],
       "assistidos": [],
@@ -2434,6 +2432,28 @@
       "quero_assistir": [],
       "abandonados": [],
       "id": "d9c09786-55c2-4aa8-baef-c62d72e94f01"
+    },
+    {
+      "full_name": "Edward C",
+      "username": "ed567",
+      "email": "edward@mail.com",
+      "password": "@Edward1222",
+      "birth_date": "1250-10-10",
+      "phone_number": "819976767",
+      "profile_picture": "https://i.pravatar.cc/250",
+      "address": "St. Tropez",
+      "gender": "Masculino",
+      "pass_token": null,
+      "is_private": true,
+      "followers": [],
+      "following": [],
+      "follow_requests": [
+        "clebson"
+      ],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "68897f00-072c-43c4-ad0f-7ae867cbd058"
     }
   ],
   "posts": [

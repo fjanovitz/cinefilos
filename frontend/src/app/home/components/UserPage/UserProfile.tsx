@@ -59,19 +59,24 @@ const UserProfile = () => {
   
     const result = await followUser(userId, followUsername);
     if (result) {
-      setUser((prevUser) => {
-        if (prevUser) {
-          return {
-            ...prevUser,
-            following: [...prevUser.following, followUsername],
-          };
-        } else {
-          return null;
-        }
-      });
-      setSuccessMessage("Agora você está seguindo o usuário");
+      if (result.message === "Solicitação para seguir enviada com sucesso") {
+        setSuccessMessage("Solicitação para seguir enviada com sucesso");
+      } else if (result.message === "Agora você está seguindo o usuário") {
+        setSuccessMessage("Agora você está seguindo o usuário");
+        setUser((prevUser) => {
+          if (prevUser) {
+            return {
+              ...prevUser,
+              following: [...prevUser.following, followUsername],
+            };
+          } else {
+            return null;
+          }
+        });
+      }
     }
   };
+  
 
   const handleUnfollow = async (usernameToUnfollow: string) => {
     if (!userId) {
@@ -201,7 +206,7 @@ const UserProfile = () => {
           <p><b>Data de Nascimento: </b><em>{user.birth_date}</em></p>
           <p><b>Número de Telefone:</b><em> {user.phone_number}</em></p>
           <p><b>Gênero:</b><em> {user.gender}</em></p>
-          <p><b>Modo de Privacidade:</b><em> {user.is_private ? 'Private' : 'Public'}</em></p>
+          <p data-cy="privacy-status"><b>Modo de Privacidade:</b><em> {user.is_private ? 'Privado' : 'Público'}</em></p>
         </div>
       </div>
       <div className={styles.right}>
@@ -220,7 +225,7 @@ const UserProfile = () => {
           />
           <button onClick={handleFollow} data-cy="follow-button">Seguir</button>
         </div>
-        {successMessage && <p className={styles.successMessage} data-cy="success-message">{successMessage}</p>} {/* Display success message below the button */}
+        {successMessage && <p className={styles.successMessage} data-cy="success-message">{successMessage}</p>}
         <button onClick={handleSwitchMode}>Trocar Modo</button>
       </div>
       {showFollowingModal && (

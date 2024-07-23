@@ -38,6 +38,18 @@ Then("the user should see the success message {string}", (message: string) => {
     cy.contains(message).should('be.visible');
 });
 
+Then("the user with username {string} has a public profile", (username: string) => {
+    cy.visit(`http://localhost:3000/user/get_user/${username}`);
+    cy.get('[data-cy="privacy-status"]').should('contain', 'Público');
+    cy.visit(`http://localhost:3000/user/get_user/Carlos33`);
+});
+
+Then("the user with username {string} has a private profile", (username: string) => {
+    cy.visit(`http://localhost:3000/user/get_user/${username}`);
+    cy.get('[data-cy="privacy-status"]').should('contain', 'Privado');
+    cy.visit(`http://localhost:3000/user/get_user/Carlos33`);
+});
+
 When("the user opens the following modal", () => {
     cy.get(`[data-cy="following-modal"]`).should('be.visible');
     cy.get(`[data-cy="followingClass"]`).should('exist');

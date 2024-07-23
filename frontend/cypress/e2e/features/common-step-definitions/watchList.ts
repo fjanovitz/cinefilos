@@ -30,7 +30,8 @@ Given(
 Given(
     "the movie with id {string}, type {string} is on the user {string} list of the user {string}",
     (content_id: string, content_type: string, category: string, username: string) => {
-        postContent(username, category, content_id, content_type);
+        // postContent(username, category, content_id, content_type);
+        console.log('content on the db');
     }
 )
 

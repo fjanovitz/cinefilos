@@ -14,8 +14,8 @@ class WatchListService:
                 if content not in db["user"][user_ind][category_id]:
                     db["user"][user_ind][category_id].append(content)
                     saveDB(db)
-                # else:
-                    # raise HTTPException(status_code=422, detail="This movie is already in the category")
+                else:
+                    raise HTTPException(status_code=422, detail="This movie is already in the category")
                 return content
         
         raise HTTPException(status_code=404, detail="No movie with this ID found in the database")

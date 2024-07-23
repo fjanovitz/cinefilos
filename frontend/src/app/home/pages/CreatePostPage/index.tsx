@@ -108,7 +108,7 @@ const CreatePostPage = () => {
 								data-cy="title"
 								className={styles.formControl}
 								as="textarea"
-								rows={2}
+								rows={1}
 								style={{ resize: 'none' }}
 								value={title}
 								onChange={(e) => setTitle(e.target.value)}
@@ -138,7 +138,7 @@ const CreatePostPage = () => {
 								data-cy="content"
 								className={styles.formControl}
 								as="textarea"
-								rows={10}
+								rows={8}
 								style={{ resize: 'none' }}
 								value={content}
 								onChange={(e) => setContent(e.target.value)}

@@ -2158,7 +2158,7 @@
   ],
   "user": [
     {
-      "full_name": "Carlos Vasconcelos",
+      "full_name": "Clebson hahaha",
       "username": "Carlos33",
       "email": "jcso@gmail.com",
       "password": "Clebson123",
@@ -2171,6 +2171,7 @@
       "is_private": false,
       "followers": [],
       "following": [
+        "clebson",
         "clebson"
       ],
       "follow_requests": [],
@@ -2465,26 +2466,6 @@
       "quero_assistir": [],
       "abandonados": [],
       "id": "68897f00-072c-43c4-ad0f-7ae867cbd058"
-    },
-    {
-      "full_name": "Test Engenharia de Software",
-      "username": "ess2024",
-      "email": "ess2024@mail.com",
-      "password": "@Ess34442",
-      "birth_date": "1990-10-10",
-      "phone_number": "81999999999",
-      "profile_picture": "https://i.pravatar.cc/250",
-      "address": "",
-      "gender": "",
-      "pass_token": null,
-      "is_private": false,
-      "followers": [],
-      "following": [],
-      "follow_requests": [],
-      "assistidos": [],
-      "quero_assistir": [],
-      "abandonados": [],
-      "id": "6e0e58f5-a75e-4770-914f-b0c2597170a8"
     }
   ],
   "posts": [

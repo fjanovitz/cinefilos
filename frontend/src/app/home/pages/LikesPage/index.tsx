@@ -5,7 +5,7 @@ import styles from './index.module.css';
 
 const LikesPage = ({userList}) => {
   // const users = userList;
-  const users = ['fjn', 'roca', 'emn2', 'ersa', 'kam', 'roca', 'emn2', 'ersa', 'kam'];
+  const users = ['fjn', 'roca', 'emn2', 'ersa', 'kam', 'kiko', 'emn2', 'ersa', 'kam'];
 
   return (
     <div className={styles.pageContainer}>

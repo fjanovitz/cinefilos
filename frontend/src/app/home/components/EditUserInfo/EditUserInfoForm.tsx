@@ -12,6 +12,9 @@ const EditUserInfoForm = () => {
     address: '',
     gender: '',
   });
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -19,14 +22,19 @@ const EditUserInfoForm = () => {
         console.error("User ID is undefined");
         return;
       }
-      const currentUser = await getUser(userId);
-      setUserInfo({
-        full_name: currentUser.data.full_name,
-        username: currentUser.data.username,
-        phone_number: currentUser.data.phone_number || '',
-        address: currentUser.data.address || '',
-        gender: currentUser.data.gender || '',
-      });
+      try {
+        const currentUser = await getUser(userId);
+        setUserInfo({
+          full_name: currentUser.data.full_name,
+          username: currentUser.data.username,
+          phone_number: currentUser.data.phone_number || '',
+          address: currentUser.data.address || '',
+          gender: currentUser.data.gender || '',
+        });
+      } catch (error) {
+        console.error(error);
+        setErrorMessage("Ocorreu um erro ao buscar os dados do usuário.");
+      }
     };
     fetchUser();
   }, [userId]);
@@ -36,12 +44,18 @@ const EditUserInfoForm = () => {
       ...userInfo,
       [e.target.name]: e.target.value
     });
+    setErrorMessage(''); // Clear error message on input change
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
+    setSuccessMessage('');
+
     if (!userId) {
-      console.error("User ID is undefined");
+      setErrorMessage("User ID is undefined");
+      setIsSubmitting(false);
       return;
     }
     try {
@@ -52,13 +66,17 @@ const EditUserInfoForm = () => {
       currentUser.data.address = userInfo.address;
       currentUser.data.gender = userInfo.gender;
       await updateUser(userId, currentUser.data);
+      setSuccessMessage("Usuário atualizado com sucesso");
     } catch (error) {
       console.error(error);
+      setErrorMessage("Ocorreu um erro ao atualizar o usuário.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form} data-cy="edit-user-info-form">
       <div className={styles.inputGroup}>
         <label className={styles.label}><b>Nome Completo:</b></label>
         <input
@@ -68,6 +86,7 @@ const EditUserInfoForm = () => {
           onChange={handleChange}
           required
           className={styles.input}
+          data-cy="full_name"
         />
       </div>
       <div className={styles.inputGroup}>
@@ -79,6 +98,7 @@ const EditUserInfoForm = () => {
           onChange={handleChange}
           required
           className={styles.input}
+          data-cy="username"
         />
       </div>
       <div className={styles.inputGroup}>
@@ -89,6 +109,7 @@ const EditUserInfoForm = () => {
           value={userInfo.phone_number}
           onChange={handleChange}
           className={styles.input}
+          data-cy="phone_number"
         />
       </div>
       <div className={styles.inputGroup}>
@@ -99,6 +120,7 @@ const EditUserInfoForm = () => {
           value={userInfo.address}
           onChange={handleChange}
           className={styles.input}
+          data-cy="address"
         />
       </div>
       <div className={styles.inputGroup}>
@@ -109,9 +131,12 @@ const EditUserInfoForm = () => {
           value={userInfo.gender}
           onChange={handleChange}
           className={styles.input}
+          data-cy="gender"
         />
       </div>
-      <button type="submit" className={styles.button}>Atualizar Informações</button>
+      {errorMessage && <div className={styles.error} data-cy="error-message">{errorMessage}</div>}
+      {successMessage && <div className={styles.success} data-cy="success-message">{successMessage}</div>}
+      <button type="submit" className={styles.button} data-cy="submit-button" disabled={isSubmitting}>Atualizar Informações</button>
     </form>
   );
 };

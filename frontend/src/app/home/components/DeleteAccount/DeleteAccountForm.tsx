@@ -6,27 +6,44 @@ import styles from '../../pages/DeleteAccountPage/index.module.css';
 const DeleteAccountForm = () => {
   const { userId } = useParams();
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setPassword(e.target.value);
+    setErrorMessage(''); // Clear error message on input change
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
+    setSuccessMessage('');
+
     if (!userId) {
-      console.error("User ID is undefined");
+      setErrorMessage("User ID is undefined");
+      setIsSubmitting(false);
       return;
     }
     try {
       const response = await deleteUser(userId, password);
       console.log(response.data);
-    } catch (error) {
+      setSuccessMessage("Usuário excluído com sucesso");
+    } catch (error: any) {  
       console.error(error);
+      if (error.response && error.response.status === 409) {
+        setErrorMessage("Senha incorreta. A conta não foi deletada.");
+      } else {
+        setErrorMessage("Ocorreu um erro ao excluir a conta.");
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form} data-cy="delete-account-form">
       <div className={styles.inputGroup}>
         <label className={styles.label}><b>Confirme a senha</b></label>
         <input
@@ -36,9 +53,12 @@ const DeleteAccountForm = () => {
           onChange={handleChange}
           required
           className={styles.input}
+          data-cy="password"
         />
       </div>
-      <button type="submit" className={styles.button}>Excluir conta</button>
+      {errorMessage && <div className={styles.error} data-cy="error-message">{errorMessage}</div>}
+      {successMessage && <div className={styles.success} data-cy="success-message">{successMessage}</div>}
+      <button type="submit" className={styles.button} data-cy="submit-button" disabled={isSubmitting}>Excluir conta</button>
     </form>
   );
 };

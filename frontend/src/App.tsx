@@ -27,11 +27,11 @@ import { UserContextProps } from "./app/home/context/UserContext/userTypes";
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <Layout><CreateTest /></Layout>,
+    element: <Layout><></></Layout>,
   },
   {
     path: "/create-test",
-    element: <Layout><CreateTest /></Layout>,
+    element: <Layout><></></Layout>,
   },
   {
     path: "/login",

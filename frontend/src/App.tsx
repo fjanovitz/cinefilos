@@ -27,19 +27,19 @@ import { UserContextProps } from "./app/home/context/UserContext/userTypes";
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <Layout><CreateTest /></Layout>,
+    element: <Layout><></></Layout>,
   },
   {
     path: "/create-test",
-    element: <Layout><CreateTest /></Layout>,
+    element: <Layout><></></Layout>,
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: <Layout><LoginPage /></Layout>,
   },  
   {
     path: "/recover-account",
-    element: <PasswordRecoveryPage />,
+    element: <Layout><PasswordRecoveryPage /></Layout>,
   },  
   {
     path: "/contents/movies",
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <RegistrationPage />,
+    element: <Layout><RegistrationPage /></Layout>,
   },
   {
     path: "/user/get_user/:userId",

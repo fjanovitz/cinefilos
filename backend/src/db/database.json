@@ -2406,6 +2406,26 @@
       "id": "5b73aee5-73c7-4e00-a307-0df63f1e85fe"
     },
     {
+      "full_name": "Elisson Rodrigo",
+      "username": "elissonrsa",
+      "email": "hromeu@gmail.com",
+      "password": "Eu@87432663",
+      "birth_date": "2000-03-24",
+      "phone_number": "81987432663",
+      "profile_picture": "https://i.pravatar.cc/250",
+      "address": "Nova Lusitânia, 113",
+      "gender": "",
+      "pass_token": null,
+      "is_private": false,
+      "followers": [],
+      "following": [],
+      "follow_requests": [],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "c9f7608f-cbe7-4190-8053-d9a537595669"
+    },
+    {
       "full_name": "Bela Swan",
       "username": "bell28",
       "email": "bellll28@mail.com",
@@ -2455,9 +2475,9 @@
       "author": "edsonneto8",
       "content": "Duna e Pobres Criaturas são os melhores filmes do ano!",
       "num_likes": "0",
-      "users_who_liked": "",
+      "users_who_liked": [],
       "num_comments": "0",
-      "comments": "",
+      "comments": [],
       "topic": "Filmes",
       "posted": "today"
     }

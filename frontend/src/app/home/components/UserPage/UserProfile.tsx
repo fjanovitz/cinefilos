@@ -112,7 +112,7 @@ const UserProfile = () => {
     }
   
     await acceptFollowRequest(userId, requesterUsername);
-
+  
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -124,8 +124,11 @@ const UserProfile = () => {
         return null;
       }
     });
+  
+    // Set success message
+    setSuccessMessage('Solicitação para seguir aceita');
   };
-
+  
   const handleRejectFollowRequest = async (requesterUsername: string) => {
     if (!userId) {
       console.error('User ID is undefined');
@@ -133,7 +136,7 @@ const UserProfile = () => {
     }
   
     await rejectFollowRequest(userId, requesterUsername);
-
+  
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -144,8 +147,11 @@ const UserProfile = () => {
         return null;
       }
     });
+  
+    // Set success message
+    setSuccessMessage('Solicitação para seguir rejeitada');
   };
-
+  
   const handleShowFollowing = () => {
     setShowFollowingModal(true);
   };
@@ -225,7 +231,13 @@ const UserProfile = () => {
         </button>
           <button onClick={handleShowFollowers}><b>{user.followers.length}</b> Seguidores</button>
         </div>
-        {user.is_private && <button onClick={handleShowFollowRequests}>Mostrar Solicitações Para Seguir</button>}
+        {user.is_private && (
+        <button
+          onClick={handleShowFollowRequests}
+          data-cy="follow-request-button">
+          Mostrar Solicitações Para Seguir
+        </button>
+        )}
         <div className={styles.followUserFunc}>
           <input
             type="text"
@@ -274,20 +286,32 @@ const UserProfile = () => {
         </div>
       )}
       {showFollowRequestsModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
-            <h2>Requisições para seguir</h2>
-            {user.follow_requests.map((username) => (
-              <div key={username}>
-                <p>{username}</p>
-                <button onClick={() => handleAcceptFollowRequest(username)}>Aceitar</button>
-                <button onClick={() => handleRejectFollowRequest(username)}>Rejeitar</button>
-              </div>
-            ))}
-            <button onClick={handleCloseModal}>Fechar</button>
-          </div>
+      <div className={styles.modalOverlay} data-cy="follow-requests-modal-overlay">
+        <div className={styles.modal} data-cy="follow-requests-modal">
+          <h2>Requisições para seguir</h2>
+          {user.follow_requests.map((username) => (
+            <div key={username} data-cy={`follow-request-${username}`}>
+              <p>{username}</p>
+              <button
+                onClick={() => handleAcceptFollowRequest(username)}
+                data-cy={`accept-request-${username}`}
+              >
+                Aceitar
+              </button>
+              <button
+                onClick={() => handleRejectFollowRequest(username)}
+                data-cy={`reject-request-${username}`}
+              >
+                Rejeitar
+              </button>
+            </div>
+          ))}
+          <button onClick={handleCloseModal} data-cy="close-follow-requests-modal">
+            Fechar
+          </button>
         </div>
-      )}
+      </div>
+    )}
     </div>
   );
 };

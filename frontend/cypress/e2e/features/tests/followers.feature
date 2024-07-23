@@ -43,8 +43,18 @@ Feature: Friend/Follower Management
     Given the user opens the page "/user/get_user/ed567"
     And the user is logged with email "edward@mail.com" and password "@Edward1222"
     And the user with username "clebson" has sent a follow request to "ed567"
-    When the user "ed567" opens the following list
+    When the user "ed567" opens the follow request list
     And the user "ed567" sees the follow request from "clebson"
     And the user selects "Rejeitar"
     Then the user sees the text "Solicitação para seguir rejeitada"
+
+  Scenario: Accept a Follow Request
+    Given the user opens the page "/user/get_user/ed567"
+    And the user is logged with email "edward@mail.com" and password "@Edward1222"
+    And the user with username "clebson" has sent a follow request to "ed567"
+    When the user "ed567" opens the follow request list
+    And the user "ed567" sees the follow request from "clebson"
+    And the user selects "Aceitar"
+    Then the user sees the text "Solicitação para seguir aceita"
+
  

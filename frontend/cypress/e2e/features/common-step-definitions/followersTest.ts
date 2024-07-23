@@ -80,3 +80,17 @@ When("the user selects the privacy setting to 'Private'", () => {
     cy.get('[data-cy="privacy-status"]').should('contain', 'Privado');
     cy.contains('Configurações de privacidade atualizadas').should('be.visible');
 });
+
+When("the user with username {string} has sent a follow request to {string}", (requesterUsername: string, targetUsername: string) => {
+    cy.log(`Follow request was done in previous steps from ${requesterUsername} to ${targetUsername}`);
+  });
+
+When("the user {string} opens the follow request list", (username: string) => {
+    cy.get('[data-cy="follow-request-button"]').click(); 
+    cy.get('[data-cy="follow-requests-modal"]').should('be.visible'); 
+});
+
+When("the user {string} sees the follow request from {string}", (username: string, requesterUsername: string) => {
+    cy.get('[data-cy="follow-requests-modal"]').should('be.visible');
+    cy.get(`[data-cy="follow-request-${requesterUsername}"]`).should('be.visible');
+});

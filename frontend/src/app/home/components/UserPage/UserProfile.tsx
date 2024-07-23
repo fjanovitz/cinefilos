@@ -24,6 +24,7 @@ const UserProfile = () => {
   const [showFollowingModal, setShowFollowingModal] = useState(false);
   const [showFollowersModal, setShowFollowersModal] = useState(false);
   const [showFollowRequestsModal, setShowFollowRequestsModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
@@ -51,7 +52,6 @@ const UserProfile = () => {
       return;
     }
   
-    // Prevent the user from following themselves
     if (user && followUsername === user.username) {
       console.error('User cannot follow themselves');
       return;
@@ -59,18 +59,24 @@ const UserProfile = () => {
   
     const result = await followUser(userId, followUsername);
     if (result) {
-      setUser((prevUser) => {
-        if (prevUser) {
-          return {
-            ...prevUser,
-            following: [...prevUser.following, followUsername],
-          };
-        } else {
-          return null;
-        }
-      });
+      if (result.message === "Solicitação para seguir enviada com sucesso") {
+        setSuccessMessage("Solicitação para seguir enviada com sucesso");
+      } else if (result.message === "Agora você está seguindo o usuário") {
+        setSuccessMessage("Agora você está seguindo o usuário");
+        setUser((prevUser) => {
+          if (prevUser) {
+            return {
+              ...prevUser,
+              following: [...prevUser.following, followUsername],
+            };
+          } else {
+            return null;
+          }
+        });
+      }
     }
   };
+  
 
   const handleUnfollow = async (usernameToUnfollow: string) => {
     if (!userId) {
@@ -78,20 +84,26 @@ const UserProfile = () => {
       return;
     }
   
-    await unfollowUser(userId, usernameToUnfollow);
-
-    // Update the state of the component
-    setUser((prevUser) => {
-      if (prevUser) {
-        return {
-          ...prevUser,
-          following: prevUser.following.filter(username => username !== usernameToUnfollow),
-        };
-      } else {
-        return null;
-      }
-    });
+    try {
+      await unfollowUser(userId, usernameToUnfollow);
+  
+      setUser((prevUser) => {
+        if (prevUser) {
+          return {
+            ...prevUser,
+            following: prevUser.following.filter(username => username !== usernameToUnfollow),
+          };
+        } else {
+          return null;
+        }
+      });
+  
+      setSuccessMessage("Você deixou de seguir o usuário");
+    } catch (error) {
+      console.error('Error while unfollowing user:', error);
+    }
   };
+  
 
   const handleAcceptFollowRequest = async (requesterUsername: string) => {
     if (!userId) {
@@ -100,8 +112,7 @@ const UserProfile = () => {
     }
   
     await acceptFollowRequest(userId, requesterUsername);
-
-    // Update the state of the component
+  
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -113,8 +124,11 @@ const UserProfile = () => {
         return null;
       }
     });
+  
+    // Set success message
+    setSuccessMessage('Solicitação para seguir aceita');
   };
-
+  
   const handleRejectFollowRequest = async (requesterUsername: string) => {
     if (!userId) {
       console.error('User ID is undefined');
@@ -122,8 +136,7 @@ const UserProfile = () => {
     }
   
     await rejectFollowRequest(userId, requesterUsername);
-
-    // Update the state of the component
+  
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -134,8 +147,11 @@ const UserProfile = () => {
         return null;
       }
     });
+  
+    // Set success message
+    setSuccessMessage('Solicitação para seguir rejeitada');
   };
-
+  
   const handleShowFollowing = () => {
     setShowFollowingModal(true);
   };
@@ -178,12 +194,13 @@ const UserProfile = () => {
         }
       });
 
-      // If the profile is set to public, accept all follow requests
       if (user.is_private) {
         for (const requesterUsername of user.follow_requests) {
           await acceptFollowRequest(userId, requesterUsername);
         }
       }
+
+      setSuccessMessage("Configurações de privacidade atualizadas"); // Set success message
     }
   };
   
@@ -196,7 +213,7 @@ const UserProfile = () => {
       <div className={styles.left}>
         <img src={user.profile_picture} alt="Profile" className={styles.profilePicture} />
         <div className={styles.userInitialInfo}>
-          <h2>@{user.username}</h2>
+          <h2 data-cy="username">@{user.username}</h2>
           <h4>{user.full_name}</h4>
           <p>{user.email}</p>
         </div>
@@ -204,44 +221,59 @@ const UserProfile = () => {
           <p><b>Data de Nascimento: </b><em>{user.birth_date}</em></p>
           <p><b>Número de Telefone:</b><em> {user.phone_number}</em></p>
           <p><b>Gênero:</b><em> {user.gender}</em></p>
-          <p><b>Modo de Privacidade:</b><em> {user.is_private ? 'Private' : 'Public'}</em></p>
+          <p data-cy="privacy-status"><b>Modo de Privacidade:</b><em> {user.is_private ? 'Privado' : 'Público'}</em></p>
         </div>
       </div>
       <div className={styles.right}>
         <div className={styles.follow}>
-          <button onClick={handleShowFollowing}><b>{user.following.length}</b> Seguindo</button>
+        <button onClick={handleShowFollowing} data-cy="following-button">
+        <b>{user.following.length}</b> Seguindo
+        </button>
           <button onClick={handleShowFollowers}><b>{user.followers.length}</b> Seguidores</button>
         </div>
-        {user.is_private && <button onClick={handleShowFollowRequests}>Mostrar Solicitações Para Seguir</button>}
+        {user.is_private && (
+        <button
+          onClick={handleShowFollowRequests}
+          data-cy="follow-request-button">
+          Mostrar Solicitações Para Seguir
+        </button>
+        )}
         <div className={styles.followUserFunc}>
           <input
             type="text"
             placeholder="Nome do usuário"
             value={followUsername}
             onChange={(e) => setFollowUsername(e.target.value)}
+            data-cy="follow-field"
           />
-          <button onClick={handleFollow}>Seguir</button>
+          <button onClick={handleFollow} data-cy="follow-button">Seguir</button>
         </div>
+        {successMessage && <p className={styles.successMessage} data-cy="success-message">{successMessage}</p>}
         <button onClick={handleSwitchMode}>Trocar Modo</button>
       </div>
       {showFollowingModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
-            <h2>Following</h2>
-            {user.following.map((username) => (
-              <div key={username} className={styles.followingClass}>
-                <b><p style={{color: "#818181",}}>{username}</p></b>
-                <button onClick={() => handleUnfollow(username)} style={{margin:0, width:'30%',}}>Unfollow</button>
-              </div>
-            ))}
-            <button onClick={handleCloseModal}>Close</button>
-          </div>
+      <div className={styles.modalOverlay} data-cy="following-modal">
+        <div className={styles.modal}>
+          <h2>Seguindo</h2>
+          {user.following.map((username) => (
+            <div key={username} className={styles.followingClass} data-cy={`followingClass-${username}`}>
+              <b><p style={{color: "#818181",}}>{username}</p></b>
+              <button
+                onClick={() => handleUnfollow(username)}
+                style={{ margin: 0, width: '30%' }}
+                data-cy={`unfollow-button-${username}`}>
+                Unfollow
+              </button>
+            </div>
+          ))}
+          <button onClick={handleCloseModal}>Fechar</button>
         </div>
+      </div>
       )}
       {showFollowersModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
-            <h2>Followers</h2>
+            <h2>Seguidores</h2>
             <div className={styles.followersModal}>
             {user.followers.map((username) => (
               <div key={username}>
@@ -249,25 +281,37 @@ const UserProfile = () => {
               </div>
             ))}
             </div>
-            <button onClick={handleCloseModal}>Close</button>
+            <button onClick={handleCloseModal}>Fechar</button>
           </div>
         </div>
       )}
       {showFollowRequestsModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
-            <h2>Follow Requests</h2>
-            {user.follow_requests.map((username) => (
-              <div key={username}>
-                <p>{username}</p>
-                <button onClick={() => handleAcceptFollowRequest(username)}>Accept</button>
-                <button onClick={() => handleRejectFollowRequest(username)}>Reject</button>
-              </div>
-            ))}
-            <button onClick={handleCloseModal}>Close</button>
-          </div>
+      <div className={styles.modalOverlay} data-cy="follow-requests-modal-overlay">
+        <div className={styles.modal} data-cy="follow-requests-modal">
+          <h2>Requisições para seguir</h2>
+          {user.follow_requests.map((username) => (
+            <div key={username} data-cy={`follow-request-${username}`}>
+              <p>{username}</p>
+              <button
+                onClick={() => handleAcceptFollowRequest(username)}
+                data-cy={`accept-request-${username}`}
+              >
+                Aceitar
+              </button>
+              <button
+                onClick={() => handleRejectFollowRequest(username)}
+                data-cy={`reject-request-${username}`}
+              >
+                Rejeitar
+              </button>
+            </div>
+          ))}
+          <button onClick={handleCloseModal} data-cy="close-follow-requests-modal">
+            Fechar
+          </button>
         </div>
-      )}
+      </div>
+    )}
     </div>
   );
 };

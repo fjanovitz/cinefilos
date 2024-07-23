@@ -93,9 +93,6 @@ const LoginForm = () => {
         <Link to="/register">
           CADASTRAR
         </Link>
-        <Link to="/contents/movies">
-          CADASTRAR
-        </Link>
     </form>
   );
 };

@@ -7,6 +7,17 @@ Given(
     }
 )
 
+Given(
+    "the user is logged in as {string}",
+    (username: string) => {
+        cy.visit("/login");
+        cy.get("[data-cy=email]").type(`${username}@gmail.com`);
+        cy.get("[data-cy=password]").type("Senha123");
+        cy.get("[data-cy=ENTRAR]").click();
+        cy.wait(50);
+    }
+)
+
 When(
     "the user clicks the card of the movie with id {string}",
     (content_id: string) => {

@@ -35,8 +35,8 @@ Given(
 )
 
 Given(
-    "the user {string} is not logged in",
-    (username: string) => {
+    "the user is not logged in",
+    () => {
         console.log('n logado')
     }
 )

@@ -11,14 +11,16 @@ Scenario: Access content through reviews tab
     Then the user goes to the page "contents/movies/Interestelar"
 
 Scenario: Access edit content through reviews tab
-    Given the user is on the page "profile/edsonneto8"
+    Given the user is logged in as "edsonneto8"
+    And the user is on the page "profile/edsonneto8"
     And there is a review for the movie with id "2809ee44-1149-42bb-ad9d-e1abce2eee2e"
     And the user is on the "reviews_tab" tab
     When the user clicks the "update-review-button-movies-2809ee44-1149-42bb-ad9d-e1abce2eee2e" button
     Then the user goes to the page "profile/edsonneto8/movies/Interestelar/update_review"
 
 Scenario: Delete review through reviews tab
-    Given the user is on the page "profile/edsonneto8"
+    Given the user is logged in as "edsonneto8"
+    And the user is on the page "profile/edsonneto8"
     And there is a review for the movie with id "2809ee44-1149-42bb-ad9d-e1abce2eee2e"
     And the user is on the "reviews_tab" tab
     When the user clicks the "delete-review-button-movies-2809ee44-1149-42bb-ad9d-e1abce2eee2e" button

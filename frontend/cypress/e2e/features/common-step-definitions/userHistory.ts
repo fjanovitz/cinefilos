@@ -18,6 +18,14 @@ Given(
     }
 )
 
+Given(
+    "the user is on its profile",
+    () => {
+        cy.wait(1000);
+        cy.getDataCy('Username').click();
+    }
+)
+
 When(
     "the user clicks the card of the movie with id {string}",
     (content_id: string) => {

@@ -2181,6 +2181,29 @@
       "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
     },
     {
+      "full_name": "admin",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "Admin123",
+      "birth_date": "10/10/2001",
+      "phone_number": "5656565",
+      "profile_picture": "string",
+      "address": "admin",
+      "gender": "masc",
+      "pass_token": "string",
+      "is_private": true,
+      "followers": [],
+      "following": [
+        "clebson",
+        "clebson"
+      ],
+      "follow_requests": [],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
+    },
+    {
       "full_name": "Jose Clebson de Souza Oliveira",
       "username": "clebson",
       "email": "clebsonsouza55@outlook.com",

@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import api from "/src/services/api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import StarRating from "../../components/StarRating/StarRating";
 import { AxiosError } from "axios";
@@ -8,8 +8,10 @@ import { Movie, TvShow } from "../../models/ContentInterface";
 import { Review } from "../../models/ReviewInterface";
 import MainButton from "../../components/MainButton/MainButton";
 import DeleteButton from "../../components/DeleteButton/DeleteButton";
+import { UserContext } from "../../context/UserContext";
 
 const ContentDetailsPage = () => {
+	const {user, saveUser} = useContext(UserContext);
 	const navigate = useNavigate();
 	const { content_type, title } = useParams<{
 		content_type: string;
@@ -64,6 +66,8 @@ const ContentDetailsPage = () => {
 
 	useEffect(() => {
 		loadContentDetails(content_type, title);
+		console.log("user", user);
+
 	}, [content_type, title]);
 
 	return (
@@ -74,17 +78,20 @@ const ContentDetailsPage = () => {
 						{content?.banner && (
 							<img src={content?.banner} alt="Banner do filme" />
 						)}
-						<div>
-							<Link
-								to={`/contents/${content?.content_type}/${content?.title}/update_content`}
-							>
-								<MainButton text={"Atualizar conteúdo"}/>
-							</Link>
-							<DeleteButton
-								onClick={handleDelete}
-								text={"Deletar conteúdo"}
-							/>
-						</div>
+						{
+							(user?.username === "admin") && (<div>
+								<Link
+									to={`/contents/${content?.content_type}/${content?.title}/update_content`}
+								>
+									<MainButton text={"Atualizar conteúdo"}/>
+								</Link>
+								<DeleteButton
+									onClick={handleDelete}
+									text={"Deletar conteúdo"}
+								/>
+							</div>)
+						}
+						
 					</div>
 					<div className={styles.contentDetails}>
 						<div className={styles.card}>

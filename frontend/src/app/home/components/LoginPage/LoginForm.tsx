@@ -3,11 +3,13 @@ import { loginUser } from '../../../../services/userService';
 import styles from '../../pages/LoginPage/index.module.css';
 import LogButton from '../../../../shared/components/Button/LoginButton';
 import api from '/src/services/api';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../../context/UserContext';
 
 const LoginForm = () => {
   const {user, saveUser} = useContext(UserContext);
+  const navigate = useNavigate();
+
 
   const [credentials, setCredentials] = useState({
     email: '',
@@ -29,7 +31,6 @@ const LoginForm = () => {
         email
       }
       
-      console.log(userProps);
       saveUser(userProps);
     } catch(error) {
       console.log(error);

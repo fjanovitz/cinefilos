@@ -162,3 +162,7 @@
     height: calc(100vh - 10.5rem);
     padding: 0 2rem;
 }
+
+.collapsedHeight {
+    height: calc(100vh - 8.5rem) !important;
+}

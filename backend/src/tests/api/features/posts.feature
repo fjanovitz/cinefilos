@@ -44,22 +44,22 @@ Feature: Posts API
 
     Scenario: Like a post successfully
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
-        And the user with ID "0001" do not liked the post with ID "1234"
-        When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
+        And the user with username "hannah" do not liked the post with ID "1234"
+        When a PUT request is sent to "/forum/post/1234" from the user with username "hannah"
         Then the json status code is "200"
-        And the json response have the ID "0001" and the status "1"
+        And the json response have the username "hannah" and the status "1"
 
     Scenario: Remove the like from a post successfully
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
-        And the user with ID "0001" already liked the post with ID "1234"
-        When a PUT request is sent to "/forum/post/1234" from the user with ID "0001"
+        And the user with username "hannah" already liked the post with ID "1234"
+        When a PUT request is sent to "/forum/post/1234" from the user with username "hannah"
         Then the json status code is "200"
-        And the json response have the ID "0001" and the status "0"
+        And the json response have the username "hannah" and the status "0"
 
     Scenario: Get the list of the users who liked a post
         Given Exists a post with ID "1234", author "kiko", title "Post Básico" and content "Um texto genérico" in the database
-        And the user with ID "0001" already liked the post with ID "1234"
-        And the user with ID "0002" already liked the post with ID "1234"
+        And the user with username "hannah" already liked the post with ID "1234"
+        And the user with username "jaiminho" already liked the post with ID "1234"
         When a GET request is sent to "/forum/post/1234/likes"
         Then the json status code is "200"
-        And the json response have a list with 2 users with the ID "0001" in position "0" and "0002" in position "1"
+        And the json response have a list with 2 users with the username "hannah" in position "0" and "jaiminho" in position "1"

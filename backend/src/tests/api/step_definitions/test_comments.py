@@ -24,7 +24,7 @@ def mock_post_service_clean(post_id: str):
 
     post = Post(
         id=post_id,
-        author=create_random_user("João"),
+        author="João",
         title="Lições - Puppy Love",
         content="Conteúdo",
         num_likes = 0,
@@ -75,7 +75,7 @@ def mock_post_service_clean(comment_id: str, author: str, content: str):
 
     post = Post(
         id="123",
-        author=create_random_user("João"),
+        author="João",
         title="Lições - Puppy Love",
         content="Conteúdo",
         num_likes = 0,

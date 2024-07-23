@@ -17,7 +17,7 @@ def mock_post_service_creation(post_id: str, post_author: str, post_title: str, 
 
     post = Post(
         id = post_id,
-        author = create_random_user(post_author),
+        author = post_author,
         title = post_title,
         content = post_content,
         num_likes = 0,
@@ -51,7 +51,7 @@ def check_response_post_json(context, post_id: str, post_author: str, post_title
     
     json_response = context["response"].json()
     assert json_response["id"] == post_id
-    assert json_response["author"]["username"] == post_author
+    assert json_response["author"] == post_author
     assert json_response["title"] == post_title
     assert json_response["content"] == post_content
 
@@ -91,7 +91,7 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
         req_url,
         json={
             "id": post_id,
-            "author": create_random_user(post_author).model_dump(),
+            "author": post_author,
             "title": post_title,
             "content": post_content,
             "num_likes": 0,
@@ -120,7 +120,7 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
         req_url,
         json={
             "id": post_id,
-            "author": create_random_user(post_author).model_dump(),
+            "author": post_author,
             "title": "",
             "content": post_content,
             "num_likes": 0,
@@ -170,7 +170,7 @@ def test_like_post():
     clearDB(db)
     saveDB(db)
 
-@given(parsers.cfparse('the user with ID "{user_id}" do not liked the post with ID "{post_id}"'))
+@given(parsers.cfparse('the user with username "{username}" do not liked the post with ID "{post_id}"'))
 def clear_post_likes(post_id:str):
     db = getDB()
     for post in db["posts"]:
@@ -180,22 +180,22 @@ def clear_post_likes(post_id:str):
             saveDB(db)
             break 
 
-@when(parsers.cfparse('a PUT request is sent to "{req_url}" from the user with ID "{user_id_}"'), 
+@when(parsers.cfparse('a PUT request is sent to "{req_url}" from the user with username "{username}"'), 
     target_fixture="context"
 )
-def update_like_status(client, context, req_url: str,  user_id_:str):
+def update_like_status(client, context, req_url: str,  username:str):
 
-    response = client.put(req_url, params={"user_id": user_id_})
+    response = client.put(req_url, params={"username": username})
     
     context["response"] = response
     return context
 
-@then(parsers.cfparse('the json response have the ID "{user_id}" and the status "{status}"'), target_fixture="context")
-def check_response_post(context, user_id: str, status: bool):
+@then(parsers.cfparse('the json response have the username "{username}" and the status "{status}"'), target_fixture="context")
+def check_response_post(context, username: str, status: bool):
 
     like_response = context["response"].json()
 
-    assert like_response["user_id"] == user_id
+    assert like_response["username"] == username
     assert like_response["status"] == int(status)
     return context
 
@@ -205,12 +205,12 @@ def test_remove_like():
     clearDB(db)
     saveDB(db)
 
-@given(parsers.cfparse('the user with ID "{user_id}" already liked the post with ID "{post_id}"'))
-def add_like_in_database(user_id: str, post_id: str):
+@given(parsers.cfparse('the user with username "{username}" already liked the post with ID "{post_id}"'))
+def add_like_in_database(username: str, post_id: str):
     db = getDB()
     for post in db["posts"]:
         if post["id"] == post_id:
-            post["users_who_liked"].append(user_id)
+            post["users_who_liked"].append(username)
             post["num_likes"] += 1
             saveDB(db)
             break 
@@ -221,11 +221,11 @@ def test_like_list():
     clearDB(db)
     saveDB(db)
 
-@then(parsers.cfparse('the json response have a list with 2 users with the ID "{id_0}" in position "0" and "{id_1}" in position "1"'), target_fixture="context")
-def check_response_post(context, id_0: str, id_1: str):
+@then(parsers.cfparse('the json response have a list with 2 users with the username "{username_0}" in position "0" and "{username_1}" in position "1"'), target_fixture="context")
+def check_response_post(context, username_0: str, username_1: str):
 
     response = context["response"].json()
 
-    assert response[0] == id_0
-    assert response[1] == id_1
+    assert response[0] == username_0
+    assert response[1] == username_1
     return context

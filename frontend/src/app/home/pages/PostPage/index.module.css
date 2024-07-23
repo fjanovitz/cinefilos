@@ -1,0 +1,166 @@
+.pageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f2f5; 
+  }
+  
+  .container {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+  }
+  
+  .banner img {
+    width: 100%;
+    padding: 20;
+    max-width: 500px; 
+    height: auto; 
+    object-fit: cover; 
+  }
+  
+  .contentDetails {
+    padding: 20px; 
+    flex-grow: 1; 
+    min-height: 100vh; 
+    width: 100vw;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .title {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+    color: #333333; 
+  }
+  
+  .details {
+    font-size: 16px; 
+    color: #666666; 
+    line-height: 1.5; 
+    margin-bottom: 8px; 
+  }
+  
+  .reviewsSection {
+    margin-top: 20px;
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-radius: 8px;
+  }
+  
+  .review {
+    padding: 15px 0; 
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .review:last-child {
+    border-bottom: none;
+  }
+  
+  .reviewAuthor {
+    font-weight: bold;
+    margin-bottom: 5px; 
+    display: flex; 
+    align-items: center; 
+  }
+  
+  .reviewRating {
+    margin-left: 10px; 
+    color: #007BFF; 
+  }
+  
+  .reviewText {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333; 
+  }
+  
+  .title {
+    flex: 1;
+  }
+  
+  .reviewAuthorContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
+  .additionalInfoBlock {
+    background-color: #f0f0f0;
+    padding: 16px;
+    margin-top: 8px;
+    border-radius: 8px;
+  }
+  
+  .additionalInfoBlock h3, .additionalInfoBlock h4 {
+    margin-bottom: 10px;
+  }
+  
+  .additionalInfoBlock ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .additionalInfoBlock ul li {
+    margin-bottom: 5px;
+  }
+  
+  .additionalInfoItem {
+    margin-bottom: 16px;
+  }
+  
+  .reviewAuthorText, .reviewAuthorName {
+    display: inline-block;
+    margin-right: 1px; 
+  }
+  
+  .reviewsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .titleAndButtonContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .addButton {
+    margin: 10px; 
+    background-color: transparent;
+    color: rgb(255, 213, 0);
+    font-weight: bold ;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .addButton:hover {
+    background-color: rgb(255, 200, 0);
+    color: white;
+  }
+  
+  .deleteButton {
+    margin: 5px;
+    color: red;
+    border: 2px solid red;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .deleteButton:hover {
+    background-color: red;
+    color: white;
+  }

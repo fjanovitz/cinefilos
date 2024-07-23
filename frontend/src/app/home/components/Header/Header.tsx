@@ -13,8 +13,8 @@ const Header: React.FC = () => {
       </div>
       <nav className={styles.navContainer} >
         <Link to="/contents/movies" style={{textDecoration: 'none', color: 'white'}} >Filmes</Link>
-        <Link to="/contents/tv_shows" style={{textDecoration: 'none', color: 'white'}} data-cy="tv_shows" >Séries</Link>
-        <Link to="/tests" style={{textDecoration: 'none', color: 'white'}} >Posts</Link>
+        <Link to="/contents/tv_shows" style={{textDecoration: 'none', color: 'white'}} >Séries</Link>
+        <Link to="/forum/feed" style={{textDecoration: 'none', color: 'white'}} >Fórum</Link>
       </nav>
       <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', margin: '5px', gap: '10px' }}>
         <Link to={`/profile/${user?.username ?? ""}`} style={{textDecoration: 'none', color: 'white'}} data-cy="Username"> {user?.username ?? "Nome do usuário"} </Link>

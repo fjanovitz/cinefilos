@@ -16,6 +16,10 @@ import DeleteAccountPage from "./app/home/pages/DeleteAccountPage"
 import UpdateContentPage from "./app/home/pages/UpdateContentPage";
 import UserProfilePage from "./app/home/pages/ProfilePage";
 import UpdateReviewPage from "./app/home/pages/UpdateReviewPage";
+import FeedPage from "./app/home/pages/FeedPage";
+import CreatePostPage from "./app/home/pages/CreatePostPage";
+import PostPage from "./app/home/pages/PostPage";
+import LikesPage from "./app/home/pages/LikesPage";
 import { UserContext } from "./app/home/context/UserContext";
 import { useState } from "react";
 import { UserContextProps } from "./app/home/context/UserContext/userTypes";
@@ -90,9 +94,21 @@ const router = createBrowserRouter([
     element: <Layout><UserProfilePage /></Layout>,
   },
   {
-    path: "/profile/:username/:content_type/:content_title/update_review",
-    element: <Layout><UpdateReviewPage /></Layout>,
-  }
+    path: "/forum/feed",
+    element: <Layout><FeedPage /></Layout>,
+  },
+  {
+    path: "/forum/newpost",
+    element: <Layout><CreatePostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID",
+    element: <Layout><PostPage /></Layout>,
+  },
+  {
+    path: "/forum/post/:postID/likes",
+    element: <Layout><LikesPage userList={[]}/></Layout>,
+  } 
 ]);
 
 export default function App() {

@@ -85,6 +85,10 @@ const router = createBrowserRouter([
     path: "/user/delete_account/:userId",
     element: <Layout><DeleteAccountPage /></Layout>,
   },
+  {
+    path: "/profile/:username/:content_type/:content_title/update_review",
+    element: <Layout><UpdateReviewPage /></Layout>,
+  },
   {    
     path: "/contents/:content_type/:title/update_content",
     element: <Layout><UpdateContentPage /></Layout>,

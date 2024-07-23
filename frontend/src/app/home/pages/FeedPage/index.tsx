@@ -1,16 +1,16 @@
 import styles from "./index.module.css";
 import api from "../../../../services/api";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../context/UserContext";
+// import { UserContext } from "../../context/UserContext";
 import { Post } from "../../models/ForumInterface";
 import MainButton from "../../components/MainButton/MainButton";
-import { set } from "react-hook-form";
+// import { set } from "react-hook-form";
 
 const FeedPage = () => {
-  const { user, saveUser } = useContext(UserContext);
+  // const { user, saveUser } = useContext(UserContext);
   const [posts, setPosts] = useState<Post[]>([]);
-
+  const navigate = useNavigate();
   const [search, setSearch] = useState('');
 
   const loadPosts = async () => {

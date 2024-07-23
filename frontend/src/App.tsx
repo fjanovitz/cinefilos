@@ -112,11 +112,7 @@ const router = createBrowserRouter([
   {
     path: "/forum/post/:postID/likes",
     element: <Layout><LikesPage userList={[]}/></Layout>,
-  },
-  {
-    path: "/forum/search/:topic",
-    element: <Layout><FeedPage/></Layout>,
-  }  
+  } 
 ]);
 
 export default function App() {

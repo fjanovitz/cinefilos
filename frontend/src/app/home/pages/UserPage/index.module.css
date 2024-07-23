@@ -18,6 +18,16 @@
   width: 100%;
 }
 
+.buttonsFollow {
+  display: flex;
+  gap: 5%;
+  width: 70%;
+}
+
+.nameFollow {
+  margin-top: 28px;
+}
+
 .userInfo {
   text-align: center;
   gap: 0px !important;

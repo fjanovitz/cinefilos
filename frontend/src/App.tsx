@@ -27,11 +27,7 @@ import { UserContextProps } from "./app/home/context/UserContext/userTypes";
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <Layout><></></Layout>,
-  },
-  {
-    path: "/create-test",
-    element: <Layout><></></Layout>,
+    element: <Layout><ContentsPage content_type = {"movies"} /></Layout>,
   },
   {
     path: "/login",

@@ -31,3 +31,20 @@ Feature: Friend/Follower Management
     When the user "Carlos33" opens the following list
     And the user selects "Unfollow"
     Then the user should see the success message "Você deixou de seguir o usuário"
+
+  Scenario: Set profile to Private
+    Given the user opens the page "/user/get_user/Carlos33"
+    And the user is logged with email "jcso@gmail.com" and password "Clebson123"
+    And the user with username "Carlos33" has a public profile
+    When the user selects the privacy setting to 'Private'
+    Then the user sees the text "Configurações de privacidade atualizadas"
+
+  Scenario: Decline a Follow Request
+    Given the user opens the page "/user/get_user/ed567"
+    And the user is logged with email "edward@mail.com" and password "@Edward1222"
+    And the user with username "clebson" has sent a follow request to "ed567"
+    When the user "ed567" opens the following list
+    And the user "ed567" sees the follow request from "clebson"
+    And the user selects "Rejeitar"
+    Then the user sees the text "Solicitação para seguir rejeitada"
+ 

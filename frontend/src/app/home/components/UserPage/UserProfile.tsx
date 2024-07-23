@@ -98,7 +98,6 @@ const UserProfile = () => {
         }
       });
   
-      // Set success message after successful unfollow
       setSuccessMessage("Você deixou de seguir o usuário");
     } catch (error) {
       console.error('Error while unfollowing user:', error);
@@ -194,6 +193,8 @@ const UserProfile = () => {
           await acceptFollowRequest(userId, requesterUsername);
         }
       }
+
+      setSuccessMessage("Configurações de privacidade atualizadas"); // Set success message
     }
   };
   

@@ -70,7 +70,13 @@ When("the user selects \"Unfollow\" for the user {string}", (username: string) =
 });
 
 When("the user {string} opens the following list", (username: string) => {
-    cy.get('[data-cy="following-button"]').click(); // Ensure this button is correctly selected to trigger the modal
+    cy.get('[data-cy="following-button"]').click(); 
     cy.get('[data-cy="following-modal"]').should('be.visible');
   });
   
+When("the user selects the privacy setting to 'Private'", () => {
+    cy.get('[data-cy="privacy-status"]').should('contain', 'Público');
+    cy.get('button').contains('Trocar Modo').click(); 
+    cy.get('[data-cy="privacy-status"]').should('contain', 'Privado');
+    cy.contains('Configurações de privacidade atualizadas').should('be.visible');
+});

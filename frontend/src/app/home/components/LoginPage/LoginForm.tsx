@@ -3,7 +3,6 @@ import { loginUser } from '../../../../services/userService';
 import styles from '../../pages/LoginPage/index.module.css';
 import LogButton from '../../../../shared/components/Button/LoginButton';
 import api from '/src/services/api';
-import { Link } from "react-router-dom";
 import { UserContext } from '../../context/UserContext';
 import { Link, useNavigate } from "react-router-dom";
 
@@ -93,9 +92,6 @@ const LoginForm = () => {
           ESQUECI A SENHA
         </Link>
         <Link to="/register">
-          CADASTRAR
-        </Link>
-        <Link to="/contents/movies">
           CADASTRAR
         </Link>
     </form>

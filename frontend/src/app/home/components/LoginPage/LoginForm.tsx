@@ -5,10 +5,13 @@ import LogButton from '../../../../shared/components/Button/LoginButton';
 import api from '/src/services/api';
 import { Link } from "react-router-dom";
 import { UserContext } from '../../context/UserContext';
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 const LoginForm = () => {
   const {user, saveUser} = useContext(UserContext);
-
+  const navigate = useNavigate()
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -48,11 +51,12 @@ const LoginForm = () => {
     try {
       const response = await logUser()
       if (response.status == 200) {
-        console.log("login OK")
+      navigate("../contents/movies")
+      console.log("login OK")
         getUserProps(response.data.user.email);
       }
     } catch (error) {
-        console.log("ERRO")
+      console.log("ERRO")
     }
   };
 
@@ -62,6 +66,7 @@ const LoginForm = () => {
         <label>
           Email
           <input
+            data-cy = "email"
             name = "email"
             className={styles.formInput}
             type="email"
@@ -73,6 +78,7 @@ const LoginForm = () => {
         <label>
           Password
           <input
+            data-cy = "password"
             name = "password"
             className={styles.formInput}
             type="password"
@@ -82,7 +88,7 @@ const LoginForm = () => {
           />
         </label>
       </div>  
-        <LogButton type="submit">ENTRAR</LogButton>
+        <LogButton data-cy = "ENTRAR" type="submit">ENTRAR</LogButton>
         <Link to="/recover-account">
           ESQUECI A SENHA
         </Link>

@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 import api from "../../../../services/api";
 import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Toast } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import {v4 as uuidv4} from 'uuid';
 import { UserContext } from "../../context/UserContext";
 
@@ -42,7 +42,7 @@ const CreatePostPage = () => {
 	const {user, saveUser} = useContext(UserContext);
 	const navigate = useNavigate();
 	const id = uuidv4();
-	const author = user?.username ?? "";
+	const author = user?.username ?? "fjanovitz";
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const num_likes = 0;

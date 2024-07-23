@@ -34,7 +34,7 @@ const FeedPage = () => {
 		  <p className={styles.postDate}>{post.date}</p>
 		  <p className={styles.postLikes}>{post.num_likes} likes</p>
 		  <p className={styles.postComments}>{post.num_comments} comments</p>
-          <p className={styles.postAuthor}>By: {post.author}</p>
+          <p className={styles.postAuthor}>Por {post.author}</p>
         </div>
       ))}
     </div>

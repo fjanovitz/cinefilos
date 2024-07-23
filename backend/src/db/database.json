@@ -2227,6 +2227,29 @@
       "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
     },
     {
+      "full_name": "Edson",
+      "username": "edsonneto8",
+      "email": "emn2@cin.ufpe.br",
+      "password": "Edson123",
+      "birth_date": "10/10/2001",
+      "phone_number": "5656565",
+      "profile_picture": "string",
+      "address": "emn2",
+      "gender": "masc",
+      "pass_token": "string",
+      "is_private": true,
+      "followers": [],
+      "following": [
+        "clebson",
+        "clebson"
+      ],
+      "follow_requests": [],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "9d594de9-c868-41ce-bc37-315b1d3ab4"
+    },
+    {
       "full_name": "Jose Clebson de Souza Oliveira",
       "username": "clebson",
       "email": "clebsonsouza55@outlook.com",

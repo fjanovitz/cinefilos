@@ -25,8 +25,6 @@ interface Post {
     posted: string;
 }
 
-const {user, saveUser} = useContext(UserContext);
-const author_username = user.username
 
 function getCurrentDateTime(): string {
     const now = new Date();
@@ -41,9 +39,10 @@ function getCurrentDateTime(): string {
 }
 
 const CreatePostPage = () => {
+	const {user, saveUser} = useContext(UserContext);
 	const navigate = useNavigate();
 	const id = uuidv4();
-	const author = author_username;
+	const author = user?.username ?? "";
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const num_likes = 0;

@@ -28,7 +28,9 @@ Scenario: Try to register a review to a content that was already reviewed by the
     And the user is in the page "/contents/movies/Inferno"  
 
 Scenario: Update review information
-    Given the user visits the page "profile/edsonneto8"
+    Given the user is logged as "edsonneto8"
+    And the user "edsonneto8" selects "Username"
+    And the user is in the page "profile/edsonneto8"
     And the user "edsonneto8" visualizes a review registered for the content_type "movies" and content_id "323675" 
     And the user "edsonneto8" visualizes "review-title-edsonneto8-movies-323675" "Muito engraçado"
     When the user "edsonneto8" selects "update-review-button-movies-323675"
@@ -37,7 +39,9 @@ Scenario: Update review information
     Then the user "edsonneto8" visualizes "review-title-edsonneto8-movies-323675" "Excelente filme"
 
 Scenario: Delete a review 
-    Given the user visits the page "profile/edsonneto8"
+    Given the user is logged as "edsonneto8"
+    And the user "edsonneto8" selects "Username"
+    And the user is in the page "profile/edsonneto8"
     And the user "edsonneto8" visualizes a review registered for the content_type "movies" and content_id "323675" 
     When the user "edsonneto8" selects "delete-review-button-movies-323675"
     Then the user is in the page "profile/edsonneto8"

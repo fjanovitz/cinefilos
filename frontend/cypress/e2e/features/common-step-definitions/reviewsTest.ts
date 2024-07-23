@@ -103,3 +103,15 @@ Then(
         cy.get(`[data-cy="review-title-${username}-${content_type}-${content_id}"]`).should("not.exist");
     }
 )
+
+Given(
+    "the user is logged as {string}",
+    (user: string) => {
+        cy.wait(200)
+        cy.visit("/login");
+        cy.get("[data-cy=email]").type("emn2@cin.ufpe.br");
+        cy.get("[data-cy=password]").type("Edson123");
+        cy.get("[data-cy=ENTRAR]").click();
+        cy.wait(200);
+    }
+)

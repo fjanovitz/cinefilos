@@ -1,4 +1,12 @@
-.form {
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0; /* Remove any default margin */
+    padding-top: 0; /* Remove any default padding */
+  }
+  
+  .form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -13,7 +21,7 @@
     border: 1px solid #F4D30B;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 10%;
+    margin-top: 5%;
   }
   
   .label {
@@ -44,12 +52,12 @@
     background-color: #F4D30B;
     opacity: 0.8;
   }
-
+  
   .inputGroup {
     display: flex;
     flex-direction: column;
   }
-
+  
   .container h1 {
     font-size: 24px;
     text-align: center;
@@ -65,5 +73,4 @@
     box-sizing: border-box; /* Inclui padding e border na largura total */
     padding: 1.5%;
   }
-  
   

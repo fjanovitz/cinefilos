@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import api from '/src/services/api';
 import ContentCard from "./ContentCard";
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './ContentCard.module.css'
+import { UserContext } from '../../context/UserContext';
 
 interface Content {
     id: string;
@@ -20,6 +21,7 @@ interface Content {
 const ContentListView = ( { content_type }) => {
     const [contents, setContents] = useState<Content[]>(() => { return [] as Content[]; });
     const [categories, setCategories] = useState<{[fieldName: string]: string}>({});
+    const {user, saveUser} = useContext(UserContext);
 
     const getCategory = (content_id: string) => (content_id in categories) ? categories[content_id] : '' 
 
@@ -39,9 +41,10 @@ const ContentListView = ( { content_type }) => {
 
     const userCategories = async () => {
         try {
-            // Trocar edsonnet8 por ${username}
-            const response = await api.get(`/watch_list/user/edsonneto8`);
-            setCategories(response.data);
+            if(user?.username != undefined){
+                const response = await api.get(`/watch_list/user/categories/${user?.username}`);
+                setCategories(response.data);
+            }
         } catch(error) {
             console.log(error);
         }
@@ -53,7 +56,7 @@ const ContentListView = ( { content_type }) => {
             const currentCategory = (content.id in categories) ? getCategory(content.id) : ''
             if(category != currentCategory){
                 const params = {
-                    username: 'edsonneto8', // Trocar edsonnet8 por ${username}
+                    username: user?.username, // Trocar edsonnet8 por ${username}
                     category,
                     content_id: content.id,
                     content_type: content.content_type
@@ -62,7 +65,7 @@ const ContentListView = ( { content_type }) => {
             }
             if(currentCategory != '' && (category == currentCategory || response.status == 201)){
                 // Trocar edsonnet8 por ${username}
-                const responseDel = await api.delete(`/watch_list/user/edsonneto8/${currentCategory}/${content.id}`);
+                const responseDel = await api.delete(`/watch_list/user/${user?.username}/${currentCategory}/${content.id}`);
             }
             const newValue = (category == currentCategory) ? '' : category;
             setCategories(categories => ({...categories, [content.id]: newValue}))
@@ -79,7 +82,7 @@ const ContentListView = ( { content_type }) => {
   return (
     <section className={styles.sectionContainer}>
         <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
-            <Row className="g-4" style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
+            <Row className={'g-4 ' + styles.rowClass} style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
                     {contents.map(
                         ({
                             id,
@@ -107,7 +110,7 @@ const ContentListView = ( { content_type }) => {
                                         duration: duration,
                                         director: director
                                         }}
-                                    hasOptions={true}
+                                    hasOptions={(user?.username != undefined)}
                                     category={getCategory(id)}
                                     changeCategory={changeCategory}
                                 />

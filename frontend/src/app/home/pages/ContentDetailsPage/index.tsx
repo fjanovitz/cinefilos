@@ -6,6 +6,8 @@ import StarRating from "../../components/StarRating/StarRating";
 import { AxiosError } from "axios";
 import { Movie, TvShow } from "../../models/ContentInterface";
 import { Review } from "../../models/ReviewInterface";
+import MainButton from "../../components/MainButton/MainButton";
+import DeleteButton from "../../components/DeleteButton/DeleteButton";
 
 const ContentDetailsPage = () => {
 	const navigate = useNavigate();
@@ -65,163 +67,160 @@ const ContentDetailsPage = () => {
 	}, [content_type, title]);
 
 	return (
-		<div className={styles.pageContainer}>
-			<div className={styles.container}>
-				<div className={styles.banner}>
-					{content?.banner && (
-						<img src={content?.banner} alt="Banner do filme" />
-					)}
-					<div>
-						<Link
-							to={`/contents/${content?.content_type}/${content?.title}/update_content`}
-						>
-							<button className={styles.addButton}>
-								Atualizar conteúdo
-							</button>
-						</Link>
-						<button
-							onClick={handleDelete}
-							className={styles.deleteButton}
-						>
-							Deletar conteúdo
-						</button>
-					</div>
-				</div>
-				<div className={styles.contentDetails}>
-					<div className={styles.card}>
-						<div
-							style={{
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center",
-							}}
-						>
-							<h1 className={styles.title}
-								data-cy="Título">
-								{content?.title} ({content?.release_year})
-							</h1>
-							<StarRating rating={rating} />
-						</div>
-						<p className={styles.details}>{content?.synopsis}</p>
-						<div className="additionalInfoBlock">
-							<div className={styles.additionalInfoItem}>
-								<h3>Informações Adicionais</h3>
-							</div>
-							<div className={styles.additionalInfoItem}>
-								<p
-								data-cy="Gênero">Gênero: {content?.gender}</p>
-							</div>
-							{content_type == "movies" && (
-								<div className={styles.additionalInfoItem}>
-									<p>Duração: {content?.duration} min </p>
-								</div>
-							)}
-							{content_type == "tv_shows" && (
-								<div className={styles.additionalInfoItem}>
-									<p>
-										Número de temporadas:{" "}
-										{content?.num_seasons}{" "}
-									</p>
-								</div>
-							)}
-							{content_type == "tv_shows" && (
-								<div className={styles.additionalInfoItem}>
-									<p>
-										Número de episódios:{" "}
-										{content?.num_episodes}{" "}
-									</p>
-								</div>
-							)}
-							{content_type == "tv_shows" && (
-								<div className={styles.additionalInfoItem}>
-									<p>Criador: {content?.creator} </p>
-								</div>
-							)}
-							{content_type == "movies" && (
-								<div className={styles.additionalInfoItem}>
-									<p>Diretor: {content?.director} </p>
-								</div>
-							)}
-
-							<div className={styles.additionalInfoItem}>
-								<p>
-									Elenco Principal:{" "}
-									{content?.main_cast
-										?.map((actor) => actor)
-										.join(", ")}
-								</p>
-							</div>
-							<div className={styles.additionalInfoItem}>
-								<p>
-									Onde assistir:{" "}
-									{content?.where_to_watch
-										?.map((platform) => platform)
-										.join(", ")}
-								</p>
-							</div>
-						</div>
-					</div>
-					<div className={styles.reviewsSection}>
-						<div className={styles.reviewsHeader}>
-							<div className={styles.titleAndButtonContainer}>
-								<h2>Avaliações</h2>
-								<Link
-									to={{
-										pathname: `/contents/${content?.content_type}/${content?.title}/create_review`,
-									}}
-									state={{ content: content }}
-									style={{ textDecoration: "none" }}
-								>
-									<button 
-										className={styles.addButton}
-										data-cy="Adicione uma avaliação"
-									>
-										Adicione uma avaliação
-									</button>
-								</Link>
-							</div>
-						</div>
-						{reviews && reviews.length > 0 ? (
-							reviews.map((review) => (
-								<div
-									key={review.title}
-									className={styles.review}
-									data-cy={`review-item-${review.username}`}
-								>
-									<div
-										className={styles.reviewAuthorContainer}
-									>
-										<div
-											className={styles.reviewAuthorText}
-										>
-											Avaliação por
-										</div>
-										<div
-											className={styles.reviewAuthorName}
-										>
-											<Link
-												to={{
-													pathname: `/profile/${review.username}`,
-												}}
-												style={{
-													textDecoration: "none",
-													color: "black",
-													fontWeight: "bold",
-												}}
-											>
-												{review.username}
-											</Link>
-										</div>
-									</div>
-									<StarRating rating={review.rating} />
-									<p className={styles.reviewText}>
-										{review.report}
-									</p>
-								</div>
-							))
-						) : (
-							<p>Nenhuma avaliação ainda.</p>
+		<div className={styles.outerContainer}>
+			<div className={styles.pageContainer}>
+				<div className={styles.container}>
+					<div className={styles.banner}>
+						{content?.banner && (
+							<img src={content?.banner} alt="Banner do filme" />
 						)}
+						<div>
+							<Link
+								to={`/contents/${content?.content_type}/${content?.title}/update_content`}
+							>
+								<MainButton text={"Atualizar conteúdo"}/>
+							</Link>
+							<DeleteButton
+								onClick={handleDelete}
+								text={"Deletar conteúdo"}
+							/>
+						</div>
+					</div>
+					<div className={styles.contentDetails}>
+						<div className={styles.card}>
+							<div
+								style={{
+									display: "flex",
+									justifyContent: "space-between",
+									alignItems: "center",
+								}}
+							>
+								<h1 className={styles.title}
+									data-cy="Título">
+									{content?.title} ({content?.release_year})
+								</h1>
+								<StarRating rating={rating} />
+							</div>
+							<p className={styles.details}>{content?.synopsis}</p>
+							<div className="additionalInfoBlock">
+								<div className={styles.additionalInfoItem}>
+									<h3>Informações Adicionais</h3>
+								</div>
+								<div className={styles.additionalInfoItem}>
+									<p
+									data-cy="Gênero">Gênero: {content?.gender}</p>
+								</div>
+								{content_type == "movies" && (
+									<div className={styles.additionalInfoItem}>
+										<p>Duração: {content?.duration} min </p>
+									</div>
+								)}
+								{content_type == "tv_shows" && (
+									<div className={styles.additionalInfoItem}>
+										<p>
+											Número de temporadas:{" "}
+											{content?.num_seasons}{" "}
+										</p>
+									</div>
+								)}
+								{content_type == "tv_shows" && (
+									<div className={styles.additionalInfoItem}>
+										<p>
+											Número de episódios:{" "}
+											{content?.num_episodes}{" "}
+										</p>
+									</div>
+								)}
+								{content_type == "tv_shows" && (
+									<div className={styles.additionalInfoItem}>
+										<p>Criador: {content?.creator} </p>
+									</div>
+								)}
+								{content_type == "movies" && (
+									<div className={styles.additionalInfoItem}>
+										<p>Diretor: {content?.director} </p>
+									</div>
+								)}
+
+								<div className={styles.additionalInfoItem}>
+									<p>
+										Elenco Principal:{" "}
+										{content?.main_cast
+											?.map((actor) => actor)
+											.join(", ")}
+									</p>
+								</div>
+								<div className={styles.additionalInfoItem}>
+									<p>
+										Onde assistir:{" "}
+										{content?.where_to_watch
+											?.map((platform) => platform)
+											.join(", ")}
+									</p>
+								</div>
+							</div>
+						</div>
+						<div className={styles.reviewsSection}>
+							<div className={styles.reviewsHeader}>
+								<div className={styles.titleAndButtonContainer}>
+									<h2>Avaliações</h2>
+									<Link
+										to={{
+											pathname: `/contents/${content?.content_type}/${content?.title}/create_review`,
+										}}
+										state={{ content: content }}
+										style={{ textDecoration: "none" }}
+									>
+										<MainButton
+											data_cy="Adicione uma avaliação"
+											text={"Adicione uma avaliação"}
+										/>
+											
+									</Link>
+								</div>
+							</div>
+							{reviews && reviews.length > 0 ? (
+								reviews.map((review) => (
+									<div
+										key={review.title}
+										className={styles.review}
+										data-cy={`review-item-${review.username}`}
+									>
+										<div
+											className={styles.reviewAuthorContainer}
+										>
+											<div
+												className={styles.reviewAuthorText}
+											>
+												Avaliação por
+											</div>
+											<div
+												className={styles.reviewAuthorName}
+											>
+												<Link
+													to={{
+														pathname: `/profile/${review.username}`,
+													}}
+													style={{
+														textDecoration: "none",
+														color: "black",
+														fontWeight: "bold",
+													}}
+												>
+													{review.username}
+												</Link>
+											</div>
+										</div>
+										<StarRating rating={review.rating} />
+										<p className={styles.reviewText}>
+											{review.report}
+										</p>
+									</div>
+								))
+							) : (
+								<p>Nenhuma avaliação ainda.</p>
+							)}
+						</div>
 					</div>
 				</div>
 			</div>

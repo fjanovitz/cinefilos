@@ -2,8 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #f0f2f5; 
+  padding: 1rem 1rem 1rem 2rem;
+  background-color: #f0f2f5;
+}
+
+.outerContainer {
+  height: calc(100vh - 6rem);
+  overflow-y: scroll;
 }
 
 .container {
@@ -132,35 +137,4 @@
   align-items: center;
 }
 
-.addButton {
-  margin: 10px; 
-  background-color: transparent;
-  color: rgb(255, 213, 0);
-  font-weight: bold ;
-  border: 2px solid black;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 12px;
-}
 
-.addButton:hover {
-  background-color: rgb(255, 200, 0);
-  color: white;
-}
-
-.deleteButton {
-  margin: 5px;
-  color: red;
-  border: 2px solid red;
-  background-color: transparent;
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.deleteButton:hover {
-  background-color: red;
-  color: white;
-}

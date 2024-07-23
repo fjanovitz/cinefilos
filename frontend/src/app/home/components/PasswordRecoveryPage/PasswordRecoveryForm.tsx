@@ -53,6 +53,7 @@ const PasswordRecoveryForm = () => {
         <label>
           Email
           <input
+            data-cy = "email"
             name="email"
             className={styles.formInput}
             type="email"
@@ -67,6 +68,7 @@ const PasswordRecoveryForm = () => {
             <label>
               Code
               <input
+                data-cy="recovery_token"
                 name="recoveryToken"
                 className={styles.formInput}
                 type="text"
@@ -79,6 +81,7 @@ const PasswordRecoveryForm = () => {
             <label>
               New Password
               <input
+                data-cy="nova-senha"
                 name="newPassword"
                 className={styles.formInput}
                 type="password"
@@ -91,8 +94,10 @@ const PasswordRecoveryForm = () => {
           </>
         )}
       </div>
-      <LogButton type="submit">
-        {step === 1 ? 'ENVIAR CÓDIGO' : 'RESETAR SENHA'}
+      <LogButton data-cy={step === 1 ? "ENVIAR CÓDIGO" : "RESETAR SENHA"} 
+  type="submit"
+>
+  {step === 1 ? 'ENVIAR CÓDIGO' : 'RESETAR SENHA'}
       </LogButton>
       {message && <p>{message}</p>}
       <Link to="/login">

@@ -1,10 +1,11 @@
 import styles from "./index.module.css";
 import { AxiosError } from "axios";
 import api from "../../../../services/api";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Form, Toast } from "react-bootstrap";
 import {v4 as uuidv4} from 'uuid';
+import { UserContext } from "../../context/UserContext";
 
 interface Comment {
     id: string;
@@ -24,6 +25,9 @@ interface Post {
     posted: string;
 }
 
+const {user, saveUser} = useContext(UserContext);
+const author_username = user.username
+
 function getCurrentDateTime(): string {
     const now = new Date();
     return now.toLocaleString('pt-BR', {
@@ -39,7 +43,7 @@ function getCurrentDateTime(): string {
 const CreatePostPage = () => {
 	const navigate = useNavigate();
 	const id = uuidv4();
-	const author = "fjn";
+	const author = author_username;
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const num_likes = 0;
@@ -108,7 +112,7 @@ const CreatePostPage = () => {
 								data-cy="title"
 								className={styles.formControl}
 								as="textarea"
-								rows={2}
+								rows={1}
 								style={{ resize: 'none' }}
 								value={title}
 								onChange={(e) => setTitle(e.target.value)}
@@ -138,7 +142,7 @@ const CreatePostPage = () => {
 								data-cy="content"
 								className={styles.formControl}
 								as="textarea"
-								rows={10}
+								rows={8}
 								style={{ resize: 'none' }}
 								value={content}
 								onChange={(e) => setContent(e.target.value)}

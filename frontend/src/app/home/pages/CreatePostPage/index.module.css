@@ -10,7 +10,7 @@ html, body {
     align-items: center;
     padding: 10px 20px;
     background-color: #f0f2f5;
-    min-height: calc(100vh - 60px); 
+    min-height: calc(100vh - 95px); 
 }  
 
 .title {

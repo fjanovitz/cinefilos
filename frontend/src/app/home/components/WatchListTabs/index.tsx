@@ -13,20 +13,20 @@ const WatchListTabs = ({ onTabChange }) => {
     return (
         <>
             <nav className={styles.tabsContainer}>
-                <div className={styles.buttonContainer + ' ' + (selectedTab === 'assistidos' ? styles.selectedButton : styles.tabButton)}>
-                    <button className={styles.baseButton} onClick={() => handleTabChange('assistidos')}>
+                <div data-cy="assistidos_category" className={styles.buttonContainer}>
+                    <button className={styles.baseButton} disabled={selectedTab === 'assistidos'} onClick={() => handleTabChange('assistidos')}>
                             Assistidos
                     </button>
                 </div>
                 <div className={styles.line}></div>
-                <div className={styles.buttonContainer + ' ' + (selectedTab === 'quero_assistir' ? styles.selectedButton : styles.tabButton)}>
-                    <button className={styles.baseButton} onClick={() => handleTabChange('quero_assistir')}>
+                <div data-cy="quero_assistir_category" className={styles.buttonContainer}>
+                    <button className={styles.baseButton} disabled={selectedTab === 'quero_assistir'} onClick={() => handleTabChange('quero_assistir')}>
                             Quero assistir
                     </button>
                 </div>
                 <div className={styles.line}></div>
-                <div className={styles.buttonContainer + ' ' + (selectedTab === 'abandonados' ? styles.selectedButton : styles.tabButton)}>
-                    <button className={styles.baseButton} onClick={() => handleTabChange('abandonados')}>
+                <div data-cy="abandonados_category" className={styles.buttonContainer}>
+                    <button className={styles.baseButton} disabled={selectedTab === 'abandonados'} onClick={() => handleTabChange('abandonados')}>
                             Abandonados
                     </button>
                 </div>

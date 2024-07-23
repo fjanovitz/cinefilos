@@ -34,7 +34,7 @@ def given_user_not_registered(username):
 def given_phone_not_registered(phone_number):
     if phone_number == "33331111" or phone_number == 333444555 or phone_number == 22114411:
         return
-    assert not UserService.phone_exists(phone_number)
+    assert not UserService.phone_number_exists(phone_number)
 
 
 @when(parsers.parse('a POST request is sent to "/create_user" with the following user details:\n{table}'), 

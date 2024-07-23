@@ -1,0 +1,18 @@
+
+.mainButton {
+    margin: 1rem 0 0 0; 
+    background-color: #221F1F;
+    color: #F4D30B;
+    border: transparent;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .mainButton:hover {
+    background-color: rgb(255, 200, 0);
+    color: #221F1F;
+  } 

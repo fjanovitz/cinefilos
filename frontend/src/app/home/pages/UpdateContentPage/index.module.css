@@ -60,21 +60,6 @@
     border-radius: 4px;
 }
 
-.formButton {
-    background-color: #f4d30b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-}
-
-.formButton:hover {
-    background-color: #f4d30b;
-    opacity: 0.8;
-}
-
 .buttonContainer {
     display: flex;
     justify-content: center;

@@ -14,22 +14,22 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 10%;
-  }
-  
-  .label {
+}
+
+.label {
     font-size: 14px;
-  }
-  
-  .input {
+}
+
+.input {
     padding: 10px;
     margin-top: 5px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-  }
-  
-  .button {
+}
+
+.button {
     padding: 10px;
     background-color: #F4D30B;
     color: #FFFFFF;
@@ -38,19 +38,19 @@
     cursor: pointer;
     font-size: 14px;
     width: 100%;
-  }
-  
-  .button:hover {
+}
+
+.button:hover {
     background-color: #F4D30B;
     opacity: 0.8;
-  }
+}
 
-  .inputGroup {
+.inputGroup {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .container h1 {
+.container h1 {
     font-size: 24px;
     text-align: center;
     margin: 0; /* Remove qualquer margem que pode estar limitando o espaço */
@@ -64,6 +64,4 @@
     transform: translateX(-50%); /* Ajusta o elemento para centralizar */
     box-sizing: border-box; /* Inclui padding e border na largura total */
     padding: 1.5%;
-  }
-  
-  
+}

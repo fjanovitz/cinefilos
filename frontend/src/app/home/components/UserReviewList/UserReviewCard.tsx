@@ -117,16 +117,33 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({ content_id, content_typ
         </div>
         <div className = {styles.reviewContainer}>
           <div className = {styles.updateDeleteContainer}>
-            <h2 style={{ marginTop: '0', color: '#495057', marginRight: '10px' }}>{review.title}</h2>
+            <h2 data-cy={`review-title-${username}-${content_type}-${content_id}`} 
+                style={{ marginTop: '0', color: '#495057', marginRight: '10px' }}>
+                {review.title}
+            </h2>
             <div className = {styles.updateDeleteContainer}>
             <Link to={`/profile/${username}/${content?.content_type}/${content?.title}/update_review`}>
-              <button className = {styles.updateButton} onClick={handleUpdate}>Atualizar Review</button>
+              <button 
+                className = {styles.updateButton} 
+                onClick={handleUpdate}
+                data-cy={`update-review-button-${content_type}-${content_id}`}>
+                  Atualizar Avaliação
+              </button>
             </Link>
-              <button className = {styles.updateButton} onClick={handleDelete}>Excluir Review</button>
+              <button 
+                className = {styles.deleteButton} 
+                onClick={handleDelete}
+                data-cy={`delete-review-button-${content_type}-${content_id}`}>
+                  Excluir Avaliação
+              </button>
             </div>
           </div>
           <StarRating rating={review.rating} />
-          <p style={{ color: '#6c757d' }}>{review.report}</p>
+          <p 
+            data-cy = {`review-report-${username}-${content_type}-${content_id}`}
+            style={{ color: '#6c757d' }}>
+            {review.report}
+          </p>
         </div>
       </div>
 </section>

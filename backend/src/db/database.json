@@ -2181,6 +2181,29 @@
       "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
     },
     {
+      "full_name": "Roberto",
+      "username": "roca",
+      "email": "roca@cin.ufpe.br",
+      "password": "Senha123",
+      "birth_date": "2001-10-10",
+      "phone_number": "81995378843",
+      "address": "RUA BELÉM SÃO FRANCISCO, 635",
+      "gender": "masculino",
+      "profile_picture": "https://avatar.iran.liara.run/public/boy",
+      "pass_token": null,
+      "is_private": false,
+      "followers": [
+        "Souza",
+        "Souza"
+      ],
+      "following": [],
+      "follow_requests": [],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "dadda-dfda-4bfeasd-8ffd-a7d7c9d4d"
+    },
+    {
       "full_name": "admin",
       "username": "admin",
       "email": "admin@gmail.com",

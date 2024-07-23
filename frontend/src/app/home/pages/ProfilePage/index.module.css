@@ -31,10 +31,12 @@
 }
 
 .reviewsSection {
-  margin: 1rem 0 0 2rem;
+  margin: 1rem 2rem 0 2rem;
   padding-right: 0;
   height: calc(100vh - 12.5rem);
   overflow-y: scroll;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgba(1, 1, 1, 0.35), 0px 0 1px rgba(1, 1, 1, 0.2);
 }
   
 .review {
@@ -42,4 +44,12 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+}
+
+.reviewsSection:has(> .watchListSection) {
+  overflow-y: hidden;
+}
+
+.watchListSection {
+  height: calc(100% - 4rem);
 }

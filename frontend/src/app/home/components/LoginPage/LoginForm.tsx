@@ -31,7 +31,6 @@ const LoginForm = () => {
         email
       }
       
-      console.log(userProps);
       saveUser(userProps);
     } catch(error) {
       console.log(error);

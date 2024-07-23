@@ -38,7 +38,14 @@ Given(
 Given(
     "the user is not logged in",
     () => {
-        console.log('n logado')
+        cy.reload();
+    }
+)
+
+Given(
+    "the user logged to the page {string}",
+    (page: string) => {
+        console.log('ta na página');
     }
 )
 

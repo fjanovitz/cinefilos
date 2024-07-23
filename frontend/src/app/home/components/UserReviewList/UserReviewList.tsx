@@ -30,7 +30,7 @@ const UserReviewList = ( {username}) => {
   
     return (
         <section>
-            <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap', marginRight: '20px' }}>
+            <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
                 <Row style={{ width: '100%', display: 'flex', flexDirection: 'column' }}> 
                     {reviews.map(({ username, content_id, content_type }) => (
                         <Col key={content_id} style={{ width: '100%' }}> 

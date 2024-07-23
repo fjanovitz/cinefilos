@@ -23,7 +23,7 @@ const ContentsPage = ({ content_type }) => {
 					/>
 				)}
 			</Link>
-			<ContentListView content_type={content_type} />
+			<ContentListView content_type={content_type} button_above={(user?.username === "admin")} />
 		</section>
 	);
 };

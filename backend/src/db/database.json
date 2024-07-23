@@ -2373,6 +2373,47 @@
         }
       ],
       "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"
+    },
+    {
+      "full_name": "Gustavo",
+      "username": "gusta",
+      "email": "gusta@gmail.com",
+      "password": "Senha123",
+      "birth_date": "string",
+      "phone_number": "7788990011",
+      "profile_picture": "https://i.pravatar.cc/250",
+      "address": "string",
+      "gender": "string",
+      "pass_token": "string",
+      "is_private": false,
+      "followers": [],
+      "following": [],
+      "follow_requests": [],
+      "assistidos": [
+        {
+          "id": "292177",
+          "content_type": "movies",
+          "title": "My Little Pony, Equestria Girls: Rainbow Rocks",
+          "synopsis": "Canterlot High será palco de um show musical e Rainbow Dash, Applejack, Pinkie Pie, Rarity, e Fluttershy vão se apresentar com sua banda, a The Rainbooms.",
+          "gender": "Família",
+          "main_cast": [
+            "Tara Strong",
+            "Ashleigh Ball",
+            "Andrea Libman",
+            "Tabitha St. Germain",
+            "Cathy Weseluck"
+          ],
+          "release_year": 2014,
+          "banner": "https://image.tmdb.org/t/p/original/xcSrR4HXHsFXqjAg8nY7y6JMAG4.jpg",
+          "where_to_watch": [],
+          "rating": 0,
+          "duration": 75,
+          "director": "Ishi Rudell"
+        }
+      ],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "5b73aee5-73c7-4e00-a307-0df63f1e85fe"
     }
   ],
   "posts": [],
@@ -2415,6 +2456,14 @@
       "rating": 8,
       "username": "edsonneto8",
       "content_id": "281338",
+      "content_type": "movies"
+    },
+    {
+      "title": "titulo massa",
+      "report": "muito massa",
+      "rating": 10,
+      "username": "gusta",
+      "content_id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
       "content_type": "movies"
     }
   ]

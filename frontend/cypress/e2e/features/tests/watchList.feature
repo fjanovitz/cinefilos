@@ -1,5 +1,5 @@
 Feature: watch list
-    As an user 
+    As an user
     I want to mark contents as watched/want to watch/abandoned
     So that others can see what I'm up to
 

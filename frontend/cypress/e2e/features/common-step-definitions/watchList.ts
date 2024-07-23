@@ -14,13 +14,15 @@ const postContent = async (username: string, category: string, content_id: strin
 Given(
     "the user is on the page {string}",
     (page: string) => {
-      cy.visit(page);
+        cy.wait(200);
+        cy.visit(page);
     }
 );
 
 Given(
     "the user is on the {string} tab",
     (profileTab: string) => {
+        cy.wait(1000);
         cy.getDataCy(profileTab).click();
     }
 )

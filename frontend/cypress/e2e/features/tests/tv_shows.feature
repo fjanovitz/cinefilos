@@ -4,7 +4,7 @@ Feature: manage tv shows
     So that can create, modify or delete tv shows
 
 Scenario: Register a tv show 
-    Given the user visits the page "contents/tv_shows"
+    Given the user is logged as admin
     And the user does not visualize content registered with title "Os Simpsons"
     When the user selects "Adicionar conteúdo"
     Then the user visualizes the text "Criar conteúdo"
@@ -15,7 +15,7 @@ Scenario: Register a tv show
     And the user visualizes a content registered with title "Os Simpsons"
 
 Scenario: Try to register a tv show with title that already exists
-    Given the user visits the page "contents/tv_shows"
+    Given the user is logged as admin
     And the user visualizes a content registered with title "Magnum"
     When the user selects "Adicionar conteúdo"
     Then the user is in the page "create_content"
@@ -26,14 +26,14 @@ Scenario: Try to register a tv show with title that already exists
     And the user is in the page "create_content"
 
 Scenario: see tv show details
-    Given the user visits the page "contents/tv_shows"
+    Given the user is logged as admin
     And the user visualizes a content registered with title "Magnum"
     When the user selects the content "Magnum"
     Then the user is in the page "/contents/tv_shows/Magnum"
     And the user visualizes "Título" "Magnum"
 
 Scenario: update tv show information
-    Given the user visits the page "contents/tv_shows"
+    Given the user is logged as admin
     And the user visualizes a content registered with title "Magnum"
     When the user selects the content "Magnum"
     Then the user is in the page "/contents/tv_shows/Magnum"
@@ -44,7 +44,7 @@ Scenario: update tv show information
     Then the user visualizes "Gênero" "Investigação"
 
 Scenario: update tv show information with title that already exists
-    Given the user visits the page "contents/tv_shows"
+    Given the user is logged as admin
     And the user visualizes a content registered with title "Magnum"
     And the user visualizes a content registered with title "Whoopi"
     When the user selects the content "Magnum"
@@ -55,7 +55,7 @@ Scenario: update tv show information with title that already exists
     Then appears an message saying "já existe um outro conteúdo com esse título"
 
 Scenario: delete a tv show
-    Given the user visits the page "contents/tv_shows"
+    Given the user is logged as admin
     And the user visualizes a content registered with title "Magnum"
     When the user selects the content "Magnum"
     Then the user is in the page "/contents/tv_shows/Magnum"

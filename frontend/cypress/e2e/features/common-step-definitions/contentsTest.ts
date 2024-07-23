@@ -2,6 +2,14 @@ import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 
 // Scenario: Register a movie on the database
 
+Given("the user is logged as admin", () => {
+    cy.visit("/login");
+    cy.get("[data-cy=email]").type("admin@gmail.com");
+    cy.get("[data-cy=password]").type("Admin123");
+    cy.get("[data-cy=ENTRAR]").click();
+    cy.wait(50);
+});
+
 Given("the user visits the page {string}", (page: string) => {
     cy.visit(page);
     cy.wait(50)

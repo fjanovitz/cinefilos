@@ -2172,7 +2172,8 @@
       "followers": [],
       "following": [
         "clebson",
-        "clebson"
+        "clebson",
+        "bell28"
       ],
       "follow_requests": [],
       "assistidos": [],
@@ -2281,9 +2282,8 @@
       "gender": "masculino",
       "profile_picture": "https://avatar.iran.liara.run/public/boy",
       "pass_token": null,
-      "is_private": false,
+      "is_private": true,
       "followers": [
-        "Souza",
         "Souza"
       ],
       "following": [],
@@ -2414,6 +2414,26 @@
       "quero_assistir": [],
       "abandonados": [],
       "id": "5b73aee5-73c7-4e00-a307-0df63f1e85fe"
+    },
+    {
+      "full_name": "Bela Swan",
+      "username": "bell28",
+      "email": "bellll28@mail.com",
+      "password": "@Belllllll28",
+      "birth_date": "1980-10-10",
+      "phone_number": "91666556565",
+      "profile_picture": "https://i.pravatar.cc/250",
+      "address": "Morgan Court St",
+      "gender": "Feminino",
+      "pass_token": null,
+      "is_private": false,
+      "followers": [],
+      "following": [],
+      "follow_requests": [],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "d9c09786-55c2-4aa8-baef-c62d72e94f01"
     }
   ],
   "posts": [

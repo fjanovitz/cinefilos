@@ -24,6 +24,7 @@ const UserProfile = () => {
   const [showFollowingModal, setShowFollowingModal] = useState(false);
   const [showFollowersModal, setShowFollowersModal] = useState(false);
   const [showFollowRequestsModal, setShowFollowRequestsModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
@@ -51,7 +52,6 @@ const UserProfile = () => {
       return;
     }
   
-    // Prevent the user from following themselves
     if (user && followUsername === user.username) {
       console.error('User cannot follow themselves');
       return;
@@ -69,6 +69,7 @@ const UserProfile = () => {
           return null;
         }
       });
+      setSuccessMessage("Agora você está seguindo o usuário");
     }
   };
 
@@ -80,7 +81,6 @@ const UserProfile = () => {
   
     await unfollowUser(userId, usernameToUnfollow);
 
-    // Update the state of the component
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -101,7 +101,6 @@ const UserProfile = () => {
   
     await acceptFollowRequest(userId, requesterUsername);
 
-    // Update the state of the component
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -123,7 +122,6 @@ const UserProfile = () => {
   
     await rejectFollowRequest(userId, requesterUsername);
 
-    // Update the state of the component
     setUser((prevUser) => {
       if (prevUser) {
         return {
@@ -178,7 +176,6 @@ const UserProfile = () => {
         }
       });
 
-      // If the profile is set to public, accept all follow requests
       if (user.is_private) {
         for (const requesterUsername of user.follow_requests) {
           await acceptFollowRequest(userId, requesterUsername);
@@ -196,7 +193,7 @@ const UserProfile = () => {
       <div className={styles.left}>
         <img src={user.profile_picture} alt="Profile" className={styles.profilePicture} />
         <div className={styles.userInitialInfo}>
-          <h2>@{user.username}</h2>
+          <h2 data-cy="username">@{user.username}</h2>
           <h4>{user.full_name}</h4>
           <p>{user.email}</p>
         </div>
@@ -219,29 +216,31 @@ const UserProfile = () => {
             placeholder="Nome do usuário"
             value={followUsername}
             onChange={(e) => setFollowUsername(e.target.value)}
+            data-cy="follow-field"
           />
-          <button onClick={handleFollow}>Seguir</button>
+          <button onClick={handleFollow} data-cy="follow-button">Seguir</button>
         </div>
+        {successMessage && <p className={styles.successMessage} data-cy="success-message">{successMessage}</p>} {/* Display success message below the button */}
         <button onClick={handleSwitchMode}>Trocar Modo</button>
       </div>
       {showFollowingModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
-            <h2>Following</h2>
+            <h2>Seguindo</h2>
             {user.following.map((username) => (
-              <div key={username} className={styles.followingClass}>
+              <div key={username} className={styles.followingClass} data-cy="followingClass">
                 <b><p style={{color: "#818181",}}>{username}</p></b>
                 <button onClick={() => handleUnfollow(username)} style={{margin:0, width:'30%',}}>Unfollow</button>
               </div>
             ))}
-            <button onClick={handleCloseModal}>Close</button>
+            <button onClick={handleCloseModal}>Fechar</button>
           </div>
         </div>
       )}
       {showFollowersModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
-            <h2>Followers</h2>
+            <h2>Seguidores</h2>
             <div className={styles.followersModal}>
             {user.followers.map((username) => (
               <div key={username}>
@@ -249,22 +248,22 @@ const UserProfile = () => {
               </div>
             ))}
             </div>
-            <button onClick={handleCloseModal}>Close</button>
+            <button onClick={handleCloseModal}>Fechar</button>
           </div>
         </div>
       )}
       {showFollowRequestsModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
-            <h2>Follow Requests</h2>
+            <h2>Requisições para seguir</h2>
             {user.follow_requests.map((username) => (
               <div key={username}>
                 <p>{username}</p>
-                <button onClick={() => handleAcceptFollowRequest(username)}>Accept</button>
-                <button onClick={() => handleRejectFollowRequest(username)}>Reject</button>
+                <button onClick={() => handleAcceptFollowRequest(username)}>Aceitar</button>
+                <button onClick={() => handleRejectFollowRequest(username)}>Rejeitar</button>
               </div>
             ))}
-            <button onClick={handleCloseModal}>Close</button>
+            <button onClick={handleCloseModal}>Fechar</button>
           </div>
         </div>
       )}

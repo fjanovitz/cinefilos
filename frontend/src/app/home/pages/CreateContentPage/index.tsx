@@ -3,36 +3,9 @@ import { AxiosError } from "axios";
 import api from "/src/services/api";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Toast } from "react-bootstrap";
-
-interface Movie {
-	title: string;
-	synopsis: string;
-	gender: string;
-	main_cast: string[];
-	release_year: number;
-	banner: string;
-	where_to_watch: string[];
-	rating: number;
-	content_type: string;
-	duration: number;
-	director: string;
-}
-
-interface TvShow {
-	title: string;
-	synopsis: string;
-	gender: string;
-	main_cast: string[];
-	release_year: number;
-	banner: string;
-	where_to_watch: string[];
-	rating: number;
-	content_type: string;
-	num_seasons: number;
-	num_episodes: number;
-	creator: string;
-}
+import { Form } from "react-bootstrap";
+import { Movie, TvShow } from "../../models/ContentInterface";
+import MainButton from "../../components/MainButton/MainButton";
 
 const CreateContentPage = () => {
 	const navigate = useNavigate();
@@ -298,9 +271,8 @@ const CreateContentPage = () => {
 						</Form.Group>
 
 						<div className={styles.buttonContainer}>
-							<button type="submit" className={styles.formButton}>
-								Confirmar
-							</button>
+							<MainButton text={"Confirmar"}/>
+								
 						</div>
 					</Form>
 				</div>

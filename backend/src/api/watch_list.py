@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from src.schemas.content import Movie, TvShow, Category
-from src.db.database import getDB, saveDB
 from src.service.impl.watch_list_service import WatchListService
+from typing import Dict
 
 router = APIRouter()
 
@@ -23,6 +23,12 @@ async def get_category_list(username: str, category: str):
     category_result = Category(category_id=category, items_list=category_list)
 
     return category_result
+
+@router.get("/user/categories/{username}", status_code = 200, tags = ["watch_list"], response_model = Dict[str, str])
+async def get_categories_dictionary(username: str):
+    categories_list = WatchListService.get_categories_list(username)
+
+    return categories_list
 
 @router.delete("/user/{username}/{category}/{content_id}", status_code = 200, tags = ["watch_list"], response_model = Movie | TvShow)
 async def get_category_list(username: str, category: str, content_id: str):

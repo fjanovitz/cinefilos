@@ -2171,10 +2171,13 @@
       "is_private": false,
       "followers": [],
       "following": [
+        "clebson",
         "clebson"
       ],
       "follow_requests": [],
       "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
       "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
     },
     {
@@ -2186,17 +2189,18 @@
       "phone_number": "81995378843",
       "address": "RUA BELÉM SÃO FRANCISCO, 635",
       "gender": "masculino",
-      "profile_picture": null,
+      "profile_picture": "https://avatar.iran.liara.run/public/boy",
       "pass_token": null,
       "is_private": false,
       "followers": [
+        "Souza",
         "Souza"
       ],
       "following": [],
-      "follow_requests": [
-        "Souza"
-      ],
+      "follow_requests": [],
       "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
       "id": "da93b947-8b1b-4bfe-8ffd-a7a17d7c9d4d"
     },
     {
@@ -2214,7 +2218,70 @@
       "followers": [],
       "following": [],
       "follow_requests": [],
-      "assistidos": [],
+      "assistidos": [
+        {
+          "id": "734",
+          "content_type": "tv_shows",
+          "title": "Magnum",
+          "synopsis": "Thomas Magnum é um ex-militar e veterano de operações especiais que se torna um investigador particular no Havaí. Com uma personalidade descontraída e um instinto afiado para desvendar casos complexos, Magnum utiliza suas habilidades únicas para resolver crimes enquanto desfruta da vida na bela ilha. Auxiliado por seus amigos leais, Rick e T.C., e sob a supervisão da rigorosa Higgins, Magnum desvenda enigmas, desafia perigos e mergulha em um mundo de intriga, ação e surpresas inesperadas.",
+          "gender": "Ação",
+          "main_cast": [
+            "Tom Selleck",
+            "John Hillerman",
+            "Roger E. Mosley",
+            "Larry Manetti"
+          ],
+          "release_year": 1980,
+          "banner": "https://image.tmdb.org/t/p/original/jkxAIDbDfXrptT9Ab6iKnXjAqEV.jpg",
+          "where_to_watch": [],
+          "rating": 0,
+          "num_seasons": 8,
+          "num_episodes": 162,
+          "creator": "Donald P. Bellisario, Glen A. Larson"
+        }
+      ],
+      "quero_assistir": [
+        {
+          "id": "735",
+          "content_type": "tv_shows",
+          "title": "Os Pesadelos de Molly",
+          "synopsis": "Aos 15 anos, Molly Stage poderia ser uma adolescente normal, se não fosse pelo fato da garota morar numa casa com mais oito pessoas, todas elas loucas. A mãe, Mary, é sovina e tem por hábito chamar as crianças para jantar usando um sino de vaca. O pai Jerry sempre exagera na dose ao treinar o time de futebol feminino. Sua avó costuma esconder comida pela casa e repete várias vezes a mesma pergunta. Suas irmãs gêmeas Mindy e Cindy são terríveis e vivem brigando. Seus irmãos são bem diferentes: Grant quer ser um astro da música gospel, enquanto Rick está iniciando uma vida de pequenos crimes. Molly tem que administrar a vida social na escola e com os parentes que vivem colocando-a em situações embaraçosas.",
+          "gender": "Comédia",
+          "main_cast": [
+            "Reagan Dale Neis",
+            "Fred Willard",
+            "Julia Sweeney",
+            "Vicki Davis",
+            "Dabbs Greer"
+          ],
+          "release_year": 2001,
+          "banner": "https://image.tmdb.org/t/p/original/bSLoAsTk5AEI2UFEkRFCWDp2Iuz.jpg",
+          "where_to_watch": [],
+          "rating": 0,
+          "num_seasons": 1,
+          "num_episodes": 22,
+          "creator": "Suzanne Martin"
+        }
+      ],
+      "abandonados": [
+        {
+          "id": "713",
+          "content_type": "tv_shows",
+          "title": "Chappelle's Show",
+          "synopsis": "Chappelle's Show é uma série de televisão de comédia em quadrinhos criada pelos comediantes Dave Chappelle e Neal Brennan, com Chappelle apresentando o programa e estrelando vários desenhos. Chappelle, Brennan e Michele Armour foram os produtores executivos do programa. A série estreou em 22 de janeiro de 2003, na rede de televisão a cabo americana Comedy Central. O show durou duas temporadas completas e uma terceira temporada truncada.\n\nApós numerosos atrasos, a produção da terceira temporada do programa terminou abruptamente quando Chappelle deixou o programa. Três episódios foram compilados a partir do trabalho concluído e esses episódios foram ao ar de 9 de julho a 23 de julho de 2006. Repete frequentemente o ar na Comedy Central e ao redor do mundo na MTV na Alemanha, Comedy Central no Brasil, The Comedy Network no Canadá, The Comedy Channel e 7mate na Austrália e FX no Reino Unido.\n\nO Chappelle's Show também foi exibido na WGN America e foi distribuído em várias estações de televisão nos EUA, incluindo MyNetworkTV. O TV Guide classificou em 31º lugar na lista dos \"100 melhores programas da TV\".",
+          "gender": "Comédia",
+          "main_cast": [
+            "Dave Chappelle"
+          ],
+          "release_year": 2003,
+          "banner": "https://image.tmdb.org/t/p/original/aHpTmNU2wLHokoVpzcnh2VQBJOI.jpg",
+          "where_to_watch": [],
+          "rating": 0,
+          "num_seasons": 3,
+          "num_episodes": 28,
+          "creator": "Dave Chappelle, Neal Brennan"
+        }
+      ],
       "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"
     }
   ],
@@ -2229,19 +2296,35 @@
       "content_type": "movies"
     },
     {
-      "title": "Melhor filme da história",
-      "report": "Sem palavras.",
-      "rating": 10,
-      "username": "edsonneto8",
-      "content_id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
-      "content_type": "movies"
-    },
-    {
       "title": "Muito engraçado",
       "report": "Ice Cube + Kevin Hart = s2",
       "rating": 10,
       "username": "edsonneto8",
       "content_id": "323675",
+      "content_type": "movies"
+    },
+    {
+      "title": "Melhor filme da história",
+      "report": "Sem palavras.",
+      "rating": 10,
+      "username": "thrpg",
+      "content_id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
+      "content_type": "movies"
+    },
+    {
+      "title": "Bom filme",
+      "report": "Dan Brown é um grande escritor",
+      "rating": 8,
+      "username": "edsonneto8",
+      "content_id": "207932",
+      "content_type": "movies"
+    },
+    {
+      "title": "Prende a atenção",
+      "report": "Gostei",
+      "rating": 8,
+      "username": "edsonneto8",
+      "content_id": "281338",
       "content_type": "movies"
     }
   ]

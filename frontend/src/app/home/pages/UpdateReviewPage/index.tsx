@@ -7,15 +7,8 @@ import { Card, Button, Modal, Form } from 'react-bootstrap';
 import StarRating from '/src/app/home/components/StarRating/StarRating';
 import { platform } from "os";
 import { number } from "zod";
+import { Review } from "../../models/ReviewInterface";
 
-interface Review {
-    title: string;
-    report: string;
-    rating: number;
-    username: string;
-    content_id: string;
-    content_type: string;
-}
 
 interface Content {
     id: string;
@@ -34,8 +27,6 @@ interface Content {
     num_episodes: number;
     where_to_watch: string[];
   }
-
-// "/profile/:username/:content_type/:content_title/update_review"
 
 const UpdateReviewPage = () => {
     const navigate = useNavigate();
@@ -104,6 +95,7 @@ const UpdateReviewPage = () => {
                 <Form.Group className={styles.formGroup}>
                   <Form.Label className={styles.formLabel}>Título da Avaliação</Form.Label>
                   <Form.Control
+                    data-cy="Título da Avaliação"
                     className={styles.formControl}
                     type="text"
                     value={title}
@@ -114,6 +106,7 @@ const UpdateReviewPage = () => {
                 <Form.Group className={styles.formGroup}>
                   <Form.Label className={styles.formLabel}>Avaliação</Form.Label>
                   <Form.Control
+                    data-cy="Avaliação"
                     className={styles.formControl}
                     as="textarea"
                     rows={3}
@@ -125,6 +118,7 @@ const UpdateReviewPage = () => {
                 <Form.Group>
                     <Form.Label className = {styles.formLabel}>Nota</Form.Label>
                     <Form.Control
+                        data-cy="Nota"
                         as="select"
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
@@ -138,7 +132,11 @@ const UpdateReviewPage = () => {
                     </Form.Control>
                 </Form.Group>
                 <div className={styles.buttonContainer}>
-                    <button type="submit" className={styles.formButton}>Enviar Avaliação</button>
+                    <button 
+                      data-cy="Enviar Avaliação"
+                      type="submit" className={styles.formButton}>
+                      Enviar Avaliação
+                    </button>
                 </div>
               </Form>
             </div>

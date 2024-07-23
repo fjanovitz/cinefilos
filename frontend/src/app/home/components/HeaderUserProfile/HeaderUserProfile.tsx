@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from "./HeaderUserProfile.module.css";
 import { useParams } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 
 const HeaderUserProfile = ({ onTabChange }) => {
     const { username } = useParams();

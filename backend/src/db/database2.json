@@ -1,121 +1,2483 @@
 {
     "contents": [
-        {
-            "id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
-            "content_type": "movies",
-            "title": "Interstellar",
-            "synopsis": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
-            "gender": "Fic\u00e7\u00e3o Cient\u00edfica",
+      {
+        "id": "292177",
+        "content_type": "movies",
+        "title": "My Little Pony, Equestria Girls: Rainbow Rocks",
+        "synopsis": "Canterlot High será palco de um show musical e Rainbow Dash, Applejack, Pinkie Pie, Rarity, e Fluttershy vão se apresentar com sua banda, a The Rainbooms.",
+        "gender": "Família",
+        "main_cast": [
+          "Tara Strong",
+          "Ashleigh Ball",
+          "Andrea Libman",
+          "Tabitha St. Germain",
+          "Cathy Weseluck"
+        ],
+        "release_year": 2014,
+        "banner": "https://image.tmdb.org/t/p/original/xcSrR4HXHsFXqjAg8nY7y6JMAG4.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 75,
+        "director": "Ishi Rudell"
+      },
+      {
+        "id": "246594",
+        "content_type": "movies",
+        "title": "Mega Shark Contra Mecha Shark",
+        "synopsis": "Um tubarão gigante de origem pré-histórica causa desastres no litoral da Califórnia e, para enfrentar a criatura, as autoridades criam um tubarão mecânico.",
+        "gender": "Ação",
+        "main_cast": [
+          "Christopher Judge",
+          "Elisabeth Röhm",
+          "Debbie Gibson",
+          "Matt Lagan",
+          "Hannah Levien"
+        ],
+        "release_year": 2014,
+        "banner": "https://image.tmdb.org/t/p/original/psACMQIVNEH523RdRuzlRb6AcLc.jpg",
+        "where_to_watch": [
+          "Looke",
+          "Looke Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 85,
+        "director": "Emile Edwin Smith"
+      },
+      {
+        "id": "329833",
+        "content_type": "movies",
+        "title": "Zoolander 2",
+        "synopsis": "Depois que uma série de celebridades é assassinada, a agente policial e ex-modelo de biquíni Valentina Valencia (Penélope Cruz) busca o ex-supermodelo Derek Zoolander (Ben Stiller) para ajudá-la a solucionar os casos. Porém, aposentado, assim como o ex-companheiro de passarela Hansel (Owen Wilson), ele está desaparecido – e se ressente por não ter mais contato com o filho, agora adolescente. Até que a convite de Alexanya Atoz (Kristen Wiig) dona da marca mais badalada da atualidade, eles acabam topando fazer um novo desfile. Mal sabem os desmiolados, no entanto, que tudo não passa de um plano maquiavélico comandado por Mugatu (Will Ferrell).",
+        "gender": "Comédia",
+        "main_cast": [
+          "Ben Stiller",
+          "Owen Wilson",
+          "Will Ferrell",
+          "Penélope Cruz",
+          "Kristen Wiig"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/e0sHfnIDANQtuqgn7UIupdJni3O.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 100,
+        "director": "Ben Stiller"
+      },
+      {
+        "id": "274167",
+        "content_type": "movies",
+        "title": "Pai em Dose Dupla",
+        "synopsis": "Brad é executivo em uma rádio e se esforça para ser o melhor padrasto possível para os dois filhos de sua namorada, Sarah. Mas eis que Dusty, o desbocado pai das crianças, reaparece e começa a disputar com ele a atenção e o amor dos pimpolhos.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Will Ferrell",
+          "Mark Wahlberg",
+          "Linda Cardellini",
+          "Thomas Haden Church",
+          "Scarlett Estevez"
+        ],
+        "release_year": 2015,
+        "banner": "https://image.tmdb.org/t/p/original/8sQJGH4pKEsv5DrRPPaULMgWZMm.jpg",
+        "where_to_watch": [
+          "Disney Plus",
+          "Globoplay"
+        ],
+        "rating": 0,
+        "duration": 96,
+        "director": "Sean Anders"
+      },
+      {
+        "id": "140300",
+        "content_type": "movies",
+        "title": "Kung Fu Panda 3",
+        "synopsis": "Em uma visita a uma vila secreta com o pai, Po forma um exército de pandas para combater um espírito maligno que ameaça a China.",
+        "gender": "Ação",
+        "main_cast": [
+          "Jack Black",
+          "Bryan Cranston",
+          "Dustin Hoffman",
+          "Angelina Jolie",
+          "J.K. Simmons"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/pXYJjUNtnLfXVKGmqi1nfGornri.jpg",
+        "where_to_watch": [
+          "Max",
+          "Globoplay",
+          "NOW",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 95,
+        "director": "Jennifer Yuh Nelson"
+      },
+      {
+        "id": "323675",
+        "content_type": "movies",
+        "title": "Policial em Apuros 2",
+        "synopsis": "Sequência da dupla Ben e James em uma nova patrulha juntos. Com o seu casamento se aproximando, Ben precisa rumar para Miame com James, que está prestes a se tornar o seu cunhado, para resolver um caso.  Os dois precisam derrubar um traficante local que está fornecendo produtos para traficantes de Atlanta.",
+        "gender": "Ação",
+        "main_cast": [
+          "Kevin Hart",
+          "Ice Cube",
+          "Olivia Munn",
+          "Tika Sumpter",
+          "Ken Jeong"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/an6rrT8pzrANjis0hnv52DMBR7q.jpg",
+        "where_to_watch": [
+          "Globoplay",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 102,
+        "director": "Tim Story"
+      },
+      {
+        "id": "267860",
+        "content_type": "movies",
+        "title": "Invasão a Londres",
+        "synopsis": "O primeiro-ministro britânico morre sob circunstâncias misteriosas, e o funeral atrai todos os líderes do mundo ocidental. O agente secreto Mike Banning descobre uma conspiração para assassinar todos os líderes mundiais presentes.",
+        "gender": "Ação",
+        "main_cast": [
+          "Gerard Butler",
+          "Aaron Eckhart",
+          "Angela Bassett",
+          "Morgan Freeman",
+          "Melissa Leo"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/wazDH9pNQxLzBKCZvN2iMduXxGb.jpg",
+        "where_to_watch": [
+          "Max"
+        ],
+        "rating": 0,
+        "duration": 99,
+        "director": "Babak Najafi"
+      },
+      {
+        "id": "382581",
+        "content_type": "movies",
+        "title": "Monster High:  A Assustadora Barreira de Coral",
+        "synopsis": "Junte-se as suas monstrinhas preferidas em uma nova aventura aquática! Quando as monstrinhas são empurradas e caem na piscina da escola, elas são transportadas para um mundo submarino: a Assustadora Barreira de Coral. A Lagoona vê que está em casa em uma missão de arrepiar onde decide enfrentar os próprios medos de uma vez por todas. É claro que ela vai precisar da ajuda das melhores amigas ao combater um inimigo do passado, competir em um campeonato de dança e lutar com um assustador monstro marino!",
+        "gender": "Família",
+        "main_cast": [
+          "Larissa Gallagher",
+          "Kate Higgins",
+          "Debi Derryberry",
+          "Salli Saffioti",
+          "America Young"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/1TE2OcddMK0t7kbAW7tkqA6Hg5W.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 69,
+        "director": "William Lau"
+      },
+      {
+        "id": "290595",
+        "content_type": "movies",
+        "title": "O Caçador e a Rainha do Gelo",
+        "synopsis": "Traída por sua irmã má, Ravenna, Freya decide retirar-se para um reino ao norte e criar um exército de caçadores para serem seus protetores. Dotada de poderes capazes de congelar seus inimigos, Freya ensina seus jovens soldados a nunca se apaixonarem. Quando Eric e sua companheira de guerra, Sara, descumprem esta regra, a rainha faz de tudo para detê-los.",
+        "gender": "Ação",
+        "main_cast": [
+          "Chris Hemsworth",
+          "Charlize Theron",
+          "Emily Blunt",
+          "Jessica Chastain",
+          "Nick Frost"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/zIkesM1c2MxRuGitGiGZ9pmis7g.jpg",
+        "where_to_watch": [
+          "Max",
+          "Globoplay",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 123,
+        "director": "Cedric Nicolas-Troyan"
+      },
+      {
+        "id": "325133",
+        "content_type": "movies",
+        "title": "Vizinhos 2",
+        "synopsis": "Quando Mac e Kelly decidem vender a casa e mudar-se para o subúrbio, uma fraternidade nova e barulhenta chega à vizinhança. Para trazer a paz de volta, eles convocam sua arma secreta: Teddy.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Seth Rogen",
+          "Zac Efron",
+          "Rose Byrne",
+          "Chloë Grace Moretz",
+          "Dave Franco"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/n7fD88Zdowjcvd6IkwjD8ijxQ5P.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Globoplay",
+          "Netflix basic with Ads",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 91,
+        "director": "Nicholas Stoller"
+      },
+      {
+        "id": "127380",
+        "content_type": "movies",
+        "title": "Procurando Dory",
+        "synopsis": "Amigável, porém esquecida, Dory começa uma busca por seus pais há muito perdidos, e todo mundo aprende alguma coisa sobre o real significado da família ao longo da jornada.",
+        "gender": "Aventura",
+        "main_cast": [
+          "Albert Brooks",
+          "Ellen DeGeneres",
+          "Ed O'Neill",
+          "Hayden Rolence",
+          "Diane Keaton"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/5MOyKnmtE2hd778bIybw9v8HkiP.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 97,
+        "director": "Andrew Stanton"
+      },
+      {
+        "id": "258509",
+        "content_type": "movies",
+        "title": "Alvin e os Esquilos: Na Estrada",
+        "synopsis": "Quando Alvin, Simon e Theodore pensam que Dave poderá abandoná-los por conta de sua nova namorada e do irritante filho dela, os esquilos se apressam em ir a Miami para impedir Dave de pedir a garota em casamento e, assim, manter a família unida.",
+        "gender": "Família",
+        "main_cast": [
+          "Jason Lee",
+          "Justin Long",
+          "Matthew Gray Gubler",
+          "Jesse McCartney",
+          "Kimberly Williams-Paisley"
+        ],
+        "release_year": 2015,
+        "banner": "https://image.tmdb.org/t/p/original/1XuMjOFkfSpMz0ID6SSG2ISawVP.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Netflix basic with Ads"
+        ],
+        "rating": 0,
+        "duration": 86,
+        "director": "Walt Becker"
+      },
+      {
+        "id": "241259",
+        "content_type": "movies",
+        "title": "Alice Através do Espelho",
+        "synopsis": "Alice retorna após uma longa viagem pelo mundo, e reencontra a mãe. No casarão de uma grande festa, ela percebe a presença de um espelho mágico. A jovem atravessa o objeto e retorna ao País das Maravilhas, onde descobre que o Chapeleiro Maluco corre risco de morte após fazer uma descoberta sobre seu passado. Para salvar o amigo, Alice deve conversar com o Tempo para voltar às vésperas de um evento traumático e mudar o destino do Chapeleiro. Nesta aventura, também descobre um trauma que separou as irmãs Rainha Branca e Rainha Vermelha.",
+        "gender": "Aventura",
+        "main_cast": [
+          "Mia Wasikowska",
+          "Johnny Depp",
+          "Anne Hathaway",
+          "Helena Bonham Carter",
+          "Alan Rickman"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/7xdxiHU1brLnPy7jmZlFW746mCf.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 113,
+        "director": "James Bobin"
+      },
+      {
+        "id": "291805",
+        "content_type": "movies",
+        "title": "Truque de Mestre: O 2º Ato",
+        "synopsis": "Após enganarem o FBI, os cavaleiros Daniel Atlas, Merritt McKinney e Jack Wilder estão foragidos. Eles seguem as ordens de Dylan Rhodes, que segue trabalhando no FBI de forma a impedir os avanços na procura dos próprios cavaleiros. Paralelamente, o grupo planeja seu novo ato: desmascarar um jovem gênio da informática, cujo novo lançamento coleta dados pessoais dos usuários.",
+        "gender": "Crime",
+        "main_cast": [
+          "Jesse Eisenberg",
+          "Mark Ruffalo",
+          "Woody Harrelson",
+          "Morgan Freeman",
+          "Dave Franco"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/9uCUHxN5MD4vX6q1YEnpL6bQLiw.jpg",
+        "where_to_watch": [
+          "Amazon Prime Video",
+          "Netflix",
+          "Globoplay",
+          "Netflix basic with Ads",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 115,
+        "director": "Jon M. Chu"
+      },
+      {
+        "id": "308531",
+        "content_type": "movies",
+        "title": "As Tartarugas Ninja: Fora das Sombras",
+        "synopsis": "Auxiliado pelo Dr. Baxter Stockman, o Clã do Pé planeja libertar o vilão Destruidor. Após o plano de resgate ser descoberto por April O'Neal, as tartarugas ninja entram em ação para impedi-lo - só que fracassam graças à iniciativa de Krang, um ser alienígena que planeja invadir a Terra. Para enfrentá-los, as tartarugas contam com a ajuda de um novo combatente: Casey Jones, um policial que estava no camburão que conduzia o Destruidor quando conseguiu escapar.",
+        "gender": "Ação",
+        "main_cast": [
+          "Pete Ploszek",
+          "Alan Ritchson",
+          "Jeremy Howard",
+          "Noel Fisher",
+          "Megan Fox"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/28CV4RE4BayVZnbw7FdXbcvzSQb.jpg",
+        "where_to_watch": [
+          "Paramount Plus",
+          "Globoplay",
+          "Paramount+ Amazon Channel",
+          "Paramount Plus Apple TV Channel "
+        ],
+        "rating": 0,
+        "duration": 112,
+        "director": "Dave Green"
+      },
+      {
+        "id": "34598",
+        "content_type": "movies",
+        "title": "Um Trapaceiro Genial",
+        "synopsis": "Família que rouba unida, permanece unida. Assim é pai, um ás do volante, e seu filho, o cérebro da família. Quando a namorada do pai ajuda a colocá-lo atrás das grades, o filho é forcado a tramar um plano espetacular para tirá-lo da prisão.",
+        "gender": "Ação",
+        "main_cast": [
+          "Corey Haim",
+          "Cynthia Rothrock",
+          "Leo Rossi",
+          "Ken Lerner",
+          "Marcia Strassman"
+        ],
+        "release_year": 1991,
+        "banner": "https://image.tmdb.org/t/p/original/dRzHAhMHdGgOx00ir4D2Wy8gTXt.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 86,
+        "director": "Spiro Razatos"
+      },
+      {
+        "id": "259693",
+        "content_type": "movies",
+        "title": "Invocação do Mal 2",
+        "synopsis": "Lorraine e Ed Warren ajudam uma mãe solteira a criar seus quatro filhos numa casa assombrada por espíritos malignos. Conhecido como a Amityville da Inglaterra, o Poltergeist de Enfield foi o caso mais documentado na história da paranormalidade. Descubra a verdade por trás do evento que chocou o mundo.",
+        "gender": "Terror",
+        "main_cast": [
+          "Patrick Wilson",
+          "Vera Farmiga",
+          "Madison Wolfe",
+          "Frances O'Connor",
+          "Simon McBurney"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/o94LZsIKt0priAca7hoN4yz7a1d.jpg",
+        "where_to_watch": [
+          "Max",
+          "Max Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 134,
+        "director": "James Wan"
+      },
+      {
+        "id": "43074",
+        "content_type": "movies",
+        "title": "Caça-Fantasmas",
+        "synopsis": "Atualmente uma respeitada professora da Universidade de Columbia, Erin Gilbert escreveu anos atrás um livro sobre a existência de fantasmas em parceria com a colega Abby Yates. A obra, que nunca foi levada a sério, é descoberta por seus pares acadêmicos e Erin perde o emprego. Quando Patty Tolan, funcionária do metrô de Nova York, presencia estranhos eventos no subterrâneo, Erin, Abby e Jillian Holtzmann se unem e partem para a ação pela salvação da cidade e do mundo.",
+        "gender": "Ação",
+        "main_cast": [
+          "Kristen Wiig",
+          "Melissa McCarthy",
+          "Kate McKinnon",
+          "Leslie Jones",
+          "Chris Hemsworth"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/qcpfGdYahW1NkqPAz2MHLPHas8O.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 116,
+        "director": "Paul Feig"
+      },
+      {
+        "id": "324668",
+        "content_type": "movies",
+        "title": "Jason Bourne",
+        "synopsis": "Afastado da CIA há 10 anos, o agente Jason Bourne retorna ao campo de batalha para enfrentar uma rede sinistra que utiliza tecnologia e terror para se manter no poder.",
+        "gender": "Ação",
+        "main_cast": [
+          "Matt Damon",
+          "Tommy Lee Jones",
+          "Alicia Vikander",
+          "Vincent Cassel",
+          "Julia Stiles"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/9wcchetvkyCRi1UYPIinrzXBdsN.jpg",
+        "where_to_watch": [
+          "Disney Plus",
+          "Amazon Prime Video",
+          "Netflix",
+          "Max",
+          "Globoplay",
+          "NOW",
+          "Netflix basic with Ads",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 123,
+        "director": "Paul Greengrass"
+      },
+      {
+        "id": "316727",
+        "content_type": "movies",
+        "title": "12 Horas para Sobreviver: O Ano da Eleição",
+        "synopsis": "Faz dois anos desde que Barnes se conteve de praticar um imperdoável ato de vingança na Noite do Crime, as 12 horas sem lei. Esse ano, o ritual será na véspera de uma acirrada eleição presidencial, com o país dividido entre os que são pró e contra a Noite do Crime. Como chefe de segurança da senadora Charlie Roan, a missão de Leo é protegê-la durante sua polêmica e contestada campanha para presidente. Mas quando uma traição os obriga a ir para as ruas de Washington, bem na noite em que não existe ajuda, eles precisam sobreviver ou serem ambos sacrificados por seus pecados contra o estado.",
+        "gender": "Ação",
+        "main_cast": [
+          "Elizabeth Mitchell",
+          "Frank Grillo",
+          "Mykelti Williamson",
+          "Betty Gabriel",
+          "J. J. Soria"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/41NT5TCXWnlg2vxtVZz8uFlhHca.jpg",
+        "where_to_watch": [
+          "Disney Plus",
+          "Max",
+          "NOW",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 109,
+        "director": "James DeMonaco"
+      },
+      {
+        "id": "278154",
+        "content_type": "movies",
+        "title": "A Era do Gelo: O Big Bang",
+        "synopsis": "Scrat continua sua saga épica, atrás da noz que o levará através do universo, quando acidentalmente cria uma série de eventos cósmicos que ameaçam o mundo de \"A Era do Gelo\". Agora todos – incluindo Buck, Manny, Ellie, Sid e Diego devem trabalhar em equipe nesta jornada divertidíssima recheada de ação e novos personagens vívidos, que precisam superar esta Scrat-ástofre.",
+        "gender": "Aventura",
+        "main_cast": [
+          "Ray Romano",
+          "John Leguizamo",
+          "Denis Leary",
+          "Queen Latifah",
+          "Seann William Scott"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/gh9LEW4bzN2nuDfyViLqWSV67sa.jpg",
+        "where_to_watch": [
+          "Disney Plus",
+          "Netflix",
+          "Netflix basic with Ads"
+        ],
+        "rating": 0,
+        "duration": 95,
+        "director": "Mike Thurmeier"
+      },
+      {
+        "id": "390734",
+        "content_type": "movies",
+        "title": "Kingsglaive: Final Fantasy XV",
+        "synopsis": "O reino mágico de Lucis é o lar do último Crystal remanescente no mundo, e o império ameaçador de Niflheim está determinado em roubá-lo. Rei Regis de Lucis [Bean] comanda uma força de elite de soldados chamada Kingsglaive. Empunhando a magia de seu rei, eles lutam para proteger Lucis.",
+        "gender": "Animação",
+        "main_cast": [
+          "綾野剛",
+          "Shioli Kutsuna",
+          "藤村歩",
+          "Keiji Fujiwara",
+          "山寺宏一"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/nIBoAAlV08z7Cfb7LMuXZD8uhWB.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 115,
+        "director": "Takeshi Nozue"
+      },
+      {
+        "id": "390989",
+        "content_type": "movies",
+        "title": "Sharknado: Corra para o 4º",
+        "synopsis": "Cinco anos se passaram desde os acontecimentos do último filme da saga, onde a costa oeste foi devastada pelo ataque de tubarões assassinos. Neste período, nenhum ataque ocorreu. Mas Fin e sua família correrão sério perigo quando uma tempestade anuncia mais um tornado de tubarões.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Ian Ziering",
+          "Ryan Whitney Newman",
+          "Tara Reid",
+          "David Hasselhoff",
+          "Gary Busey"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/eeoQJIBBvhP4TciwIdJsR8MOyE7.jpg",
+        "where_to_watch": [
+          "Amazon Prime Video"
+        ],
+        "rating": 0,
+        "duration": 85,
+        "director": "Anthony C. Ferrante"
+      },
+      {
+        "id": "382399",
+        "content_type": "movies",
+        "title": "High Strung: Ao Ritmo do Sonho",
+        "synopsis": "Quando um violinista se encontra com uma dançarina clássica, bolsista do Conservatório de Artes de Manhattan no metrô de Nova York, as faíscas voam. Com a ajuda de um grupo de dançarinos de rua, eles devem encontrar um terreno comum durante a preparação para uma competição que pode mudar suas vidas para sempre.",
+        "gender": "Música",
+        "main_cast": [
+          "Keenan Kampa",
+          "Nicholas Galitzine",
+          "ソノヤ・ミズノ",
+          "Jane Seymour",
+          "Richard Southgate"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/hqFHODEFfJ3vnQkrLk2XQgw2GQ7.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 96,
+        "director": "Michael Damian"
+      },
+      {
+        "id": "402331",
+        "content_type": "movies",
+        "title": "O Alvo 2",
+        "synopsis": "Sequencia do filme de Jean-Claude Van Damme em 1993 “O Alvo”.  Forçado a entrar num jogo mortal um desacreditado lutador de MMA (Scott Adkins) é caçado através das florestas da Ásia e sua única missão é ser um alvo difícil e sobreviver.",
+        "gender": "Ação",
+        "main_cast": [
+          "Scott Adkins",
+          "Rhona Mitra",
+          "Robert Knepper",
+          "Temuera Morrison",
+          "Ann Truong"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/38T48y6nxaPJmqYRoQDCakes2qN.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Globoplay",
+          "Netflix basic with Ads",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 104,
+        "director": "Roel Reiné"
+      },
+      {
+        "id": "58051",
+        "content_type": "movies",
+        "title": "Casa cheia",
+        "synopsis": "Aarush é um homem muito azarado, para quem nada de bom acontece. Sua vida vira uma confusão ainda maior quando tem de alugar uma mansão para pôr em prática um plano para enganar o irmão de sua namorada e o pai da esposa de Bob, seu melhor amigo.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Akshay Kumar",
+          "Arjun Rampal",
+          "Ritesh Deshmukh",
+          "Deepika Padukone",
+          "Lara Dutta"
+        ],
+        "release_year": 2010,
+        "banner": "https://image.tmdb.org/t/p/original/6NsTj3mdvpTKgAxPK7ojTHprxWu.jpg",
+        "where_to_watch": [
+          "Sun Nxt"
+        ],
+        "rating": 0,
+        "duration": 135,
+        "director": "Sajid Khan"
+      },
+      {
+        "id": "351211",
+        "content_type": "movies",
+        "title": "Bruxa de Blair",
+        "synopsis": "Um grupo de estudantes universitários se aventuram na floresta de Black Hills para desvendar os mistérios que cercam o desaparecimento da irmã de James, que muitos acreditam estar ligado à lenda da Bruxa de Blair. No início, o grupo está esperançoso, especialmente quando uma dupla de moradores se oferecem para guia-los na floresta. Mas com o cair da noite, o grupo é surpreendido por uma presença ameaçadora e lentamente, eles começam a perceber que a lenda é real e muito mais sinistra do que imaginaram.",
+        "gender": "Thriller",
+        "main_cast": [
+          "James Allen McCune",
+          "Callie Hernandez",
+          "Brandon Scott",
+          "Corbin Reid",
+          "Valorie Curry"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/vfdK9NtUqbSgFqvzPJi8kEnq2ee.jpg",
+        "where_to_watch": [
+          "MGM+ Apple TV Channel",
+          "MGM Plus Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 89,
+        "director": "Adam Wingard"
+      },
+      {
+        "id": "39123",
+        "content_type": "movies",
+        "title": "20th Century Boys - Capítulo 3: Capítulo Final (Nossa Bandeira)",
+        "synopsis": "Último filme da trilogia, que se passa em 2015, quando o “Amigo”, já Presidente do Mundo, quer destruir a humanidade e Kanna, a sobrinha de Kenji, vive no submundo tentando derrotá-lo, assim como os amigos de infância de Kenji, para quem ele ainda não morreu.",
+        "gender": "Aventura",
+        "main_cast": [
+          "Toshiaki Karasawa",
+          "豊川悦司",
+          "Airi Taira",
+          "Takako Tokiwa",
+          "香川照之"
+        ],
+        "release_year": 2009,
+        "banner": "https://image.tmdb.org/t/p/original/nVqB5k1rXLZ4osnJtAnhaGU5jHy.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 156,
+        "director": "Yukihiko Tsutsumi"
+      },
+      {
+        "id": "207932",
+        "content_type": "movies",
+        "title": "Inferno",
+        "synopsis": "O renomado professor de simbologia de Harvard, Robert Langdon (Tom Hanks) visita a Itália e se envolve em mais uma aventura envolvendo símbolos ocultos e corporações secretas. Ele se vê em uma jornada em que procura desvendar os mistérios do clássico da literatura \"A Divina Comédia\", de Dante Alighieri.",
+        "gender": "Mistério",
+        "main_cast": [
+          "Tom Hanks",
+          "Felicity Jones",
+          "Omar Sy",
+          "Irrfan Khan",
+          "Sidse Babett Knudsen"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/dtMJQzCxw2AY6tfcxhzlFpiD3BM.jpg",
+        "where_to_watch": [
+          "Amazon Prime Video",
+          "Netflix",
+          "Looke",
+          "Netflix basic with Ads"
+        ],
+        "rating": 0,
+        "duration": 121,
+        "director": "Ron Howard"
+      },
+      {
+        "id": "335796",
+        "content_type": "movies",
+        "title": "Ouija: Origem do Mal",
+        "synopsis": "Doris é uma garotinha solitária e pouco popular na escola. Sua mãe é especialista em aplicar golpes em clientes, fingindo se comunicar com espíritos. Mas quando Doris usa um tabuleiro de Ouija para se comunicar com o falecido pai, acaba liberando uma série de seres malignos que se apoderam de seu corpo e ameaçam todos ao redor.",
+        "gender": "Terror",
+        "main_cast": [
+          "Annalise Basso",
+          "Elizabeth Reaser",
+          "Lulu Wilson",
+          "Henry Thomas",
+          "Parker Mack"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/zTIAc7HvOrd1OMz0YFtzdfTUBlt.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "NOW",
+          "Netflix basic with Ads",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 99,
+        "director": "Mike Flanagan"
+      },
+      {
+        "id": "343611",
+        "content_type": "movies",
+        "title": "Jack Reacher: Sem Retorno",
+        "synopsis": "Jack Reacher retorna para reafirmar sua ousada marca de justiça, em \"uma divertida aventura de ação\" baseada na série de best-sellers do autor Lee Child. Quando a major do Exército Susan Turner é incriminada por traição, Reacher descobre que ela foi alvo de uma tremenda conspiração governamental. Com a ajuda da própria Turner e de um misterioso novo aliado, Reacher arrisca tudo para derrubar a poderosa organização, que não vai se deter diante de nada para proteger seus segredos.",
+        "gender": "Ação",
+        "main_cast": [
+          "Tom Cruise",
+          "Cobie Smulders",
+          "Danika Yarosh",
+          "Aldis Hodge",
+          "Patrick Heusinger"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/4cnLIFdmZbxPTajcXAyOL3mMCKr.jpg",
+        "where_to_watch": [
+          "Disney Plus",
+          "Netflix",
+          "Globoplay",
+          "Netflix basic with Ads",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 118,
+        "director": "Edward Zwick"
+      },
+      {
+        "id": "50699",
+        "content_type": "movies",
+        "title": "Trancers 6: Life After Deth",
+        "synopsis": "",
+        "gender": "Ficção científica",
+        "main_cast": [
+          "Zette Sullivan",
+          "Jennifer Capo",
+          "Robert Donavan",
+          "Timothy Prindle",
+          "Jere Jon"
+        ],
+        "release_year": 2002,
+        "banner": "https://image.tmdb.org/t/p/original/56nQSbfHiRNEueSo0NCmGKmn3yH.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 85,
+        "director": "Jay Woelfel"
+      },
+      {
+        "id": "338964",
+        "content_type": "movies",
+        "title": "Papai Noel às Avessas 2",
+        "synopsis": "O ganancioso Willie (Billy Bob Thornton) vive com ódio e à base de whisky barato. Ele se junta, mais uma vez, com seu companheiro, o irritado Marcus (Tony Cox), para tentar acabar com uma instituição de caridade que fica em Chicago, na véspera de Natal.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Billy Bob Thornton",
+          "Kathy Bates",
+          "Brett Kelly",
+          "Tony Cox",
+          "Christina Hendricks"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/dOH7thNFmDUEhs9JQPZZURibVvR.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 92,
+        "director": "Mark Waters"
+      },
+      {
+        "id": "330459",
+        "content_type": "movies",
+        "title": "Rogue One: Uma História Star Wars",
+        "synopsis": "Ainda criança, Jyn Erso (Beau Gadsdon) foi afastada de seu pai, Galen (Mads Mikkelsen), devido à exigência do diretor Krennic (Ben Mendelsohn) de que ele trabalhasse na construção da arma mais poderosa do Império, a Estrela da Morte. Criada por Saw Gerrera (Forest Whitaker), ela teve que aprender a sobreviver por conta própria ao completar 16 anos.\r Já adulta, Jyn (Felicity Jones) é resgatada da prisão pela Aliança Rebelde, que deseja ter acesso a uma mensagem enviada por seu pai a Gerrera. Com a promessa de liberdade ao término da missão, ela aceita trabalhar para os rebeldes ao lado do capitão Cassian Andor (Diego Luna) e do robô K-2SO (Alan Tudyk).",
+        "gender": "Ação",
+        "main_cast": [
+          "Felicity Jones",
+          "Diego Luna",
+          "Alan Tudyk",
+          "Donnie Yen",
+          "Jiang Wen"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/74C2YX0NLWnozVMRS56d5CKDdEv.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 133,
+        "director": "Gareth Edwards"
+      },
+      {
+        "id": "346672",
+        "content_type": "movies",
+        "title": "Anjos da Noite: Guerras de Sangue",
+        "synopsis": "Selene é uma guerreira vampira que luta para acabar com a guerra eterna entre o clã Lycan de lobisomens sanguinários e a facção de vampiros que a traiu. Quando um novo levante parece tomar forma, ela irá utilizar sua influência e relacionamento com ambas as partes para negociar um cessar fogo.",
+        "gender": "Fantasia",
+        "main_cast": [
+          "Kate Beckinsale",
+          "Theo James",
+          "Tobias Menzies",
+          "Lara Pulver",
+          "Bradley James"
+        ],
+        "release_year": 2016,
+        "banner": "https://image.tmdb.org/t/p/original/mM2D6fQFz3BjQaIHwqSniglD4iX.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Netflix basic with Ads"
+        ],
+        "rating": 0,
+        "duration": 91,
+        "director": "Anna Foerster"
+      },
+      {
+        "id": "47971",
+        "content_type": "movies",
+        "title": "xXx: Reativado",
+        "synopsis": "Quando um grupo de mercenários letais rouba uma arma de alta tecnologia, que representa uma ameaça global, o mundo precisa do superespião Xander Cage. De volta à ação, Xander lidera um time de viciados em adrenalina, capazes de desafiar a morte, em uma missão que vai quebrar tudo e salvar o dia, conseguindo ainda paracer bonzinho.",
+        "gender": "Ação",
+        "main_cast": [
+          "Vin Diesel",
+          "Donnie Yen",
+          "Ruby Rose",
+          "Toni Collette",
+          "Samuel L. Jackson"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/csohoj37afZPMZP5H6STMDEZjdx.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "NOW",
+          "Netflix basic with Ads"
+        ],
+        "rating": 0,
+        "duration": 107,
+        "director": "D. J. Caruso"
+      },
+      {
+        "id": "324849",
+        "content_type": "movies",
+        "title": "Lego Batman: O Filme",
+        "synopsis": "No spin-off de Uma Aventura Lego, Batman (Will Arnett) descobre que adotou acidentalmente um garoto órfão. Ele se torna ninguém menos que seu ajudante Robin (Michael Cera). A dupla formada pelo arrogante Homem-Morcego e o seu empolgado ajudante deve combater o crime e prender o Coringa (Zach Galifianakis).",
+        "gender": "Animação",
+        "main_cast": [
+          "Will Arnett",
+          "Michael Cera",
+          "Rosario Dawson",
+          "Ralph Fiennes",
+          "Zach Galifianakis"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/qVf6lTFzDsBZUbYbk8m9dk9SipX.jpg",
+        "where_to_watch": [
+          "Max",
+          "NOW",
+          "Max Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 105,
+        "director": "Chris McKay"
+      },
+      {
+        "id": "14564",
+        "content_type": "movies",
+        "title": "O Chamado 3",
+        "synopsis": "Julia (Matilda Anna Ingrid Lutz) fica preocupada quando seu namorado, Holt (Alex Roe), começa a explorar a lenda urbana sobre um vídeo misterioso. Lenda esta que diz que quem assiste morre depois de sete dias. Ela se sacrifica para salvar seu namorado e acaba fazendo uma descoberta terrível: há um \"filme dentro do filme\" que ninguém nunca viu antes.",
+        "gender": "Terror",
+        "main_cast": [
+          "Matilda Lutz",
+          "Alex Roe",
+          "Johnny Galecki",
+          "Vincent D'Onofrio",
+          "Aimee Teegarden"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/dvsh3qYE2TVhjlQFYV7o13jTAvr.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 117,
+        "director": "F. Javier Gutiérrez"
+      },
+      {
+        "id": "324552",
+        "content_type": "movies",
+        "title": "John Wick: Um Novo Dia para Matar",
+        "synopsis": "O lendário John Wick é forçado a deixar a aposentadoria em função de um criminoso que conspira para tomar o controle de um clã de assassinos internacionais. Por causa de um pacto de sangue, John Wick viaja para Roma, com o objetivo de ajudar um velho amigo a derrubar a organização internacional secreta, perigosa e mortal de assassinos procurados em todo o mundo.",
+        "gender": "Ação",
+        "main_cast": [
+          "Keanu Reeves",
+          "Common",
+          "Ian McShane",
+          "Laurence Fishburne",
+          "Riccardo Scamarcio"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/StSXeK9dLPV2iUCevjAupwEVJq.jpg",
+        "where_to_watch": [
+          "Amazon Prime Video",
+          "Netflix",
+          "Globoplay",
+          "NOW",
+          "Netflix basic with Ads",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 122,
+        "director": "Chad Stahelski"
+      },
+      {
+        "id": "263115",
+        "content_type": "movies",
+        "title": "Logan",
+        "synopsis": "Em 2029, Logan ganha a vida como chofer de limousine para cuidar do nonagenário Charles Xavier. Debilitado fisicamente e esgotado emocionalmente, ele é procurado por Gabriela, uma mexicana que precisa da ajuda do ex-X-Men para defender a pequena Laura Kinney / X-23. Ao mesmo tempo em que se recusa a voltar à ativa, Logan é perseguido pelo mercenário Donald Pierce, interessado na menina.",
+        "gender": "Ação",
+        "main_cast": [
+          "Hugh Jackman",
+          "Dafne Keen",
+          "Patrick Stewart",
+          "Elizabeth Rodriguez",
+          "Boyd Holbrook"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/f0CtZbae9cXj8bkWdCHzUHx5lsR.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 135,
+        "director": "James Mangold"
+      },
+      {
+        "id": "341174",
+        "content_type": "movies",
+        "title": "Cinquenta Tons Mais Escuros",
+        "synopsis": "Incomodada com os hábitos e atitudes de Christian Grey (Jamie Dornan), Anastasia (Dakota Johnson) decide terminar o relacionamento e focar no desenvolvimento de sua carreira. O desejo, porém, fala mais alto e ela logo volta aos joguinhos do empresário, sendo que, aos poucos, passa a compreender melhor os jogos sexuais que ele tanto aprecia.",
+        "gender": "Drama",
+        "main_cast": [
+          "Dakota Johnson",
+          "Jamie Dornan",
+          "Eric Johnson",
+          "Eloise Mumford",
+          "Bella Heathcote"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/nj5KTm3WAQt4rN748djvCkKYq0b.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Max",
+          "Globoplay",
+          "NOW",
+          "Netflix basic with Ads"
+        ],
+        "rating": 0,
+        "duration": 115,
+        "director": "James Foley"
+      },
+      {
+        "id": "426580",
+        "content_type": "movies",
+        "title": "Encrenqueiros da Escola",
+        "synopsis": "",
+        "gender": "Comédia",
+        "main_cast": [
+          "Samantha Hanratty",
+          "Colby Arps",
+          "Sophia Ali",
+          "Erika Daly",
+          "Matthew Frias"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/fi7MizTzNSinWCpNP34zkY8oTb.jpg",
+        "where_to_watch": [
+          "Looke",
+          "Looke Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 100,
+        "director": "Ben Browder"
+      },
+      {
+        "id": "126889",
+        "content_type": "movies",
+        "title": "Alien: Covenant",
+        "synopsis": "Viajando pela galáxia, os tripulantes da nave colonizadora Covenant encontram um planeta remoto com ares de paraíso inexplorado. Encantados, eles acreditam na sorte e ignoram a realidade do local: uma terra sombria que guarda terríveis segredos e tem o sobrevivente David como habitante solitário.",
+        "gender": "Ficção científica",
+        "main_cast": [
+          "Michael Fassbender",
+          "Katherine Waterston",
+          "Billy Crudup",
+          "Danny McBride",
+          "Demián Bichir"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/dNJqsL3ekBPUXsSDu6oABGZkJMM.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 122,
+        "director": "Ridley Scott"
+      },
+      {
+        "id": "34311",
+        "content_type": "movies",
+        "title": "Acampamento Sinistro 2",
+        "synopsis": "",
+        "gender": "Comédia",
+        "main_cast": [
+          "Pamela Springsteen",
+          "Renée Estevez",
+          "Tony Higgins",
+          "Valerie Hartman",
+          "Brian Patrick Clarke"
+        ],
+        "release_year": 1988,
+        "banner": "https://image.tmdb.org/t/p/original/35OAjoMoYEADPmkJj4MaGSsHqWf.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 80,
+        "director": "Michael A. Simpson"
+      },
+      {
+        "id": "19766",
+        "content_type": "movies",
+        "title": "Inspetor Bugiganga 2",
+        "synopsis": "As coisas parecem tranquilas em Riverton, mas tudo começa a dar errado para o Inspetor Bugiganga. Claw planeja uma fuga fantástica da prisão e um novo crime do século. Enquanto isso, o prefeito da cidade revela um novo e melhorado G2, uma super-robô de alta tecnologia. Nesta aventura, o Inspetor Bugiganga e sua nova parceira G2 junto com outros amigos, se unem para salvar o mundo.",
+        "gender": "Ação",
+        "main_cast": [
+          "French Stewart",
+          "Elaine Hendrix",
+          "Tony Martin",
+          "Caitlin Wachs",
+          "Mark Mitchell"
+        ],
+        "release_year": 2003,
+        "banner": "https://image.tmdb.org/t/p/original/iIy2CIWZbclTSfHRV3fYmLnbpzA.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 89,
+        "director": "Alex Zamm"
+      },
+      {
+        "id": "337339",
+        "content_type": "movies",
+        "title": "Velozes & Furiosos 8",
+        "synopsis": "Depois que Brian e Mia se aposentaram, e o resto da equipe foi exonerado, Dom e Letty estão em lua de mel e levam uma vida pacata e completamente normal. Mas a adrenalina do passado volta com tudo quando uma mulher misteriosa faz com que Dom retorne ao mundo do crime e da velocidade.",
+        "gender": "Ação",
+        "main_cast": [
+          "Vin Diesel",
+          "Jason Statham",
+          "Dwayne Johnson",
+          "Michelle Rodriguez",
+          "Tyrese Gibson"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/1wcMoiMZ2VxrrWswuarI7g9m9nN.jpg",
+        "where_to_watch": [
+          "Disney Plus",
+          "Amazon Prime Video",
+          "Globoplay",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 136,
+        "director": "F. Gary Gray"
+      },
+      {
+        "id": "260514",
+        "content_type": "movies",
+        "title": "Carros 3",
+        "synopsis": "Durante mais uma disputa eletrizante nas pistas, o campeão Relâmpago McQueen acelerou demais e acabou perdendo o controle. Agora, após ter capotando várias vezes e quase ter partido dessa para melhor, o vermelhinho vai ter sua vida alterada para sempre. O acidente foi tão grave que, com os estragos, McQueen pode ter que se aposentar de vez.",
+        "gender": "Família",
+        "main_cast": [
+          "Owen Wilson",
+          "Cristela Alonzo",
+          "Chris Cooper",
+          "Nathan Fillion",
+          "Armie Hammer"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/lVPFdORefTKXKFiSktrXbiFDNAK.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 90,
+        "director": "Brian Fee"
+      },
+      {
+        "id": "360404",
+        "content_type": "movies",
+        "title": "Monster High: Boo York, Boo York",
+        "synopsis": "É tudo de arrepiar quando as meninas chegam a Boo York! Os De Niles estão na esperança de encontrar seu destino dinástico e esculpir um novo império, enquanto Catty Noir está tentando encontrar sua música.",
+        "gender": "Animação",
+        "main_cast": [
+          "Salli Saffioti",
+          "Missi Hale",
+          "TJ Smith",
+          "Evan Smith",
+          "Wendee Lee"
+        ],
+        "release_year": 2015,
+        "banner": "https://image.tmdb.org/t/p/original/fgSI3MJ2xQSAI287RQFDXOzXgxa.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 72,
+        "director": "William Lau"
+      },
+      {
+        "id": "212470",
+        "content_type": "movies",
+        "title": "Monster High: 13 Monster Desejos",
+        "synopsis": "É mais um ano escolar em Monster High e a irmãzinha de Clawdeen Wolf, Howleen, está decidida a ser mais fantástica que nunca. Seu sonho de popularidade acaba sendo mais fácil do que se imaginava, quando ela encontra uma gênia chamada Gigi Grant que lhe concede não 3, mas 13 desejos! Mas as monstrinhas logo aprendem a ter cuidado com o que desejam, porque cada desejo tem sem lado sinistro,e logo o corpo estudantil de Monster High vira de ponta-cabeça. Junte-se a Frankie Stein, Clawdeen Wolf, Draculaura e todas as incríveis amigas, que vão fundo com a lâmpada mágica para salvar a alma de Monster High... mostrando seu estilo fatal a cada passo do caminho.",
+        "gender": "Família",
+        "main_cast": [
+          "America Young",
+          "Jonquil Goode",
+          "Salli Saffioti",
+          "Kate Higgins",
+          "Debi Derryberry"
+        ],
+        "release_year": 2013,
+        "banner": "https://image.tmdb.org/t/p/original/zA3IDXvSfAeAz6TvPfiK3H7ItHh.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "duration": 73,
+        "director": "Steve Sacks"
+      },
+      {
+        "id": "324852",
+        "content_type": "movies",
+        "title": "Meu Malvado Favorito 3",
+        "synopsis": "O ex-ator mirim e astro de TV, Balthazar Bratt, foi um típico malvado bem-sucedido nos anos 80 e agora está de volta à ativa. Ele vai aterrorizar a vida de Gru, Agnes, Margo, Edith, Dr. Nefario e os atrapalhados Minions. Em meio a tudo isso, Gru também vai encontrar o seu irmão gêmeo, Drew.",
+        "gender": "Ação",
+        "main_cast": [
+          "Steve Carell",
+          "Kristen Wiig",
+          "Trey Parker",
+          "Miranda Cosgrove",
+          "Dana Gaier"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/InJSedsAjy5VUYkanrBFGZngI8.jpg",
+        "where_to_watch": [
+          "Globoplay",
+          "NOW",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 90,
+        "director": "Kyle Balda"
+      },
+      {
+        "id": "281338",
+        "content_type": "movies",
+        "title": "Planeta dos Macacos: A Guerra",
+        "synopsis": "César e seus macacos são forçados a entrar em confronto com uma milícia de humanos liderada pelo implacável Coronel. Mas após sofrer perdas inimagináveis, César resolve se vingar em um confronto final que irá determinar o futuro do planeta!",
+        "gender": "Drama",
+        "main_cast": [
+          "Andy Serkis",
+          " Woody Harrelson",
+          " Karin Konoval",
+          " Terry Notary",
+          " Steve Zahn"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/n336SuXSxpQkrzWJbSAeWFcKWy4.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "duration": 140,
+        "director": "Matt Reeves"
+      },
+      {
+        "id": "336890",
+        "content_type": "movies",
+        "title": "Os Brutamontes 2: Último dos Executores",
+        "synopsis": "Ignorando os desejos de sua Mulher Eva, Doug Glatt vai para a pista de hockey, descobrindo um parceiro ideal para treinamento, um aposentando executor e arqui-rival, Ross “The Boss“. Eles vão juntos tentar fazer o que fazem de melhor, em sua última chance defender sua equipe.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Seann William Scott",
+          "Alison Pill",
+          "Marc-André Grondin",
+          "Wyatt Russell",
+          "Callum Keith Rennie"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/alnVoQ2ZBqOq1qY09FGWriL6DCr.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Netflix basic with Ads"
+        ],
+        "rating": 0,
+        "duration": 101,
+        "director": "Jay Baruchel"
+      },
+      {
+        "id": "335988",
+        "content_type": "movies",
+        "title": "Transformers: O Último Cavaleiro",
+        "synopsis": "Optimus Prime encontra seu planeta natal, Cybertron, agora um planeta morto, e descobre que foi responsável por matá-lo.  Ele encontra uma maneira de trazer o planeta de volta à vida, mas para isso precisa encontrar um artefato que está na Terra.",
+        "gender": "Ação",
+        "main_cast": [
+          "Mark Wahlberg",
+          "Josh Duhamel",
+          "Stanley Tucci",
+          "Anthony Hopkins",
+          "Isabela Merced"
+        ],
+        "release_year": 2017,
+        "banner": "https://image.tmdb.org/t/p/original/iQ3Ko9GuKmGUHe5gFVSoR5NyOPT.jpg",
+        "where_to_watch": [
+          "Disney Plus",
+          "Globoplay",
+          "NOW",
+          "Paramount+ Amazon Channel",
+          "Paramount Plus Apple TV Channel ",
+          "Telecine Amazon Channel"
+        ],
+        "rating": 0,
+        "duration": 149,
+        "director": "Michael Bay"
+      },
+      {
+        "id": "607",
+        "content_type": "tv_shows",
+        "title": "As Meninas Superpoderosas",
+        "synopsis": "The Powerpuff Girls, conhecido no Brasil como As Meninas Superpoderosas, é uma série de desenho animado criada e escrita por Craig McCracken. Sucesso em todo o mundo, a série foi considerada a nova mania dos Estados Unidos durante o fim da década de 90 e inicio dos anos 2000 e teve um reboot de mesmo nome no ano de 2016. Florzinha, Lindinha e Docinho são três irmãs que foram criadas em laboratório pelo Professor Utônio. Ele juntou os três ingredientes para criar as garotinhas perfeitas: Açúcar, tempero e tudo que há de bom. Mas, acidentalmente, ele adicionou o Elemento X, que concedeu a elas superpoderes, e agora elas são as responsáveis por defender a cidade de Townsville dos crimes e das forças do mal.",
+        "gender": "Action & Adventure",
+        "main_cast": [
+          "Cathy Cavadini",
+          "Tara Strong",
+          "Elizabeth Daily",
+          "Tom Kenny",
+          "Tom Kane"
+        ],
+        "release_year": 1998,
+        "banner": "https://image.tmdb.org/t/p/original/ftFTY3EZTTAP5RKfRijD8Q8PNQX.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Max"
+        ],
+        "rating": 0,
+        "num_seasons": 6,
+        "num_episodes": 136,
+        "creator": "Craig McCracken"
+      },
+      {
+        "id": "612",
+        "content_type": "tv_shows",
+        "title": "3-South",
+        "synopsis": "3 South é uma série animada americana que foi ao ar na MTV. O espetáculo se concentrou em dois amigos de longa data, Sanford e Del, e suas aventuras no fictício Barder College. Com a exceção de seu colega de quarto Joe, quase todo mundo na Barder é estúpido e inapto.",
+        "gender": "Animação",
+        "main_cast": [
+          "Brian Posehn",
+          "Brian Dunkleman",
+          "Seth MacFarlane",
+          "Mark Hentemann",
+          "Fred Willard"
+        ],
+        "release_year": 2002,
+        "banner": "https://image.tmdb.org/t/p/original/qnncqkrLZuPenQTBbpvoSKEOVNi.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 13,
+        "creator": "Mark Hentemann"
+      },
+      {
+        "id": "623",
+        "content_type": "tv_shows",
+        "title": "Profit",
+        "synopsis": "um ambicioso e implacável executivo de uma grande corporação chamada Gracen & Gracen. Jim Profit é um personagem anti-herói que usa táticas manipuladoras, chantagem, e até assassinato para subir na hierarquia da empresa.",
+        "gender": "Drama",
+        "main_cast": [
+          "Adrian Pasdar",
+          "Sherman Augustus",
+          "Lisa Blount",
+          "Lisa Darr",
+          "Jack Gwaltney"
+        ],
+        "release_year": 1996,
+        "banner": "https://image.tmdb.org/t/p/original/jnAyyBHOAz47U5ROwgQfV8XQPJs.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 8,
+        "creator": "David Greenwalt, John McNamara"
+      },
+      {
+        "id": "625",
+        "content_type": "tv_shows",
+        "title": "Black Donnellys",
+        "synopsis": "Um drama sobre quatro irmãos irlandeses que se involvem com a máfia em Nova Iorque.",
+        "gender": "Drama",
+        "main_cast": [
+          "Jonathan Tucker",
+          "Tom Guiry",
+          "Olivia Wilde",
+          "Billy Lush",
+          "Michael Stahl-David"
+        ],
+        "release_year": 2007,
+        "banner": "https://image.tmdb.org/t/p/original/oo8NjQRqIfDauaxtnvfn8RwZ4Sb.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 13,
+        "creator": "Paul Haggis, Bobby Moresco"
+      },
+      {
+        "id": "665",
+        "content_type": "tv_shows",
+        "title": "Batfino & Karatê",
+        "synopsis": "Batfino era um morcego que foi exposto à radiação, quando era criança, na caverna onde habitava. Essa exposição o tornou indestrutível, porém suas asas foram inutilizadas pela explosão da caverna, pois Batfino tentou proteger sua mãe com suas asas. Elas foram substituídas por asas de aço( foram feitas pelo pai do Karetê) ,que ele utilizava para proteger-se das balas dos inimigos (suas balas não podem me atingir, minhas asas são como uma couraça de aço !).",
+        "gender": "Animação",
+        "main_cast": [
+          "Frank Buxton",
+          "Len Maxwell"
+        ],
+        "release_year": 1966,
+        "banner": "https://image.tmdb.org/t/p/original/1lackrbLJFc04ERgCmeGd5RiAvM.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 100,
+        "creator": "Hal Seeger"
+      },
+      {
+        "id": "693",
+        "content_type": "tv_shows",
+        "title": "Desperate Housewives",
+        "synopsis": "Atrás da fachada perfeita de cartão postal de um condomínio fechado vivem quatro mulheres cujas vidas podem ser qualquer coisa, menos idílicas. A desajeitada Susan é divorciada e mãe da adolescente Julie. Lynette é casada com Tom e a mãe estressada de quatro filhos indisciplinados. Bree é a Martha Stewart da vizinhança, mas sua perfeição mascara seus desajustes. A ex-modelo Gabrielle, casada com o bonitão e bem-sucedido Carlos, quer ter tudo sem abrir mão de nada. Assistindo a tudo isso está Mary Alice, que se suicidou mas comenta sobre a vida de seus ex-vizinhos.",
+        "gender": "Mistério",
+        "main_cast": [
+          "Teri Hatcher",
+          "Felicity Huffman",
+          "Marcia Cross",
+          "Eva Longoria",
+          "Ricardo Chavira"
+        ],
+        "release_year": 2004,
+        "banner": "https://image.tmdb.org/t/p/original/rpLAtfJcTlMkgkhOlsDz7EEyqm7.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "num_seasons": 8,
+        "num_episodes": 179,
+        "creator": "Marc Cherry"
+      },
+      {
+        "id": "615",
+        "content_type": "tv_shows",
+        "title": "Futurama",
+        "synopsis": "Fry era um entregador de pizza de 25 anos, cuja vida não tinha o  menor significado. Depois de congelar-se acidentalmente na véspera do  Ano Novo de 1999, ele acorda mil anos mais tarde, tendo a chance de  começar tudo de novo em um futuro repleto de alienígenas misteriosos e  de robôs ameaçadores.",
+        "gender": "Animação",
+        "main_cast": [
+          "Billy West",
+          "Katey Sagal",
+          "John DiMaggio",
+          "Tress MacNeille",
+          "Maurice LaMarche"
+        ],
+        "release_year": 1999,
+        "banner": "https://image.tmdb.org/t/p/original/7RRHbCUtAsVmKI6FEMzZB6Re88P.jpg",
+        "where_to_watch": [
+          "Disney Plus"
+        ],
+        "rating": 0,
+        "num_seasons": 9,
+        "num_episodes": 144,
+        "creator": "Matt Groening"
+      },
+      {
+        "id": "636",
+        "content_type": "tv_shows",
+        "title": "Kung Fu: The Legend Continues",
+        "synopsis": "A série segue a história de Kwai Chang Caine (interpretado por David Carradine), um monge shaolin e mestre em artes marciais, e seu filho, Peter Caine (interpretado por Chris Potter), um detetive da polícia.",
+        "gender": "Action & Adventure",
+        "main_cast": [
+          "David Carradine",
+          "Chris Potter",
+          "Kim Chan",
+          "Nathaniel Moreau",
+          "David Hewlett"
+        ],
+        "release_year": 1993,
+        "banner": "https://image.tmdb.org/t/p/original/ncY99oMyS8kZvFcloSV4WNxqYjE.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 4,
+        "num_episodes": 88,
+        "creator": "Ed Spielman"
+      },
+      {
+        "id": "648",
+        "content_type": "tv_shows",
+        "title": "O Incrível Hulk",
+        "synopsis": "The Incredible Hulk (no Brasil, O Incrível Hulk ) é uma telessérie norte-americana exibida de 1978 a 1982, baseada no personagem Hulk, dos quadrinhos da Marvel Comics. A série está sendo reexibida no Brasil pelo canal TCM e Rede Brasil de Televisão. O Dr. David Banner é um brilhante cientista. Certo dia, um experimento em que ele está trabalhando sai terrivelmente errado, e o deixa com sérias consequências: sempre que ele está sob muito estresse, seu corpo se modifica e ele se transforma no Incrível Hulk, um monstro alto, musculoso e de pele verde. Ele se transforma no monstro sempre que alguém ou alguma coisa ameaça o Dr. Banner e a população.",
+        "gender": "Sci-Fi & Fantasy",
+        "main_cast": [
+          "Bill Bixby",
+          "Lou Ferrigno",
+          "Jack Colvin",
+          "Charles Napier"
+        ],
+        "release_year": 1977,
+        "banner": "https://image.tmdb.org/t/p/original/zAim6MnM8LUY88GwIDoF9TX8ReU.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 5,
+        "num_episodes": 83,
+        "creator": "Kenneth Johnson"
+      },
+      {
+        "id": "655",
+        "content_type": "tv_shows",
+        "title": "Jornada nas Estrelas: A Nova Geração",
+        "synopsis": "Um século após a missão de cinco anos do capitão Kirk, a nova geração de oficiais da Frota Estelar começa sua jornada a bordo da nova nave capitânia da Federação.\n\nComandado pelo Capitão Jean-Luc Picard, a nave estelar classe Galaxy Enterprise NCC-1701-D, vai procurar novas vidas e novas civilizações - audaciosamente indo onde ninguém jamais esteve",
+        "gender": "Sci-Fi & Fantasy",
+        "main_cast": [
+          "Patrick Stewart",
+          "Jonathan Frakes",
+          "Brent Spiner",
+          "Michael Dorn",
+          "Marina Sirtis"
+        ],
+        "release_year": 1987,
+        "banner": "https://image.tmdb.org/t/p/original/72sME47Jn3cjttpbPn3DU0ci3O1.jpg",
+        "where_to_watch": [
+          "Netflix",
+          "Paramount Plus",
+          "Paramount+ Amazon Channel",
+          "Netflix basic with Ads",
+          "Paramount Plus Apple TV Channel "
+        ],
+        "rating": 0,
+        "num_seasons": 7,
+        "num_episodes": 177,
+        "creator": "Gene Roddenberry"
+      },
+      {
+        "id": "663",
+        "content_type": "tv_shows",
+        "title": "A Tecnologia No Velho Oeste",
+        "synopsis": "",
+        "gender": "Documentário",
+        "main_cast": [
+          "David Carradine",
+          "Keith Carradine"
+        ],
+        "release_year": 2003,
+        "banner": "https://image.tmdb.org/t/p/original/dvX7wVkCJWQLIdl8jExRV3DE8Fo.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 3,
+        "num_episodes": 34,
+        "creator": ""
+      },
+      {
+        "id": "678",
+        "content_type": "tv_shows",
+        "title": "Justice",
+        "synopsis": "`Julgamento do século' atrai quatro diferentes mas excelentes advogados numa firma de advocacia.",
+        "gender": "Drama",
+        "main_cast": [
+          "Eamonn Walker",
+          "Victor Garber",
+          "Rebecca Mader",
+          "Kerr Smith"
+        ],
+        "release_year": 2006,
+        "banner": "https://image.tmdb.org/t/p/original/8ZvaLekKg4dW7xoTyBG7GWF6rLQ.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 13,
+        "creator": "David McNally, Tyler Bensinger"
+      },
+      {
+        "id": "695",
+        "content_type": "tv_shows",
+        "title": "A Família Twist",
+        "synopsis": "Conta a história de três crianças que vivem com o pai em um farol, e que vivenciam várias aventuras mágicas e paranormais ao longo dos dias.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Andrew S. Gilbert",
+          "Rian McLean",
+          "Ebonnie Masini",
+          "Mathew Waters",
+          "Brook Sykes"
+        ],
+        "release_year": 1990,
+        "banner": "https://image.tmdb.org/t/p/original/nxOScaEU2exYLBkqG8LiYL69z5l.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 4,
+        "num_episodes": 52,
+        "creator": "Paul Jennings"
+      },
+      {
+        "id": "604",
+        "content_type": "tv_shows",
+        "title": "Os Jovens Titãs",
+        "synopsis": "Jovens Titãs mostra cinco super-heróis adolescentes, todos com superpoderes, liderados por Robins, o menino-prodígio. Juntos, o quinteto forma uma ponderosa defensiva para proteger o planeta Terra de uma nova geração de vilões, ao mesmo tempo em que têm de lidar com problemas típicos dos adolescentes.",
+        "gender": "Animação",
+        "main_cast": [
+          "Greg Cipes",
+          "Scott Menville",
+          "Khary Payton",
+          "Tara Strong",
+          "Hynden Walch"
+        ],
+        "release_year": 2003,
+        "banner": "https://image.tmdb.org/t/p/original/wnIpFMCO8aGFdO3aRzWlohiAOy9.jpg",
+        "where_to_watch": [
+          "Max",
+          "Max Amazon Channel"
+        ],
+        "rating": 0,
+        "num_seasons": 5,
+        "num_episodes": 65,
+        "creator": "Sam Register, Glen Murakami"
+      },
+      {
+        "id": "621",
+        "content_type": "tv_shows",
+        "title": "Jam e Jerusalem",
+        "synopsis": "O foco principal é Sal Vine, uma enfermeira que recentemente perdeu seu marido. Sal encontra apoio e amizade na Guilda das Mulheres, cujos membros são uma mistura eclética de personalidades, cada uma com suas peculiaridades e histórias únicas. Entre elas estão Eileen Pike, a dedicada líder da guilda; Tip Haddem, a peculiar e espirituosa senhora idosa; Kate Bales, a espirituosa vicar; e Tash Vine, a filha excêntrica de Sal.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Salima Saxton",
+          "Dawn French",
+          "Maggie Steed",
+          "Rosie Cavaliero",
+          "Jennifer Saunders"
+        ],
+        "release_year": 2006,
+        "banner": "https://image.tmdb.org/t/p/original/q5Uzx0EOAYU4NczJuTRBml66FUg.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 3,
+        "num_episodes": 19,
+        "creator": "Dawn French, Jennifer Saunders"
+      },
+      {
+        "id": "643",
+        "content_type": "tv_shows",
+        "title": "My Family",
+        "synopsis": "A série é centrada em Ben Harper, um dentista sarcástico e um pouco desiludido, e sua esposa Susan, uma guia turística otimista e energética. Eles têm três filhos: Nick, o filho mais velho e atrapalhado que está sempre mudando de emprego; Janey, a filha adolescente preocupada com a moda e os garotos; e Michael, o filho caçula, inteligente e um pouco nerd.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Robert Lindsay",
+          "Zoë Wanamaker",
+          "Gabriel Thomson",
+          "Daniela Denby-Ashe",
+          "Keiron Self"
+        ],
+        "release_year": 2000,
+        "banner": "https://image.tmdb.org/t/p/original/3Yba2Uy2eERcduYXnZz37kMuVUG.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 11,
+        "num_episodes": 110,
+        "creator": "Fred Barron"
+      },
+      {
+        "id": "646",
+        "content_type": "tv_shows",
+        "title": "Penny Crayon",
+        "synopsis": "A Artista Penny realmente podia desenhar qualquer coisa que quisesse com seu giz de cera mágico, e isso ganhava vida. Um brinquedo incrivelmente útil de se ter. Apenas seu melhor amigo Dennis sabia seu segredo, então os dois se divertiam muito pregando peças em adultos, curiosos, valentões, vilões, professores e malfeitores com suas criações, ou resolvendo problemas para as pessoas, ou desenhando para sair de situações complicadas. Penny rabiscava rapidamente, seu braço se tornando um borrão enquanto trabalhava e, então - voilà! - seu desenho saltava da superfície do papel como um objeto 3D totalmente formado.",
+        "gender": "Animação",
+        "main_cast": [
+          "Peter Hawkins",
+          "Su Pollard"
+        ],
+        "release_year": 1989,
+        "banner": "https://image.tmdb.org/t/p/original/jeEOcnfBVw2SsGuk2aP7TuE3p2z.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 12,
+        "creator": "Peter Maddocks"
+      },
+      {
+        "id": "654",
+        "content_type": "tv_shows",
+        "title": "Reba",
+        "synopsis": "Após vinte anos de casamento, o marido de Reba, o dentista Brock, a deixa para ficar com a sua assistente. Agora, o mundo de Reba vira de ponta-cabeça e ela terá que cuidar de seus três filhos, Cheyenne, Kyra e Jake.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Reba McEntire",
+          "Christopher Rich",
+          "JoAnna Garcia",
+          "Steve Howey",
+          "Scarlett Pomers"
+        ],
+        "release_year": 2001,
+        "banner": "https://image.tmdb.org/t/p/original/ngMBdjwadGj233A3DApyIijCGlg.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 6,
+        "num_episodes": 125,
+        "creator": "Allison M. Gibson"
+      },
+      {
+        "id": "657",
+        "content_type": "tv_shows",
+        "title": "A Vida Moderna de Rocko",
+        "synopsis": "Rocko, um wallaby australiano tímido, encontra uma forma divertida de enfrentar os dilemas de sua vida ao conhecer Heffer e Spunky, Ed e Filburt, dois animais que não demoram a ser tornar seus melhores amigos.",
+        "gender": "Animação",
+        "main_cast": [
+          "Carlos Alazraqui",
+          "Tom Kenny",
+          "Mr. Lawrence",
+          "Charlie Adler"
+        ],
+        "release_year": 1993,
+        "banner": "https://image.tmdb.org/t/p/original/7La4vH5uePT8Nkplyz3NKSxts96.jpg",
+        "where_to_watch": [
+          "Paramount Plus",
+          "Paramount+ Amazon Channel",
+          "Paramount Plus Apple TV Channel "
+        ],
+        "rating": 0,
+        "num_seasons": 4,
+        "num_episodes": 100,
+        "creator": "Joe Murray"
+      },
+      {
+        "id": "661",
+        "content_type": "tv_shows",
+        "title": "O Jovem Indiana Jones",
+        "synopsis": "A série de TV dos anos 1990 explora os anos de formação do aventureiro em divertidas jornadas pelo mundo, com aquele tempero de humor que fez a fama da franquia.",
+        "gender": "Action & Adventure",
+        "main_cast": [
+          "Sean Patrick Flanery",
+          "Corey Carrier",
+          "Lloyd Owen",
+          "Ruth de Sosa",
+          "George Hall"
+        ],
+        "release_year": 1992,
+        "banner": "https://image.tmdb.org/t/p/original/a0LIkSfhqSNtWKOH4aTRGuEJB7C.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 3,
+        "num_episodes": 43,
+        "creator": "George Lucas"
+      },
+      {
+        "id": "679",
+        "content_type": "tv_shows",
+        "title": "Duelo Xiaolin",
+        "synopsis": "Um jovem monge Xiaolin chamado Omi com uma cabeça amarela gigante lidera um trio de outros estudantes para coletar itens poderosos conhecidos como Shen Gong Wu enquanto lutava contra o maligno Jack Spicer que também está atrás dos artefatos",
+        "gender": "Action & Adventure",
+        "main_cast": [
+          "Tara Strong",
+          "Grey DeLisle",
+          "Tom Kenny",
+          "Jeff Bennett",
+          "Wayne Knight"
+        ],
+        "release_year": 2003,
+        "banner": "https://image.tmdb.org/t/p/original/mxxwz1kYyb5DBttl2VvmHgdDoRe.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 3,
+        "num_episodes": 52,
+        "creator": "Christy Hui"
+      },
+      {
+        "id": "682",
+        "content_type": "tv_shows",
+        "title": "Mr. Meaty",
+        "synopsis": "Mr. Meaty é uma divertida comédia protagonizada por Josh Redgrove e Parker Dinkleman, dois fantoches adolescentes que trabalham como caixa e cozinheiro para o Mr. Meaty, uma das principais redes de fast food do mundo. As regras do mundo real não se aplicam a esta lanchonete, o que significa que tudo pode acontecer. Apesar das boas intenções e ideas geniais, os meninos sempre acabam perdendo o controle da situação e se metendo em encrencas.",
+        "gender": "Animação",
+        "main_cast": [],
+        "release_year": 2006,
+        "banner": "https://image.tmdb.org/t/p/original/8ZnEvkwmcFBxStWVnpzp764RVox.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 2,
+        "num_episodes": 35,
+        "creator": "Jason Hopley, Jamie Shannon"
+      },
+      {
+        "id": "688",
+        "content_type": "tv_shows",
+        "title": "West Wing: Nos Bastidores do Poder",
+        "synopsis": "A série mostra acontecimentos na Casa Branca, especificamente na ala Oeste, o centro nervoso do lugar, onde o presidente e seus assessores diretos trabalham. Entre eles estão: Sam Seaborn, subdiretor de comunicação; Léo McGarry, secretário de Estado; Toby Zigler, diretor de comunicação; Madeline Hampton, uma passional consultora política; Josh Lyman, chefe de Madeline e C.J. Creeg, uma super secretária de imprensa, cujo papel é falar pela Casa Branca e livrar o presidente de embaraços.",
+        "gender": "Drama",
+        "main_cast": [
+          "Martin Sheen",
+          "Allison Janney",
+          "John Spencer",
+          "Bradley Whitford",
+          "Joshua Malina"
+        ],
+        "release_year": 1999,
+        "banner": "https://image.tmdb.org/t/p/original/jpwPPp46K04yL5MLbmllv1qNVEg.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 7,
+        "num_episodes": 154,
+        "creator": "Aaron Sorkin"
+      },
+      {
+        "id": "699",
+        "content_type": "tv_shows",
+        "title": "Exosquad",
+        "synopsis": "Em algum momento do século 22, os humanos terraformaram e colonizaram completamente Vênus e Marte. Os Neosapiens, uma raça artificialmente engenheirada criada para ser escravos dos Terranos, se voltaram contra seus mestres e formaram a Ordem/Império/Comunidade dos Neosapiens. Sob o comando do calculista Governador General Phaeton, os Neosapiens lançaram uma invasão à Terra e a Vênus. A ExoFleet, a marinha espacial dos Mundos de Origem (em particular, o Esquadrão Able, um grupo de pilotos de Exo-Frame liderado pelo Tenente J.T. Marsh), luta contra a invasão em uma guerra interplanetária para proteger os Terranos.",
+        "gender": "Animação",
+        "main_cast": [
+          "Robby Benson",
+          "Michael Donovan",
+          "Teryl Rothery",
+          "Lisa Ann Beley",
+          "Michael Benyaer"
+        ],
+        "release_year": 1993,
+        "banner": "https://image.tmdb.org/t/p/original/AnrESNGYTVsSZrT3Q5oJFgoNzSC.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 2,
+        "num_episodes": 52,
+        "creator": "Will Meugniot, Grahame Morris, Jeff Segal"
+      },
+      {
+        "id": "606",
+        "content_type": "tv_shows",
+        "title": "Du, Dudu e Edu",
+        "synopsis": "Du, Dudu e Edu constantemente bolam esquemas para ganhar dinheiro e poder comprar seu doce favorito: bala de caramelo. No entanto, seus planos costumam falhar, deixando-os em várias situações difíceis e hilárias.",
+        "gender": "Animação",
+        "main_cast": [
+          "Matt Hill",
+          "Sam Vincent",
+          "Tony Sampson",
+          "Keenan Christensen",
+          "Kathleen Barr"
+        ],
+        "release_year": 1999,
+        "banner": "https://image.tmdb.org/t/p/original/ipLfSfDrRRRzoPSa2VT6pCpW3B6.jpg",
+        "where_to_watch": [
+          "Max",
+          "Max Amazon Channel"
+        ],
+        "rating": 0,
+        "num_seasons": 6,
+        "num_episodes": 126,
+        "creator": "Danny Antonucci"
+      },
+      {
+        "id": "611",
+        "content_type": "tv_shows",
+        "title": "The New Odd Couple",
+        "synopsis": "A série Estranho Casal acompanha a vida de dois colegas de apartamento que são confundidos como um casal: o bagunceiro Oscar Madison (Matthew Perry) e Felix Unger (Thomas Lennon), um obcecado por limpeza e arrumação.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Ron Glass",
+          "Demond Wilson",
+          "John Schuck"
+        ],
+        "release_year": 1982,
+        "banner": "https://image.tmdb.org/t/p/original/glcST1V2I55hoBSvfq2HGtHF1iq.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 18,
+        "creator": "Neil Simon"
+      },
+      {
+        "id": "618",
+        "content_type": "tv_shows",
+        "title": "As Aventuras de Brandy e Sr. Bigodes",
+        "synopsis": "A cachorrinha mimada Brandy Harrington conhece o coelhinho desastrado Sr. Bigodes em um avião com destino ao Rio de Janeiro. Por acidente, Sr. Bigodes puxa uma alavanca e eles caem na Floresta Amazônica, sendo obrigados a sobreviver na selva.",
+        "gender": "Animação",
+        "main_cast": [
+          "Kaley Cuoco",
+          "Charlie Adler",
+          "Tom Kenny",
+          "Wayne Knight",
+          "Billy West"
+        ],
+        "release_year": 2004,
+        "banner": "https://image.tmdb.org/t/p/original/58Ao40FU4uA35WUTyMcd6XdN1ns.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 2,
+        "num_episodes": 77,
+        "creator": "Russell Marcus"
+      },
+      {
+        "id": "630",
+        "content_type": "tv_shows",
+        "title": "Standoff",
+        "synopsis": "Uma nova unidade de combate ao crime vai abrigar não somente situações de risco, mas uma dupla que se entrosa além do trabalho. A história de Matt Flanery e Emily Lehman tem como pano de fundo, a Unidade de Negociação de Crises (UNC) do FBI. Apontados como os melhores negociadores da divisão, eles são chamados para trabalhar em diversos casos em que é necessário um especialista para resolver os impasses. Só que esse entrosamento extravasa o ambiente de trabalho e eles passam a viver um romance às escondidas. ",
+        "gender": "Drama",
+        "main_cast": [
+          "Michael Cudlitz",
+          "Ron Livingston",
+          "Raquel Alessi",
+          "Jose Pablo Cantillo",
+          "Rosemarie DeWitt"
+        ],
+        "release_year": 2006,
+        "banner": "https://image.tmdb.org/t/p/original/q4741FlAgOXbs1PdD5eCDxO4ykQ.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 18,
+        "creator": "Craig Silverstein"
+      },
+      {
+        "id": "635",
+        "content_type": "tv_shows",
+        "title": "The Adventures of Shirley Holmes",
+        "synopsis": "Shirley Holmes, sobrinha-neta de Sherlock Holmes, é uma brilhante e dedicada menina na arte de solucionar mistérios. Juntamente com seu parceiro, Bo Sawchuk, Shirley passa pelos mais complicados casos e perigos imagináveis.",
+        "gender": "Drama",
+        "main_cast": [
+          "Brendan Fletcher",
+          "Meredith Henderson",
+          "Elizabeth Shepherd",
+          "John White",
+          "Colin Fox"
+        ],
+        "release_year": 1997,
+        "banner": "https://image.tmdb.org/t/p/original/8R9qtjN3IslYq5Ijx1oxFb4JMU6.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 4,
+        "num_episodes": 52,
+        "creator": "Ellis Iddon"
+      },
+      {
+        "id": "638",
+        "content_type": "tv_shows",
+        "title": "Once and Again",
+        "synopsis": "Rick Sammler é um divorciado pai de duas crianças que conhece Lily Manning, a recém separada mãe de outras duas crianças. Desacreditados da vida a dois, suas certezas e crenças caem por terra quando percebem que estão totalmente apaixonados um pelo outro. Contra a vontade de filhos, pais e ex-companheiros, eles começam a namorar e enfrentam as barreiras e ameaças dos familiares que, secretamente, esperavam a reconciliação de seus pais.",
+        "gender": "Drama",
+        "main_cast": [
+          "Sela Ward",
+          "Billy Campbell",
+          "Jeffrey Nordling",
+          "Susanna Thompson",
+          "Shane West"
+        ],
+        "release_year": 1999,
+        "banner": "https://image.tmdb.org/t/p/original/8FVdrgWH2EwrYtQzXNsu0ax1TEk.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 3,
+        "num_episodes": 63,
+        "creator": "Edward Zwick, Marshall Herskovitz"
+      },
+      {
+        "id": "645",
+        "content_type": "tv_shows",
+        "title": "Rhoda",
+        "synopsis": "Rhoda Morgenstern (Valerie Harper) decide se mudar de Minneapolis, onde passou boa parte da sua vida de jovem adulta, de volta para cidade onde cresceu, Nova Iorque. Navegando a vida amorosa e tentando buscar uma carreira em que possa utilizar suas tendências artísticas, Rhoda enfrenta a vida adulta em Nova Iorque e reestabelece um relacionamento com sua complicada família.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Valerie Harper",
+          "Julie Kavner",
+          "Kenneth McMillan",
+          "Wil Albert",
+          "Lorenzo Music"
+        ],
+        "release_year": 1974,
+        "banner": "https://image.tmdb.org/t/p/original/7nVSlqyqtlXuTiEYjku7fzWYav5.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 5,
+        "num_episodes": 110,
+        "creator": "James L. Brooks, Allan Burns"
+      },
+      {
+        "id": "653",
+        "content_type": "tv_shows",
+        "title": "Metalocalypse",
+        "synopsis": "Metalocalypse, uma série com o metal mais escuro, para o humor mais sombrio.",
+        "gender": "Animação",
+        "main_cast": [
+          "Mark Hamill",
+          "Victor Brandt",
+          "Malcolm McDowell",
+          "Brendon Small",
+          "Tommy Blacha"
+        ],
+        "release_year": 2006,
+        "banner": "https://image.tmdb.org/t/p/original/aPOjCtJJIC1rcnitWmJUjZStMdd.jpg",
+        "where_to_watch": [
+          "Max",
+          "Max Amazon Channel"
+        ],
+        "rating": 0,
+        "num_seasons": 4,
+        "num_episodes": 62,
+        "creator": "Brendon Small"
+      },
+      {
+        "id": "656",
+        "content_type": "tv_shows",
+        "title": "George, O Curioso",
+        "synopsis": "Um macaco da África é capturado por um homem de chapéu amarelo, que o leva para a cidade grande. Lá, o animal vive muitas aventuras em seu primeiro contato com a civilização e seus costumes.",
+        "gender": "Animação",
+        "main_cast": [
+          "Jeff Bennett",
+          "Rino Romano",
+          "Jim Cummings",
+          "Rob Paulsen",
+          "Kath Soucie"
+        ],
+        "release_year": 2006,
+        "banner": "https://image.tmdb.org/t/p/original/AWQF9ZP7X5GqGUoXnyj1NSQjKo.jpg",
+        "where_to_watch": [
+          "Max",
+          "Max Amazon Channel"
+        ],
+        "rating": 0,
+        "num_seasons": 15,
+        "num_episodes": 389,
+        "creator": "Margret Rey, H.A. Rey"
+      },
+      {
+        "id": "668",
+        "content_type": "tv_shows",
+        "title": "X-Men: Evolution",
+        "synopsis": "Com base nos quadrinhos populares da Marvel, esta maravilhosa história sobre amadurecimento acompanha adolescentes aparentemente “normais” que podem lançar raios ópticos, levitar objetos e desaparecer à vontade enquanto tentam tirar notas boas na escola.",
+        "gender": "Kids",
+        "main_cast": [
+          "Kirby Morrow",
+          "Venus Terzo",
+          "David Kaye",
+          "Brad Swaile",
+          "Maggie O'Hara"
+        ],
+        "release_year": 2000,
+        "banner": "https://image.tmdb.org/t/p/original/At5aZIKkN8zHTAXOnQR9D3b7usW.jpg",
+        "where_to_watch": [
+          "Max",
+          "Max Amazon Channel"
+        ],
+        "rating": 0,
+        "num_seasons": 4,
+        "num_episodes": 52,
+        "creator": "Marty Isenberg, David Wise, Robert N. Skir"
+      },
+      {
+        "id": "673",
+        "content_type": "tv_shows",
+        "title": "Whoopi",
+        "synopsis": "A ex-diva Mavis Rae é uma hotelier de Nova York que fuma, bebe, está na menopausa, faz o que quer e nunca esquece de deixar suas opiniões bem claras.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Omid Djalili",
+          "Whoopi Goldberg",
+          "Wren T. Brown",
+          "Elizabeth Regen",
+          "Gordana Rashovich"
+        ],
+        "release_year": 2003,
+        "banner": "https://image.tmdb.org/t/p/original/fYRMjpZUBxvzU4xqvXTISJ34Bsa.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 22,
+        "creator": "Terry Turner"
+      },
+      {
+        "id": "681",
+        "content_type": "tv_shows",
+        "title": "A Garota do Futuro",
+        "synopsis": "Alana, uma garota do ano 3000, acaba ficando presa em 1990, após uma viagem mal sucedida no tempo. Acompanhada do seu computador PJ, ela conhece Jenny e Petey. Porém, confusa por estar em uma era tão primitiva para ela, ela foge de Petey, mas é encontrada por Jenny. Ela e Jenny começam a procurar uma cápsula do tempo, roubada por um criminoso do futuro. Enquanto procura a cápsula, ela tenta se adaptar à vida no ano 1990 e fugindo de Silverthorn, responsável pelo acidente com a cápsula do tempo e que pretende sequestrá-la. Como arma de defesa, ela usa uma espécie de tiara com poderes telecinéticos.",
+        "gender": "Sci-Fi & Fantasy",
+        "main_cast": [
+          "Katharine Cullen",
+          "Melissa Marshall",
+          "James Findlay",
+          "Andrew Clarke",
+          "Helen O'Connor"
+        ],
+        "release_year": 1992,
+        "banner": "https://image.tmdb.org/t/p/original/l8ePfR2xJv8ukNSzDF3BMwGQ4Ww.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 2,
+        "num_episodes": 24,
+        "creator": "Mark Shirrefs, John Thomson"
+      },
+      {
+        "id": "709",
+        "content_type": "tv_shows",
+        "title": "Frango Robô",
+        "synopsis": "A história se baseia num frango que foi atropelado numa noite de chuva e  um cientista louco o tortura, obrigando-o a ver programas de TV  simultaneamente. É uma sátira de personalidades, filmes, programas e  situações tipicamente americanos.\nFrango Robô (Robot Chicken,  originalmente) é uma animação exibida no bloco Adult Swim, feita em stop  motion. Criado por Seth Green e por Matthew Senreich, o show é  produzido pela Stoopid Monkey! e pela Sony Pictures Digital.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Seth Green",
+          " Matthew Senreich",
+          " Breckin Meyer"
+        ],
+        "release_year": 2005,
+        "banner": "https://image.tmdb.org/t/p/original/4df4y8RvgIk2Q6pUxh9qEvSOhwc.jpg",
+        "where_to_watch": [
+          "Max",
+          " Max Amazon Channel"
+        ],
+        "rating": 0,
+        "num_seasons": 11,
+        "num_episodes": 218,
+        "creator": "Seth Green, Matthew Senreich"
+      },
+      {
+        "id": "703",
+        "content_type": "tv_shows",
+        "title": "Tarzan, O Rei das Selvas",
+        "synopsis": "Produzido em 1976, pelos estúdios Filmation, essa versão animada de Tarzan, o rei das selvas segue à risca o livro original escrito por Edgar Rice Burroughs. Na versão original, não existe Chita e sim o macaquinho Nikima. Nesse desenho, Tarzan enfrenta perigos desse e de outros mundos. Destaque para a magistral animação desenvolvida pela Filmation, onde os movimentos humanos são quase perfeitos.",
+        "gender": "Animação",
+        "main_cast": [
+          "Robert Ridgely",
+          "Ted Cassidy"
+        ],
+        "release_year": 1976,
+        "banner": "https://image.tmdb.org/t/p/original/r6LjczjwGOHIBpbtqfZdtcmo1VZ.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 4,
+        "num_episodes": 36,
+        "creator": "Edgar Rice Burroughs"
+      },
+      {
+        "id": "704",
+        "content_type": "tv_shows",
+        "title": "SportsCenter",
+        "synopsis": "Interpretação irreverente e compreensiva do mundo esportivo do noticiário oficial de ESPN com análises, entrevistas e interatividade.",
+        "gender": "News",
+        "main_cast": [
+          "Keith Olbermann",
+          "Dan Patrick",
+          "Bill Clement",
+          "Chris Berman",
+          "Linda Cohn"
+        ],
+        "release_year": 1979,
+        "banner": "https://image.tmdb.org/t/p/original/5vND6n2S47U80S6Zbxyslk1RUm5.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 0,
+        "creator": "John A. Walsh"
+      },
+      {
+        "id": "713",
+        "content_type": "tv_shows",
+        "title": "Chappelle's Show",
+        "synopsis": "Chappelle's Show é uma série de televisão de comédia em quadrinhos criada pelos comediantes Dave Chappelle e Neal Brennan, com Chappelle apresentando o programa e estrelando vários desenhos. Chappelle, Brennan e Michele Armour foram os produtores executivos do programa. A série estreou em 22 de janeiro de 2003, na rede de televisão a cabo americana Comedy Central. O show durou duas temporadas completas e uma terceira temporada truncada.\n\nApós numerosos atrasos, a produção da terceira temporada do programa terminou abruptamente quando Chappelle deixou o programa. Três episódios foram compilados a partir do trabalho concluído e esses episódios foram ao ar de 9 de julho a 23 de julho de 2006. Repete frequentemente o ar na Comedy Central e ao redor do mundo na MTV na Alemanha, Comedy Central no Brasil, The Comedy Network no Canadá, The Comedy Channel e 7mate na Austrália e FX no Reino Unido.\n\nO Chappelle's Show também foi exibido na WGN America e foi distribuído em várias estações de televisão nos EUA, incluindo MyNetworkTV. O TV Guide classificou em 31º lugar na lista dos \"100 melhores programas da TV\".",
+        "gender": "Comédia",
+        "main_cast": [
+          "Dave Chappelle"
+        ],
+        "release_year": 2003,
+        "banner": "https://image.tmdb.org/t/p/original/aHpTmNU2wLHokoVpzcnh2VQBJOI.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 3,
+        "num_episodes": 28,
+        "creator": "Dave Chappelle, Neal Brennan"
+      },
+      {
+        "id": "734",
+        "content_type": "tv_shows",
+        "title": "Magnum",
+        "synopsis": "Thomas Magnum é um ex-militar e veterano de operações especiais que se torna um investigador particular no Havaí. Com uma personalidade descontraída e um instinto afiado para desvendar casos complexos, Magnum utiliza suas habilidades únicas para resolver crimes enquanto desfruta da vida na bela ilha. Auxiliado por seus amigos leais, Rick e T.C., e sob a supervisão da rigorosa Higgins, Magnum desvenda enigmas, desafia perigos e mergulha em um mundo de intriga, ação e surpresas inesperadas.",
+        "gender": "Ação",
+        "main_cast": [
+          "Tom Selleck",
+          "John Hillerman",
+          "Roger E. Mosley",
+          "Larry Manetti"
+        ],
+        "release_year": 1980,
+        "banner": "https://image.tmdb.org/t/p/original/jkxAIDbDfXrptT9Ab6iKnXjAqEV.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 8,
+        "num_episodes": 162,
+        "creator": "Donald P. Bellisario, Glen A. Larson"
+      },
+      {
+        "id": "735",
+        "content_type": "tv_shows",
+        "title": "Os Pesadelos de Molly",
+        "synopsis": "Aos 15 anos, Molly Stage poderia ser uma adolescente normal, se não fosse pelo fato da garota morar numa casa com mais oito pessoas, todas elas loucas. A mãe, Mary, é sovina e tem por hábito chamar as crianças para jantar usando um sino de vaca. O pai Jerry sempre exagera na dose ao treinar o time de futebol feminino. Sua avó costuma esconder comida pela casa e repete várias vezes a mesma pergunta. Suas irmãs gêmeas Mindy e Cindy são terríveis e vivem brigando. Seus irmãos são bem diferentes: Grant quer ser um astro da música gospel, enquanto Rick está iniciando uma vida de pequenos crimes. Molly tem que administrar a vida social na escola e com os parentes que vivem colocando-a em situações embaraçosas.",
+        "gender": "Comédia",
+        "main_cast": [
+          "Reagan Dale Neis",
+          "Fred Willard",
+          "Julia Sweeney",
+          "Vicki Davis",
+          "Dabbs Greer"
+        ],
+        "release_year": 2001,
+        "banner": "https://image.tmdb.org/t/p/original/bSLoAsTk5AEI2UFEkRFCWDp2Iuz.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 1,
+        "num_episodes": 22,
+        "creator": "Suzanne Martin"
+      },
+      {
+        "id": "739",
+        "content_type": "tv_shows",
+        "title": "Operação Acapulco",
+        "synopsis": "Ashley Hunter-Coddington é uma ex-agente do MI6 que resolve formar com Mike Savage a organização H.E.A.T.. O grupo se fixa em Puerto Vallarta e recruta um time de especialistas que trabalha secretamente para as Nações Unidas, tendo Sr. Smith como contato. Eles passam a operar ao longo do Caribe e ao redor do mundo encobertos como donos e modelos de uma companhia de moda, especializada em roupas de praia.",
+        "gender": "Drama",
+        "main_cast": [
+          "Alison Armitage",
+          "Michael Worth",
+          "Christa Sauls",
+          "Lydie Denier"
+        ],
+        "release_year": 1993,
+        "banner": "https://image.tmdb.org/t/p/original/xh688GLiHihEqmf2yyBwmgcBOv5.jpg",
+        "where_to_watch": [],
+        "rating": 0,
+        "num_seasons": 2,
+        "num_episodes": 48,
+        "creator": "Max A. Keller, Micheline H. Keller"
+      },
+      {
+        "id": "aaa77a7e-ee0a-45e8-b711-adac989646f6",
+        "content_type": "movies",
+        "title": "Carros 2",
+        "synopsis": "O astro das corridas, Relâmpago McQueen, e o carro-guincho, Mate, viajam para disputar o primeiro Grand Prix Mundial, que irá revelar o carro mais veloz do planeta. Nessa jornada imperdível, Mate se envolve com um grupo de espionagem e vive grandes aventuras com seus amigos e colegas.",
+        "gender": "Comédia",
+        "main_cast": [
+          "John Lasseter, Owen Wilson"
+        ],
+        "release_year": 2011,
+        "banner": "https://i.pinimg.com/564x/50/67/57/506757c5da780cef2bd7356752383bc3.jpg",
+        "where_to_watch": [
+          "Disney +"
+        ],
+        "rating": 0,
+        "duration": 112,
+        "director": "Brad Lewis, John Lasseter"
+      },
+      {
+        "id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
+        "content_type": "movies",
+        "title": "Interestelar",
+        "synopsis": "As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.",
+        "gender": "Aventura",
+        "main_cast": [
+          "Matthew McConaughey, Anne Hathaway"
+        ],
+        "release_year": 2014,
+        "banner": "https://media.themoviedb.org/t/p/original/nCbkOyOMTEwlEV0LtCOvCnwEONA.jpg",
+        "where_to_watch": [
+          "Prime Video"
+        ],
+        "rating": 0,
+        "duration": 169,
+        "director": "Christopher Nolan"
+      }
+    ],
+    "user": [
+      {
+        "full_name": "Clebson hahaha",
+        "username": "Carlos33",
+        "email": "jcso@gmail.com",
+        "password": "Clebson123",
+        "birth_date": "10/10/2001",
+        "phone_number": "333311115",
+        "profile_picture": "https://avatar.iran.liara.run/public/boy",
+        "address": "Sao Paulo",
+        "gender": "masc",
+        "pass_token": "string",
+        "is_private": false,
+        "followers": [],
+        "following": [
+          "clebson",
+          "clebson"
+        ],
+        "follow_requests": [],
+        "assistidos": [],
+        "quero_assistir": [],
+        "abandonados": [],
+        "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
+      },
+      {
+        "full_name": "Roberto",
+        "username": "roca",
+        "email": "roca@cin.ufpe.br",
+        "password": "Senha123",
+        "birth_date": "2001-10-10",
+        "phone_number": "81995378843",
+        "address": "RUA BELÉM SÃO FRANCISCO, 635",
+        "gender": "masculino",
+        "profile_picture": "https://avatar.iran.liara.run/public/boy",
+        "pass_token": null,
+        "is_private": false,
+        "followers": [
+          "Souza",
+          "Souza"
+        ],
+        "following": [],
+        "follow_requests": [],
+        "assistidos": [],
+        "quero_assistir": [],
+        "abandonados": [],
+        "id": "dadda-dfda-4bfeasd-8ffd-a7d7c9d4d"
+      },
+      {
+        "full_name": "admin",
+        "username": "admin",
+        "email": "admin@gmail.com",
+        "password": "Admin123",
+        "birth_date": "10/10/2001",
+        "phone_number": "5656565",
+        "profile_picture": "string",
+        "address": "admin",
+        "gender": "masc",
+        "pass_token": "string",
+        "is_private": true,
+        "followers": [],
+        "following": [
+          "clebson",
+          "clebson"
+        ],
+        "follow_requests": [],
+        "assistidos": [],
+        "quero_assistir": [],
+        "abandonados": [],
+        "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
+      },
+      {
+        "full_name": "Edson",
+        "username": "edsonneto8",
+        "email": "emn2@cin.ufpe.br",
+        "password": "Edson123",
+        "birth_date": "10/10/2001",
+        "phone_number": "5656565",
+        "profile_picture": "string",
+        "address": "emn2",
+        "gender": "masc",
+        "pass_token": "string",
+        "is_private": true,
+        "followers": [],
+        "following": [
+          "clebson",
+          "clebson"
+        ],
+        "follow_requests": [],
+        "assistidos": [
+          {
+            "id": "734",
+            "content_type": "tv_shows",
+            "title": "Magnum",
+            "synopsis": "Thomas Magnum é um ex-militar e veterano de operações especiais que se torna um investigador particular no Havaí. Com uma personalidade descontraída e um instinto afiado para desvendar casos complexos, Magnum utiliza suas habilidades únicas para resolver crimes enquanto desfruta da vida na bela ilha. Auxiliado por seus amigos leais, Rick e T.C., e sob a supervisão da rigorosa Higgins, Magnum desvenda enigmas, desafia perigos e mergulha em um mundo de intriga, ação e surpresas inesperadas.",
+            "gender": "Ação",
             "main_cast": [
-                "Matthew McConaughey",
-                "Anne Hathaway",
-                "Jessica Chastain"
+              "Tom Selleck",
+              "John Hillerman",
+              "Roger E. Mosley",
+              "Larry Manetti"
+            ],
+            "release_year": 1980,
+            "banner": "https://image.tmdb.org/t/p/original/jkxAIDbDfXrptT9Ab6iKnXjAqEV.jpg",
+            "where_to_watch": [],
+            "rating": 0,
+            "num_seasons": 8,
+            "num_episodes": 162,
+            "creator": "Donald P. Bellisario, Glen A. Larson"
+          }
+        ],
+        "quero_assistir": [],
+        "abandonados": [],
+        "id": "9d594de9-c868-41ce-bc37-315b1d3ab4"
+      },
+      {
+        "full_name": "Jose Clebson de Souza Oliveira",
+        "username": "clebson",
+        "email": "einstein44@mail.com",
+        "password": "@Clebson1",
+        "birth_date": "2001-10-10",
+        "phone_number": "81995378843",
+        "address": "RUA BELÉM SÃO FRANCISCO, 635",
+        "gender": "masculino",
+        "profile_picture": "https://avatar.iran.liara.run/public/boy",
+        "pass_token": null,
+        "is_private": false,
+        "followers": [
+          "Souza",
+          "Souza"
+        ],
+        "following": [],
+        "follow_requests": [],
+        "assistidos": [],
+        "quero_assistir": [],
+        "abandonados": [],
+        "id": "da93b947-8b1b-4bfe-8ffd-a7a17d7c9d4d"
+      },
+      {
+        "full_name": "Maria do carmo",
+        "username": "joao",
+        "email": "joao@outlook.com",
+        "password": "@Clebson1",
+        "birth_date": "2001-10-10",
+        "phone_number": "45754754745",
+        "profile_picture": null,
+        "address": "RUA BELÉM SÃO FRANCISCO, 635",
+        "gender": "masculino",
+        "pass_token": null,
+        "is_private": false,
+        "followers": [],
+        "following": [],
+        "follow_requests": [],
+        "assistidos": [
+          {
+            "id": "734",
+            "content_type": "tv_shows",
+            "title": "Magnum",
+            "synopsis": "Thomas Magnum é um ex-militar e veterano de operações especiais que se torna um investigador particular no Havaí. Com uma personalidade descontraída e um instinto afiado para desvendar casos complexos, Magnum utiliza suas habilidades únicas para resolver crimes enquanto desfruta da vida na bela ilha. Auxiliado por seus amigos leais, Rick e T.C., e sob a supervisão da rigorosa Higgins, Magnum desvenda enigmas, desafia perigos e mergulha em um mundo de intriga, ação e surpresas inesperadas.",
+            "gender": "Ação",
+            "main_cast": [
+              "Tom Selleck",
+              "John Hillerman",
+              "Roger E. Mosley",
+              "Larry Manetti"
+            ],
+            "release_year": 1980,
+            "banner": "https://image.tmdb.org/t/p/original/jkxAIDbDfXrptT9Ab6iKnXjAqEV.jpg",
+            "where_to_watch": [],
+            "rating": 0,
+            "num_seasons": 8,
+            "num_episodes": 162,
+            "creator": "Donald P. Bellisario, Glen A. Larson"
+          }
+        ],
+        "quero_assistir": [
+          {
+            "id": "735",
+            "content_type": "tv_shows",
+            "title": "Os Pesadelos de Molly",
+            "synopsis": "Aos 15 anos, Molly Stage poderia ser uma adolescente normal, se não fosse pelo fato da garota morar numa casa com mais oito pessoas, todas elas loucas. A mãe, Mary, é sovina e tem por hábito chamar as crianças para jantar usando um sino de vaca. O pai Jerry sempre exagera na dose ao treinar o time de futebol feminino. Sua avó costuma esconder comida pela casa e repete várias vezes a mesma pergunta. Suas irmãs gêmeas Mindy e Cindy são terríveis e vivem brigando. Seus irmãos são bem diferentes: Grant quer ser um astro da música gospel, enquanto Rick está iniciando uma vida de pequenos crimes. Molly tem que administrar a vida social na escola e com os parentes que vivem colocando-a em situações embaraçosas.",
+            "gender": "Comédia",
+            "main_cast": [
+              "Reagan Dale Neis",
+              "Fred Willard",
+              "Julia Sweeney",
+              "Vicki Davis",
+              "Dabbs Greer"
+            ],
+            "release_year": 2001,
+            "banner": "https://image.tmdb.org/t/p/original/bSLoAsTk5AEI2UFEkRFCWDp2Iuz.jpg",
+            "where_to_watch": [],
+            "rating": 0,
+            "num_seasons": 1,
+            "num_episodes": 22,
+            "creator": "Suzanne Martin"
+          }
+        ],
+        "abandonados": [
+          {
+            "id": "713",
+            "content_type": "tv_shows",
+            "title": "Chappelle's Show",
+            "synopsis": "Chappelle's Show é uma série de televisão de comédia em quadrinhos criada pelos comediantes Dave Chappelle e Neal Brennan, com Chappelle apresentando o programa e estrelando vários desenhos. Chappelle, Brennan e Michele Armour foram os produtores executivos do programa. A série estreou em 22 de janeiro de 2003, na rede de televisão a cabo americana Comedy Central. O show durou duas temporadas completas e uma terceira temporada truncada.\n\nApós numerosos atrasos, a produção da terceira temporada do programa terminou abruptamente quando Chappelle deixou o programa. Três episódios foram compilados a partir do trabalho concluído e esses episódios foram ao ar de 9 de julho a 23 de julho de 2006. Repete frequentemente o ar na Comedy Central e ao redor do mundo na MTV na Alemanha, Comedy Central no Brasil, The Comedy Network no Canadá, The Comedy Channel e 7mate na Austrália e FX no Reino Unido.\n\nO Chappelle's Show também foi exibido na WGN America e foi distribuído em várias estações de televisão nos EUA, incluindo MyNetworkTV. O TV Guide classificou em 31º lugar na lista dos \"100 melhores programas da TV\".",
+            "gender": "Comédia",
+            "main_cast": [
+              "Dave Chappelle"
+            ],
+            "release_year": 2003,
+            "banner": "https://image.tmdb.org/t/p/original/aHpTmNU2wLHokoVpzcnh2VQBJOI.jpg",
+            "where_to_watch": [],
+            "rating": 0,
+            "num_seasons": 3,
+            "num_episodes": 28,
+            "creator": "Dave Chappelle, Neal Brennan"
+          }
+        ],
+        "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"
+      },
+      {
+        "full_name": "Gustavo",
+        "username": "gusta",
+        "email": "gusta@gmail.com",
+        "password": "Senha123",
+        "birth_date": "string",
+        "phone_number": "7788990011",
+        "profile_picture": "https://i.pravatar.cc/250",
+        "address": "string",
+        "gender": "string",
+        "pass_token": "string",
+        "is_private": false,
+        "followers": [],
+        "following": [],
+        "follow_requests": [],
+        "assistidos": [
+          {
+            "id": "292177",
+            "content_type": "movies",
+            "title": "My Little Pony, Equestria Girls: Rainbow Rocks",
+            "synopsis": "Canterlot High será palco de um show musical e Rainbow Dash, Applejack, Pinkie Pie, Rarity, e Fluttershy vão se apresentar com sua banda, a The Rainbooms.",
+            "gender": "Família",
+            "main_cast": [
+              "Tara Strong",
+              "Ashleigh Ball",
+              "Andrea Libman",
+              "Tabitha St. Germain",
+              "Cathy Weseluck"
             ],
             "release_year": 2014,
-            "banner": "https://waltermattos.com/site2/wp-content/uploads/2014/11/tut_Analise_Grafica_Cartaz_Interstellar_05_011.png",
-            "where_to_watch": [
-                "Amazon Prime Video",
-                "Telecine Play"
-            ],
-            "rating": 10.0,
-            "duration": 169,
-            "director": "Christopher Nolan"
-        },
-        {
-            "id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
-            "content_type": "tv_shows",
-            "title": "The Big Bang Theory",
-            "synopsis": "string",
-            "gender": "string",
-            "main_cast": [
-                "string"
-            ],
-            "release_year": 0,
-            "banner": "https://upload.wikimedia.org/wikipedia/pt/9/9a/Big-bang-theory_Temporada_12_poster.jpg",
+            "banner": "https://image.tmdb.org/t/p/original/xcSrR4HXHsFXqjAg8nY7y6JMAG4.jpg",
             "where_to_watch": [],
-            "rating": 0.0,
-            "num_seasons": 0,
-            "num_episodes": 0,
-            "creator": "string"
-        },
-        {
-            "id": "a7239a83-a7ed-48ac-b889-ccdb3117e8e",
-            "content_type": "movies",
-            "title": "Batman",
-            "synopsis": "string",
-            "gender": "string",
-            "main_cast": [
-                "string"
-            ],
-            "release_year": 0,
-            "banner": "https://cdn.awsli.com.br/2500x2500/1610/1610163/produto/177680308/poster-batman-o-cavaleiro-das-trevas-e-90b14a9e.jpg",
-            "where_to_watch": [],
-            "rating": 0.0,
-            "duration": 0,
-            "director": "string"
-        },
-        {
-            "id": "ef13f843-c3d5-4766-8c90-7471945337a2",
-            "content_type": "tv_shows",
-            "title": "Breaking Bad",
-            "synopsis": "O professor de qu\u00edmica Walter White n\u00e3o acredita que sua vida possa piorar ainda mais. Quando descobre que tem c\u00e2ncer terminal, Walter decide arriscar tudo para ganhar dinheiro enquanto pode, transformando sua van em um laborat\u00f3rio de metanfetamina.",
-            "gender": "Drama",
-            "main_cast": [
-                "Bryan Cranston "
-            ],
-            "release_year": 2008,
-            "banner": "https://upload.wikimedia.org/wikipedia/pt/e/e1/Breaking_bad_5_temporada_%28parte_1%29_poster.jpg",
-            "where_to_watch": [
-                "Netflix"
-            ],
-            "rating": 0.0,
-            "num_seasons": 5,
-            "num_episodes": 62,
-            "creator": "Vince Gilligan"
-        }
+            "rating": 0,
+            "duration": 75,
+            "director": "Ishi Rudell"
+          }
+        ],
+        "quero_assistir": [],
+        "abandonados": [],
+        "id": "5b73aee5-73c7-4e00-a307-0df63f1e85fe"
+      }
     ],
-    "user": [],
-    "posts": [],
+    "posts": [
+      {
+        "id": "0001",
+        "title": "Melhores filmes de 2024",
+        "author": "edsonneto8",
+        "content": "Duna e Pobres Criaturas são os melhores filmes do ano!",
+        "num_likes": "0",
+        "users_who_liked": [],
+        "num_comments": "0",
+        "comments": [],
+        "topic": "Filmes",
+        "posted": "today"
+      }
+    ],
     "reviews": [
-        {
-            "title": "Interstellar \u00e9 \u00f3timo",
-            "report": "Melhor filme que j\u00e1 vi",
-            "rating": 10.0,
-            "username": "edsonneto8",
-            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
-            "content_type": "movies"
-        },
-        {
-            "title": "P\u00e9ssimo filme",
-            "report": "N\u00e3o me convenceu",
-            "rating": 4.0,
-            "username": "thrpg",
-            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
-            "content_type": "movies"
-        },
-        {
-            "title": "ok",
-            "report": "ok",
-            "rating": 7.0,
-            "username": "roca",
-            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
-            "content_type": "movies"
-        },
-        {
-            "title": "Bom filme",
-            "report": "um bom filme",
-            "rating": 10.0,
-            "username": "vps3",
-            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
-            "content_type": "movies"
-        },
-        {
-            "title": "EXCELENTE",
-            "report": "excelente filme",
-            "rating": 10.0,
-            "username": "rod",
-            "content_id": "a7239a83-a7ed-48ac-b889-ccadb3117e8e",
-            "content_type": "movies"
-        }
+      {
+        "title": "Excelente filme",
+        "report": "Ótima animação!",
+        "rating": 10,
+        "username": "edsonneto8",
+        "content_id": "aaa77a7e-ee0a-45e8-b711-adac989646f6",
+        "content_type": "movies"
+      },
+      {
+        "title": "Muito engraçado",
+        "report": "Ice Cube + Kevin Hart = s2",
+        "rating": 10,
+        "username": "edsonneto8",
+        "content_id": "323675",
+        "content_type": "movies"
+      },
+      {
+        "title": "Melhor filme da história",
+        "report": "Sem palavras.",
+        "rating": 10,
+        "username": "thrpg",
+        "content_id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
+        "content_type": "movies"
+      },
+      {
+        "title": "Bom filme",
+        "report": "Dan Brown é um grande escritor",
+        "rating": 8,
+        "username": "edsonneto8",
+        "content_id": "207932",
+        "content_type": "movies"
+      },
+      {
+        "title": "Prende a atenção",
+        "report": "Gostei",
+        "rating": 8,
+        "username": "edsonneto8",
+        "content_id": "281338",
+        "content_type": "movies"
+      },
+      {
+        "title": "titulo massa",
+        "report": "muito massa",
+        "rating": 10,
+        "username": "gusta",
+        "content_id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
+        "content_type": "movies"
+      }
     ]
-}
+  }

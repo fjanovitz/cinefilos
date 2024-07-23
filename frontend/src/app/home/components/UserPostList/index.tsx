@@ -26,7 +26,7 @@ const UserPostList = ( {username}) => {
             {posts.map((post) => (
                 <div key={post.id} className={styles.postContainer}>
                     <Link to={`/forum/post/${post.id}`} className={styles.link}>
-                        <h2 className={styles.postTitle}>{post.title}</h2>
+                        <h2 className={styles.postTitle} data-cy={`post-title-${post.id}`} >{post.title}</h2>
                     </Link>
                     <p className={styles.postContent}>{post.content}</p>
                     <p className={styles.postDate}>{post.date}</p>

@@ -29,6 +29,15 @@ Scenario: Remove content from category
     And the user clicks the "quero_assistir_option" option
     Then the movie with id "292177" is not on the page
 
+Scenario: Adding content to category
+    Given the user is logged in as "gusta"
+    And the user logged to the page "contents/movies"
+    When the user clicks the "options_button" button for the movie with id "292177"
+    And the user clicks the "assistidos_option" option
+    And the user is on its profile
+    And the user is on the "watch_list_tab" tab
+    Then the movie with id "292177" is on the page
+
 Scenario: Trying to add content to category not logged in
     Given the user is on the page "contents/movies"
     And the user is not logged in

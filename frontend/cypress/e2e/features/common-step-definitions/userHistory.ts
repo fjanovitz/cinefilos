@@ -54,3 +54,18 @@ Then(
         cy.getDataCy(content_id).should('not.exist');
     }
 )
+
+Then(
+    "there is a post with id {string} and title {string}",
+    (post_id: string, title: string) => {
+        cy.getDataCy(`post-title-${post_id}`).should('exist');
+        cy.getDataCy(`post-title-${post_id}`).should('have.text', title);
+    }
+)
+
+Then(
+    "the user is now on the {string} tab",
+    (profileTab: string) => {
+        cy.getDataCy(profileTab).should('exist');
+    }
+)

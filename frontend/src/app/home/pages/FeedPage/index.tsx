@@ -5,19 +5,22 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Post } from "../../models/ForumInterface";
 import MainButton from "../../components/MainButton/MainButton";
+import { set } from "react-hook-form";
 
 const FeedPage = () => {
   const { user, saveUser } = useContext(UserContext);
   const [posts, setPosts] = useState<Post[]>([]);
-  const {topic: searchTopic} = useParams();
+
+  const [search, setSearch] = useState('');
 
   const loadPosts = async () => {
+
     try {
-      // Check if searchTopic exists and is not an empty string
-      if (searchTopic && searchTopic.trim() !== "") {
-        const response = await api.get(`forum/search/${searchTopic}`);
+      if (search !== "") {
+        const response = await api.get(`forum/search/${search}`);
         const posts = response.data;
         setPosts(posts);
+        console.log(posts);
       } else {
         const response = await api.get('forum/feed');
         const posts = response.data;
@@ -35,11 +38,12 @@ const FeedPage = () => {
   return (
     <div className={styles.feedContainer}>
       <div className={styles.header}>
-        <Link
-          to={`/forum/search/`}
-        >
-          <MainButton text={"Pesquisar"}/>
-        </Link>
+        <input
+            name="search"
+            onChange={(e) => setSearch(e.target.value)}
+            className={styles.searchBar}
+        />
+        <MainButton text={"Pesquisar"} onClick={loadPosts} />
         <Link
           to={`/forum/newpost`}
         >

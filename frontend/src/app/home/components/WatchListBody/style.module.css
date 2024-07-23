@@ -1,5 +1,9 @@
 .contentCategoryList {
     width: 100%;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    gap: 0 1.5rem;
+    padding: 0 1.75rem;
+    height: 100%;
+    overflow-y: scroll;
 }

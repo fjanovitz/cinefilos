@@ -17,7 +17,7 @@ const UserProfilePage = () => {
         {selectedTab === 'Reviews' && <UserReviewList username={username}/>}
         {selectedTab === 'Posts' && <div>Posts content here</div>}
         {selectedTab === 'WatchList' && 
-          <div>
+          <div className={styles.watchListSection}>
             <WatchListBody />
           </div>
         }

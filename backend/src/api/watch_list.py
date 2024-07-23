@@ -24,7 +24,7 @@ async def get_category_list(username: str, category: str):
 
     return category_result
 
-@router.get("/user/{username}", status_code = 200, tags = ["watch_list"], response_model = Dict[str, str])
+@router.get("/user/categories/{username}", status_code = 200, tags = ["watch_list"], response_model = Dict[str, str])
 async def get_categories_dictionary(username: str):
     categories_list = WatchListService.get_categories_list(username)
 

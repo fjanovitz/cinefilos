@@ -18,7 +18,12 @@ interface Content {
     director: string;
 }
 
-const ContentListView = ( { content_type }) => {
+type listProps = {
+    content_type: string,
+    button_above: boolean
+}
+
+const ContentListView: React.FC<listProps> = ( { content_type, button_above = false } ) => {
     const [contents, setContents] = useState<Content[]>(() => { return [] as Content[]; });
     const [categories, setCategories] = useState<{[fieldName: string]: string}>({});
     const {user, saveUser} = useContext(UserContext);
@@ -41,9 +46,8 @@ const ContentListView = ( { content_type }) => {
 
     const userCategories = async () => {
         try {
-            console.log(user?.username != undefined);
             if(user?.username != undefined){
-                const response = await api.get(`/watch_list/user/${user?.username}`);
+                const response = await api.get(`/watch_list/user/categories/${user?.username}`);
                 setCategories(response.data);
             }
         } catch(error) {
@@ -81,9 +85,9 @@ const ContentListView = ( { content_type }) => {
     }, [content_type]);
   
   return (
-    <section className={styles.sectionContainer}>
+    <section className={`${styles.sectionContainer} ${(button_above) ? '' : styles.collapsedHeight}`}>
         <Container style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
-            <Row className="g-4" style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
+            <Row className={'g-4 ' + styles.rowClass} style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
                     {contents.map(
                         ({
                             id,

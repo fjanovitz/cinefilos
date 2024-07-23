@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from "./HeaderUserProfile.module.css";
 import { useParams } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 
 const HeaderUserProfile = ({ onTabChange }) => {
     const { username } = useParams();
@@ -21,11 +22,11 @@ const HeaderUserProfile = ({ onTabChange }) => {
                     <h1>{username}</h1>
                 </div>
                 <nav className={styles.headerNav}>
-                    <button className={selectedTab === 'Reviews' ? styles.buttonSelected : styles.buttonS}
+                    <button data-cy="reviews_tab" className={selectedTab === 'Reviews' ? styles.buttonSelected : styles.buttonS}
                             onClick={() => handleTabChange('Reviews')}>
                             Reviews
                     </button>
-                    <button className={selectedTab === 'Posts' ? styles.buttonSelected : styles.buttonS}
+                    <button data-cy="posts_tab" className={selectedTab === 'Posts' ? styles.buttonSelected : styles.buttonS}
                             onClick={() => handleTabChange('Posts')}>
                             Posts
                     </button>

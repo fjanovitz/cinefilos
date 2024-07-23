@@ -1,16 +1,17 @@
 .container {
     display: flex;
-    background-color: #f8f9fa; 
+    background-color: white; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border-radius: 8px; 
     flex-direction: row;
     float: left;
     width: 100%;
+    padding: 0 1rem;
 }
 
 .reviewContainer {
-    padding: 10px;
-    background-color: #f8f9fa;
+    padding: 1rem 1.5rem;
+    background-color: white;
     border-radius: 8px;
     flex: 2;
     display: flex;

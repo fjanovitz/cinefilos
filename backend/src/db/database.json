@@ -2181,6 +2181,96 @@
       "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
     },
     {
+      "full_name": "Roberto",
+      "username": "roca",
+      "email": "roca@cin.ufpe.br",
+      "password": "Senha123",
+      "birth_date": "2001-10-10",
+      "phone_number": "81995378843",
+      "address": "RUA BELÉM SÃO FRANCISCO, 635",
+      "gender": "masculino",
+      "profile_picture": "https://avatar.iran.liara.run/public/boy",
+      "pass_token": null,
+      "is_private": false,
+      "followers": [
+        "Souza",
+        "Souza"
+      ],
+      "following": [],
+      "follow_requests": [],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "dadda-dfda-4bfeasd-8ffd-a7d7c9d4d"
+    },
+    {
+      "full_name": "admin",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "Admin123",
+      "birth_date": "10/10/2001",
+      "phone_number": "5656565",
+      "profile_picture": "string",
+      "address": "admin",
+      "gender": "masc",
+      "pass_token": "string",
+      "is_private": true,
+      "followers": [],
+      "following": [
+        "clebson",
+        "clebson"
+      ],
+      "follow_requests": [],
+      "assistidos": [],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "9d594de9-c868-41ce-bc37-315b1d3a25b4"
+    },
+    {
+      "full_name": "Edson",
+      "username": "edsonneto8",
+      "email": "emn2@cin.ufpe.br",
+      "password": "Edson123",
+      "birth_date": "10/10/2001",
+      "phone_number": "5656565",
+      "profile_picture": "string",
+      "address": "emn2",
+      "gender": "masc",
+      "pass_token": "string",
+      "is_private": true,
+      "followers": [],
+      "following": [
+        "clebson",
+        "clebson"
+      ],
+      "follow_requests": [],
+      "assistidos": [
+        {
+          "id": "734",
+          "content_type": "tv_shows",
+          "title": "Magnum",
+          "synopsis": "Thomas Magnum é um ex-militar e veterano de operações especiais que se torna um investigador particular no Havaí. Com uma personalidade descontraída e um instinto afiado para desvendar casos complexos, Magnum utiliza suas habilidades únicas para resolver crimes enquanto desfruta da vida na bela ilha. Auxiliado por seus amigos leais, Rick e T.C., e sob a supervisão da rigorosa Higgins, Magnum desvenda enigmas, desafia perigos e mergulha em um mundo de intriga, ação e surpresas inesperadas.",
+          "gender": "Ação",
+          "main_cast": [
+            "Tom Selleck",
+            "John Hillerman",
+            "Roger E. Mosley",
+            "Larry Manetti"
+          ],
+          "release_year": 1980,
+          "banner": "https://image.tmdb.org/t/p/original/jkxAIDbDfXrptT9Ab6iKnXjAqEV.jpg",
+          "where_to_watch": [],
+          "rating": 0,
+          "num_seasons": 8,
+          "num_episodes": 162,
+          "creator": "Donald P. Bellisario, Glen A. Larson"
+        }
+      ],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "9d594de9-c868-41ce-bc37-315b1d3ab4"
+    },
+    {
       "full_name": "Jose Clebson de Souza Oliveira",
       "username": "clebson",
       "email": "clebsonsouza55@outlook.com",
@@ -2283,6 +2373,47 @@
         }
       ],
       "id": "32ea2a9f-4cfc-4d46-a9c4-0b2b9bdfcce5"
+    },
+    {
+      "full_name": "Gustavo",
+      "username": "gusta",
+      "email": "gusta@gmail.com",
+      "password": "Senha123",
+      "birth_date": "string",
+      "phone_number": "7788990011",
+      "profile_picture": "https://i.pravatar.cc/250",
+      "address": "string",
+      "gender": "string",
+      "pass_token": "string",
+      "is_private": false,
+      "followers": [],
+      "following": [],
+      "follow_requests": [],
+      "assistidos": [
+        {
+          "id": "292177",
+          "content_type": "movies",
+          "title": "My Little Pony, Equestria Girls: Rainbow Rocks",
+          "synopsis": "Canterlot High será palco de um show musical e Rainbow Dash, Applejack, Pinkie Pie, Rarity, e Fluttershy vão se apresentar com sua banda, a The Rainbooms.",
+          "gender": "Família",
+          "main_cast": [
+            "Tara Strong",
+            "Ashleigh Ball",
+            "Andrea Libman",
+            "Tabitha St. Germain",
+            "Cathy Weseluck"
+          ],
+          "release_year": 2014,
+          "banner": "https://image.tmdb.org/t/p/original/xcSrR4HXHsFXqjAg8nY7y6JMAG4.jpg",
+          "where_to_watch": [],
+          "rating": 0,
+          "duration": 75,
+          "director": "Ishi Rudell"
+        }
+      ],
+      "quero_assistir": [],
+      "abandonados": [],
+      "id": "5b73aee5-73c7-4e00-a307-0df63f1e85fe"
     }
   ],
   "posts": [
@@ -2338,6 +2469,14 @@
       "rating": 8,
       "username": "edsonneto8",
       "content_id": "281338",
+      "content_type": "movies"
+    },
+    {
+      "title": "titulo massa",
+      "report": "muito massa",
+      "rating": 10,
+      "username": "gusta",
+      "content_id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
       "content_type": "movies"
     }
   ]

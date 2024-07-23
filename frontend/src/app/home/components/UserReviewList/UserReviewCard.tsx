@@ -1,11 +1,12 @@
 import { Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./UserReviewCard.module.css";
 import api from "/src/services/api";
 import ContentCard from "../ContentListView/ContentCard";
 import StarRating from "../StarRating/StarRating";
 import { AxiosError } from "axios";
+import { UserContext } from "../../context/UserContext";
 
 type UserReviewCardProps = {
   content_id: string;
@@ -43,6 +44,7 @@ interface Review {
 const UserReviewCard: React.FC<UserReviewCardProps> = ({ content_id, content_type, username }) => {
   const [content, setContent] = useState<Content[]>(() => { return [] as Content[]; });
   const [review, setReview] = useState<Review[]>(() => { return [] as Review[]; });
+  const { user, saveUser } = useContext(UserContext);
 
   const loadUserReview = async () => {
       try {
@@ -121,22 +123,24 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({ content_id, content_typ
                 style={{ marginTop: '0', color: '#495057', marginRight: '10px' }}>
                 {review.title}
             </h2>
-            <div className = {styles.updateDeleteContainer}>
-            <Link to={`/profile/${username}/${content?.content_type}/${content?.title}/update_review`}>
-              <button 
-                className = {styles.updateButton} 
-                onClick={handleUpdate}
-                data-cy={`update-review-button-${content_type}-${content_id}`}>
-                  Atualizar Avaliação
-              </button>
-            </Link>
-              <button 
-                className = {styles.deleteButton} 
-                onClick={handleDelete}
-                data-cy={`delete-review-button-${content_type}-${content_id}`}>
-                  Excluir Avaliação
-              </button>
-            </div>
+            {user?.username === username && (
+              <div className = {styles.updateDeleteContainer}>
+              <Link to={`/profile/${username}/${content?.content_type}/${content?.title}/update_review`}>
+                <button 
+                  className = {styles.updateButton} 
+                  onClick={handleUpdate}
+                  data-cy={`update-review-button-${content_type}-${content_id}`}>
+                    Atualizar Avaliação
+                </button>
+              </Link>
+                <button 
+                  className = {styles.deleteButton} 
+                  onClick={handleDelete}
+                  data-cy={`delete-review-button-${content_type}-${content_id}`}>
+                    Excluir Avaliação
+                </button>
+              </div>
+            )}
           </div>
           <StarRating rating={review.rating} />
           <p 

@@ -2244,7 +2244,28 @@
         "clebson"
       ],
       "follow_requests": [],
-      "assistidos": [],
+      "assistidos": [
+        {
+          "id": "734",
+          "content_type": "tv_shows",
+          "title": "Magnum",
+          "synopsis": "Thomas Magnum é um ex-militar e veterano de operações especiais que se torna um investigador particular no Havaí. Com uma personalidade descontraída e um instinto afiado para desvendar casos complexos, Magnum utiliza suas habilidades únicas para resolver crimes enquanto desfruta da vida na bela ilha. Auxiliado por seus amigos leais, Rick e T.C., e sob a supervisão da rigorosa Higgins, Magnum desvenda enigmas, desafia perigos e mergulha em um mundo de intriga, ação e surpresas inesperadas.",
+          "gender": "Ação",
+          "main_cast": [
+            "Tom Selleck",
+            "John Hillerman",
+            "Roger E. Mosley",
+            "Larry Manetti"
+          ],
+          "release_year": 1980,
+          "banner": "https://image.tmdb.org/t/p/original/jkxAIDbDfXrptT9Ab6iKnXjAqEV.jpg",
+          "where_to_watch": [],
+          "rating": 0,
+          "num_seasons": 8,
+          "num_episodes": 162,
+          "creator": "Donald P. Bellisario, Glen A. Larson"
+        }
+      ],
       "quero_assistir": [],
       "abandonados": [],
       "id": "9d594de9-c868-41ce-bc37-315b1d3ab4"

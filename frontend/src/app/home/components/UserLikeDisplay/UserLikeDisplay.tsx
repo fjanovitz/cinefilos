@@ -8,11 +8,12 @@ interface UserLikeDisplayProps {
 const UserLikeDisplay: React.FC<UserLikeDisplayProps> = ({username}) => {
     return (
         <div style={{
-            border: '1px solid black',
-            padding: '10px',
-            margin: '10px',
-            borderRadius: '5px',
-            backgroundColor: '#ccc'
+            display: 'flex',
+            alignItems: 'center',
+            height: '40px',
+            padding: '35px',
+            backgroundColor: '#fff',
+            fontSize: '20px'
         }}>
             <Link
                 to={{

@@ -5,14 +5,14 @@ import styles from './index.module.css';
 
 const LikesPage = ({userList}) => {
   // const users = userList;
-  const users = ['fjn', 'roca', 'emn2', 'ersa', 'kam'];
+  const users = ['fjn', 'roca', 'emn2', 'ersa', 'kam', 'roca', 'emn2', 'ersa', 'kam'];
 
   return (
     <div className={styles.pageContainer}>
         <h1>Usuários que Curtiram</h1>
         <div className={styles.container}>
             {users.map((user, index) => (
-                <div key={index} style={{ borderBottom: '1px solid #000', padding: '10px' }}>
+                <div key={index} style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>
                     <UserLikeDisplay 
                         username={user}
                     />

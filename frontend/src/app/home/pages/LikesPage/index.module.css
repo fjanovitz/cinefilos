@@ -14,20 +14,13 @@ html, body {
 }  
 
 .container {
-    display: flex;
+    width: 1000px;
+    height: 75vh;
     gap: 20px;
     background-color: #ffffff; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border-radius: 8px; 
-    overflow: hidden; 
-}
-  
-.banner img {
-    width: 100%;
-    padding: 20;
-    max-width: 500px; 
-    height: auto; 
-    object-fit: cover; 
+    overflow-y: scroll; 
 }
   
 .contentDetails {
@@ -78,21 +71,6 @@ html, body {
     align-items: center; 
 }
   
-.reviewRating {
-    margin-left: 10px; 
-    color: #007BFF; 
-}
-  
-.reviewText {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333; 
-}
-  
-.title {
-    flex: 1;
-}
-  
 .reviewAuthorContainer {
     display: flex;
     align-items: center;
@@ -128,16 +106,6 @@ html, body {
     margin-right: 1px; 
 }
   
-.reviewsHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-  
-.titleAndButtonContainer {
-    display: flex;
-    align-items: center;
-}
 
 .itemList {
     border-bottom: '1px solid #000';
@@ -145,4 +113,8 @@ html, body {
     cursor: 'pointer';
     height: '50px';
     align-items: 'center';
+    display: flex;
+    flex-direction: column;
+    justify-content: 'right';
+    grid-auto-rows: auto;
 }

@@ -72,11 +72,12 @@ h1{
 
 .postInfo {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   padding: 10px 20px;
 }
 
 .infoDisplay {
   padding: 5px 20px;
+  display: flex;
 }

@@ -98,55 +98,54 @@ const PostPage = () => {
 			<h1>Post</h1>
 			<div className={styles.container}>
 				{post && (
-					<div>
-						<div className={styles.postTitle}>
-							<h2>{post.title}</h2>
-						</div>
-						<div className={styles.author}>
-							<p>Por {post.author}</p>
-						</div>
-						<div className={styles.contentContainer}>
-							<p>{post.content}</p>
-						</div>
-						<div className={styles.postInfo}>
-							<div className={styles.infoDisplay}>
-								<p>{post.num_likes} </p>
-								<Link 
-									to={`/forum/post/${post.id}/likes`}
-									style={{ textDecoration: "none" }}
-								>
-									
-									Curtidas 
-								</Link>
-							</div>
-							<div className={styles.infoDisplay}>
-								<p>{post.num_comments} comentários</p>
-							</div>
-						</div>
-						
-						<button onClick={handleDelete}>Deletar</button>
+				<div>
+					<div className={styles.postTitle}>
+						<h2>{post.title}</h2>
 					</div>
+					<div className={styles.author}>
+						<p>Por {post.author}</p>
+					</div>
+					<div className={styles.contentContainer}>
+						<p>{post.content}</p>
+					</div>
+					<div className={styles.postInfo}>
+						<div className={styles.infoDisplay}>
+							<p>{post.num_likes}&nbsp; </p>
+							<Link 
+								to={`/forum/post/${post.id}/likes`}
+								style={{ textDecoration: "none", color: "#000"}}
+							>
+								
+								Curtidas 
+							</Link>
+						</div>
+						<div className={styles.infoDisplay}>
+							<p>{post.num_comments} Comentários</p>
+						</div>
+					</div>
+				</div>
+
 				)}
-					<div className={styles.commentSectionContainer}>
-						{comments.map((comment, index) => (
-							<div className={styles.commentContainer} key={index}>
-								<Link
-								to={{
-									pathname: `/profile/${comment.author}`,
-								}}
-								style={{
-									textDecoration: "none",
-									color: "black",
-									fontWeight: "bold",
-								}}
-								>
-								<p>{comment.author}</p>
-								</Link>
-								<p>: {comment.content}</p>
-							</div>
-						))}
-					</div>
 				
+				<div className={styles.commentSectionContainer}>
+					{comments.map((comment, index) => (
+						<div className={styles.commentContainer} key={index}>
+							<Link
+							to={{
+								pathname: `/profile/${comment.author}`,
+							}}
+							style={{
+								textDecoration: "none",
+								color: "black",
+								fontWeight: "bold",
+							}}
+							>
+							<p>{comment.author}</p>
+							</Link>
+							<p>: {comment.content}</p>
+						</div>
+					))}
+				</div>
 			</div>
     	</div>
 	);

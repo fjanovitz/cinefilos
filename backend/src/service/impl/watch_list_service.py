@@ -50,18 +50,12 @@ class WatchListService:
 
         user_ind = next((u for u, user in enumerate(db["user"]) if user["username"] == username), -1)
         categories_list = {}
+        category_name = ["assistidos", "quero_assistir", "abandonados"]
 
-        category_list = db["user"][user_ind]["assistidos"]
-        for i in range(len(db["user"][user_ind]["assistidos"])):
-            categories_list[category_list[i]["id"]] = "assistidos"
-        
-        category_list = db["user"][user_ind]["quero_assistir"]
-        for i in range(len(db["user"][user_ind]["quero_assistir"])):
-            categories_list[category_list[i]["id"]] = "quero_assistir"
-        
-        category_list = db["user"][user_ind]["abandonados"]
-        for i in range(len(db["user"][user_ind]["abandonados"])):
-            categories_list[category_list[i]["id"]] = "abandonados"
+        for i in range(3):
+            category_list = db["user"][user_ind][category_name[i]]
+            for j in range(len(category_list)):
+                categories_list[category_list[j]["id"]] = category_name[i]
         
         return categories_list
     

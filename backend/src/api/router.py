@@ -13,7 +13,5 @@ api_router.include_router(user_mgn.router, prefix="/user", tags=["user"])
 api_router.include_router(user.router, prefix="/users", tags=["users"])
 api_router.include_router(reviews.router, prefix="/reviews", tags=["reviews"])
 api_router.include_router(watch_list.router, prefix="/watch_list", tags=["watch_list"])
-
 api_router.include_router(user_history.router, prefix="/user_history", tags=["user_history"])
-
 api_router.include_router(posts.router, prefix="/forum", tags=["forum"])

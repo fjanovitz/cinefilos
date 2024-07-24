@@ -2562,54 +2562,6 @@
       "date": "today"
     },
     {
-      "id": "0074",
-      "title": "que série boa",
-      "author": "gusta",
-      "content": "The office é muito bom",
-      "num_likes": "0",
-      "users_who_liked": [],
-      "num_comments": "0",
-      "comments": [],
-      "topic": "Duna",
-      "date": "23/07/2024, 13:56:46"
-    },
-    {
-      "id": "09e0365b-b6f0-4158-80fb-9714750c9a62",
-      "author": "fjanovitz",
-      "title": "Marvel ou DC",
-      "content": "Gosto mais da DC",
-      "num_likes": 0,
-      "users_who_liked": [],
-      "num_comments": 0,
-      "comments": [],
-      "topic": "Heróis",
-      "date": "23/07/2024, 14:05:08"
-    },
-    {
-      "id": "d90c86df-1e55-42cc-852f-e4fab5d7ea6d",
-      "author": "fjanovitz",
-      "title": "Top 10 filmes de todos os tempos",
-      "content": "La la land e o resto não importa\n",
-      "num_likes": 0,
-      "users_who_liked": [],
-      "num_comments": 0,
-      "comments": [],
-      "topic": "Ranking",
-      "date": "23/07/2024, 16:30:12"
-    },
-    {
-      "id": "20b3bc66-45ee-4c45-b57b-fd41b0977b77",
-      "author": "fjanovitz",
-      "title": "Melhores series de todos os tempos",
-      "content": "Dêem sugestôes para um top 10 de melhores séries de todos os tempos",
-      "num_likes": 0,
-      "users_who_liked": [],
-      "num_comments": 0,
-      "comments": [],
-      "topic": "Ranking",
-      "date": "23/07/2024, 16:40:48"
-    },
-    {
       "id": "5f31fcb5-19d6-486f-8c01-f8ef1a1a05f1",
       "author": "fjanovitz",
       "title": "Filmes bons",
@@ -2620,18 +2572,6 @@
       "comments": [],
       "topic": "Ranking",
       "date": "23/07/2024, 19:42:28"
-    },
-    {
-      "id": "0073",
-      "title": "já ganhou o filme do ano",
-      "author": "gusta",
-      "content": "Duna 2 é bom dms!",
-      "num_likes": "0",
-      "users_who_liked": [],
-      "num_comments": "0",
-      "comments": [],
-      "topic": "Filmes",
-      "date": "today"
     },
     {
       "id": "0074",

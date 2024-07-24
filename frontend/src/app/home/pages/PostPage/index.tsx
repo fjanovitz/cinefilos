@@ -10,7 +10,7 @@ const mockPost: Post = {
     author: "Jane Doe",
     title: "Introduction to TypeScript",
     content: "TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code.",
-    num_likes: 100,
+    num_likes: 3,
     users_who_liked: ["user1", "user2", "user3"],
     num_comments: 2,
     comments: [
@@ -52,7 +52,7 @@ const PostPage = () => {
 	const {post_id} = useParams<{
 		post_id: string;
 	}>();
-	const [post, setPost] = useState<Post>();
+	const [post, setPost] = useState<Post>(mockPost);
 	const [comments, setComments] = useState<Comment[]>([]);
 	const [likes, setLikes] = useState<string[]>([]);
 
@@ -99,21 +99,37 @@ const PostPage = () => {
 			<div className={styles.container}>
 				{post && (
 					<div>
-						<h2>{post.title}</h2>
-						<p>{post.content}</p>
-						<p>{post.num_likes} likes</p>
-						<p>{post.num_comments} comments</p>
-						<p>Por {post.author}</p>
-						<Link to={`/forum/post/${post_id}/likes`}>
-							<button>Curtidas</button>
-						</Link>
+						<div className={styles.postTitle}>
+							<h2>{post.title}</h2>
+						</div>
+						<div className={styles.author}>
+							<p>Por {post.author}</p>
+						</div>
+						<div className={styles.contentContainer}>
+							<p>{post.content}</p>
+						</div>
+						<div className={styles.postInfo}>
+							<div className={styles.infoDisplay}>
+								<p>{post.num_likes} </p>
+								<Link 
+									to={`/forum/post/${post.id}/likes`}
+									style={{ textDecoration: "none" }}
+								>
+									
+									Curtidas 
+								</Link>
+							</div>
+							<div className={styles.infoDisplay}>
+								<p>{post.num_comments} comentários</p>
+							</div>
+						</div>
 						
 						<button onClick={handleDelete}>Deletar</button>
 					</div>
 				)}
-					<div className={styles.commentContainer}>
+					<div className={styles.commentSectionContainer}>
 						{comments.map((comment, index) => (
-							<div key={index}>
+							<div className={styles.commentContainer} key={index}>
 								<Link
 								to={{
 									pathname: `/profile/${comment.author}`,

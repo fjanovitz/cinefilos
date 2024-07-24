@@ -102,8 +102,13 @@ const PostPage = () => {
 					<div className={styles.postTitle}>
 						<h2>{post.title}</h2>
 					</div>
-					<div className={styles.author}>
-						<p>Por {post.author}</p>
+					<div className={styles.postSubtitle}>
+						<div className={styles.postTopic}>
+							<p>Em {post.topic}</p>
+						</div>
+						<div className={styles.postAuthor}>
+							<p>Por {post.author}</p>
+						</div>
 					</div>
 					<div className={styles.contentContainer}>
 						<p>{post.content}</p>
@@ -126,7 +131,7 @@ const PostPage = () => {
 				</div>
 
 				)}
-				
+
 				<div className={styles.commentSectionContainer}>
 					{comments.map((comment, index) => (
 						<div className={styles.commentContainer} key={index}>

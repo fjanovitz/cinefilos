@@ -32,9 +32,24 @@ h1{
   padding: 20px 20px 5px;
 }
 
-.author {
+.postSubtitle {
   background-color: #ffffff;
   padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postTopic {
+  background-color: #ffffff;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: left;
+  color: #888;
+}
+
+.postAuthor {
+  background-color: #ffffff;
+  padding: 5px 0px;
   display: flex;
   justify-content: right;
   color: #888;

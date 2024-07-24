@@ -26,7 +26,7 @@ const mockPost: Post = {
         }
     ],
     topic: "Programming",
-    posted: "2023-04-01T12:00:00Z"
+    date: "2023-04-01T12:00:00Z"
 };
 
 interface Comment {
@@ -44,7 +44,7 @@ interface Post {
     num_comments: number;
     comments: Comment[];
     topic: string;
-    posted: string;
+    date: string;
 }
 
 const PostPage = () => {

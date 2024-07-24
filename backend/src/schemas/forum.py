@@ -16,4 +16,4 @@ class Post(BaseModel):
     num_comments: int = 0
     comments: list[Comment] = []
     topic: str
-    posted: str
+    date: str

@@ -32,7 +32,7 @@ def mock_post_service_clean(post_id: str):
         num_comments = 0,
         comments = [],
         topic="topic",
-        posted = "2002-08-12-21-51"
+        date = "2002-08-12-21-51"
         )
 
     PostService().create_post(post)
@@ -87,7 +87,7 @@ def mock_post_service_clean(comment_id: str, author: str, content: str):
                 content=content
             )],
         topic="topic",
-        posted = "2002-08-12-21-51"
+        date = "2002-08-12-21-51"
         )
 
     PostService().create_post(post)

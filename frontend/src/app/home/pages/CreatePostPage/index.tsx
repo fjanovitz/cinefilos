@@ -22,7 +22,7 @@ interface Post {
     num_comments: number;
     comments: Comment[];
     topic: string;
-    posted: string;
+    date: string;
 }
 
 
@@ -50,7 +50,7 @@ const CreatePostPage = () => {
 	const num_comments = 0;
 	const comments: Comment[] = [];
 	const [topic, setTopic] = useState("");
-	const posted = getCurrentDateTime();
+	const date = getCurrentDateTime();
 
 	const [errorMessage, setErrorMessage] = useState("");
 
@@ -79,7 +79,7 @@ const CreatePostPage = () => {
                 num_comments: num_comments,
                 comments: comments,
                 topic: topic,
-                posted: posted
+                date: date
             };
 
             await api.post("/forum/newpost", post);

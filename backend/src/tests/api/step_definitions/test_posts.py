@@ -25,7 +25,7 @@ def mock_post_service_creation(post_id: str, post_author: str, post_title: str, 
         num_comments = 0,
         comments = [],
         topic = "topic",
-        posted = "2002-08-12-21-51")
+        date = "2002-08-12-21-51")
     db["posts"].append(post.model_dump())
     saveDB(db)
 
@@ -99,7 +99,7 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
             "num_comments": 0,
             "comments": [],
             "topic": "topic",
-            "posted": "2002-08-12-21-51"
+            "date": "2002-08-12-21-51"
         })
     
     context["response"] = response
@@ -128,7 +128,7 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
             "num_comments": 0,
             "comments": [],
             "topic": "topic",
-            "posted": "2002-08-12-21-51"
+            "date": "2002-08-12-21-51"
         })
     
     context["response"] = response

@@ -95,7 +95,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/forum/feed",
-    element: <Layout><FeedPage /></Layout>,
+    element: <Layout><FeedPage/></Layout>,
   },
   {
     path: "/forum/newpost",

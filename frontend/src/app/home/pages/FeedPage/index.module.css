@@ -3,26 +3,31 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vh;
-  }
+    padding: 1rem 1rem 1rem 2rem;
+    height: 100%;
+    width: 100%;
+}
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f2f5;
+  height: calc(100vh - 92px);
+  overflow-y: auto;
+  box-sizing: border-box;
+} 
 
 .header {
     display: flex;
-    width: 100%;
+    width: 95%;
     align-items: center;
     gap: 20px;
-    padding: 10px;
-    margin-right: 20px;
+    padding: 0px 40px 20px 30px;
     float: right;
     justify-content: space-between;
-}
-
-.buttonCreateContentContainer {
-  display: flex;
-  justify-content: left;
-  margin-top: 20px;
-  margin-left: 10px
 }
 
 .feedContainer {
@@ -30,6 +35,10 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 10px);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .postContainer {

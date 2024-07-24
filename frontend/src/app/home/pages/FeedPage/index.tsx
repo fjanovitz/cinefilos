@@ -35,7 +35,7 @@ const FeedPage = () => {
   }, []);
 
   return (
-    <div className={styles.feedContainer}>
+    <div className={styles.pageContainer}>
       <div className={styles.header}>
         <input
             name="search"
@@ -44,19 +44,24 @@ const FeedPage = () => {
         />
         <MainButton text={"Pesquisar"} onClick={loadPosts} />
         
+        <Link to={`/forum/newpost`}>
+            <MainButton text={"Novo Post"}/>
+        </Link>
         
       </div>
-      {posts.map((post) => (
-        <div key={post.id} className={styles.postContainer}>
-          <Link to={`/forum/post/${post.id}`} className={styles.link}>
-            <h2 className={styles.postTitle}>{post.title}</h2>
-          </Link>
-          <p className={styles.postTopic}>{post.topic}</p>
-          <p className={styles.postLikes}>{post.num_likes} likes</p>
-          <p className={styles.postComments}>{post.num_comments} comments</p>
-          <p className={styles.postAuthor}>Por {post.author}</p>
-        </div>
-      ))}
+      <div className={styles.feedContainer}>
+        {posts.map((post) => (
+          <div key={post.id} className={styles.postContainer}>
+            <Link to={`/forum/post/${post.id}`} className={styles.link}>
+              <h2 className={styles.postTitle}>{post.title}</h2>
+            </Link>
+            <p className={styles.postTopic}>{post.topic}</p>
+            <p className={styles.postLikes}>{post.num_likes} curtidas</p>
+            <p className={styles.postComments}>{post.num_comments} comentários</p>
+            <p className={styles.postAuthor}>Por {post.author}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

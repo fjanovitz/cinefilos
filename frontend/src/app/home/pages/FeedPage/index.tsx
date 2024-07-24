@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import api from "../../../../services/api";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 // import { UserContext } from "../../context/UserContext";
 import { Post } from "../../models/ForumInterface";
@@ -10,7 +10,6 @@ import MainButton from "../../components/MainButton/MainButton";
 const FeedPage = () => {
   // const { user, saveUser } = useContext(UserContext);
   const [posts, setPosts] = useState<Post[]>([]);
-  const navigate = useNavigate();
   const [search, setSearch] = useState('');
 
   const loadPosts = async () => {
@@ -44,11 +43,8 @@ const FeedPage = () => {
             className={styles.searchBar}
         />
         <MainButton text={"Pesquisar"} onClick={loadPosts} />
-        <Link
-          to={`/forum/newpost`}
-        >
-          <MainButton text={"Novo Post"}/>
-        </Link>
+        
+        
       </div>
       {posts.map((post) => (
         <div key={post.id} className={styles.postContainer}>

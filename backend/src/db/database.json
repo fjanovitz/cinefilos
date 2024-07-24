@@ -2484,6 +2484,18 @@
       "comments": [],
       "topic": "Ranking",
       "posted": "23/07/2024, 16:40:48"
+    },
+    {
+      "id": "5f31fcb5-19d6-486f-8c01-f8ef1a1a05f1",
+      "author": "fjanovitz",
+      "title": "Filmes bons",
+      "content": "filmes bons",
+      "num_likes": 0,
+      "users_who_liked": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "Ranking",
+      "posted": "23/07/2024, 19:42:28"
     }
   ],
   "reviews": [
@@ -2533,6 +2545,14 @@
       "rating": 10,
       "username": "gusta",
       "content_id": "2809ee44-1149-42bb-ad9d-e1abce2eee2e",
+      "content_type": "movies"
+    },
+    {
+      "title": "filme legal",
+      "report": "massa",
+      "rating": 10.0,
+      "username": "edsonneto8",
+      "content_id": "335988",
       "content_type": "movies"
     }
   ]

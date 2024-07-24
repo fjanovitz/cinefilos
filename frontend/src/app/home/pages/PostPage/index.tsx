@@ -3,6 +3,31 @@ import api from "../../../../services/api";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
+import { set } from "react-hook-form";
+
+const mockPost: Post = {
+    id: "1",
+    author: "Jane Doe",
+    title: "Introduction to TypeScript",
+    content: "TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code.",
+    num_likes: 100,
+    users_who_liked: ["user1", "user2", "user3"],
+    num_comments: 2,
+    comments: [
+        {
+            id: "c1",
+            author: "John Doe",
+            content: "Great article, very informative!"
+        },
+        {
+            id: "c2",
+            author: "Sarah Smith",
+            content: "Thanks for sharing, learned a lot."
+        }
+    ],
+    topic: "Programming",
+    posted: "2023-04-01T12:00:00Z"
+};
 
 interface Comment {
     id: string;
@@ -27,25 +52,21 @@ const PostPage = () => {
 	const {post_id} = useParams<{
 		post_id: string;
 	}>();
-	const [post, setPost] = useState<Post | null>(null);
-	const [comments, setComments] = useState<Comment[] | null>(null);
-	const [likes, setLikes] = useState<number>();
+	const [post, setPost] = useState<Post>();
+	const [comments, setComments] = useState<Comment[]>([]);
+	const [likes, setLikes] = useState<string[]>([]);
 
 	const loadPostDetails = async (post_id) => {
 		try {
-			const response_details = await api.get(
+			const response = await api.get(
 				`/forum/post/${post_id}`
 			);
 
-			const post = {
-				...response_details.data,
-			};
-
-			const comments = response_details.data.comments;
-			const likes = response_details.data.num_likes;
-
+			const post = mockPost; //response.data;
 			setPost(post);
+			const comments = post.comments;
 			setComments(comments);
+			const likes = post.users_who_liked;
 			setLikes(likes);
 			
 		} catch (error) {
@@ -70,96 +91,48 @@ const PostPage = () => {
 
 	useEffect(() => {
 		loadPostDetails(post_id);
-	}, post_id);
+	}, [likes, comments]);
 
 	return (
 		<div className={styles.pageContainer}>
+			<h1>Post</h1>
 			<div className={styles.container}>
-				<div>
-					<button
-						onClick={handleDelete}
-						className={styles.deleteButton}
-					>
-						Deletar Post
-					</button>
-				</div>
-				<div className={styles.contentDetails}>
-					<div className={styles.card}>
-						<div
-							style={{
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center",
-							}}
-						>
-							<h1 className={styles.title}
-								data-cy="Título">
-								{post?.title}
-							</h1>
-						</div>
-						<p className={styles.details}>{post?.content}</p>
-
+				{post && (
+					<div>
+						<h2>{post.title}</h2>
+						<p>{post.content}</p>
+						<p>{post.num_likes} likes</p>
+						<p>{post.num_comments} comments</p>
+						<p>Por {post.author}</p>
+						<Link to={`/forum/post/${post_id}/likes`}>
+							<button>Curtidas</button>
+						</Link>
+						
+						<button onClick={handleDelete}>Deletar</button>
 					</div>
-					<div className={styles.reviewsSection}>
-						<div className={styles.reviewsHeader}>
-							<div className={styles.titleAndButtonContainer}>
-								<h2>Comentários</h2>
+				)}
+					<div className={styles.commentContainer}>
+						{comments.map((comment, index) => (
+							<div key={index}>
 								<Link
-									to={{
-										pathname: `/forum/post/${post?.post_id}/comments`,
-									}}
-									state={{ comment: comment }}
-									style={{ textDecoration: "none" }}
+								to={{
+									pathname: `/profile/${comment.author}`,
+								}}
+								style={{
+									textDecoration: "none",
+									color: "black",
+									fontWeight: "bold",
+								}}
 								>
-									<button className={styles.addButton}>
-										Adicione um comentário
-									</button>
+								<p>{comment.author}</p>
 								</Link>
+								<p>: {comment.content}</p>
 							</div>
-						</div>
-						{comments && comments.length > 0 ? (
-							comments.map((comment) => (
-								<div
-									key={comment.id}
-									className={styles.review}
-								>
-									<div
-										className={styles.reviewAuthorContainer}
-									>
-										<div
-											className={styles.reviewAuthorText}
-										>
-											Comentário de 
-										</div>
-										<div
-											className={styles.reviewAuthorName}
-										>
-											<Link
-												to={{
-													pathname: `/profile/${comments.author}`,
-												}}
-												style={{
-													textDecoration: "none",
-													color: "black",
-													fontWeight: "bold",
-												}}
-											>
-												{comment.author}
-											</Link>
-										</div>
-									</div>
-									<p className={styles.reviewText}>
-										{comment.content}
-									</p>
-								</div>
-							))
-						) : (
-							<p>Nenhum comentário ainda.</p>
-						)}
+						))}
 					</div>
-				</div>
+				
 			</div>
-		</div>
+    	</div>
 	);
 };
 

@@ -19,11 +19,13 @@
     border-radius: 10px;
     background: lightgray;
     transition: transform 0.3s ease-in-out;
+    margin: 5px;
 
     box-shadow: 1px 1px 4px rgba(1, 1, 1, 3.5), 0px 0px 0px rgba(1, 1, 1, 0.2);
     /* z-index: 0; */
     
     pointer-events: auto;
+    justify-content: space-between;
 }
 
 .card:hover, .optionsButton:hover+.link .card {

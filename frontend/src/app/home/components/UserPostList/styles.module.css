@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+.buttonCreateContent {
+  background-color: #f4d30b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.buttonCreateContent:hover {
+  background-color: #f4d30b;
+  opacity: 0.8;
+}
+
+.buttonCreateContentContainer {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+  margin-left: 10px
+}
+
+.feedContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.postContainer {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.postContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.postTitle {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+}
+
+.postContent {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.postAuthor {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: right;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.emptyMessage {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 5rem;
+}

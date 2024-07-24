@@ -47,7 +47,6 @@ const FeedPage = () => {
         <Link to={`/forum/newpost`}>
             <MainButton text={"Novo Post"}/>
         </Link>
-        
       </div>
       <div className={styles.feedContainer}>
         {posts.map((post) => (

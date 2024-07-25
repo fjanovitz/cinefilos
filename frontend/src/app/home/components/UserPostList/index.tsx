@@ -28,8 +28,7 @@ const UserPostList = ( {username}) => {
                     <Link to={`/forum/post/${post.id}`} className={styles.link}>
                         <h2 className={styles.postTitle} data-cy={`post-title-${post.id}`} >{post.title}</h2>
                     </Link>
-                    <p className={styles.postContent}>{post.content}</p>
-                    <p className={styles.postDate}>{post.date}</p>
+                    <p className={styles.postContent}>{post.topic}</p>
                     <p className={styles.postLikes}>{post.num_likes} likes</p>
                     <p className={styles.postComments}>{post.num_comments} comments</p>
                     <p className={styles.postAuthor}>By: {post.author}</p>

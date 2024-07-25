@@ -18,7 +18,7 @@ interface Post {
     title: string;
     content: string;
     num_likes: number;
-    users_who_liked: string[];
+    likes_list: string[];
     num_comments: number;
     comments: Comment[];
     topic: string;
@@ -46,7 +46,7 @@ const CreatePostPage = () => {
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const num_likes = 0;
-	const users_who_liked: string[] = [];
+	const likes_list: string[] = [];
 	const num_comments = 0;
 	const comments: Comment[] = [];
 	const [topic, setTopic] = useState("");
@@ -75,7 +75,7 @@ const CreatePostPage = () => {
                 title: title,
                 content: content,
                 num_likes: num_likes,
-                users_who_liked: users_who_liked,
+                likes_list: likes_list,
                 num_comments: num_comments,
                 comments: comments,
                 topic: topic,
@@ -123,7 +123,7 @@ const CreatePostPage = () => {
 								Tópico
 							</Form.Label>
 							<Form.Control
-								data-cy="title"
+								data-cy="topic"
 								className={styles.formControl}
 								as="textarea"
 								rows={1}
@@ -152,7 +152,7 @@ const CreatePostPage = () => {
 						</Form.Group>
 
 						<div className={styles.buttonContainer}>
-							<button type="submit" className={styles.formButton}>
+							<button type="submit" className={styles.formButton} data-cy="post">
 								Postar
 							</button>
 						</div>

@@ -3,31 +3,6 @@ import api from "../../../../services/api";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
-import { set } from "react-hook-form";
-
-const mockPost: Post = {
-    id: "1",
-    author: "Jane Doe",
-    title: "Introduction to TypeScript",
-    content: "TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code.",
-    num_likes: 100,
-    users_who_liked: ["user1", "user2", "user3"],
-    num_comments: 2,
-    comments: [
-        {
-            id: "c1",
-            author: "John Doe",
-            content: "Great article, very informative!"
-        },
-        {
-            id: "c2",
-            author: "Sarah Smith",
-            content: "Thanks for sharing, learned a lot."
-        }
-    ],
-    topic: "Programming",
-    date: "2023-04-01T12:00:00Z"
-};
 
 interface Comment {
     id: string;
@@ -40,7 +15,7 @@ interface Post {
     title: string;
     content: string;
     num_likes: number;
-    users_who_liked: string[];
+    likes_list: string[];
     num_comments: number;
     comments: Comment[];
     topic: string;
@@ -53,21 +28,34 @@ const PostPage = () => {
 		post_id: string;
 	}>();
 	const [post, setPost] = useState<Post>();
+	const [id, setId] = useState("");
+	const [title, setTitle] = useState("");
+	const [author, setAuthor] = useState("");
+	const [content, setContent] = useState("");
+	const [num_likes, setNumLikes] = useState<number>();
+	const [likes, setLikes] = useState<string[]>();
+	const [num_comments, setNumComments] = useState<number>();
 	const [comments, setComments] = useState<Comment[]>([]);
-	const [likes, setLikes] = useState<string[]>([]);
+	const [topic, setTopic] = useState("");
+	const [date, setDate] = useState("");
 
 	const loadPostDetails = async (post_id) => {
 		try {
 			const response = await api.get(
 				`/forum/post/${post_id}`
 			);
-
-			const post = mockPost; //response.data;
-			setPost(post);
-			const comments = post.comments;
-			setComments(comments);
-			const likes = post.users_who_liked;
-			setLikes(likes);
+			
+			setPost(response.data);
+			setId(response.data.id);
+			setAuthor(response.data.author);
+			setTitle(response.data.title);
+			setContent(response.data.content);
+			setNumLikes(response.data.num_likes);
+			setNumComments(response.data.num_comments);
+			setComments(response.data.comments);
+			setLikes(response.data.likes_list);
+			setTopic(response.data.topic);
+			setDate(response.data.date);
 			
 		} catch (error) {
 			console.error(error);
@@ -98,39 +86,76 @@ const PostPage = () => {
 			<h1>Post</h1>
 			<div className={styles.container}>
 				{post && (
-					<div>
-						<h2>{post.title}</h2>
-						<p>{post.content}</p>
-						<p>{post.num_likes} likes</p>
-						<p>{post.num_comments} comments</p>
-						<p>Por {post.author}</p>
-						<Link to={`/forum/post/${post_id}/likes`}>
-							<button>Curtidas</button>
-						</Link>
-						
-						<button onClick={handleDelete}>Deletar</button>
+				<div>
+					<div className={styles.postTitle}>
+						<h2>{title}</h2>
 					</div>
+					<div className={styles.postSubtitle}>
+						<div className={styles.postTopic}>
+							<p>Em {topic}</p>
+						</div>
+						<div className={styles.postAuthor}>
+							<p>Por {author}</p>
+						</div>
+					</div>
+					<div className={styles.contentContainer}>
+						<p>{content}</p>
+					</div>
+					<div className={styles.postInfo}>
+						<div className={styles.infoDisplay}>
+							<p>{num_comments} Comentários</p>
+						</div>
+						<div className={styles.infoDisplay}>
+							<p>{num_likes}&nbsp; </p>
+							<Link 
+								to={`/forum/post/${id}/likes`}
+								style={{ textDecoration: "none", color: "#000"}}
+							>
+								
+								Curtidas 
+							</Link>
+						</div>
+					</div>
+					<div className={styles.interactionBar}>
+						<input
+							name="comment"
+							onChange={(e) => handleComment(e.target.value)}
+							className={styles.commentBar}
+						/>
+						<div className={styles.buttonContainer}>
+							<button className={styles.formButton}>
+								Comentar
+							</button>
+						</div>
+						<div className={styles.buttonContainer}>
+							<button className={styles.formButton}>
+								Curtir
+							</button>
+						</div>
+					</div>
+				</div>
+
 				)}
-					<div className={styles.commentContainer}>
-						{comments.map((comment, index) => (
-							<div key={index}>
-								<Link
-								to={{
-									pathname: `/profile/${comment.author}`,
-								}}
-								style={{
-									textDecoration: "none",
-									color: "black",
-									fontWeight: "bold",
-								}}
-								>
-								<p>{comment.author}</p>
-								</Link>
-								<p>: {comment.content}</p>
-							</div>
-						))}
-					</div>
-				
+
+				<div className={styles.commentSectionContainer}>
+					{comments.map((comment, index) => (
+						<div className={styles.commentContainer} key={index}>
+							<Link
+							to={{
+								pathname: `/profile/${comment.author}`,
+							}}
+							style={{
+								textDecoration: "none",
+								color: "black",
+								fontWeight: "bold",
+							}}
+							>
+							<p>{comment.author}</p>
+							</Link>
+							<p> {comment.content}</p>
+						</div>
+					))}
+				</div>
 			</div>
     	</div>
 	);

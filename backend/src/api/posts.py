@@ -64,16 +64,16 @@ async def update_like(post_id: str, username: str):
             found = True
             already_liked = False
 
-            for i in range(len(post["users_who_liked"])):
-                if post["users_who_liked"][i] == username:
+            for i in range(len(post["likes_list"])):
+                if post["likes_list"][i] == username:
                     already_liked = True
-                    username = post["users_who_liked"].pop(i)
+                    username = post["likes_list"].pop(i)
                     post["num_likes"] -= 1
                     saveDB(db)
                     return {"username": username, "status": 0}
 
             if not already_liked:
-                post["users_who_liked"].append(username)
+                post["likes_list"].append(username)
                 post["num_likes"] += 1
                 saveDB(db)
                 return {"username": username, "status": 1}
@@ -89,7 +89,7 @@ async def get_likes_list(post_id: str):
     for post in db["posts"]:
         if post["id"] == post_id:
             found = True
-            return post["users_who_liked"]
+            return post["likes_list"]
 
     if not found:
         raise HTTPException(status_code=404, detail="Este post não existe ou foi excluído")

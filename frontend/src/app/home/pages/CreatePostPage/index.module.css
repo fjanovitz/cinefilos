@@ -3,6 +3,11 @@ html, body {
     height: 100%;
 }
 
+h1{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .pageContainer {
     display: flex;
     justify-content: center;
@@ -83,9 +88,4 @@ html, body {
     display: flex;
     justify-content: right;
     margin-top: 20px;
-}
-
-h1{
-    font-weight: bold;
-    margin-bottom: 20px;
 }

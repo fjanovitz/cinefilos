@@ -28,7 +28,7 @@ def mock_post_service_clean(post_id: str):
         title="Lições - Puppy Love",
         content="Conteúdo",
         num_likes = 0,
-        users_who_liked = [],
+        likes_list = [],
         num_comments = 0,
         comments = [],
         topic="topic",
@@ -79,7 +79,7 @@ def mock_post_service_clean(comment_id: str, author: str, content: str):
         title="Lições - Puppy Love",
         content="Conteúdo",
         num_likes = 0,
-        users_who_liked = [],
+        likes_list = [],
         num_comments = 1,
         comments = [
             Comment(

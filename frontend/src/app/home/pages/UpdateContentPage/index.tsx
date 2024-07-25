@@ -7,8 +7,6 @@ import { Form } from 'react-bootstrap';
 import { Movie, TvShow } from "../../models/ContentInterface";
 import MainButton from "../../components/MainButton/MainButton";
 
-
-
 const UpdateContentPage = () => {
     const navigate = useNavigate();
     const { content_type, title } = useParams<{ content_type: string; title: string}>();

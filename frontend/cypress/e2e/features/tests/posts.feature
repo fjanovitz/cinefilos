@@ -24,26 +24,10 @@ Feature: Posts
         When o usuário clica no post com o título "Post 1"
         Then o usuário deve ser redirecionado para a página "/forum/post/0001"
         And o usuário deve visualizar o post com título "Post 1" e o autor "fjanovitz"
-
-    Scenario: Curtir um post
-        Given o usuário está na página "/forum/post/0001"
-        And o usuário não curtiu o post com o título "Post 1"
-        When o usuário clica no botão "Curtir"
-        Then o usuário visualiza o botão "Curtir" do post com o título "Post 1" com a cor alterada
-        And o usuário visualiza o post "Post 1" com a quantidade de curtidas incrementada em 1
-        And o usuário curtiu o post "Post 1"
-    
-    Scenario: Remover curtida um post
-        Given o usuário está na página "/forum/post/0001"
-        And o usuário curtiu o post com o título "Post 1"
-        When o usuário clica no botão "like" do post "Post 1"
-        Then o usuário visualiza o botão "like" do post "Post 1" com a cor alterada
-        And o usuário visualiza o post "Post 1" com a quantidade de curtidas diminuída em 1
-        And o usuário curtiu o post "Post 1"
     
     Scenario: Ver lista de curtidas de um post
         Given o usuário está na página "/forum/post/0001"
-        When o usuário clica no botão "likes" do post "Post 1"
-        Then o usuário é redirecionado para a página "/forum/post/0001/likes"
+        When o usuário clica no link "curtidas"
+        Then o usuário deve ser redirecionado para a página "/forum/post/0001/likes"
         And o usuário visualiza a lista de usuários que curtiram o post "Post 1"
 

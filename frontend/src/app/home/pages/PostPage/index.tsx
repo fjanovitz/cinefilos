@@ -135,6 +135,7 @@ const PostPage = () => {
 							<Link 
 								to={`/forum/post/${id}/likes`}
 								style={{ textDecoration: "none", color: "#000"}}
+								data-cy={"test-item-curtidas"}
 							>
 								
 								Curtidas 

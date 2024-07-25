@@ -123,7 +123,7 @@ const CreatePostPage = () => {
 								Tópico
 							</Form.Label>
 							<Form.Control
-								data-cy="title"
+								data-cy="topic"
 								className={styles.formControl}
 								as="textarea"
 								rows={1}
@@ -152,7 +152,7 @@ const CreatePostPage = () => {
 						</Form.Group>
 
 						<div className={styles.buttonContainer}>
-							<button type="submit" className={styles.formButton}>
+							<button type="submit" className={styles.formButton} data-cy="post">
 								Postar
 							</button>
 						</div>

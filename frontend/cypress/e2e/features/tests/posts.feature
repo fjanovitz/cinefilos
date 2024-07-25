@@ -7,14 +7,14 @@ Feature: Posts
         Given o usuário está na página "forum/newpost"
         When o usuário preenche o campo de "input-title" com "Post 1"
         And o usuário preenche o campo de "input-content" com "Conteúdo do post 1"
-        And o usuário tenta realizar login apertando em "create"
+        And o usuário tenta realizar login apertando em "post"
         Then o usuário deve ser redirecionado para a página "forum/feed"
         And o usuário deve ver o post "Post 1" na página "forum/feed"
 
     Scenario: Criar um post com título vazio
         Given o usuário está na página "forum/newpost"
         When o usuário não preenche o campo de "input-title"
-        And o usuário tenta realizar login apertando em "create"
+        And o usuário tenta realizar login apertando em "podt"
         Then o usuário permanece na página "forum/newpost"
         And o usuário deve ver a mensagem "Não é possível publicar um post sem título"
     

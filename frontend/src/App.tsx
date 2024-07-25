@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CreateTest from "./app/home/pages/CreateTest";
 import LoginPage from "./app/home/pages/LoginPage";
 import PasswordRecoveryPage from "./app/home/pages/PasswordRecoveryPage";
 import ContentDetailsPage from "./app/home/pages/ContentDetailsPage";
@@ -27,15 +26,11 @@ import { UserContextProps } from "./app/home/context/UserContext/userTypes";
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <Layout><></></Layout>,
-  },
-  {
-    path: "/create-test",
-    element: <Layout><></></Layout>,
+    element: <Layout><ContentsPage content_type = {"movies"}/></Layout>,
   },
   {
     path: "/login",
-    element: <Layout><LoginPage /></Layout>,
+    element: <Layout><LoginPage/></Layout>,
   },  
   {
     path: "/recover-account",
@@ -43,75 +38,75 @@ const router = createBrowserRouter([
   },  
   {
     path: "/contents/movies",
-    element: <Layout><ContentsPage content_type = {"movies"} /></Layout>,
+    element: <Layout><ContentsPage content_type = {"movies"}/></Layout>,
   },
   {
     path: "/contents/tv_shows",
-    element: <Layout><ContentsPage content_type = {"tv_shows"} /></Layout>,
+    element: <Layout><ContentsPage content_type = {"tv_shows"}/></Layout>,
   },
   {
     path: "/contents/:content_type/:title",  
-    element: <Layout><ContentDetailsPage /></Layout>,
+    element: <Layout><ContentDetailsPage/></Layout>,
   },
   {
     path: "/tests",
-    element: <Layout><ListTests /></Layout>,
+    element: <Layout><ListTests/></Layout>,
   },
   {
     path: "/contents/:content_type/:title/create_review",
-    element: <Layout><CreateReviewPage /></Layout>,
+    element: <Layout><CreateReviewPage/></Layout>,
   },
   {
     path: "/contents/:content_type/create_content",
-    element: <Layout><CreateContentPage /></Layout>,
+    element: <Layout><CreateContentPage/></Layout>,
   },
   {
     path: "/register",
-    element: <Layout><RegistrationPage /></Layout>,
+    element: <RegistrationPage/>,
   },
   {
     path: "/user/get_user/:userId",
-    element: <Layout><UserPage /></Layout>,
+    element: <Layout><UserPage/></Layout>,
   },
   {
     path: "/user/reset_password/:userId",
-    element: <Layout><ResetPasswordPage /></Layout>,
+    element: <Layout><ResetPasswordPage/></Layout>,
   },
   {
     path: "/user/edit_user_info/:userId",
-    element: <Layout><EditUserInfoPage /></Layout>,
+    element: <Layout><EditUserInfoPage/></Layout>,
   },
   {
     path: "/user/delete_account/:userId",
-    element: <Layout><DeleteAccountPage /></Layout>,
+    element: <Layout><DeleteAccountPage/></Layout>,
   },
   {
     path: "/profile/:username/:content_type/:content_title/update_review",
-    element: <Layout><UpdateReviewPage /></Layout>,
+    element: <Layout><UpdateReviewPage/></Layout>,
   },
   {    
     path: "/contents/:content_type/:title/update_content",
-    element: <Layout><UpdateContentPage /></Layout>,
+    element: <Layout><UpdateContentPage/></Layout>,
   },
   {
     path: "/profile/:username",
-    element: <Layout><UserProfilePage /></Layout>,
+    element: <Layout><UserProfilePage/></Layout>,
   },
   {
     path: "/forum/feed",
-    element: <Layout><FeedPage /></Layout>,
+    element: <Layout><FeedPage/></Layout>,
   },
   {
     path: "/forum/newpost",
-    element: <Layout><CreatePostPage /></Layout>,
+    element: <Layout><CreatePostPage/></Layout>,
   },
   {
     path: "/forum/post/:postID",
-    element: <Layout><PostPage /></Layout>,
+    element: <Layout><PostPage/></Layout>,
   },
   {
     path: "/forum/post/:postID/likes",
-    element: <Layout><LikesPage userList={[]}/></Layout>,
+    element: <Layout><LikesPage/></Layout>,
   } 
 ]);
 

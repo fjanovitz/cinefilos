@@ -3,6 +3,11 @@ html, body {
     height: 100%;
 }
 
+h1{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .pageContainer {
     display: flex;
     justify-content: center;
@@ -10,7 +15,7 @@ html, body {
     align-items: center;
     padding: 10px 20px;
     background-color: #f0f2f5;
-    min-height: calc(100vh - 95px); 
+    min-height: calc(100vh - 92px); 
 }  
 
 .title {
@@ -62,28 +67,25 @@ html, body {
 }
 
 .formButton {
-    background-color: #f4d30b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
+    margin: 0; 
+    background-color: #221F1F;
+    color: #F4D30B;
+    border: transparent;
+    font-weight: bold;
+    font-size: 13px;
     cursor: pointer;
-    float: right;
-    font-size: 15px;
-}
-
-.formButton:hover {
-    background-color: #f4d30b;
-    opacity: 0.8;
-}
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .formButton:hover {
+    background-color: rgb(255, 200, 0);
+    color: #221F1F;
+  } 
 
 .buttonContainer {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     margin-top: 20px;
-}
-
-h1{
-    font-weight: bold;
-    margin-bottom: 20px;
 }

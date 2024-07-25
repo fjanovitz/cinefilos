@@ -1,26 +1,29 @@
 Feature: Posts
-    As um usuário
+    As um usuário comum
     I want to criar posts e interagir com outros posts
     So that eu possa compartilhar informações com outros usuários
     
     Scenario: Criar um post
-        Given o usuário está na página "create-post"
-        When o usuário preenche o campo "input-title" com "Post 1" e clica no botão "create"
-        And o usuário preenche o campo "input-content" com "Conteúdo do post 1"
-        Then o usuário deve ver a mensagem "Post criado com sucesso!"
-        And o usuário deve ver o post "Post 1" na página "feed"
-    
+        Given o usuário está na página "forum/newpost"
+        When o usuário preenche o campo de "title" com "Post 1"
+        And o usuário preenche o campo de "content" com "Conteúdo do post 1"
+        And o usuário tenta realizar login apertando em "post"
+        Then o usuário deve ser redirecionado para a página "forum/feed"
+        And o usuário deve ver o post "Post 1" na página "forum/feed"
+
     Scenario: Criar um post com título vazio
-        Given o usuário está na página "create-post"
-        When o usuário não preenche o campo "input-title" e clica no botão "create"
-        Then o usuário deve ver a mensagem "Não é possível publicar um post sem título" do campo "input-title"
-        And o usuário continua na página "create-post"
+        Given o usuário está na página "forum/newpost"
+        When o usuário não preenche o campo de "title"
+        And o usuário tenta realizar login apertando em "podt"
+        Then o usuário permanece na página "forum/newpost"
+        And o usuário deve ver a mensagem "Não é possível publicar um post sem título"
     
     Scenario: Visualizar posts
         Given o usuário está na página "feed"
-        And o usuário visualiza o post "Post 1"
-        When o usuário clica no post "Post 1"
+        And o usuário visualiza o post com o título "Post 1"
+        When o usuário clica no post com o título "Post 1"
         Then o usuário deve ser redirecionado para a página "post/0001"
+        And o usuário deve visualizar as informações do post "Post 1"
 
     Scenario: Deletar um post com sucesso
         Given o usuário está na página "post/0001"

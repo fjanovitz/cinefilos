@@ -28,11 +28,11 @@ def mock_post_service_clean(post_id: str):
         title="Lições - Puppy Love",
         content="Conteúdo",
         num_likes = 0,
-        users_who_liked = [],
+        likes_list = [],
         num_comments = 0,
         comments = [],
         topic="topic",
-        posted = "2002-08-12-21-51"
+        date = "2002-08-12-21-51"
         )
 
     PostService().create_post(post)
@@ -79,7 +79,7 @@ def mock_post_service_clean(comment_id: str, author: str, content: str):
         title="Lições - Puppy Love",
         content="Conteúdo",
         num_likes = 0,
-        users_who_liked = [],
+        likes_list = [],
         num_comments = 1,
         comments = [
             Comment(
@@ -87,7 +87,7 @@ def mock_post_service_clean(comment_id: str, author: str, content: str):
                 content=content
             )],
         topic="topic",
-        posted = "2002-08-12-21-51"
+        date = "2002-08-12-21-51"
         )
 
     PostService().create_post(post)

@@ -1,4 +1,148 @@
+h1{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 .pageContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f2f5;
+  min-height: calc(100vh - 95px); 
+}  
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  height: 70vh;
+  gap: 5px;
+  background-color: #ffffff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px; 
+  padding: 20px;
+  align-content: end;
+}
+
+.postTitle {
+  flex: 1;  
+  padding-bottom: 10px;
+}
+
+.postSubtitle {
+  background-color: #ffffff;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postTopic {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: left;
+  color: #888;
+}
+
+.postAuthor {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: right;
+  color: #888;
+}
+
+.contentContainer {
+  padding: 10px 5px; 
+  flex-grow: 1; 
+  height: 20vh; 
+  color: #666666;
+  display: flex;
+  overflow-y: scroll;
+  text-align: justify;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.infoDisplay {
+  padding-top: 5px;
+  padding-right: 20px;
+  display: flex;
+}
+
+.interactionBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.commentSectionContainer {
+  width: auto;
+  height: 100%;
+  gap: 5px;
+  background-color: #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow-y: scroll;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.commentContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  gap: 5px;
+}
+
+.commentBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 6px;
+  float: right;
+  width: 80%;
+}
+
+.formButton {
+  margin: 0; 
+  background-color: #221F1F;
+  color: #F4D30B;
+  border: transparent;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.formButton:hover {
+  background-color: rgb(255, 200, 0);
+  color: #221F1F;
+} 
+
+.buttonContainer {
+  display: flex;
+  justify-content: right;
+}
     display: flex;
     justify-content: center;
     align-items: center;

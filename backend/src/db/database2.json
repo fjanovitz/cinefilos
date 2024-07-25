@@ -2423,11 +2423,11 @@
         "author": "edsonneto8",
         "content": "Duna e Pobres Criaturas são os melhores filmes do ano!",
         "num_likes": "0",
-        "users_who_liked": [],
+        "likes_list": [],
         "num_comments": "0",
         "comments": [],
         "topic": "Filmes",
-        "posted": "today"
+        "date": "today"
       }
     ],
     "reviews": [

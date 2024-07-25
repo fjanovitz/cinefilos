@@ -21,11 +21,11 @@ def mock_post_service_creation(post_id: str, post_author: str, post_title: str, 
         title = post_title,
         content = post_content,
         num_likes = 0,
-        users_who_liked = [],
+        likes_list = [],
         num_comments = 0,
         comments = [],
         topic = "topic",
-        posted = "2002-08-12-21-51")
+        date = "2002-08-12-21-51")
     db["posts"].append(post.model_dump())
     saveDB(db)
 
@@ -95,11 +95,11 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
             "title": post_title,
             "content": post_content,
             "num_likes": 0,
-            "users_who_liked": [],
+            "likes_list": [],
             "num_comments": 0,
             "comments": [],
             "topic": "topic",
-            "posted": "2002-08-12-21-51"
+            "date": "2002-08-12-21-51"
         })
     
     context["response"] = response
@@ -124,11 +124,11 @@ def send_post_post_request(client, context, req_url: str, post_author: str, post
             "title": "",
             "content": post_content,
             "num_likes": 0,
-            "users_who_liked": [],
+            "likes_list": [],
             "num_comments": 0,
             "comments": [],
             "topic": "topic",
-            "posted": "2002-08-12-21-51"
+            "date": "2002-08-12-21-51"
         })
     
     context["response"] = response
@@ -175,8 +175,8 @@ def clear_post_likes(post_id:str):
     db = getDB()
     for post in db["posts"]:
         if post["id"] == post_id:
-            post["users_who_liked"].clear()
-            post["num_likes"] = len(post["users_who_liked"])
+            post["likes_list"].clear()
+            post["num_likes"] = len(post["likes_list"])
             saveDB(db)
             break 
 
@@ -210,7 +210,7 @@ def add_like_in_database(username: str, post_id: str):
     db = getDB()
     for post in db["posts"]:
         if post["id"] == post_id:
-            post["users_who_liked"].append(username)
+            post["likes_list"].append(username)
             post["num_likes"] += 1
             saveDB(db)
             break 

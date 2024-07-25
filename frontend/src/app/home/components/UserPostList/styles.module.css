@@ -3,31 +3,29 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem 1rem 1rem 2rem;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+  }
+
+.buttonCreateContent {
+  background-color: #f4d30b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
 }
 
-.pageContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f0f2f5;
-  height: calc(100vh - 92px);
-  overflow-y: auto;
-  box-sizing: border-box;
-} 
+.buttonCreateContent:hover {
+  background-color: #f4d30b;
+  opacity: 0.8;
+}
 
-.header {
-    display: flex;
-    width: 95%;
-    align-items: center;
-    gap: 20px;
-    padding: 0px 40px 20px 30px;
-    float: right;
-    justify-content: space-between;
+.buttonCreateContentContainer {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+  margin-left: 10px
 }
 
 .feedContainer {
@@ -35,10 +33,6 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  overflow-y: auto;
-  height: calc(100vh - 10px);
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .postContainer {
@@ -60,7 +54,7 @@
   color: #333;
 }
 
-.postTopic {
+.postContent {
   font-size: 1rem;
   color: #555;
   margin: 10px 0;
@@ -76,14 +70,9 @@
   text-decoration: none;
 }
 
-.searchBar{
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 10px;
-  margin-right: 20px;
-  float: right;
-  width: 75%;
+.emptyMessage {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 5rem;
 }

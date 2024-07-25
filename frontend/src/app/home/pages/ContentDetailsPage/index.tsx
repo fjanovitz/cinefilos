@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import api from "/src/services/api";
+import api from "../../../../services/api";
 import { useContext, useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import StarRating from "../../components/StarRating/StarRating";

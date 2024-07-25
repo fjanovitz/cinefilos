@@ -12,8 +12,8 @@ class Post(BaseModel):
     title: str
     content: str
     num_likes: int = 0
-    users_who_liked: list[str] = []
+    likes_list: list[str] = []
     num_comments: int = 0
     comments: list[Comment] = []
     topic: str
-    posted: str
+    date: str

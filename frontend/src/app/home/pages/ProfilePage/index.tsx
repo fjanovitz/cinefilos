@@ -5,6 +5,7 @@ import HeaderUserProfile from "../../components/HeaderUserProfile/HeaderUserProf
 import api from "/src/services/api";
 import { Link, useParams } from "react-router-dom"; 
 import WatchListBody from "../../components/WatchListBody";
+import UserPostList from "../../components/UserPostList";
 
 const UserProfilePage = () => {
   const { username } = useParams();
@@ -14,8 +15,8 @@ const UserProfilePage = () => {
     <div>
       <HeaderUserProfile onTabChange={setSelectedTab}/>
       <div className={styles.reviewsSection}>
-        {selectedTab === 'Reviews' && <UserReviewList username={username}/>}
-        {selectedTab === 'Posts' && <div>Posts content here</div>}
+        {selectedTab === 'Reviews' && <UserReviewList username={username} />}
+        {selectedTab === 'Posts' && <UserPostList username={username} />}
         {selectedTab === 'WatchList' && 
           <div className={styles.watchListSection}>
             <WatchListBody />

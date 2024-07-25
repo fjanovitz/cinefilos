@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 import api from "../../../../services/api";
 import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Toast } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import {v4 as uuidv4} from 'uuid';
 import { UserContext } from "../../context/UserContext";
 
@@ -18,11 +18,11 @@ interface Post {
     title: string;
     content: string;
     num_likes: number;
-    users_who_liked: string[];
+    likes_list: string[];
     num_comments: number;
     comments: Comment[];
     topic: string;
-    posted: string;
+    date: string;
 }
 
 
@@ -42,15 +42,15 @@ const CreatePostPage = () => {
 	const {user, saveUser} = useContext(UserContext);
 	const navigate = useNavigate();
 	const id = uuidv4();
-	const author = user?.username ?? "";
+	const author = user?.username ?? "fjanovitz";
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const num_likes = 0;
-	const users_who_liked: string[] = [];
+	const likes_list: string[] = [];
 	const num_comments = 0;
 	const comments: Comment[] = [];
 	const [topic, setTopic] = useState("");
-	const posted = getCurrentDateTime();
+	const date = getCurrentDateTime();
 
 	const [errorMessage, setErrorMessage] = useState("");
 
@@ -75,11 +75,11 @@ const CreatePostPage = () => {
                 title: title,
                 content: content,
                 num_likes: num_likes,
-                users_who_liked: users_who_liked,
+                likes_list: likes_list,
                 num_comments: num_comments,
                 comments: comments,
                 topic: topic,
-                posted: posted
+                date: date
             };
 
             await api.post("/forum/newpost", post);
@@ -123,7 +123,7 @@ const CreatePostPage = () => {
 								Tópico
 							</Form.Label>
 							<Form.Control
-								data-cy="title"
+								data-cy="topic"
 								className={styles.formControl}
 								as="textarea"
 								rows={1}
@@ -152,7 +152,7 @@ const CreatePostPage = () => {
 						</Form.Group>
 
 						<div className={styles.buttonContainer}>
-							<button type="submit" className={styles.formButton}>
+							<button type="submit" className={styles.formButton} data-cy="post">
 								Postar
 							</button>
 						</div>

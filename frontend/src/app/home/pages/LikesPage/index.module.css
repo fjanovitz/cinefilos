@@ -14,8 +14,8 @@ html, body {
 }  
 
 .container {
-    width: 1000px;
-    height: 75vh;
+    width: 90%;
+    height: 70vh;
     gap: 20px;
     background-color: #ffffff; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -64,4 +64,9 @@ html, body {
     flex-direction: column;
     justify-content: 'right';
     grid-auto-rows: auto;
+}
+
+h1{
+    font-weight: bold;
+    margin-bottom: 20px;
 }

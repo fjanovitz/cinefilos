@@ -19,7 +19,7 @@ h1{
   justify-content: space-between;
   width: 90%;
   height: 70vh;
-  gap: 20px;
+  gap: 5px;
   background-color: #ffffff; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   border-radius: 8px; 
@@ -58,19 +58,42 @@ h1{
 .contentContainer {
   padding: 20px; 
   flex-grow: 1; 
-  min-height: 30vh; 
+  height: 20vh; 
   color: #666666;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.infoDisplay {
+  padding-top: 5px;
+  padding-right: 20px;
+  display: flex;
+}
+
+.interactionBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
 }
 
 .commentSectionContainer {
-  width: 95%;
-  height: 50%;
+  width: auto;
+  height: 100%;
   gap: 20px;
   background-color: #ccc; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   border-radius: 8px; 
   overflow-y: scroll;
-  align-items: center; 
+  align-items: center;
+  margin: 0px 20px 10px; 
 }
 
 .commentContainer {
@@ -78,21 +101,41 @@ h1{
   width: 95%;
   height: 50%;
   gap: 20px;
-  background-color: #ccc; 
+  background-color: #111; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   border-radius: 8px; 
   overflow-y: scroll;
-  align-items: flex-end; 
 }
 
-.postInfo {
+.commentBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 6px;
+  float: right;
+  width: 70%;
+}
+
+.formButton {
+  margin: 0; 
+  background-color: #221F1F;
+  color: #F4D30B;
+  border: transparent;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.formButton:hover {
+  background-color: rgb(255, 200, 0);
+  color: #221F1F;
+} 
+
+.buttonContainer {
   display: flex;
   justify-content: right;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.infoDisplay {
-  padding: 5px 20px;
-  display: flex;
 }

@@ -3,13 +3,14 @@ import api from "../../../../services/api";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
+import MainButton from "../../components/MainButton/MainButton";
 import { set } from "react-hook-form";
 
 const mockPost: Post = {
     id: "1",
     author: "Jane Doe",
     title: "Introduction to TypeScript",
-    content: "TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code.",
+    content: "TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code. ",
     num_likes: 3,
     users_who_liked: ["user1", "user2", "user3"],
     num_comments: 2,
@@ -115,6 +116,9 @@ const PostPage = () => {
 					</div>
 					<div className={styles.postInfo}>
 						<div className={styles.infoDisplay}>
+							<p>{post.num_comments} Comentários</p>
+						</div>
+						<div className={styles.infoDisplay}>
 							<p>{post.num_likes}&nbsp; </p>
 							<Link 
 								to={`/forum/post/${post.id}/likes`}
@@ -124,8 +128,22 @@ const PostPage = () => {
 								Curtidas 
 							</Link>
 						</div>
-						<div className={styles.infoDisplay}>
-							<p>{post.num_comments} Comentários</p>
+					</div>
+					<div className={styles.interactionBar}>
+						<input
+							name="search"
+							onChange={(e) => handleComment(e.target.value)}
+							className={styles.commentBar}
+						/>
+						<div className={styles.buttonContainer}>
+							<button type="submit" className={styles.formButton}>
+								Comentar
+							</button>
+						</div>
+						<div className={styles.buttonContainer}>
+							<button type="submit" className={styles.formButton}>
+								Curtir
+							</button>
 						</div>
 					</div>
 				</div>

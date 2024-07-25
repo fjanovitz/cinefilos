@@ -1,5 +1,5 @@
 Feature: Posts
-    As um usuário
+    As um usuário comum
     I want to criar posts e interagir com outros posts
     So that eu possa compartilhar informações com outros usuários
     

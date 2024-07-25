@@ -18,7 +18,7 @@ interface Post {
     title: string;
     content: string;
     num_likes: number;
-    users_who_liked: string[];
+    likelist: string[];
     num_comments: number;
     comments: Comment[];
     topic: string;
@@ -46,7 +46,7 @@ const CreatePostPage = () => {
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const num_likes = 0;
-	const users_who_liked: string[] = [];
+	const likelist: string[] = [];
 	const num_comments = 0;
 	const comments: Comment[] = [];
 	const [topic, setTopic] = useState("");
@@ -75,7 +75,7 @@ const CreatePostPage = () => {
                 title: title,
                 content: content,
                 num_likes: num_likes,
-                users_who_liked: users_who_liked,
+                likelist: likelist,
                 num_comments: num_comments,
                 comments: comments,
                 topic: topic,

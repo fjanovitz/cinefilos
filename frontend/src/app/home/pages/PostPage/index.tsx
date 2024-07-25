@@ -17,7 +17,7 @@ interface Post {
     title: string;
     content: string;
     num_likes: number;
-    users_who_liked: string[];
+    likelist: string[];
     num_comments: number;
     comments: Comment[];
     topic: string;
@@ -48,7 +48,7 @@ const PostPage = () => {
 			
 			setPost(response.data);
 			setComments(response.data.comments);
-			setLikes(response.data.users_who_liked);
+			setLikes(response.data.likelist);
 			
 		} catch (error) {
 			console.error(error);

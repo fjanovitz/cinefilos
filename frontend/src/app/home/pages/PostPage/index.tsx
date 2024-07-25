@@ -5,31 +5,6 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 import MainButton from "../../components/MainButton/MainButton";
 import { set } from "react-hook-form";
-import { mock } from "node:test";
-
-const mockPost: Post = {
-    id: "1",
-    author: "Jane Doe",
-    title: "Introduction to TypeScript",
-    content: "TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code. ",
-    num_likes: 3,
-    users_who_liked: ["user1", "user2", "user3"],
-    num_comments: 2,
-    comments: [
-        {
-            id: "c1",
-            author: "John Doe",
-            content: "Great article, very informative!"
-        },
-        {
-            id: "c2",
-            author: "Sarah Smith",
-            content: "Thanks for sharing, learned a lot."
-        }
-    ],
-    topic: "Programming",
-    date: "2023-04-01T12:00:00Z"
-};
 
 interface Comment {
     id: string;
@@ -54,22 +29,26 @@ const PostPage = () => {
 	const {post_id} = useParams<{
 		post_id: string;
 	}>();
-	const [post, setPost] = useState<Post>(mockPost);
-	const [comments, setComments] = useState<Comment[]>(mockPost.comments);
+	const [post, setPost] = useState<Post>();
+	const [id, setId] = useState<Post>();
+	const [title, setTitle] = useState<Comment[]>([]);
+	const [content, setContent] = useState<string[]>([]);
+	const [comments, setComments] = useState<Comment[]>([]);
 	const [likes, setLikes] = useState<string[]>([]);
+	const [num_likes, setNumLikes] = useState<Post>();
+	const [num_comments, setNumComments] = useState<Comment[]>([]);
+	const [topic, setTopic] = useState<string[]>([]);
+	const [date, setDate] = useState<string[]>([]);
 
 	const loadPostDetails = async (post_id) => {
 		try {
 			const response = await api.get(
 				`/forum/post/${post_id}`
 			);
-
-			const post = mockPost; //response.data;
-			setPost(post);
-			const comments = post.comments;
-			setComments(comments);
-			const likes = post.users_who_liked;
-			setLikes(likes);
+			
+			setPost(response.data);
+			setComments(response.data.comments);
+			setLikes(response.data.users_who_liked);
 			
 		} catch (error) {
 			console.error(error);

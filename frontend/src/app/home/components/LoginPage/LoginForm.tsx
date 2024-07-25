@@ -85,14 +85,18 @@ const LoginForm = () => {
             required
           />
         </label>
-      </div>  
+      </div> 
+      <div>
         <LogButton data-cy = "ENTRAR" type="submit">ENTRAR</LogButton>
-        <Link to="/recover-account">
-          ESQUECI A SENHA
+        <Link className={styles.secondaryText}
+          to="/recover-account">
+          Esqueci a senha
         </Link>
-        <Link to="/register">
-          CADASTRAR
+        <Link className={styles.secondaryText}
+          to="/register">
+          Cadastrar
         </Link>
+      </div>
     </form>
   );
 };

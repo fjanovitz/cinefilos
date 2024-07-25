@@ -23,7 +23,7 @@
 .header {
     display: flex;
     width: 95%;
-    align-items: center;
+    align-items: baseline;
     gap: 20px;
     padding: 0px 40px 20px 30px;
     float: right;

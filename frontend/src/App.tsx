@@ -101,11 +101,11 @@ const router = createBrowserRouter([
     element: <Layout><CreatePostPage/></Layout>,
   },
   {
-    path: "/forum/post/:postID",
+    path: "/forum/post/:post_id",
     element: <Layout><PostPage/></Layout>,
   },
   {
-    path: "/forum/post/:postID/likes",
+    path: "/forum/post/:post_id/likes",
     element: <Layout><LikesPage/></Layout>,
   } 
 ]);

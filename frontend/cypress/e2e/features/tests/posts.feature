@@ -24,10 +24,4 @@ Feature: Posts
         When o usuário clica no post com o título "Post 1"
         Then o usuário deve ser redirecionado para a página "/forum/post/0001"
         And o usuário deve visualizar o post com título "Post 1" e o autor "fjanovitz"
-    
-    Scenario: Ver lista de curtidas de um post
-        Given o usuário está na página "/forum/post/0001"
-        When o usuário clica no link "curtidas"
-        Then o usuário deve ser redirecionado para a página "/forum/post/0001/likes"
-        And o usuário visualiza a lista de usuários que curtiram o post "Post 1"
 

@@ -11,12 +11,12 @@ Then("o usuário deve ver o post {string} na página {string}", (postTitle: stri
     cy.contains(postTitle).should('be.visible');
 });
 
-When("o usuário clica no post com o título {string}", (postTitle: string) => {
-    cy.contains(postTitle).click();
+Given("o usuário visualiza o post com o título {string}", (postTitle: string) => {
+    cy.contains(postTitle).should('be.visible');
 });
 
-Then("o usuário visualiza o post com o título {string}", (postTitle: string) => {
-    cy.contains(postTitle).should('be.visible');
+When("o usuário clica no post com o título {string}", (postTitle: string) => {
+    cy.contains(postTitle).click();
 });
 
 Then("o usuário deve visualizar o post com título {string} e o autor {string}", (postTitle: string, author: string) => {
@@ -37,3 +37,8 @@ Then("o usuário visualiza o botão {string} do post com o título {string} com 
 When("o usuário clica no link {string}", (test: string) => {
     cy.getDataCy(`test-item-${test}`).click();
   });
+
+  When("o usuário tenta criar o post apertando em {string}", (button) => {
+    cy.wait(200);
+    cy.get(`[data-cy="${button}"]`).click();
+    });

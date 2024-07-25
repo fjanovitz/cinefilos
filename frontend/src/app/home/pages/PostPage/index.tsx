@@ -3,8 +3,6 @@ import api from "../../../../services/api";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
-import MainButton from "../../components/MainButton/MainButton";
-import { set } from "react-hook-form";
 
 interface Comment {
     id: string;
@@ -17,7 +15,7 @@ interface Post {
     title: string;
     content: string;
     num_likes: number;
-    likelist: string[];
+    likes_list: string[];
     num_comments: number;
     comments: Comment[];
     topic: string;
@@ -30,15 +28,16 @@ const PostPage = () => {
 		post_id: string;
 	}>();
 	const [post, setPost] = useState<Post>();
-	const [id, setId] = useState<Post>();
-	const [title, setTitle] = useState<Comment[]>([]);
-	const [content, setContent] = useState<string[]>([]);
+	const [id, setId] = useState("");
+	const [title, setTitle] = useState("");
+	const [author, setAuthor] = useState("");
+	const [content, setContent] = useState("");
+	const [num_likes, setNumLikes] = useState<number>();
+	const [likes, setLikes] = useState<string[]>();
+	const [num_comments, setNumComments] = useState<number>();
 	const [comments, setComments] = useState<Comment[]>([]);
-	const [likes, setLikes] = useState<string[]>([]);
-	const [num_likes, setNumLikes] = useState<Post>();
-	const [num_comments, setNumComments] = useState<Comment[]>([]);
-	const [topic, setTopic] = useState<string[]>([]);
-	const [date, setDate] = useState<string[]>([]);
+	const [topic, setTopic] = useState("");
+	const [date, setDate] = useState("");
 
 	const loadPostDetails = async (post_id) => {
 		try {
@@ -47,8 +46,16 @@ const PostPage = () => {
 			);
 			
 			setPost(response.data);
+			setId(response.data.id);
+			setAuthor(response.data.author);
+			setTitle(response.data.title);
+			setContent(response.data.content);
+			setNumLikes(response.data.num_likes);
+			setNumComments(response.data.num_comments);
 			setComments(response.data.comments);
-			setLikes(response.data.likelist);
+			setLikes(response.data.likes_list);
+			setTopic(response.data.topic);
+			setDate(response.data.date);
 			
 		} catch (error) {
 			console.error(error);
@@ -81,27 +88,27 @@ const PostPage = () => {
 				{post && (
 				<div>
 					<div className={styles.postTitle}>
-						<h2>{post.title}</h2>
+						<h2>{title}</h2>
 					</div>
 					<div className={styles.postSubtitle}>
 						<div className={styles.postTopic}>
-							<p>Em {post.topic}</p>
+							<p>Em {topic}</p>
 						</div>
 						<div className={styles.postAuthor}>
-							<p>Por {post.author}</p>
+							<p>Por {author}</p>
 						</div>
 					</div>
 					<div className={styles.contentContainer}>
-						<p>{post.content}</p>
+						<p>{content}</p>
 					</div>
 					<div className={styles.postInfo}>
 						<div className={styles.infoDisplay}>
-							<p>{post.num_comments} Comentários</p>
+							<p>{num_comments} Comentários</p>
 						</div>
 						<div className={styles.infoDisplay}>
-							<p>{post.num_likes}&nbsp; </p>
+							<p>{num_likes}&nbsp; </p>
 							<Link 
-								to={`/forum/post/${post.id}/likes`}
+								to={`/forum/post/${id}/likes`}
 								style={{ textDecoration: "none", color: "#000"}}
 							>
 								

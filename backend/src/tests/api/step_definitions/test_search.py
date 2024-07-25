@@ -28,7 +28,7 @@ def mock_post_service_clean(title: str, topic_: str):
         title = title,
         content = "random",
         num_likes = 0,
-        likelist = [],
+        likes_list = [],
         num_comments = 0,
         comments = [],
         topic = topic_,

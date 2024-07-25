@@ -12,7 +12,7 @@ class Post(BaseModel):
     title: str
     content: str
     num_likes: int = 0
-    likelist: list[str] = []
+    likes_list: list[str] = []
     num_comments: int = 0
     comments: list[Comment] = []
     topic: str

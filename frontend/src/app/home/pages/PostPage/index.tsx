@@ -1,8 +1,11 @@
 import styles from "./index.module.css";
 import api from "../../../../services/api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
+import { set } from "zod";
+import { UserContext } from "../../context/UserContext";
+import {v4 as uuidv4} from 'uuid';
 
 interface Comment {
     id: string;
@@ -27,6 +30,7 @@ const PostPage = () => {
 	const {post_id} = useParams<{
 		post_id: string;
 	}>();
+	const {user} = useContext(UserContext);
 	const [post, setPost] = useState<Post>();
 	const [id, setId] = useState("");
 	const [title, setTitle] = useState("");
@@ -77,9 +81,30 @@ const PostPage = () => {
 		}
 	};
 
+	const handleComment = async (comment) => {
+		try {
+			const [newComment, setNewComment] = useState<Comment>();
+			setNewComment({
+				id: uuidv4(),
+				content: comment,
+				author: user?.username ?? "fjanovitz"
+			});	
+
+			await api.post(`/forum/post/${post_id}/comments`, newComment);
+			alert("Comentário adicionado com sucesso!");
+		} catch (error) {
+			const axiosError = error as AxiosError;
+			if (axiosError.response) {
+			  alert(axiosError.response.statusText);
+			} else {
+			  alert(axiosError.message);
+			}
+		}
+	};
+
 	useEffect(() => {
 		loadPostDetails(post_id);
-	}, [post_id]);
+	}, [likes, comments]);
 
 	return (
 		<div className={styles.pageContainer}>
@@ -108,8 +133,9 @@ const PostPage = () => {
 						<div className={styles.infoDisplay}>
 							<p>{num_likes}&nbsp; </p>
 							<Link 
-								to={`/forum/post/${post_id}/likes`}
+								to={`/forum/post/${id}/likes`}
 								style={{ textDecoration: "none", color: "#000"}}
+								data-cy={"test-item-curtidas"}
 							>
 								
 								Curtidas 

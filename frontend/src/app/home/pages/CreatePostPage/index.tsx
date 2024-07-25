@@ -84,7 +84,7 @@ const CreatePostPage = () => {
 
             await api.post("/forum/newpost", post);
         
-			navigate(-1);
+			navigate("/forum/feed");
 		} catch (error) {
 			const axiosError = error as AxiosError;
 			if (axiosError.response) {

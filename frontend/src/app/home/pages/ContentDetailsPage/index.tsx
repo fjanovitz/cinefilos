@@ -66,15 +66,6 @@ const ContentDetailsPage = () => {
 		}
 	};
 
-	const handleButtonClick = () => {
-		if (user && user.username) {
-			navigate(`/contents/${content?.content_type}/${content?.title}/create_review`);
-		}
-		else {
-			setIsPopupOpen(true);
-		}
-	};
-
 	const handlePopupClose = () => {
 		setIsPopupOpen(false);
 	};
@@ -201,11 +192,20 @@ const ContentDetailsPage = () => {
 							<div className={styles.reviewsHeader}>
 								<div className={styles.titleAndButtonContainer}>
 									<h2>Avaliações</h2>
-									<MainButton
-										data_cy="Adicione uma avaliação"
-										text={"Adicione uma avaliação"}
-										onClick={handleButtonClick}
-									/>
+									<Link
+										to={{
+											pathname: `/contents/${content?.content_type}/${content?.title}/create_review`,
+										}}
+										state={{ content: content }}
+										style={{ textDecoration: "none" }}
+									>
+										<MainButton
+											data_cy="Adicione uma avaliação"
+											text={"Adicione uma avaliação"}
+										/>
+											
+									</Link>
+
 									{isPopupOpen && (
 										<Popup
 											message="Você precisa estar logado para adicionar uma avaliação."

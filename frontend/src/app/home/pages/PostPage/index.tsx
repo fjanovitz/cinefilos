@@ -104,7 +104,7 @@ const PostPage = () => {
 
 	useEffect(() => {
 		loadPostDetails(post_id);
-	}, [post_id]);
+	}, [likes, comments]);
 
 	return (
 		<div className={styles.pageContainer}>
@@ -133,8 +133,9 @@ const PostPage = () => {
 						<div className={styles.infoDisplay}>
 							<p>{num_likes}&nbsp; </p>
 							<Link 
-								to={`/forum/post/${post_id}/likes`}
+								to={`/forum/post/${id}/likes`}
 								style={{ textDecoration: "none", color: "#000"}}
+								data-cy={"test-item-curtidas"}
 							>
 								
 								Curtidas 

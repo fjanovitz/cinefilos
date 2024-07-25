@@ -1,11 +1,10 @@
 import styles from "./index.module.css";
 import api from "../../../../services/api";
-import { Link, useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 // import { UserContext } from "../../context/UserContext";
 import { Post } from "../../models/ForumInterface";
 import MainButton from "../../components/MainButton/MainButton";
-// import { set } from "react-hook-form";
 
 const FeedPage = () => {
   // const { user, saveUser } = useContext(UserContext);
@@ -13,18 +12,17 @@ const FeedPage = () => {
   const [search, setSearch] = useState('');
 
   const loadPosts = async () => {
-
     try {
+      let response;
       if (search !== "") {
-        const response = await api.get(`forum/search/${search}`);
-        const posts = response.data;
-        setPosts(posts);
-        console.log(posts);
+        response = await api.get(`forum/search/${search}`);
       } else {
-        const response = await api.get('forum/feed');
-        const posts = response.data;
-        setPosts(posts);
+        response = await api.get('forum/feed');
       }
+
+      const posts = response.data;
+      const sortedPosts = posts.sort((a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      setPosts(sortedPosts);
     } catch (error) {
       console.error("Erro ao buscar posts:", error);
     }
@@ -38,14 +36,13 @@ const FeedPage = () => {
     <div className={styles.pageContainer}>
       <div className={styles.header}>
         <input
-            name="search"
-            onChange={(e) => setSearch(e.target.value)}
-            className={styles.searchBar}
+          name="search"
+          onChange={(e) => setSearch(e.target.value)}
+          className={styles.searchBar}
         />
         <MainButton text={"Pesquisar"} onClick={loadPosts} />
-        
         <Link to={`/forum/newpost`}>
-            <MainButton text={"Novo Post"}/>
+          <MainButton text={"Novo Post"} />
         </Link>
       </div>
       <div className={styles.feedContainer}>

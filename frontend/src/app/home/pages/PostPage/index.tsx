@@ -38,6 +38,7 @@ const PostPage = () => {
 	const [comments, setComments] = useState<Comment[]>([]);
 	const [topic, setTopic] = useState("");
 	const [date, setDate] = useState("");
+	const [newComment, setNewComment] = useState("");
 
 	const loadPostDetails = async (post_id) => {
 		try {
@@ -76,6 +77,19 @@ const PostPage = () => {
 			}
 		}
 	};
+
+
+	const handleComment = async (comment : string) => {
+		try {
+			const response = await api.post(`/forum/post/${post_id}/comments`, {
+				comment});
+			setComments([...comments, response.data as Comment]);
+			setNewComment("");
+			loadPostDetails(post_id);
+		} catch (error) {
+			console.error("Erro ao comentar:", error);
+		}
+	}
 
 	useEffect(() => {
 		loadPostDetails(post_id);
@@ -119,11 +133,12 @@ const PostPage = () => {
 					<div className={styles.interactionBar}>
 						<input
 							name="comment"
-							onChange={(e) => handleComment(e.target.value)}
+							onChange={(e) => setNewComment(e.target.value)}
 							className={styles.commentBar}
 						/>
 						<div className={styles.buttonContainer}>
-							<button className={styles.formButton}>
+							<button className={styles.formButton}
+							onClick={() => handleComment(newComment)}>
 								Comentar
 							</button>
 						</div>

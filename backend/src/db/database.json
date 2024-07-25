@@ -2502,6 +2502,18 @@
       "date": "23/07/2024, 13:56:46"
     },
     {
+      "id": "0001",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 11:13:56"
+    },
+    {
       "id": "09e0365b-b6f0-4158-80fb-9714750c9a62",
       "author": "fjanovitz",
       "title": "Marvel ou DC",
@@ -2596,6 +2608,90 @@
       "comments": [],
       "topic": "Ação",
       "date": "24/07/2024, 11:12:41"
+    },
+    {
+      "id": "7c2c5d65-1f90-435d-a0cf-cb109f1c0055",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 11:22:48"
+    },
+    {
+      "id": "9816701a-890f-4f23-bb16-fb841844a463",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 11:23:45"
+    },
+    {
+      "id": "2f39481c-b042-4d42-be66-a43753585999",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 11:28:53"
+    },
+    {
+      "id": "89c3aaf7-7615-4c12-8e87-9266e08f11ed",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 11:34:53"
+    },
+    {
+      "id": "fbe47a8f-1a4f-49d9-a5bb-d197a5cb51db",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 11:45:54"
+    },
+    {
+      "id": "a595a214-ba82-470f-a8c6-3bbf9ceb8704",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 11:47:52"
+    },
+    {
+      "id": "c726fc41-810d-483e-8c5b-604cb47e1b47",
+      "author": "fjanovitz",
+      "title": "Post 1",
+      "content": "Conteúdo do post 1",
+      "num_likes": 0,
+      "likes_list": [],
+      "num_comments": 0,
+      "comments": [],
+      "topic": "",
+      "date": "25/07/2024 12:01:39"
     }
   ],
   "reviews": [
@@ -2650,7 +2746,7 @@
     {
       "title": "filme legal",
       "report": "massa",
-      "rating": 10.0,
+      "rating": 10,
       "username": "edsonneto8",
       "content_id": "335988",
       "content_type": "movies"

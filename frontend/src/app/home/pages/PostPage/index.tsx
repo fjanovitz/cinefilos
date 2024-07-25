@@ -5,6 +5,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 import MainButton from "../../components/MainButton/MainButton";
 import { set } from "react-hook-form";
+import { mock } from "node:test";
 
 const mockPost: Post = {
     id: "1",
@@ -54,7 +55,7 @@ const PostPage = () => {
 		post_id: string;
 	}>();
 	const [post, setPost] = useState<Post>(mockPost);
-	const [comments, setComments] = useState<Comment[]>([]);
+	const [comments, setComments] = useState<Comment[]>(mockPost.comments);
 	const [likes, setLikes] = useState<string[]>([]);
 
 	const loadPostDetails = async (post_id) => {
@@ -131,17 +132,17 @@ const PostPage = () => {
 					</div>
 					<div className={styles.interactionBar}>
 						<input
-							name="search"
+							name="comment"
 							onChange={(e) => handleComment(e.target.value)}
 							className={styles.commentBar}
 						/>
 						<div className={styles.buttonContainer}>
-							<button type="submit" className={styles.formButton}>
+							<button className={styles.formButton}>
 								Comentar
 							</button>
 						</div>
 						<div className={styles.buttonContainer}>
-							<button type="submit" className={styles.formButton}>
+							<button className={styles.formButton}>
 								Curtir
 							</button>
 						</div>
@@ -165,7 +166,7 @@ const PostPage = () => {
 							>
 							<p>{comment.author}</p>
 							</Link>
-							<p>: {comment.content}</p>
+							<p> {comment.content}</p>
 						</div>
 					))}
 				</div>

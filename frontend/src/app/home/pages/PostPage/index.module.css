@@ -23,25 +23,24 @@ h1{
   background-color: #ffffff; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   border-radius: 8px; 
-  padding: 10px;
+  padding: 20px;
   align-content: end;
 }
 
 .postTitle {
-  flex: 1;
-  padding: 20px 20px 5px;
+  flex: 1;  
+  padding-bottom: 10px;
 }
 
 .postSubtitle {
   background-color: #ffffff;
-  padding: 5px 20px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
 
 .postTopic {
   background-color: #ffffff;
-  padding: 5px 0px;
   display: flex;
   justify-content: left;
   color: #888;
@@ -49,26 +48,26 @@ h1{
 
 .postAuthor {
   background-color: #ffffff;
-  padding: 5px 0px;
   display: flex;
   justify-content: right;
   color: #888;
 }
 
 .contentContainer {
-  padding: 20px; 
+  padding: 10px 5px; 
   flex-grow: 1; 
   height: 20vh; 
   color: #666666;
   display: flex;
   overflow-y: scroll;
+  text-align: justify;
 }
 
 .postInfo {
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 5px 20px;
+  padding-bottom: 5px;
 }
 
 .infoDisplay {
@@ -81,30 +80,35 @@ h1{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  padding-bottom: 5px;
 }
 
 .commentSectionContainer {
   width: auto;
   height: 100%;
-  gap: 20px;
-  background-color: #ccc; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  border-radius: 8px; 
+  gap: 5px;
+  background-color: #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   overflow-y: scroll;
   align-items: center;
-  margin: 0px 20px 10px; 
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .commentContainer {
   display: flex;
-  width: 95%;
-  height: 50%;
-  gap: 20px;
-  background-color: #111; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  border-radius: 8px; 
-  overflow-y: scroll;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  gap: 5px;
 }
 
 .commentBar{
@@ -114,7 +118,7 @@ h1{
   gap: 20px;
   padding: 6px;
   float: right;
-  width: 70%;
+  width: 80%;
 }
 
 .formButton {

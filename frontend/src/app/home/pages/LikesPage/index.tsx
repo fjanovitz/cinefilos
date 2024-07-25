@@ -17,9 +17,11 @@ const LikesPage = () => {
             const response = await api.get(`forum/search/${post_id}/likes`);
             const userList = response.data;
             setUsers(userList);
+            
         } catch (error) {
             console.error("Erro ao buscar posts:", error);
         }
+
     };
     
     useEffect(() => {

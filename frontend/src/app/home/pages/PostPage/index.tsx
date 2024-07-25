@@ -1,8 +1,11 @@
 import styles from "./index.module.css";
 import api from "../../../../services/api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
+import { set } from "zod";
+import { UserContext } from "../../context/UserContext";
+import {v4 as uuidv4} from 'uuid';
 
 interface Comment {
     id: string;
@@ -27,6 +30,7 @@ const PostPage = () => {
 	const {post_id} = useParams<{
 		post_id: string;
 	}>();
+	const {user} = useContext(UserContext);
 	const [post, setPost] = useState<Post>();
 	const [id, setId] = useState("");
 	const [title, setTitle] = useState("");
@@ -38,7 +42,6 @@ const PostPage = () => {
 	const [comments, setComments] = useState<Comment[]>([]);
 	const [topic, setTopic] = useState("");
 	const [date, setDate] = useState("");
-	const [newComment, setNewComment] = useState("");
 
 	const loadPostDetails = async (post_id) => {
 		try {
@@ -78,22 +81,30 @@ const PostPage = () => {
 		}
 	};
 
-
-	const handleComment = async (comment : string) => {
+	const handleComment = async (comment) => {
 		try {
-			const response = await api.post(`/forum/post/${post_id}/comments`, {
-				comment});
-			setComments([...comments, response.data as Comment]);
-			setNewComment("");
-			loadPostDetails(post_id);
+			const [newComment, setNewComment] = useState<Comment>();
+			setNewComment({
+				id: uuidv4(),
+				content: comment,
+				author: user?.username ?? "fjanovitz"
+			});	
+
+			await api.post(`/forum/post/${post_id}/comments`, newComment);
+			alert("Comentário adicionado com sucesso!");
 		} catch (error) {
-			console.error("Erro ao comentar:", error);
+			const axiosError = error as AxiosError;
+			if (axiosError.response) {
+			  alert(axiosError.response.statusText);
+			} else {
+			  alert(axiosError.message);
+			}
 		}
-	}
+	};
 
 	useEffect(() => {
 		loadPostDetails(post_id);
-	}, [post_id]);
+	}, [likes, comments]);
 
 	return (
 		<div className={styles.pageContainer}>
@@ -122,7 +133,7 @@ const PostPage = () => {
 						<div className={styles.infoDisplay}>
 							<p>{num_likes}&nbsp; </p>
 							<Link 
-								to={`/forum/post/${post_id}/likes`}
+								to={`/forum/post/${id}/likes`}
 								style={{ textDecoration: "none", color: "#000"}}
 							>
 								
@@ -133,12 +144,11 @@ const PostPage = () => {
 					<div className={styles.interactionBar}>
 						<input
 							name="comment"
-							onChange={(e) => setNewComment(e.target.value)}
+							onChange={(e) => handleComment(e.target.value)}
 							className={styles.commentBar}
 						/>
 						<div className={styles.buttonContainer}>
-							<button className={styles.formButton}
-							onClick={() => handleComment(newComment)}>
+							<button className={styles.formButton}>
 								Comentar
 							</button>
 						</div>

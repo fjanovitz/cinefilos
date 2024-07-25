@@ -9,7 +9,9 @@ const Header: React.FC = () => {
   return (
     <header className={styles.headerContainer}>
       <div style={{ flex: 1 }}>
-        <img className={styles.logoImg} src={logo} />
+        <Link to = "/">
+          <img className={styles.logoImg} src={logo} />
+        </Link>
       </div>
       <nav className={styles.navContainer} >
         <Link to="/contents/movies" style={{textDecoration: 'none', color: 'white'}} >Filmes</Link>

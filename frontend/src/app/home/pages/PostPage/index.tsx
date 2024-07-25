@@ -79,7 +79,7 @@ const PostPage = () => {
 
 	useEffect(() => {
 		loadPostDetails(post_id);
-	}, [likes, comments]);
+	}, [post_id]);
 
 	return (
 		<div className={styles.pageContainer}>
@@ -108,7 +108,7 @@ const PostPage = () => {
 						<div className={styles.infoDisplay}>
 							<p>{num_likes}&nbsp; </p>
 							<Link 
-								to={`/forum/post/${id}/likes`}
+								to={`/forum/post/${post_id}/likes`}
 								style={{ textDecoration: "none", color: "#000"}}
 							>
 								

@@ -44,4 +44,14 @@
     color: #DC3545;
     font-size: 0.8rem;
   }
+
+  .secondaryText {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #6C757D;
+    text-decoration: none;
+    margin: 2px;
+  }
   

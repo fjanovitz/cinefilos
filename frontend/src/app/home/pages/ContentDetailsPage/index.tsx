@@ -9,6 +9,7 @@ import { Review } from "../../models/ReviewInterface";
 import MainButton from "../../components/MainButton/MainButton";
 import DeleteButton from "../../components/DeleteButton/DeleteButton";
 import { UserContext } from "../../context/UserContext";
+import Popup from "../../components/Popup/Popup";
 
 const ContentDetailsPage = () => {
 	const {user, saveUser} = useContext(UserContext);
@@ -20,6 +21,7 @@ const ContentDetailsPage = () => {
 	const [content, setContent] = useState<Movie & TvShow>();
 	const [reviews, setReviews] = useState<Review[] | null>(null);
 	const [rating, setRating] = useState<number>();
+	const [isPopupOpen, setIsPopupOpen] = useState(false);
 
 	const loadContentDetails = async (content_type, title) => {
 		try {
@@ -64,9 +66,37 @@ const ContentDetailsPage = () => {
 		}
 	};
 
+	const handleButtonClick = () => {
+		if (user && user.username) {
+			navigate(`/contents/${content?.content_type}/${content?.title}/create_review`);
+		}
+		else {
+			setIsPopupOpen(true);
+		}
+	};
+
+	const handlePopupClose = () => {
+		setIsPopupOpen(false);
+	};
+
+	const handlePopupLogin = () => {
+		navigate("/login");
+	}
+
 	useEffect(() => {
 		loadContentDetails(content_type, title);
 		console.log("user", user);
+		
+		const handleEsc = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				setIsPopupOpen(false);
+			}
+		};
+		window.addEventListener("keydown", handleEsc);
+
+		return () => {
+			window.removeEventListener("keydown", handleEsc);
+		};
 
 	}, [content_type, title]);
 
@@ -171,19 +201,18 @@ const ContentDetailsPage = () => {
 							<div className={styles.reviewsHeader}>
 								<div className={styles.titleAndButtonContainer}>
 									<h2>Avaliações</h2>
-									<Link
-										to={{
-											pathname: `/contents/${content?.content_type}/${content?.title}/create_review`,
-										}}
-										state={{ content: content }}
-										style={{ textDecoration: "none" }}
-									>
-										<MainButton
-											data_cy="Adicione uma avaliação"
-											text={"Adicione uma avaliação"}
+									<MainButton
+										data_cy="Adicione uma avaliação"
+										text={"Adicione uma avaliação"}
+										onClick={handleButtonClick}
+									/>
+									{isPopupOpen && (
+										<Popup
+											message="Você precisa estar logado para adicionar uma avaliação."
+											onClose={handlePopupClose}
+											onLogin={handlePopupLogin}
 										/>
-											
-									</Link>
+									)}
 								</div>
 							</div>
 							{reviews && reviews.length > 0 ? (

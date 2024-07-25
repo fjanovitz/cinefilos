@@ -133,7 +133,7 @@
 }
 
 .titleAndButtonContainer {
-  display: flex;
+  display: contents;
   align-items: center;
 }
 

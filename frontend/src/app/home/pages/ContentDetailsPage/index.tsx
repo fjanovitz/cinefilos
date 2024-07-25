@@ -66,10 +66,6 @@ const ContentDetailsPage = () => {
 		}
 	};
 
-	const handleButtonClick = () => {
-		navigate(`/contents/${content?.content_type}/${content?.title}/create_review`);
-	};
-
 	const handlePopupClose = () => {
 		setIsPopupOpen(false);
 	};
@@ -209,7 +205,7 @@ const ContentDetailsPage = () => {
 										/>
 											
 									</Link>
-									
+
 									{isPopupOpen && (
 										<Popup
 											message="Você precisa estar logado para adicionar uma avaliação."

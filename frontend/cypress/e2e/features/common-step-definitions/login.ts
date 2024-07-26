@@ -5,13 +5,13 @@ Given("o usuário está na página {string}", (page: string) => {
     cy.wait(200);
 });
 
-Given("existe um usuário cadastrado com o email {string} e com senha {string}", (email, senha) => {
-});
-
 When("o usuário preenche o campo de {string} com {string}", (field: string, value: string) => {
     cy.wait(200);
     cy.get(`[data-cy="${field}"]`).clear().type(value);
 });
+
+Given("existe um usuário cadastrado com o email {string} e com senha {string}", (email, senha) => {
+});    
 
 When("o usuário tenta realizar login apertando em {string}", (button) => {
     cy.wait(200);

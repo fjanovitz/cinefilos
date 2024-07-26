@@ -1,6 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-
 Then("o usuário deve ver a mensagem {string}", (message: string) => {
     cy.wait(200);
     cy.contains(message).should('be.visible');
@@ -36,9 +35,9 @@ Then("o usuário visualiza o botão {string} do post com o título {string} com 
 
 When("o usuário clica no link {string}", (test: string) => {
     cy.getDataCy(`test-item-${test}`).click();
-  });
+});
 
-  When("o usuário tenta criar o post apertando em {string}", (button) => {
+When("o usuário tenta criar o post apertando em {string}", (button) => {
     cy.wait(200);
     cy.get(`[data-cy="${button}"]`).click();
-    });
+});
